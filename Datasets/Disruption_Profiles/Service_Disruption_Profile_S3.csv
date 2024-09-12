@@ -1,0 +1,6 @@
+﻿Profile,Description,Probability,Sevirity,Location,Impact Type,LB Duration,UB Duration,LB Capacity,UB Capacity,Occurrence per Year,Lambda
+Profile1,"Operational delay, canal congestion",High,Low,Train,Delay,3,6,0,0,30%,0.00084
+Profile2,"Operational delay,canal congestion",High,Low,Barge,Delay,3,9,0,0,35%,0.00096
+Profile3,"Bad weather, labor strike, accident, systems maintenance",Low,High,"Train, Barge",Delay,12,48,0,0,6%,0.00016
+Profile4,"Terminal cogestion, labor strike",High,Low,Terminal,Delay,3,6,0,0,30%,0.00084
+Profile5,"High and low water level, labor strike, accident",Low,High,Barge,Capacity reduction,12,24,0.15,0.2,6%,0.00016

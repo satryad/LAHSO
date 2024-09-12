@@ -1,0 +1,23 @@
+# Byte-compiled Python files
+__pycache__/
+*.py[cod]
+
+# Virtual environment folder
+venv/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore IDE project files
+.idea/
+.vscode/
+
+# Ignore Mac system files
+.DS_Store
+
+# Log files
+*.log
+
+# Ignore temporary files
+*.tmp

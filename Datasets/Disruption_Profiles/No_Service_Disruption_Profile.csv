@@ -1,0 +1,2 @@
+﻿Profile,Description,Probability,Sevirity,Location,Impact Type,LB Duration,UB Duration,LB Capacity,UB Capacity,Occurrence per Year,Lambda
+Profile1,"Operational delay, canal congestion",High,Low,Train,Delay,1,3,0,0,30%,0.000000021

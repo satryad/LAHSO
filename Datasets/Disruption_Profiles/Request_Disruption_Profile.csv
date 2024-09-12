@@ -1,0 +1,4 @@
+﻿Profile,Description,Probability,Sevirity,Location,Impact Type,LB Time,UB Time,LB Volume,UB Volume,Occurrence per Year,Lambda
+Profile6,Demand change,High,Low,Shipment,Volume,0,0,-0.3,0.3,30%,0.00021
+Profile7,Customs issue,High,Low,Shipment,Release Time,1,6,0,0,30%,0.00021
+Profile8,Late mother vessel,Low,High,Shipment,Release Time,24,168,0,0,6%,0.00004

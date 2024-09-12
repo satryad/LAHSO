@@ -1,0 +1,2 @@
+﻿Profile,Description,Probability,Sevirity,Location,Impact Type,LB Time,UB Time,LB Volume,UB Volume,Occurrence per Year,Lambda
+Profile6,Demand change,High,Low,Shipment,Volume,0,0,-0.3,0.3,30%,2.1E-09

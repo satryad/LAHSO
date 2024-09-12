@@ -1,0 +1,4 @@
+﻿,Barge,Train,Truck
+travel_cost1,0.6122,7.54,30.98
+travel_cost2,0.0213,0.0635,0.2758
+handling_cost,3,18,18
