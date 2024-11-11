@@ -1,5 +1,5 @@
 import numpy as np
-from helper_functions import print_event
+from lahso.helper_functions import print_event
 
 
 # Define function to access Q-values safely
