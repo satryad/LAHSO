@@ -1,4 +1,4 @@
-from model_input import possible_paths_ref
+from lahso.model_input import possible_paths_ref
 
 # Lists for observation throughout the multiple simulation
 total_storage_cost_plot = []
@@ -13,6 +13,7 @@ undelivered_requests = []
 total_reassign_plot = []
 total_wait_plot = []
 x = []
+
 
 class GlobalVars:
     def __init__(self):
@@ -94,5 +95,6 @@ class GlobalVars:
         self.total_late_departure = 0
         self.late_logs = []
         self.late_dict = {}
+
 
 global_vars = GlobalVars()

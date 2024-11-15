@@ -1,4 +1,5 @@
 import numpy as np
+
 from lahso.helper_functions import print_event
 
 
@@ -20,16 +21,19 @@ def make_epsilon_greedy_policy(Q, epsilon, npA, mode_ID, policy_name):
 
         A = np.ones(npA, dtype=float) * epsilon / npA
         print_event(
-        f"Q[s,a] wait: {get_q_value(Q, obs_tuple, wait_ID)}, Q[s,a] reassign: {get_q_value(Q, obs_tuple, reassigned_ID)}")
-        best_action = np.argmax([
-            get_q_value(Q, obs_tuple, wait_ID),
-            get_q_value(Q, obs_tuple, reassigned_ID)
-        ])
+            f"Q[s,a] wait: {get_q_value(Q, obs_tuple, wait_ID)}, Q[s,a] reassign: {get_q_value(Q, obs_tuple, reassigned_ID)}"
+        )
+        best_action = np.argmax(
+            [
+                get_q_value(Q, obs_tuple, wait_ID),
+                get_q_value(Q, obs_tuple, reassigned_ID),
+            ]
+        )
         worse_action = 1 - best_action  # for greedy policy
 
         # Epsilon-greedy policy
         if policy_name == "eg":
-            A[best_action] += (1.0 - epsilon)
+            A[best_action] += 1.0 - epsilon
 
         # Greedy policy
         elif policy_name == "gp":
@@ -38,7 +42,6 @@ def make_epsilon_greedy_policy(Q, epsilon, npA, mode_ID, policy_name):
 
         # Always reassign policy
         elif policy_name == "ar":
-
             A = [0, 1]
 
         # Always wait policy

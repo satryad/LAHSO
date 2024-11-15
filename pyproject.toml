@@ -16,8 +16,11 @@ classifiers = [
   "Topic :: Scientific/Engineering",
 ]
 dependencies = [
+    "gurobipy==11.0.1",
     "matplotlib>=3.9.2",
+    "numpy>=2.1.3",
     "pandas>=2.2.3",
+    "simpy>=4.1.1",
 ]
 
 [tool.uv]
@@ -45,6 +48,10 @@ Homepage = "https://github.com/satryad/LAHSO"
 
 [project.scripts]
 main_script = "lahso.main:main"
+service_to_path = "lahso.service_to_path:main"
+generate_kbest = "lahso.kbest:main"
+model_train = "lahso.model_train:main"
+model_implementation = "lahso.model_implementation:main"
 
 [tool.pytest.ini_options]
 minversion = "6.0"

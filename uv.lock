@@ -349,6 +349,25 @@ wheels = [
 ]
 
 [[package]]
+name = "gurobipy"
+version = "11.0.1"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/ce/43/6d30c211b2f3034eff71207f4129bb1c4a2bf73c008f97abc45f5d9ff68f/gurobipy-11.0.1-cp310-cp310-macosx_10_9_universal2.whl", hash = "sha256:baa8598e4f9947e08a5189f218307a4484188be9d8caf1b9968b793b4a3b85bd", size = 10679561 },
+    { url = "https://files.pythonhosted.org/packages/55/ad/9ae809a9d0f12206518a093e80c15f072c92cc4b5598adc05cd9b34a00bc/gurobipy-11.0.1-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:a151073af99346778e6785e47900864d94a30290780b1a737d89ee4dc958858b", size = 27358405 },
+    { url = "https://files.pythonhosted.org/packages/33/09/55537a2aff95d71d603edf3595516d34424c3ee5c83b922e302d74a443d6/gurobipy-11.0.1-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:e8c8507b476bc734c8d0ff19fff9c9a6f4c4a18f69afd6a78ff1b9eff3b65f34", size = 13367943 },
+    { url = "https://files.pythonhosted.org/packages/e4/8f/bccbf5b7e45326c2a21d07feb43b066e9270c76eaeebe76eb434e686e7fe/gurobipy-11.0.1-cp310-cp310-win_amd64.whl", hash = "sha256:b52100120e6d7e374fb8f348c51898c5aa196d43c98060e572fd75434b77eb53", size = 10255732 },
+    { url = "https://files.pythonhosted.org/packages/88/a0/ee5985d7c2660057fac280721c7dae9a9e0736c6b3877a8c52510b4efc21/gurobipy-11.0.1-cp311-cp311-macosx_10_9_universal2.whl", hash = "sha256:a4cc2ae135efaf49ab2b1669a5e5b631013f2aba655961469a32912cac1b1c22", size = 10709282 },
+    { url = "https://files.pythonhosted.org/packages/ac/29/1660ce1e2874bb5f49bb5713dde644f0489089338da385bdce344b59bae4/gurobipy-11.0.1-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:7f1252414b7e9e4ec9046b640e2faa4e5fe3b34867586646ca1b7802a0fd83ad", size = 27372379 },
+    { url = "https://files.pythonhosted.org/packages/1c/96/4c800e7cda4a1688d101a279087646912cf432b0f61ff5c816f0bc8503e0/gurobipy-11.0.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:ab59e6b969a50cf78d596c386d7dca10238284d424c14fba848b58a967326383", size = 13373181 },
+    { url = "https://files.pythonhosted.org/packages/b3/9c/ab95037cb847051000eb376dedb1c52777e88a1e6a5a13ac57017f3553a4/gurobipy-11.0.1-cp311-cp311-win_amd64.whl", hash = "sha256:c77449ca3403f28a32b3eca9ab64796fe664062847aad4a1f82f27809b3d7555", size = 10257254 },
+    { url = "https://files.pythonhosted.org/packages/8a/eb/362bc13736aec954d25ce84f0572682cb41cacdbedb8350f53ab4b30c6b2/gurobipy-11.0.1-cp312-cp312-macosx_10_9_universal2.whl", hash = "sha256:e7ed50c583a18dbb34d52de0aa1910f41c7fd3f3616d7122ef5d011a9882e643", size = 10635566 },
+    { url = "https://files.pythonhosted.org/packages/43/7a/7e4bc6e4d91ff6f34a1fb547a8716b99bd879aa5b878995dd3802f606373/gurobipy-11.0.1-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:37b705b626de9e3f92ad9ed9b5ebd9b4351d5b8f039cb0b8a798c1f6fad695bf", size = 27215833 },
+    { url = "https://files.pythonhosted.org/packages/c5/c6/7cb959ea454c58169ecc6d165c8e3e915769d963df1bab61f5c5bc0052e6/gurobipy-11.0.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:030e71c6f0b07607dd4fb1ccad64ff8ca5b1dd10e3b3c22e0788a7d1919da9cc", size = 13183646 },
+    { url = "https://files.pythonhosted.org/packages/08/59/2bdf14709bddc5e886fc9263aa527bfbf79aa7c43a7559b2bb8461bfc33e/gurobipy-11.0.1-cp312-cp312-win_amd64.whl", hash = "sha256:0c7164ffd832bd7163f7763c52db4b3c5da899d8f518326e3dfe7831918ea0f5", size = 10228629 },
+]
+
+[[package]]
 name = "identify"
 version = "2.6.2"
 source = { registry = "https://pypi.org/simple" }
@@ -467,11 +486,14 @@ wheels = [
 
 [[package]]
 name = "lahso"
-version = "0.1.dev8+g6dc3be7.d20241111"
+version = "1.0.2.dev0+g4361e7d.d20241115"
 source = { editable = "." }
 dependencies = [
+    { name = "gurobipy" },
     { name = "matplotlib" },
+    { name = "numpy" },
     { name = "pandas" },
+    { name = "simpy" },
 ]
 
 [package.dev-dependencies]
@@ -486,8 +508,11 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "gurobipy", specifier = "==11.0.1" },
     { name = "matplotlib", specifier = ">=3.9.2" },
+    { name = "numpy", specifier = ">=2.1.3" },
     { name = "pandas", specifier = ">=2.2.3" },
+    { name = "simpy", specifier = ">=4.1.1" },
 ]
 
 [package.metadata.requires-dev]
@@ -1235,6 +1260,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/4f/a4/00a9ac1b555294710d4a68d2ce8dfdf39d72aa4d769a7395d05218d88a42/setuptools_scm-8.1.0.tar.gz", hash = "sha256:42dea1b65771cba93b7a515d65a65d8246e560768a66b9106a592c8e7f26c8a7", size = 76465 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a0/b9/1906bfeb30f2fc13bb39bf7ddb8749784c05faadbd18a21cf141ba37bff2/setuptools_scm-8.1.0-py3-none-any.whl", hash = "sha256:897a3226a6fd4a6eb2f068745e49733261a21f70b1bb28fce0339feb978d9af3", size = 43666 },
+]
+
+[[package]]
+name = "simpy"
+version = "4.1.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/a8/66/860505ec021a16f9d8cf4b8c4d60ee07bb427649b643312303698c93b551/simpy-4.1.1.tar.gz", hash = "sha256:06d0750a7884b11e0e8e20ce0bc7c6d4ed5f1743d456695340d13fdff95001a6", size = 408997 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/48/72/920ed1224c94a8a5a69e6c1275ac7fe4eb911ba8feffddf469f1629d47f3/simpy-4.1.1-py3-none-any.whl", hash = "sha256:7c5ae380240fd2238671160e4830956f8055830a8317edf5c05e495b3823cd88", size = 27224 },
 ]
 
 [[package]]

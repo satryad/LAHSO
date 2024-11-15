@@ -88,7 +88,7 @@ The trained Q-table can be found in the `q_table` folder (`q_table_200_50000_eps
     - Demand data.
     - Disruption profiles.
     - Cost parameters.
-  
+
 2. **Set Up Configuration**:
     Configure simulation settings, file paths, and whether to run in training or implementation mode in `Config.py`.
 
@@ -113,4 +113,3 @@ The trained Q-table can be found in the `q_table` folder (`q_table_200_50000_eps
 ---
 
 For more details on how files interact, refer to the Flow Diagram file in the project.
-
