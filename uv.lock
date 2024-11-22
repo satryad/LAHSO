@@ -486,7 +486,7 @@ wheels = [
 
 [[package]]
 name = "lahso"
-version = "0.1.dev6+g54d62f2.d20241120"
+version = "0.1.dev7+g04452ec.d20241122"
 source = { editable = "." }
 dependencies = [
     { name = "gurobipy" },

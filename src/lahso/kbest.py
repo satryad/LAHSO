@@ -131,4 +131,4 @@ grouped = (
 grouped = grouped.rename(
     columns={"Mode": "Solution_List", "Actual Announce Time": "Announce Time"}
 )
-grouped.to_csv(rf"{data_path}\{request_fn}_kbest_test.csv")
+grouped.to_csv(rf"{data_path}/{request_fn}_kbest_test.csv")

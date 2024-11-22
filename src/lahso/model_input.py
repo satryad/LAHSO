@@ -91,10 +91,10 @@ request = request[
 
 # Disruption dataset
 ## Service disruption
-s_disruption_profile = pd.read_csv(rf"{disruption_path}\{s_disruption_fn}")
+s_disruption_profile = pd.read_csv(rf"{disruption_path}/{s_disruption_fn}")
 
 ## Demand disruption
-d_disruption_profile = pd.read_csv(rf"{disruption_path}\{d_disruption_fn}")
+d_disruption_profile = pd.read_csv(rf"{disruption_path}/{d_disruption_fn}")
 
 # For optimization module
 possible_paths_ref = pd.read_csv(f"{data_path}/{possible_paths_fn}")

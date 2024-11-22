@@ -8,7 +8,7 @@ disruption = "3"
 path = "csv_output"
 input = ["GP", "AW"]
 
-# df_opt = pd.read_csv(f'{path}\gp_{disruption}_20_opt_v0.csv')
+# df_opt = pd.read_csv(f'{path}/gp_{disruption}_20_opt_v0.csv')
 df_aw = pd.read_csv(f"{path}/aw_{disruption}_20.csv")
 df_gp = pd.read_csv(f"{path}/gp_{disruption}_20.csv")
 

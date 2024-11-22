@@ -1,3 +1,5 @@
+from pathlib import Path
+
 # Simulation Settings
 number_of_simulation = 25000
 simulation_duration = 6 * 7 * 1440
@@ -18,9 +20,9 @@ demand_type = "kbest"  # 'kbest', 'planned', or 'default
 solution_pool = 10  # number of itineraries to generate in the k-best (if necessary)
 
 # paths
-data_path = "Datasets"
-disruption_path = "Datasets/Disruption_Profiles"
-output_path = "Output"
+data_path = Path("Datasets")
+disruption_path = Path("Datasets/Disruption_Profiles")
+output_path = Path("Output")
 
 # Input file names (fn)
 ## Service Network
@@ -60,8 +62,8 @@ q_name = "q_table_200_50000"
 smoothing = 400  # for training chart
 
 # Training Path
-tc_path = f"training/{tc_name}"
-tr_path = f"training/{tr_name}"
+tc_path = Path(f"training/{tc_name}")
+tr_path = Path(f"training/{tr_name}")
 
 # Dataset for path user
 # path = ....
@@ -77,8 +79,8 @@ For Training
 eg = epsilon greedy policy
 """
 policy_name = "eg"
-q_table_path = f"q_table/{q_name}_eps_test.pkl"
-output_path = f"csv_output/{policy_name}_{sd}_{number_of_simulation}.csv"
+q_table_path = Path(f"q_table/{q_name}_eps_test.pkl")
+output_path = Path(f"csv_output/{policy_name}_{sd}_{number_of_simulation}.csv")
 
 # Cost Parameters (Manually input)
 storage_cost = 1  # EUR/TEU/hour
