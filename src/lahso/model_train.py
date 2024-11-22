@@ -210,7 +210,7 @@ for simulation in range(number_of_simulation):
                 print(f"Total q_table is exported as {q_name}")
             if current_episode % 5000 == 0:
                 print_event(f"Q-table is saved as {q_name}_{current_episode}_eps.pkl")
-                with open(f"q_table\\{q_name}_{current_episode}_eps.pkl", "wb") as f:
+                with open(f"q_table/{q_name}_{current_episode}_eps.pkl", "wb") as f:
                     pickle.dump(dict(Q), f)
         eps_end_time = time.time()  # To measure the runtime
         eps_time = eps_end_time - eps_start_time

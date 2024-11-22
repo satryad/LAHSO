@@ -16,8 +16,8 @@ from lahso.model_input import (
 from lahso.service_to_path_helper import *
 
 # Load the CSV file into a DataFrame
-data = pd.read_csv(f"{data_path}\\{fixed_service_schedule_fn}")
-truck_df = pd.read_csv(f"{data_path}\\{truck_schedule_fn}")
+data = pd.read_csv(f"{data_path}/{fixed_service_schedule_fn}")
+truck_df = pd.read_csv(f"{data_path}/{truck_schedule_fn}")
 
 # Constants
 LOADING_TIME = loading_time_window / 60  # Loading time in hours
@@ -314,4 +314,4 @@ add_loading_unloading_costs(
     new_df, TRANSSHIPMENT_COST_BARGE, TRANSSHIPMENT_COST_TRAIN, TRANSSHIPMENT_COST_TRUCK
 )
 
-new_df.to_csv(f"{data_path}\\{possible_paths_fn}_test")
+new_df.to_csv(f"{data_path}/{possible_paths_fn}_test")

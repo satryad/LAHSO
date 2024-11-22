@@ -78,17 +78,17 @@ def shipment_logs(
     folder_name = f"{sd}_{sim_nr}"
     folder_path_1 = "shipment_logs"
     folder_path_2 = "service_logs"
-    if not os.path.exists(f"{folder_path_1}\\{folder_name}"):
-        os.makedirs(f"{folder_path_1}\\{folder_name}")
-    if not os.path.exists(f"{folder_path_2}\\{folder_name}"):
-        os.makedirs(f"{folder_path_2}\\{folder_name}")
+    if not os.path.exists(f"{folder_path_1}/{folder_name}"):
+        os.makedirs(f"{folder_path_1}/{folder_name}")
+    if not os.path.exists(f"{folder_path_2}/{folder_name}"):
+        os.makedirs(f"{folder_path_2}/{folder_name}")
 
     # Export to csv
     df_shipment_costs.to_csv(
-        f"{folder_path_1}\\{folder_name}\\shipment_output_{policy_name}_{episode}.csv",
+        f"{folder_path_1}/{folder_name}/shipment_output_{policy_name}_{episode}.csv",
         index=False,
     )
     merged_df.to_csv(
-        f"{folder_path_2}\\{folder_name}\\service_line_output_{policy_name}_{episode}.csv",
+        f"{folder_path_2}/{folder_name}/service_line_output_{policy_name}_{episode}.csv",
         index=False,
     )

@@ -19,7 +19,7 @@ solution_pool = 10  # number of itineraries to generate in the k-best (if necess
 
 # paths
 data_path = "Datasets"
-disruption_path = "Datasets\\Disruption_Profiles"
+disruption_path = "Datasets/Disruption_Profiles"
 output_path = "Output"
 
 # Input file names (fn)
@@ -60,8 +60,8 @@ q_name = "q_table_200_50000"
 smoothing = 400  # for training chart
 
 # Training Path
-tc_path = f"training\\{tc_name}"
-tr_path = f"training\\{tr_name}"
+tc_path = f"training/{tc_name}"
+tr_path = f"training/{tr_name}"
 
 # Dataset for path user
 # path = ....
@@ -77,8 +77,8 @@ For Training
 eg = epsilon greedy policy
 """
 policy_name = "eg"
-q_table_path = f"q_table\\{q_name}_eps_test.pkl"
-output_path = f"csv_output\\{policy_name}_{sd}_{number_of_simulation}.csv"
+q_table_path = f"q_table/{q_name}_eps_test.pkl"
+output_path = f"csv_output/{policy_name}_{sd}_{number_of_simulation}.csv"
 
 # Cost Parameters (Manually input)
 storage_cost = 1  # EUR/TEU/hour
