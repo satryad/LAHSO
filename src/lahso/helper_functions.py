@@ -1,6 +1,6 @@
 import numpy as np
 
-from lahso.config import print_event_enabled
+# from lahso.config import print_event_enabled
 
 
 # Functions for input data pre-processing
@@ -11,7 +11,9 @@ def split_to_sublists(input_string):
 
 
 def get_first_sublist(sub_lists):
-    return sub_lists[0]
+    first_in_list = sub_lists[0]
+    sub_lists.pop(0)
+    return first_in_list
 
 
 def remove_first_sublist(sub_lists):
@@ -25,8 +27,8 @@ def state_to_vector(state_s, state_to_index):
 
 
 # Function to generate simulation logs
-def print_event(*args, **kwargs):
-    if print_event_enabled:
+def print_event(config, *args, **kwargs):
+    if config.print_event_enabled:
         print(*args, **kwargs)
 
 
