@@ -936,7 +936,7 @@ class MatchingModule:
     def FilterPath(self):
         disrupted_location = global_vars.disruption_location
         available_paths = global_vars.possible_paths[:]
-        # available_paths.to_csv(f"{path}\\available_paths.csv", index=False)
+        # available_paths.to_csv(f"{path}/available_paths.csv", index=False)
         for location in disrupted_location:
             if location != 0:
                 if location in mode_list:  # For disruption in service line

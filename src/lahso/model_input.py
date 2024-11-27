@@ -26,10 +26,10 @@ def get_distance(row):
 
 # Datasets input
 # Network dataset --> distance between terminals for each mode type
-network = pd.read_csv(f"{data_path}\\{network_fn}")
-network_barge = pd.read_csv(f"{data_path}\\{network_barge_fn}")
-network_train = pd.read_csv(f"{data_path}\\{network_train_fn}")
-network_truck = pd.read_csv(f"{data_path}\\{network_truck_fn}")
+network = pd.read_csv(f"{data_path}/{network_fn}")
+network_barge = pd.read_csv(f"{data_path}/{network_barge_fn}")
+network_train = pd.read_csv(f"{data_path}/{network_train_fn}")
+network_truck = pd.read_csv(f"{data_path}/{network_truck_fn}")
 
 network_ref = network.set_index(["N"])
 network_barge_ref = network_barge.set_index(["N"])
@@ -42,25 +42,25 @@ reverse_dict = {terminal: id for id, terminal in network_dict.items()}
 node_list = network["N"].tolist()
 
 # Service schedule datasets for
-df_fixed_schedule = pd.read_csv(f"{data_path}\\{fixed_service_schedule_fn}")
+df_fixed_schedule = pd.read_csv(f"{data_path}/{fixed_service_schedule_fn}")
 df_fixed_schedule = df_fixed_schedule.drop(columns=["Travel Cost"])
 df_fixed_schedule = df_fixed_schedule.drop(columns=["Mode"])
-df_truck_schedule = pd.read_csv(f"{data_path}\\{truck_schedule_fn}")
+df_truck_schedule = pd.read_csv(f"{data_path}/{truck_schedule_fn}")
 df_truck_schedule = df_truck_schedule.drop(columns=["Travel Cost"])
 
 # Demand dataset
 if demand_type == "kbest":
-    request = pd.read_csv(f"Datasets\\{request_fn}_kbest.csv")
+    request = pd.read_csv(f"Datasets/{request_fn}_kbest.csv")
     request["Solution_List"] = request["Solution_List"].apply(
         lambda s: [] if s == "0" else split_to_sublists(s)
     )
 elif demand_type == "planned":
-    request = pd.read_csv(f"Datasets\\{request_fn}_planned.csv")
+    request = pd.read_csv(f"Datasets/{request_fn}_planned.csv")
     request["Solution_List"] = request["Solution_List"].apply(
         lambda s: [] if s == "0" else split_to_sublists(s)
     )
 else:
-    request = pd.read_csv(f"Datasets\\{request_fn}_default.csv")
+    request = pd.read_csv(f"Datasets/{request_fn}_default.csv")
     request["Solution_List"] = request["Solution_List"].apply(
         lambda s: [] if s == 0 else split_to_sublists(s)
     )
@@ -91,16 +91,16 @@ request = request[
 
 # Disruption dataset
 ## Service disruption
-s_disruption_profile = pd.read_csv(rf"{disruption_path}\{s_disruption_fn}")
+s_disruption_profile = pd.read_csv(rf"{disruption_path}/{s_disruption_fn}")
 
 ## Demand disruption
-d_disruption_profile = pd.read_csv(rf"{disruption_path}\{d_disruption_fn}")
+d_disruption_profile = pd.read_csv(rf"{disruption_path}/{d_disruption_fn}")
 
 # For optimization module
-possible_paths_ref = pd.read_csv(f"{data_path}\\{possible_paths_fn}")
+possible_paths_ref = pd.read_csv(f"{data_path}/{possible_paths_fn}")
 
 # Cost parameters
-mode_costs = pd.read_csv(f"{data_path}\\{mode_costs_fn}")
+mode_costs = pd.read_csv(f"{data_path}/{mode_costs_fn}")
 
 barge_travel_cost1 = mode_costs["Barge"][0]  # EUR/TEU/hour
 barge_travel_cost2 = mode_costs["Barge"][1]  # EUR/TEU/km

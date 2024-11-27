@@ -16,10 +16,10 @@ from lahso.model_input import (
 from lahso.optimization_module import *
 
 # Read datasets
-services = pd.read_csv(f"{data_path}\\{possible_paths_fn}", index_col=None)
+services = pd.read_csv(f"{data_path}/{possible_paths_fn}", index_col=None)
 original_services = services.copy()
-demand = pd.read_csv(f"{data_path}\\{request_fn}_default.csv", index_col=None)
-network = pd.read_csv(f"{data_path}\\{network_fn}")
+demand = pd.read_csv(f"{data_path}/{request_fn}_default.csv", index_col=None)
+network = pd.read_csv(f"{data_path}/{network_fn}")
 
 # Data pre-processing
 network_dict = {i + 1: terminal for i, terminal in enumerate(network["N"])}
@@ -131,4 +131,4 @@ grouped = (
 grouped = grouped.rename(
     columns={"Mode": "Solution_List", "Actual Announce Time": "Announce Time"}
 )
-grouped.to_csv(rf"{data_path}\{request_fn}_kbest_test.csv")
+grouped.to_csv(rf"{data_path}/{request_fn}_kbest_test.csv")
