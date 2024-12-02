@@ -1,30 +1,27 @@
 import pandas as pd
 
-from lahso import config
-
-from lahso.model_input import (
-    delay_penalty,
-    handling_time,
-    penalty_per_unfulfilled_demand,
-    storage_cost,
-)
+from lahso.config import Config
+from lahso.model_input import ModelInput
 from lahso.optimization_module import *
 
-def kbest(config):
+
+def kbest(config, model_input):
     # Read datasets
-    services = pd.read_csv(config.data_path/config.possible_paths_fn, index_col=None)
+    services = pd.read_csv(config.data_path / config.possible_paths_fn, index_col=None)
     original_services = services.copy()
-    demand = pd.read_csv(config.data_path/f"{{config.request_fn}_default.csv", index_col=None)
-    network = pd.read_csv(config.data_path/config.network_fn)
+    demand = pd.read_csv(
+        config.data_path / f"{config.request_fn}_default.csv", index_col=None
+    )
+    network = pd.read_csv(config.data_path / config.network_fn)
 
     # Data pre-processing
     network_dict = {i + 1: terminal for i, terminal in enumerate(network["N"])}
-    reverse_dict = {terminal: id for id, terminal in network_dict.items()}
+    {terminal: id for id, terminal in network_dict.items()}
     demand["Origin"] = demand["Origin"].map(network_dict)
     demand["Destination"] = demand["Destination"].map(network_dict)
     demand.rename(columns={"Announce Time": "Actual Announce Time"}, inplace=True)
     demand["Fulfilled"] = False
-    loading_time = handling_time / 60
+    loading_time = config.handling_time / 60
     services["Loading Time"] = loading_time
     original_services["Loading Time"] = loading_time
 
@@ -62,10 +59,10 @@ def kbest(config):
                     best_solution, all_solutions, services = optimization_model(
                         current_demands,
                         services,
-                        storage_cost,
-                        delay_penalty,
-                        penalty_per_unfulfilled_demand,
-                        solution_pool,
+                        config.storage_cost,
+                        config.delay_penalty,
+                        config.penalty_per_unfulfilled_demand,
+                        config.solution_pool,
                         time_step,
                     )
                     log_step.extend(best_solution)
@@ -75,12 +72,13 @@ def kbest(config):
                     print(f"Optimization failed for time step {time_step}: {e}")
                     continue
         # Save unmatched demands for the next iteration
-        temp_ids = temp_demand["Demand_ID"]
+        temp_demand["Demand_ID"]
         log_df = pd.DataFrame(all_log_entries)
         service_counter += 1
 
     print(
-        "Optimization completed for all time steps. Results logged to 'optimization_log.csv'."
+        "Optimization completed for all time steps. \
+        Results logged to 'optimization_log.csv'."
     )
 
     # Postprocessing the ouput for the simulation model input
@@ -127,7 +125,10 @@ def kbest(config):
     grouped = grouped.rename(
         columns={"Mode": "Solution_List", "Actual Announce Time": "Announce Time"}
     )
-    grouped.to_csv(config.data_path/rf"{request_fn}_kbest_test.csv")
+    grouped.to_csv(config.data_path / rf"{config.request_fn}_kbest_test.csv")
+
 
 def main():
-    kbest(config)
+    config = Config()
+    model_input = ModelInput(config)
+    kbest(config, model_input)

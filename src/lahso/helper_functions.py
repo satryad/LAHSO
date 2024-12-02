@@ -4,8 +4,7 @@ import numpy as np
 # Functions for input data pre-processing
 def split_to_sublists(input_string):
     sub_lists = input_string.split(";")
-    sub_lists = [sub_list.strip().split(", ") for sub_list in sub_lists]
-    return sub_lists
+    return [sub_list.strip().split(", ") for sub_list in sub_lists]
 
 
 def get_first_sublist(sub_lists):
@@ -23,8 +22,8 @@ def state_to_vector(state_s, state_to_index):
 
 
 # Function to generate simulation logs
-def print_event(config, *args, **kwargs):
-    if config.print_event_enabled:
+def print_event(print_event_enabled, *args, **kwargs):
+    if print_event_enabled:
         print(*args, **kwargs)
 
 
@@ -34,12 +33,16 @@ def time_format(minutes):
 
 
 # Function to represent the clock in the simulation
-def clock(env, tick, simulation):
+def clock(print_event_enabled, env, tick, simulation):
     while True:
         current_day = env.now // 1440 + 1
-        print_event(" ")
-        print_event(f"current day: {current_day}, simulation: {simulation + 1}")
-        # print_event(f"List of pending shipment: {set(request['ID']) - set(delivered_shipments)}")
+        print_event(print_event_enabled, " ")
+        print_event(
+            print_event_enabled,
+            f"current day: {current_day}, simulation: {simulation + 1}",
+        )
+        # print_event(f"List of pending shipment: {set(request['ID']) -
+        #                                             set(delivered_shipments)}")
         yield env.timeout(tick)
 
 
@@ -69,8 +72,7 @@ def update_service_capacity(df, service_name, new_capacity):
                 service_capacities_list[i] = str(new_capacity)
 
         # Join the updated capacities back into a string
-        updated_capacities = ", ".join(service_capacities_list)
-        return updated_capacities
+        return ", ".join(service_capacities_list)
 
     # Apply the function to each row in the dataframe
     df["service_capacities"] = df.apply(
@@ -84,8 +86,7 @@ def update_service_capacity(df, service_name, new_capacity):
 
 # Function to # extract the unique od pairs
 def unique_origin_destination_pairs(data):
-    unique_pairs = data[["Origin", "Destination"]].drop_duplicates().values.tolist()
-    return unique_pairs
+    return data[["Origin", "Destination"]].drop_duplicates().values.tolist()
 
 
 # Function to sample within the range

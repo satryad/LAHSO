@@ -11,9 +11,9 @@ sim_start_time = time.time()  # To measure the runtime
 env = sim.Environment()
 
 if random_seed:
-    print_event("Random seed is enabled")
+    print_event(config, "Random seed is enabled")
 else:
-    print_event(f"Random seed is disabled. Seed value: {random_seed_value}")
+    print_event(config, f"Random seed is disabled. Seed value: {random_seed_value}")
 
 # Initiate plot if the training starts from scratch
 if start_from_0:
@@ -27,7 +27,9 @@ else:
     last_episode = len(total_cost_plot_read)
 
 # Create policy function for RL
-policy = make_epsilon_greedy_policy(Q, epsilon, np_actions, mode_ID, policy_name)
+policy = make_epsilon_greedy_policy(
+    config, Q, epsilon, np_actions, mode_ID, policy_name
+)
 
 # ----- Run the Simulation ----- #
 for simulation in range(number_of_simulation):
@@ -50,7 +52,7 @@ for simulation in range(number_of_simulation):
     try:
         print(f"Simulation number: {current_episode + 1} starts")
         env = sim.Environment()
-        env.process(clock(env, 1440, simulation))
+        env.process(clock(config.print_event_enabled, env, 1440, simulation))
 
         # Restore possible paths departure time
         possible_paths = possible_paths_ref.copy()
@@ -102,10 +104,7 @@ for simulation in range(number_of_simulation):
         )
 
         # Random seed is set according to the simulation order
-        if random_seed:
-            seed = current_episode
-        else:
-            seed = random_seed_value
+        seed = current_episode if random_seed else random_seed_value
         np.random.seed(seed)
 
         # Run the simulation until the simulation duration
@@ -209,7 +208,9 @@ for simulation in range(number_of_simulation):
                 pickle.dump(dict(Q), f)
                 print(f"Total q_table is exported as {q_name}")
             if current_episode % 5000 == 0:
-                print_event(f"Q-table is saved as {q_name}_{current_episode}_eps.pkl")
+                print_event(
+                    config, f"Q-table is saved as {q_name}_{current_episode}_eps.pkl"
+                )
                 with open(f"q_table/{q_name}_{current_episode}_eps.pkl", "wb") as f:
                     pickle.dump(dict(Q), f)
         eps_end_time = time.time()  # To measure the runtime

@@ -28,7 +28,8 @@ for eps in x:
 fig, ax = plt.subplots()
 bars1 = ax.bar(x, gp, width, label="Greedy Policy")
 bars2 = ax.bar([i + width for i in x], aw, width, label="Always Wait")
-# bars2 = ax.bar([i + width for i in x], opt, width, label='Always Optimize', color='cyan')
+# bars2 = ax.bar([i + width for i in x], opt, width, label='Always Optimize',
+#             color='cyan')
 
 # Adding labels, title, and customizing ticks
 ax.set_xlabel("Sample Case")
@@ -40,7 +41,7 @@ ax.legend()
 # Setting minimum y-axis limit
 min_y_limit = 400000  # Adjust this to set your desired minimum y-axis limit
 # min_y_limit = 80000
-max_y_limit = max(max(gp), max(aw)) * 1.1  # Adjust the multiplier for padding
+max_y_limit = max(gp, aw) * 1.1  # Adjust the multiplier for padding
 # max_y_limit = 600000
 # max_y_limit = 520000
 ax.set_ylim(min_y_limit, max_y_limit)

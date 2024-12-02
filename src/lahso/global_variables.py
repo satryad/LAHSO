@@ -1,5 +1,3 @@
-from lahso.model_input import possible_paths_ref
-
 # Lists for observation throughout the multiple simulation
 total_storage_cost_plot = []
 total_travel_cost_plot = []
@@ -16,7 +14,7 @@ x = []
 
 
 class GlobalVars:
-    def __init__(self):
+    def __init__(self, possible_paths_ref):
         # Set Global Variables
         self.possible_paths = possible_paths_ref.copy()
         self.announced_requests = []
@@ -55,9 +53,9 @@ class GlobalVars:
         self.late_logs = []
         self.late_dict = {}
 
-        self.reset()
+        self.reset(possible_paths_ref)
 
-    def reset(self):
+    def reset(self, possible_paths_ref):
         # Reset Global Variables
         self.possible_paths = possible_paths_ref.copy()
         self.announced_requests = []
@@ -95,6 +93,3 @@ class GlobalVars:
         self.total_late_departure = 0
         self.late_logs = []
         self.late_dict = {}
-
-
-global_vars = GlobalVars()

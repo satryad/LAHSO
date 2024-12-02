@@ -1,28 +1,22 @@
 import pandas as pd
 
-from lahso import config
-from lahso.model_input import (
-    barge_handling_cost,
-    loading_time_window,
-    storage_cost,
-    train_handling_cost,
-    truck_handling_cost,
-)
+from lahso.config import Config
+from lahso.model_input import ModelInput
 from lahso.service_to_path_helper import *
 
 
-def service_to_path(config):
+def service_to_path(config, model_input):
     # Load the CSV file into a DataFrame
     data = pd.read_csv(config.data_path / config.fixed_service_schedule_fn)
     truck_df = pd.read_csv(config.data_path / config.truck_schedule_fn)
 
     # Constants
-    LOADING_TIME = loading_time_window / 60  # Loading time in hours
+    LOADING_TIME = config.loading_time_window / 60  # Loading time in hours
     TRANSSHIPMENT_TIME = 2 * LOADING_TIME  # Loading + Unloading time
-    TRANSSHIPMENT_COST_BARGE = barge_handling_cost  # Cost per transshipment
-    TRANSSHIPMENT_COST_TRAIN = train_handling_cost  # Cost per transshipment
-    TRANSSHIPMENT_COST_TRUCK = truck_handling_cost  # Cost per transshipment
-    STORAGE_COST_PER_HOUR = storage_cost  # Storage cost per hour of waiting
+    TRANSSHIPMENT_COST_BARGE = model_input.barge_handling_cost  # Cost per transshipment
+    TRANSSHIPMENT_COST_TRAIN = model_input.train_handling_cost  # Cost per transshipment
+    TRANSSHIPMENT_COST_TRUCK = model_input.truck_handling_cost  # Cost per transshipment
+    STORAGE_COST_PER_HOUR = config.storage_cost  # Storage cost per hour of waiting
 
     services_list = data.to_dict("records")
 
@@ -120,7 +114,7 @@ def service_to_path(config):
     truck_deaprture_window = 2.5
     truck_loading_time = 1.5
 
-    for index, row in df.iterrows():
+    for _index, row in df.iterrows():
         services = row["service_ids"].split(", ")
         if row["transshipment_time"] == 1:
             # Replace the second service with "Truck"
@@ -328,4 +322,6 @@ def service_to_path(config):
 
 
 def main():
-    service_to_path(config)
+    config = Config()
+    model_input = ModelInput(Config())
+    service_to_path(config, model_input)

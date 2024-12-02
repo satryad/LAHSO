@@ -28,10 +28,7 @@ def shipment_logs(
             + shipment.tot_shipment_delay_penalty
         )
         itinerary = actual_itinerary[shipment.name]
-        if shipment.name in assigned_to_rl:
-            rl = "Yes"
-        else:
-            rl = "No"
+        rl = "Yes" if shipment.name in assigned_to_rl else "No"
         missed_service = shipment.missed_service
         nr_wait = wait_actions[shipment.name]
         nr_reassign = reassign_actions[shipment.name]
