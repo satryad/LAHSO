@@ -1,4 +1,4 @@
-import dataclass from dataclasses
+from dataclasses import dataclass
 
 @dataclass
 class AggregateStatistics:
