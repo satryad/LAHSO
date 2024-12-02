@@ -1,23 +1,23 @@
-from lahso.model_input import possible_paths_ref
-
-# Lists for observation throughout the multiple simulation
-total_storage_cost_plot = []
-total_travel_cost_plot = []
-total_handling_cost_plot = []
-total_shipment_delay_plot = []
-total_late_plot = []
-total_number_late_plot = []
-total_rl_triggers = []
-total_assigned_rl = []
-undelivered_requests = []
-total_reassign_plot = []
-total_wait_plot = []
-x = []
-
-
-class GlobalVars:
+class AggregateStatistics:
     def __init__(self):
-        # Set Global Variables
+        # Lists for observation throughout the multiple simulations
+        self.total_storage_cost_plot = []
+        self.total_travel_cost_plot = []
+        self.total_handling_cost_plot = []
+        self.total_shipment_delay_plot = []
+        self.total_late_plot = []
+        self.total_number_late_plot = []
+        self.total_rl_triggers = []
+        self.total_assigned_rl = []
+        self.undelivered_requests = []
+        self.total_reassign_plot = []
+        self.total_wait_plot = []
+        self.x = []
+
+
+class SimulationVars:
+    def __init__(self, possible_paths_ref):
+        # Set Simulation Variables
         self.possible_paths = possible_paths_ref.copy()
         self.announced_requests = []
         self.active_requests = []
@@ -55,10 +55,10 @@ class GlobalVars:
         self.late_logs = []
         self.late_dict = {}
 
-        self.reset()
+        self.reset(possible_paths_ref)
 
-    def reset(self):
-        # Reset Global Variables
+    def reset(self, possible_paths_ref):
+        # Reset Simulation Variables
         self.possible_paths = possible_paths_ref.copy()
         self.announced_requests = []
         self.active_requests = []
@@ -95,6 +95,3 @@ class GlobalVars:
         self.total_late_departure = 0
         self.late_logs = []
         self.late_dict = {}
-
-
-global_vars = GlobalVars()

@@ -4,12 +4,17 @@ def find_paths_recursive(
     services,
     loading_time,
     transshipment_time,
-    current_path=[],
-    current_services=[],
+    current_path=None,
+    current_services=None,
 ):
     """
-    Recursively find all paths from origin to destination from a list of service dictionaries.
+    Recursively find all paths from origin to destination from a list of service
+    dictionaries.
     """
+    if current_services is None:
+        current_services = []
+    if current_path is None:
+        current_path = []
     if origin == destination:
         return [{"path": current_path, "services": current_services}]
 
@@ -29,8 +34,8 @@ def find_paths_recursive(
                 services,
                 loading_time,
                 transshipment_time,
-                current_path + [(origin, service["Destination"])],
-                current_services + [service],
+                [*current_path, (origin, service["Destination"])],
+                [*current_services, service],
             )
             paths.extend(next_paths)
 

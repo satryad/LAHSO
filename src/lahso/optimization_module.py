@@ -117,7 +117,8 @@ def optimization_model(
         )
         for s in services.index:
             service_row = services.loc[s]
-            # Only proceed if origin and destination match; otherwise, force x[d, s] to 0
+            # Only proceed if origin and destination match;
+            #  otherwise, force x[d, s] to 0
             if (
                 service_row["origin"] != demand_row["Origin"]
                 or service_row["destination"] != demand_row["Destination"]
@@ -126,7 +127,8 @@ def optimization_model(
 
     for d in demands.index:
         for s in services.index:
-            # Constraint to calculate storage time if the demand Release time is before the first service departure
+            # Constraint to calculate storage time if the demand Release time is before
+            #  the first service departure
             m.addConstr(
                 storage_hours[d, s]
                 == max(
@@ -139,7 +141,8 @@ def optimization_model(
                 name=f"storage_time_{d}_{s}",
             )
 
-            # Constraint to calculate delay time if the service's last arrival is after the demand's due time
+            # Constraint to calculate delay time if the service's last arrival is after
+            #  the demand's due time
             m.addConstr(
                 delay_hours[d, s]
                 == max(
@@ -161,7 +164,8 @@ def optimization_model(
 
     for d in demands.index:
         for s in services.index:
-            # then the departure time of the service must be at least min_transshipment_time after the demand's release time.
+            # then the departure time of the service must be at least
+            #  min_transshipment_time after the demand's release time.
             m.addConstr(
                 x[d, s]
                 * (
@@ -174,7 +178,8 @@ def optimization_model(
 
     for d in demands.index:
         for s in services.index:
-            # Add a constraint that ensures the service departure time is after the demand release time
+            # Add a constraint that ensures the service departure time is after the
+            #  demand release time
             m.addConstr(
                 x[d, s] * services.loc[s, "first_service_departure"]
                 >= x[d, s] * demands.loc[d, "Release Time"],
@@ -302,8 +307,10 @@ def optimization_model(
                                     ),
                                     "Potential_Services": s,
                                     "Potential_Requests": d,
-                                    "Solution_Number": k + 1,  # Add the solution number
-                                    "Objective_Value": obj_val,  # Add the objective value
+                                    # Add the solution number
+                                    "Solution_Number": k + 1,
+                                    # Add the objective value
+                                    "Objective_Value": obj_val,
                                 }
                             )
                 all_solutions.append(log_entries)

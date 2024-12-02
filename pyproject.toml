@@ -3,6 +3,7 @@ name = "LAHSO"
 dynamic = ["version"]
 authors = [
   { name = "Satrya Dewantara", email = "satrya.dewantara@gmail.com" },
+  { name = "Jeff Smits", email = "j.smits-1@tudelft.nl" },
 ]
 description = "LASHO"
 readme = "README.md"
@@ -16,6 +17,7 @@ classifiers = [
   "Topic :: Scientific/Engineering",
 ]
 dependencies = [
+    "gradio>=5.6.0",
     "gurobipy==11.0.1",
     "matplotlib>=3.9.2",
     "numpy>=2.1.3",
@@ -47,6 +49,7 @@ version-file = "_version.py"
 Homepage = "https://github.com/satryad/LAHSO"
 
 [project.scripts]
+start = "lahso.ui:main"
 service_to_path = "lahso.service_to_path:main"
 generate_kbest = "lahso.kbest:main"
 model_train = "lahso.model_train:main"
@@ -76,11 +79,11 @@ port.exclude_lines = [
 
 [tool.ruff]
 src = ["src"]
-exclude = []
 line-length = 88  # how long you want lines to be, 88 is black's default
 
 [tool.ruff.format]
 docstring-code-format = true  # code snippets in docstrings will be formatted
+exclude = ["*.ipynb"]
 
 [tool.ruff.lint]
 # For more strict linting and code simplifications, replace this with
@@ -113,6 +116,7 @@ ignore = [
   "ISC001", # Conflicts with formatter
 ]
 pydocstyle.convention = "google"
+exclude = ["*.ipynb", "src/lahso/ui.py"]
 
 [tool.ruff.lint.per-file-ignores]
 # Tests can ignore a few extra rules
