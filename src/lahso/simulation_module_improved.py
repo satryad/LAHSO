@@ -760,8 +760,9 @@ def affected_request_detection(
                 locations.remove(end_destination)  # Remove the end destination
 
             # Check if the disrupted location is in the shipment's itinerary
-            if locations and any(location in new_disrupted_location
-                    for location in locations):
+            if locations and any(
+                location in new_disrupted_location for location in locations
+            ):
                 affected_requests_list.append(act_r)
         print_event(
             config.print_event_enabled,
@@ -1150,7 +1151,7 @@ class MatchingModule:
             ] = capacitated_service.loc[
                 capacitated_service["service_ids"].str.contains(service),
                 "service_capacity",
-            ].apply(lambda x: max(0, (min(x, free_capacity)))) # noqa: B023
+            ].apply(lambda x: max(0, (min(x, free_capacity))))  # noqa: B023
             update_service_capacity(capacitated_service, service, free_capacity)
         capacitated_service["Loading Time"] = self.handling_time / 60
 
@@ -1787,8 +1788,8 @@ class DemandDisruption:
                         volume_multiplier = np.random.uniform(1 + lbv, 1 + ubv)
                         # Update free capacity for the assigned mode
                         if self.shipment[disrupted_shipment].mode and not isinstance(
-                                self.shipment[disrupted_shipment].mode[0], str
-                            ):
+                            self.shipment[disrupted_shipment].mode[0], str
+                        ):
                             modes = self.shipment[disrupted_shipment].mode
                             for mode in modes:
                                 mode.free_capacity += self.shipment[
