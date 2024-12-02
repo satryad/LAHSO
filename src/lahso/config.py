@@ -5,18 +5,18 @@ from dataclasses import dataclass
 @dataclass
 class Config:
     # Simulation Settings
-    number_of_simulation = 25000
+    number_of_simulation = 1
     simulation_duration = 6 * 7 * 1440
     planning_interval = 7 * 1440
     random_seed = True  # False = random seed is the same for each simulation
     random_seed_value = (
         0  # Only applies if random_seed is False to set a certain random seed value
     )
-    print_event_enabled = False  # Print event logs
+    print_event_enabled = True  # Print event logs
     print_output = True
-    extract_shipment_output = True  # Extract a shipment logs in sv file
-    start_from_0 = False  # False = continue training from the last saved model
-    training = True
+    extract_shipment_output = False  # Extract a shipment logs in sv file
+    start_from_0 = True  # False = continue training from the last saved model
+    training = False
     apply_s_disruption = True
     apply_d_disruption = False
     sd = "Def"  # disruption set (def, S1, S2, S3, S4, S5) according to the last 2 character in the disruption file name

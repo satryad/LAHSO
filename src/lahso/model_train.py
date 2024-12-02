@@ -61,7 +61,9 @@ def model_train(config, model_input, statistics):
             req_id: [] for req_id in model_input.request_ids
         }
         simulation_vars.wait_actions = {req_id: 0 for req_id in model_input.request_ids}
-        simulation_vars.reassign_actions = {req_id: 0 for req_id in model_input.request_ids}
+        simulation_vars.reassign_actions = {
+            req_id: 0 for req_id in model_input.request_ids
+        }
         simulation_vars.late_dict = {mode: [0, 0] for mode in model_input.mode_list}
         simulation_vars.current_episode = last_episode + simulation
 
@@ -189,10 +191,16 @@ def model_train(config, model_input, statistics):
                 total_reassign_action += simulation_vars.reassign_actions[rq]
 
             # Store values for observation throughout multiple simulations
-            statistics.total_storage_cost_plot.append(simulation_vars.total_storage_cost)
+            statistics.total_storage_cost_plot.append(
+                simulation_vars.total_storage_cost
+            )
             statistics.total_travel_cost_plot.append(simulation_vars.total_travel_cost)
-            statistics.total_handling_cost_plot.append(simulation_vars.total_handling_cost)
-            statistics.total_shipment_delay_plot.append(simulation_vars.total_delay_penalty)
+            statistics.total_handling_cost_plot.append(
+                simulation_vars.total_handling_cost
+            )
+            statistics.total_shipment_delay_plot.append(
+                simulation_vars.total_delay_penalty
+            )
             total_cost_plot.append(simulation_vars.total_cost)
             total_reward_plot.append(simulation_vars.total_reward)
             statistics.total_late_plot.append(simulation_vars.total_late_departure)
@@ -237,15 +245,22 @@ def model_train(config, model_input, statistics):
                 )
                 print(
                     "Average late departure: ",
-                    simulation_vars.total_late_departure / simulation_vars.nr_late_departure,
+                    simulation_vars.total_late_departure
+                    / simulation_vars.nr_late_departure,
                     " minutes",
                 )
                 print("\nTOTAL COSTS")
                 print("----------------------------------------")
-                print(f"Total storage cost: {simulation_vars.total_storage_cost:.2f} EUR")
-                print(f"Total handling cost: {simulation_vars.total_handling_cost:.2f} EUR")
+                print(
+                    f"Total storage cost: {simulation_vars.total_storage_cost:.2f} EUR"
+                )
+                print(
+                    f"Total handling cost: {simulation_vars.total_handling_cost:.2f} EUR"
+                )
                 print(f"Total travel cost: {simulation_vars.total_travel_cost:.2f} EUR")
-                print(f"Total delay penalty: {simulation_vars.total_delay_penalty:.2f} EUR")
+                print(
+                    f"Total delay penalty: {simulation_vars.total_delay_penalty:.2f} EUR"
+                )
                 print(f"Total cost: {simulation_vars.total_cost:.2f} EUR")
                 print("----------------------------------------")
 

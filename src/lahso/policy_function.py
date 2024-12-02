@@ -21,7 +21,7 @@ def make_epsilon_greedy_policy(config, Q, epsilon, npA, mode_ID, policy_name):
 
         A = np.ones(npA, dtype=float) * epsilon / npA
         print_event(
-            config,
+            config.print_event_enabled,
             f"Q[s,a] wait: {get_q_value(Q, obs_tuple, wait_ID)}, Q[s,a] reassign: {get_q_value(Q, obs_tuple, reassigned_ID)}",
         )
         best_action = np.argmax(

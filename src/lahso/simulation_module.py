@@ -6,7 +6,6 @@ import pandas as pd
 
 import lahso.optimization_module as om
 from lahso.helper_functions import *
-from lahso.model_input import ModelInput
 from lahso.policy_function import get_q_value
 
 # Suppress SettingWithCopyWarning
@@ -210,7 +209,9 @@ class Mode:
             ] += 168
 
             # Travel to destination
-            if self.name in self.simulation_vars.disruption_location:  # Disruption check
+            if (
+                self.name in self.simulation_vars.disruption_location
+            ):  # Disruption check
                 yield self.simulation_vars.s_disruption_event[self.current_location]
             yield self.env.timeout(int(self.distance / self.speed * 60))
 
@@ -241,7 +242,9 @@ class Mode:
                 name = identify_truck_line(self.name)
                 self.simulation_vars.actual_carried_shipments[name] = self.unloading
             else:
-                self.simulation_vars.actual_carried_shipments[self.name] += self.unloading
+                self.simulation_vars.actual_carried_shipments[self.name] += (
+                    self.unloading
+                )
             if self.unloading > 0:
                 print_event(
                     self.print_event_enabled,
@@ -616,7 +619,10 @@ class Shipment:
                         self.action_event[self.mode[0].name].succeed()
 
             # If the shipment is assigned to RL during travelling
-            if self.name in self.simulation_vars.rl_assignment and not self.assigned_to_rl:
+            if (
+                self.name in self.simulation_vars.rl_assignment
+                and not self.assigned_to_rl
+            ):
                 self.assigned_to_rl = True  # triggered if the shipment is assigned to RL during travelling
                 self.rl_start_time = self.env.now
 
@@ -718,7 +724,9 @@ def affected_request_detection(
             config.print_event_enabled,
             f"{time_format(env.now)} - Affected requests: {affected_requests_list}",
         )
-        simulation_vars.affected_requests[new_disrupted_location] = affected_requests_list
+        simulation_vars.affected_requests[new_disrupted_location] = (
+            affected_requests_list
+        )
 
         # Populate the request to replan with current information
         for af_r in affected_requests_list:
@@ -727,7 +735,8 @@ def affected_request_detection(
                 s.origin = s.current_location
             else:
                 s.origin = s.mode[0].destination
-                # print(f'{s.name} is disrupted while on board')
+                print(f"{s.name} is disrupted on board")  # debug
+                print(f"{s.name} possible itineraries are {s.possible_itineraries}")
             for i in range(len(s.mode)):
                 s.mode[i].status = "Available"
                 s.mode[i].free_capacity += s.num_containers
@@ -879,6 +888,8 @@ class MatchingModule:
         for req in solved_requests:
             new_mode = req[6][1]
             old_mode = req[6][0]
+            if self.shipment[req[0]].status == "On board":
+                old_mode = old_mode[1:]
             matching[req[0]] = (old_mode, new_mode)
 
         # Assign the unmatched requests to truck
@@ -887,6 +898,8 @@ class MatchingModule:
                 origin = self.shipment[req[0]].origin
                 destination = self.shipment[req[0]].destination
                 old_mode = matching[req[0]][0]
+                if self.shipment[req[0]].status == "On board":
+                    old_mode = old_mode[1:]
                 new_mode = old_mode
                 for mode in self.truck_list:
                     if (
@@ -1158,6 +1171,8 @@ class MatchingModule:
                         f"{time_format(self.env.now)} - {request[0]} from {request[1]} to {request[2]} will wait",
                     )
                     assigned_mode = []
+                    if self.shipment[request[0]].status == "On board":
+                        assigned_mode.append(self.mode_schedule[current_location])
                 else:
                     print_event(
                         self.print_event_enabled,
@@ -1205,7 +1220,7 @@ class MatchingModule:
                         f"{time_format(self.env.now)} - {request[0]} from {request[1]} to {request[2]} will wait",
                     )
                     for mode in new_mode:
-                        assigned_mode.append(self.mode_schedule[mode])
+                        assigned_mode.append(self.mode_schedule[current_location])
                     self.shipment[request[0]].mode = assigned_mode
                     for mode in assigned_mode:
                         mode.free_capacity -= self.shipment[request[0]].num_containers
@@ -1502,7 +1517,9 @@ class ReinforcementLearning:
 
 # Define service disruption
 class ServiceDisruption:
-    def __init__(self, env, mode_schedule, profile, config, model_input, simulation_vars):
+    def __init__(
+        self, env, mode_schedule, profile, config, model_input, simulation_vars
+    ):
         self.env = env
         self.disruption_signal = self.env.event()
         self.mode_schedule = mode_schedule
