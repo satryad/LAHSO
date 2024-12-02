@@ -18,10 +18,11 @@ def model_implementation(config, model_input):
     env = sim.Environment()
 
     if config.random_seed:
-        print_event(config, "Random seed is enabled")
+        print_event(config.print_event_enabled, "Random seed is enabled")
     else:
         print_event(
-            config, f"Random seed is disabled. Seed value: {config.random_seed_value}"
+            config.print_event_enabled,
+            f"Random seed is disabled. Seed value: {config.random_seed_value}",
         )
 
     # Initiate plot if the training starts from scratch
@@ -176,10 +177,7 @@ def model_implementation(config, model_input):
             )
 
             # Random seed is set according to the simulation order
-            if config.random_seed:
-                seed = current_episode
-            else:
-                seed = config.random_seed_value
+            seed = current_episode if config.random_seed else config.random_seed_value
             np.random.seed(seed)
 
             # Run the simulation until the simulation duration

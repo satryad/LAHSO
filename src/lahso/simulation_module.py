@@ -1410,8 +1410,12 @@ class ReinforcementLearning:
         current_location_vector = tuple(
             state_to_vector(updated_state[0], self.loc_to_index)
         )
-        destination_vector = tuple(state_to_vector(updated_state[1], self.dest_to_index))
-        profile_vector = tuple(state_to_vector(updated_state[4], self.d_profile_to_index))
+        destination_vector = tuple(
+            state_to_vector(updated_state[1], self.dest_to_index)
+        )
+        profile_vector = tuple(
+            state_to_vector(updated_state[4], self.d_profile_to_index)
+        )
         updated_state_vector = (
             current_location_vector,
             destination_vector,

@@ -52,17 +52,23 @@ class ModelInput:
 
         # Demand dataset
         if config.demand_type == "kbest":
-            self.request = pd.read_csv(config.data_path / f"{config.request_fn}_kbest.csv")
+            self.request = pd.read_csv(
+                config.data_path / f"{config.request_fn}_kbest.csv"
+            )
             self.request["Solution_List"] = self.request["Solution_List"].apply(
                 lambda s: [] if s == "0" else split_to_sublists(s)
             )
         elif config.demand_type == "planned":
-            self.request = pd.read_csv(config.data_path / f"{config.request_fn}_planned.csv")
+            self.request = pd.read_csv(
+                config.data_path / f"{config.request_fn}_planned.csv"
+            )
             self.request["Solution_List"] = self.request["Solution_List"].apply(
                 lambda s: [] if s == "0" else split_to_sublists(s)
             )
         else:
-            self.request = pd.read_csv(config.data_path / f"{config.request_fn}_default.csv")
+            self.request = pd.read_csv(
+                config.data_path / f"{config.request_fn}_default.csv"
+            )
             self.request["Solution_List"] = self.request["Solution_List"].apply(
                 lambda s: [] if s == 0 else split_to_sublists(s)
             )
@@ -148,7 +154,9 @@ class ModelInput:
         self.fixed_list = df_fixed_schedule["Service_ID"].unique().tolist()
         self.truck_list = df_truck_schedule["Service_ID"].unique().tolist()
 
-        self.mode_list = self.fixed_list + self.truck_list  # List of all modes/servie lines
+        self.mode_list = (
+            self.fixed_list + self.truck_list
+        )  # List of all modes/servie lines
         self.mode_ID = {self.mode_list[i]: i + 1 for i in range(len(self.mode_list))}
 
         # Convert the service schedule dataset to lists and insert the cost params
