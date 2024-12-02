@@ -1,15 +1,26 @@
+import sys
+import time
+
 import numpy as np
 import pandas as pd
 import simpy as sim
 
 from lahso.config import Config
-from lahso.model_input import ModelInput
 from lahso.extract_output import shipment_logs
-from lahso.global_variables import *
+from lahso.global_variables import AggregateStatistics, SimulationVars
+from lahso.helper_functions import clock, print_event
+from lahso.model_input import ModelInput
 from lahso.policy_function import make_epsilon_greedy_policy
-
-# import from other python files
-from lahso.simulation_module import *
+from lahso.simulation_module import (
+    DemandDisruption,
+    MatchingModule,
+    Mode,
+    ReinforcementLearning,
+    ServiceDisruption,
+    Shipment,
+    affected_request_detection,
+    update_undelivered_shipments,
+)
 
 
 def model_implementation(config, model_input, statistics):
@@ -18,8 +29,9 @@ def model_implementation(config, model_input, statistics):
     env = sim.Environment()
 
     # Redirect print statements to a file
-    if print_event_enabled:
-        sys.stdout = open(r"csv_output\simulation_logs.txt", "w")
+    if config.print_event_enabled:
+        # Ignoring lint complaint about opening file in a context (with statement)
+        sys.stdout = open(r"csv_output\simulation_logs.txt", "w") # noqa: SIM115
 
     if config.random_seed:
         print_event(config.print_event_enabled, "Random seed is enabled")
@@ -30,9 +42,9 @@ def model_implementation(config, model_input, statistics):
         )
 
     print(f"""
-    Implementation for policy: {policy_name}
-    Disruption set: {sd}
-    Episodes: {number_of_simulation}
+    Implementation for policy: {config.policy_name}
+    Disruption set: {config.sd}
+    Episodes: {config.number_of_simulation}
         """)
 
     # Initiate plot if the training starts from scratch
@@ -87,7 +99,7 @@ def model_implementation(config, model_input, statistics):
             env.process(clock(config.print_event_enabled, env, 1440, simulation))
 
             # Restore possible paths departure time
-            possible_paths = model_input.possible_paths_ref.copy()
+            model_input.possible_paths_ref.copy()
 
             # Initiate transport modes
             mode_schedule_dict = {}
@@ -267,11 +279,13 @@ def model_implementation(config, model_input, statistics):
                     f"Total storage cost: {simulation_vars.total_storage_cost:.2f} EUR"
                 )
                 print(
-                    f"Total handling cost: {simulation_vars.total_handling_cost:.2f} EUR"
+                    f"Total handling cost: {simulation_vars.total_handling_cost:.2f} \
+                    EUR"
                 )
                 print(f"Total travel cost: {simulation_vars.total_travel_cost:.2f} EUR")
                 print(
-                    f"Total delay penalty: {simulation_vars.total_delay_penalty:.2f} EUR"
+                    f"Total delay penalty: {simulation_vars.total_delay_penalty:.2f} \
+                    EUR"
                 )
                 print(f"Total cost: {simulation_vars.total_cost:.2f} EUR")
                 print("----------------------------------------")
@@ -280,20 +294,25 @@ def model_implementation(config, model_input, statistics):
                 print("\nPERFORMANCE SUMMARY")
                 print("----------------------------------------")
                 print(
-                    f"Average storage time: {average_storage_time / 60:.2f} hours/shipment"
+                    f"Average storage time: {average_storage_time / 60:.2f} \
+                    hours/shipment"
                 )
                 print(
-                    f"Total storage time: {simulation_vars.total_storage_time / 60:.2f} hours"
+                    f"Total storage time: \
+                    {simulation_vars.total_storage_time / 60:.2f} hours"
                 )
                 print(
-                    f"Total delay time: {simulation_vars.total_shipment_delay // 60:02d} hour(s) {simulation_vars.total_shipment_delay % 60:02d} minute(s)"
+                    f"Total delay time: \
+                    {simulation_vars.total_shipment_delay // 60:02d} hour(s) \
+                    {simulation_vars.total_shipment_delay % 60:02d} minute(s)"
                 )
                 print("----------------------------------------\n")
                 total_shipment = len(model_input.request_list)
                 total_delivered = len(simulation_vars.delivered_shipments)
 
                 print(
-                    f"{total_delivered} shipment are delivered from total {total_shipment} requests"
+                    f"{total_delivered} shipment are delivered from total \
+                    {total_shipment} requests"
                 )
                 undelivered = set(model_input.request["Demand_ID"]) - set(
                     simulation_vars.delivered_shipments
@@ -329,21 +348,20 @@ def model_implementation(config, model_input, statistics):
     # Create output dataframe
     output = pd.DataFrame(
         {
-            "Episode": x,
-            "Total Storage Cost": total_storage_cost_plot,
-            "Total Travel Cost": total_travel_cost_plot,
-            "Total Handling Cost": total_handling_cost_plot,
-            "Total Delay Penalty": total_shipment_delay_plot,
-            "Total Cost": total_cost_plot,
+            "Episode": statistics.x,
+            "Total Storage Cost": statistics.total_storage_cost_plot,
+            "Total Travel Cost": statistics.total_travel_cost_plot,
+            "Total Handling Cost": statistics.total_handling_cost_plot,
+            "Total Delay Penalty": statistics.total_shipment_delay_plot,
             "Total Cost": total_cost_plot,
             "Total Reward": total_reward_plot,
-            "Total Late Departure": total_late_plot,
-            "Number of Late Departure": total_number_late_plot,
-            "RL Triggers": total_rl_triggers,
-            "Shipment to RL": total_assigned_rl,
-            "Undelivered Requests": undelivered_requests,
-            "Wait Actions": total_wait_plot,
-            "Reassign Actions": total_reassign_plot,
+            "Total Late Departure": statistics.total_late_plot,
+            "Number of Late Departure": statistics.total_number_late_plot,
+            "RL Triggers": statistics.total_rl_triggers,
+            "Shipment to RL": statistics.total_assigned_rl,
+            "Undelivered Requests": statistics.undelivered_requests,
+            "Wait Actions": statistics.total_wait_plot,
+            "Reassign Actions": statistics.total_reassign_plot,
         }
     )
     if config.extract_shipment_output:

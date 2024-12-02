@@ -13,7 +13,7 @@ def get_q_value(Q, state, action, default_value=0):
 
 
 # Initialize Q Table
-def make_epsilon_greedy_policy(config, Q, epsilon, npA, mode_ID, policy_name):
+def make_epsilon_greedy_policy(config, Q, epsilon, _npA, mode_ID, policy_name):
     def policy_fn(observation, possible_actions):
         npA = len(possible_actions)
         obs_tuple = tuple(observation)
@@ -24,7 +24,8 @@ def make_epsilon_greedy_policy(config, Q, epsilon, npA, mode_ID, policy_name):
         A = np.ones(npA, dtype=float) * epsilon / npA
         print_event(
             config.print_event_enabled,
-            f"Q[s,a] all actions: {[get_q_value(Q, obs_tuple, action_id) for action_id in action_ids]}",
+            f"Q[s,a] all actions: \
+            {[get_q_value(Q, obs_tuple, action_id) for action_id in action_ids]}",
         )
         best_action = np.argmax(
             [get_q_value(Q, obs_tuple, action_id) for action_id in action_ids]

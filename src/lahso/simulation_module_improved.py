@@ -1,10 +1,19 @@
 import math
 import time
-import simpy as sim
+
+import numpy as np
 import pandas as pd
+import simpy as sim
 
 import lahso.optimization_module as om
-from lahso.helper_functions import *
+from lahso.helper_functions import (
+    identify_truck_line,
+    print_event,
+    state_to_vector,
+    time_format,
+    unique_origin_destination_pairs,
+    update_service_capacity,
+)
 from lahso.policy_function_improved import get_q_value
 
 # Suppress SettingWithCopyWarning
@@ -68,27 +77,30 @@ class Mode:
             if "Truck" in self.name:
                 yield self.truck_service
 
-            # Simulation starts from 2 hours before the first arrival at the origin to capture disruptions before
-            # arrival in the origin terminal
+            # Simulation starts from 2 hours before the first arrival at the origin to
+            #  capture disruptions before arrival in the origin terminal
             arrival_time = self.departure_time - self.loading_time_window
             operation_time = max(0, arrival_time - self.env.now - 120)
             yield self.env.timeout(operation_time)
             self.status = "Operating"
 
-            # Simulate first arrival 1,5 hr before the first departure (according to the loading time window)
+            # Simulate first arrival 1,5 hr before the first departure (according to
+            #  the loading time window)
             if arrival_time > self.env.now:
                 yield self.env.timeout(arrival_time - self.env.now)
             if self.name in self.simulation_vars.disruption_location:
                 print_event(
                     self.print_event_enabled,
-                    f"{time_format(self.env.now)} - {self.name} will arrive late in origin due to disruption at {self.name}",
+                    f"{time_format(self.env.now)} - {self.name} will arrive late in \
+                    origin due to disruption at {self.name}",
                 )
                 yield self.simulation_vars.s_disruption_event[self.name]
             self.current_location = self.origin
             self.arrival[self.origin].succeed()  # Signal the arrival at the origin
             print_event(
                 self.print_event_enabled,
-                f"{time_format(self.env.now)} - {self.name} is scheduled to depart from {self.origin} at {time_format(self.departure_time)}",
+                f"{time_format(self.env.now)} - {self.name} is scheduled to depart \
+                from {self.origin} at {time_format(self.departure_time)}",
             )
 
             yield self.env.timeout(1)  # Wait for the used capacity to be updated
@@ -129,12 +141,14 @@ class Mode:
             ):  # if the terminal is disrupted
                 print_event(
                     self.print_event_enabled,
-                    f"{time_format(self.env.now)} - {self.name} departure will be delayed due to disruption at {self.current_location}",
+                    f"{time_format(self.env.now)} - {self.name} departure will be \
+                    delayed due to disruption at {self.current_location}",
                 )
                 yield self.simulation_vars.s_disruption_event[self.current_location]
             print_event(
                 self.print_event_enabled,
-                f"{time_format(self.env.now)} - {self.name} finished loading {self.loading} TEUs at {self.origin}",
+                f"{time_format(self.env.now)} - {self.name} finished loading \
+                {self.loading} TEUs at {self.origin}",
             )
             if (
                 self.name in self.simulation_vars.disruption_location
@@ -149,7 +163,8 @@ class Mode:
                     if self.used_capacity > 0:  # to focus the output on used mode
                         print_event(
                             self.print_event_enabled,
-                            f"{time_format(self.env.now)} - {self.name} departure will be delayed due to disruption at {self.current_location}",
+                            f"{time_format(self.env.now)} - {self.name} departure will \
+                            be delayed due to disruption at {self.current_location}",
                         )
                     yield self.simulation_vars.s_disruption_event[self.current_location]
                 self.actual_departure = self.env.now
@@ -168,14 +183,17 @@ class Mode:
                 if self.used_capacity > 0:
                     print_event(
                         self.print_event_enabled,
-                        f"{time_format(self.env.now)} - {self.name} departs from {self.origin} carrying {self.used_capacity} TEUs",
+                        f"{time_format(self.env.now)} - {self.name} departs from \
+                        {self.origin} carrying {self.used_capacity} TEUs",
                     )
             else:
                 self.actual_departure = self.env.now
                 if self.used_capacity > 0:
                     print_event(
                         self.print_event_enabled,
-                        f"{time_format(self.env.now)} - {self.name} late departure from {self.origin} with free capacity {self.capacity - self.used_capacity} TEUs",
+                        f"{time_format(self.env.now)} - {self.name} late departure \
+                        from {self.origin} with free capacity \
+                        {self.capacity - self.used_capacity} TEUs",
                     )
                     # Store late departure data
                     late_departure = self.actual_departure - self.departure_time
@@ -221,13 +239,15 @@ class Mode:
             ):  # Disruption check
                 print_event(
                     self.print_event_enabled,
-                    f"{time_format(self.env.now)} - {self.name} arriving late at {self.destination} due to disruption at {self.current_location}",
+                    f"{time_format(self.env.now)} - {self.name} arriving late at \
+                    {self.destination} due to disruption at {self.current_location}",
                 )
                 yield self.simulation_vars.s_disruption_event[self.current_location]
             self.arrival[self.destination].succeed()
             print_event(
                 self.print_event_enabled,
-                f"{time_format(self.env.now)} - {self.name} arrived at {self.destination}",
+                f"{time_format(self.env.now)} - {self.name} arrived at \
+                {self.destination}",
             )
 
             # Simulate container unloading time
@@ -247,7 +267,8 @@ class Mode:
             if self.unloading > 0:
                 print_event(
                     self.print_event_enabled,
-                    f"{time_format(self.env.now)} - {self.name} finished unloading {self.unloading} TEUs at {self.destination}",
+                    f"{time_format(self.env.now)} - {self.name} finished unloading \
+                    {self.unloading} TEUs at {self.destination}",
                 )
             self.unloading = 0  # Reset the unloading counter
 
@@ -317,7 +338,8 @@ class Shipment:
         # Announce the shipment
         print_event(
             self.print_event_enabled,
-            f"{time_format(self.env.now)} - {self.name} with {self.num_containers} containers requests transport from {self.origin} to {self.destination}",
+            f"{time_format(self.env.now)} - {self.name} with {self.num_containers} \
+            containers requests transport from {self.origin} to {self.destination}",
         )
         self.simulation_vars.announced_requests.append(self.name)
         self.simulation_vars.unassigned_requests.append(
@@ -342,12 +364,14 @@ class Shipment:
                 if self.status == "New Release Time":
                     print_event(
                         self.print_event_enabled,
-                        f"{time_format(self.env.now)} - {self.name} has a new release time ({self.release_time})",
+                        f"{time_format(self.env.now)} - {self.name} has a new release \
+                        time ({self.release_time})",
                     )
                 elif self.status == "New Volume":
                     print_event(
                         self.print_event_enabled,
-                        f"{time_format(self.env.now)} - {self.name} has new container volume: {self.num_containers} TEUs",
+                        f"{time_format(self.env.now)} - {self.name} has new container \
+                        volume: {self.num_containers} TEUs",
                     )
 
         # Remove the shipment from the unassigned requests
@@ -365,16 +389,20 @@ class Shipment:
                 if self.status == "New Release Time":
                     print_event(
                         self.print_event_enabled,
-                        f"{time_format(self.env.now)} - {self.name} has a new release time ({self.release_time})",
+                        f"{time_format(self.env.now)} - {self.name} has a new release \
+                        time ({self.release_time})",
                     )
                     if self.release_time > self.mode[0].departure_time:
                         print_event(
                             self.print_event_enabled,
-                            f"{time_format(self.env.now)} - {self.name} is assigned to {self.mode[0].name} with departure time {self.mode[0].departure_time}",
+                            f"{time_format(self.env.now)} - {self.name} is assigned to \
+                            {self.mode[0].name} with departure time \
+                            {self.mode[0].departure_time}",
                         )
                         print_event(
                             self.print_event_enabled,
-                            f"{time_format(self.env.now)} - {self.name} will miss the service",
+                            f"{time_format(self.env.now)} - {self.name} will miss the \
+                            service",
                         )
                         for i in range(len(self.mode)):
                             # self.mode[i].status = "Available"
@@ -398,12 +426,15 @@ class Shipment:
                 elif self.status == "New Volume":
                     print_event(
                         self.print_event_enabled,
-                        f"{time_format(self.env.now)} - {self.name} has new container volume: {self.num_containers} TEUs",
+                        f"{time_format(self.env.now)} - {self.name} has new container \
+                        volume: {self.num_containers} TEUs",
                     )
                     if self.num_containers > self.mode[0].free_capacity:
                         print_event(
                             self.print_event_enabled,
-                            f"{time_format(self.env.now)} - {self.name} cant be assigned to {self.mode[0].name} due to insufficient capacity",
+                            f"{time_format(self.env.now)} - {self.name} cant be \
+                            assigned to {self.mode[0].name} due to insufficient \
+                            capacity",
                         )
                         for i in range(len(self.mode)):
                             self.mode[i] = self.mode[i].name
@@ -438,7 +469,9 @@ class Shipment:
                 )
             print_event(
                 self.print_event_enabled,
-                f"{time_format(self.env.now)} - {self.name} will be transported from {self.current_location} to {self.mode[0].destination} on {self.mode[0].name}",
+                f"{time_format(self.env.now)} - {self.name} will be transported from \
+                {self.current_location} to {self.mode[0].destination} on \
+                {self.mode[0].name}",
             )
             while self.status == "Waiting for arrival":
                 try:
@@ -453,7 +486,9 @@ class Shipment:
                     if self.name in self.mode[0].assigned_shipments:
                         print_event(
                             self.print_event_enabled,
-                            f"{time_format(self.env.now)} - {self.name} wait for the next arrival for mode {self.mode[0].name} due to insufficient capacity",
+                            f"{time_format(self.env.now)} - {self.name} wait for the \
+                            next arrival for mode {self.mode[0].name} due to \
+                            insufficient capacity",
                         )
                         self.missed_service += 1
                         yield self.mode[0].arrival[self.mode[0].destination]
@@ -465,7 +500,9 @@ class Shipment:
                     if self.current_location != self.mode[0].destination:
                         print_event(
                             self.print_event_enabled,
-                            f"{time_format(self.env.now)} - {self.name} is replanned and will be transported from {self.current_location} to {self.mode[0].destination} on {self.mode[0].name}",
+                            f"{time_format(self.env.now)} - {self.name} is replanned \
+                            and will be transported from {self.current_location} to \
+                            {self.mode[0].destination} on {self.mode[0].name}",
                         )
                     if "Truck" in self.mode[0].name:
                         self.mode[
@@ -478,7 +515,8 @@ class Shipment:
             # Simulate loading containers onto the mode
             print_event(
                 self.print_event_enabled,
-                f"{time_format(self.env.now)} - {self.name} starts loading on {self.mode[0].name}",
+                f"{time_format(self.env.now)} - {self.name} starts loading on \
+                {self.mode[0].name}",
             )
             finish_loading = self.env.now
 
@@ -493,7 +531,8 @@ class Shipment:
                 storage_time  # Calculate the total storage time for all shipments
             )
             self.tot_shipment_storage_cost += shipment_storage_cost
-            self.simulation_vars.total_storage_cost += shipment_storage_cost  # Calculate the total storage cost for all shipments
+            # Calculate the total storage cost for all shipments
+            self.simulation_vars.total_storage_cost += shipment_storage_cost
 
             # Calculate reward for RL (storage)
             if self.assigned_to_rl:
@@ -565,7 +604,8 @@ class Shipment:
             yield self.mode[0].handling_events  # Wait for until unloading is done
             print_event(
                 self.print_event_enabled,
-                f"{time_format(self.env.now)} - {self.name} completed unloading at {self.mode[0].destination} on {self.mode[0].name}",
+                f"{time_format(self.env.now)} - {self.name} completed unloading at \
+                {self.mode[0].destination} on {self.mode[0].name}",
             )
 
             # Calculate the handling cost
@@ -622,7 +662,8 @@ class Shipment:
                 self.name in self.simulation_vars.rl_assignment
                 and not self.assigned_to_rl
             ):
-                self.assigned_to_rl = True  # triggered if the shipment is assigned to RL during travelling
+                # triggered if the shipment is assigned to RL during travelling
+                self.assigned_to_rl = True
                 self.rl_start_time = self.env.now
 
                 if "Truck" in self.mode[1].name:
@@ -633,7 +674,8 @@ class Shipment:
 
             print_event(
                 self.print_event_enabled,
-                f"{time_format(self.env.now)} - {self.name} is available at {self.current_location}",
+                f"{time_format(self.env.now)} - {self.name} is available at \
+                {self.current_location}",
             )
             self.simulation_vars.actual_itinerary[self.name].append(
                 self.mode[0].name
@@ -644,7 +686,8 @@ class Shipment:
         self.status = "Delivered"
         print_event(
             self.print_event_enabled,
-            f"{time_format(self.env.now)} - {self.name} has been delivered to {self.destination}",
+            f"{time_format(self.env.now)} - {self.name} has been delivered to \
+            {self.destination}",
         )
         self.simulation_vars.delivered_shipments.append(self.name)
         self.simulation_vars.active_requests.remove(self.name)
@@ -657,7 +700,8 @@ class Shipment:
             )
             print_event(
                 self.print_event_enabled,
-                f"{time_format(self.env.now)} - {self.name} is late for {delay // 60:02d} hour(s) {delay % 60:02d} minute(s)",
+                f"{time_format(self.env.now)} - {self.name} is late for \
+                {delay // 60:02d} hour(s) {delay % 60:02d} minute(s)",
             )
             self.simulation_vars.total_shipment_delay += delay
             self.tot_shipment_delay_penalty += shipment_delay_penalty
@@ -693,32 +737,32 @@ def affected_request_detection(
         # Wait until a service disruption occurs
         yield s_disruption.disruption_signal
         new_disrupted_location = simulation_vars.disruption_location[-1]
-        affected_requests_list = []  # Initiate a list of affected requests for the new disruption
+        # Initiate a list of affected requests for the new disruption
+        affected_requests_list = []
         for act_r in simulation_vars.active_requests:
             locations = []  # Initiate a list of locations in the shipment's itinerary
-            if shipment[act_r].mode:
-                if not isinstance(shipment[act_r].mode[0], str):
-                    for mode in shipment[act_r].mode:
-                        locations.append(mode.name)
-                        locations.append(
-                            mode.destination
-                        )  # Add the assigned mode's destination
+            if shipment[act_r].mode and not isinstance(shipment[act_r].mode[0], str):
+                for mode in shipment[act_r].mode:
+                    locations.append(mode.name)
+                    locations.append(
+                        mode.destination
+                    )  # Add the assigned mode's destination
             if shipment[act_r].current_location in locations:
                 locations.remove(
                     shipment[act_r].current_location
                 )  # Remove the current location
             if shipment[act_r].current_location in model_input.mode_list:
-                locations.remove(
-                    shipment[act_r].mode[0].destination
-                )  # Remove the current location destination if a shipment is on a service line
+                # Remove the current location destination if a shipment is on a service
+                #  line
+                locations.remove(shipment[act_r].mode[0].destination)
             end_destination = shipment[act_r].destination
             if end_destination in locations:
                 locations.remove(end_destination)  # Remove the end destination
 
             # Check if the disrupted location is in the shipment's itinerary
-            if locations:
-                if any(location in new_disrupted_location for location in locations):
-                    affected_requests_list.append(act_r)
+            if locations and any(location in new_disrupted_location
+                    for location in locations):
+                affected_requests_list.append(act_r)
         print_event(
             config.print_event_enabled,
             f"{time_format(env.now)} - Affected requests: {affected_requests_list}",
@@ -809,11 +853,11 @@ class MatchingModule:
                 else:
                     planned_requests.append(req)
 
-            # ---------------------------------OPTIMIZATION MODULE---------------------------------
+            # ---------------------------OPTIMIZATION MODULE---------------------------
             available_paths = self.FilterPath()
             if request_list:
                 matching = self.OptimizationModule(unplanned_requests, available_paths)
-            # ------------------------------------------------------------------------------------
+            # -------------------------------------------------------------------------
 
             # Assign the planned requests to the matching dictionary
             for req in planned_requests:
@@ -827,7 +871,8 @@ class MatchingModule:
         disrupted_location = self.simulation_vars.disruption_location[-1]
         print_event(
             self.print_event_enabled,
-            f"{time_format(self.env.now)} - Replanning due to disruption at {disrupted_location}",
+            f"{time_format(self.env.now)} - Replanning due to disruption at \
+            {disrupted_location}",
         )
         request_list = self.simulation_vars.requests_to_replan
         if (
@@ -961,7 +1006,8 @@ class MatchingModule:
                 )
                 print_event(
                     self.print_event_enabled,
-                    f"{request[0]} state for RL: {current_state}, Actions: {action_sets}",
+                    f"{request[0]} state for RL: {current_state}, \
+                    Actions: {action_sets}",
                 )
 
                 ## Notes
@@ -1003,7 +1049,8 @@ class MatchingModule:
                             * self.shipment[request[0]].num_containers
                         ) * -1
 
-                    # Interrupt the previous reward generation process for shipment with multiple disruptions
+                    # Interrupt the previous reward generation process for shipment
+                    #  with multiple disruptions
                     for process_ID in self.simulation_vars.reward_generator[request[0]]:
                         process = process_ID[0]
                         process.interrupt()
@@ -1096,13 +1143,14 @@ class MatchingModule:
         capacitated_service = available_paths.copy()
         for service in self.fixed_list:
             free_capacity = self.mode_schedule[service].free_capacity
+            # Ignore false positive B023
             capacitated_service.loc[
                 capacitated_service["service_ids"].str.contains(service),
                 "service_capacity",
             ] = capacitated_service.loc[
                 capacitated_service["service_ids"].str.contains(service),
                 "service_capacity",
-            ].apply(lambda x: max(0, (min(x, free_capacity))))
+            ].apply(lambda x: max(0, (min(x, free_capacity)))) # noqa: B023
             update_service_capacity(capacitated_service, service, free_capacity)
         capacitated_service["Loading Time"] = self.handling_time / 60
 
@@ -1154,7 +1202,8 @@ class MatchingModule:
                 new_mode = []
                 print_event(
                     self.print_event_enabled,
-                    f"{time_format(self.env.now)} - {key} has no possible new mode assignment",
+                    f"{time_format(self.env.now)} - {key} has no possible new mode \
+                    assignment",
                 )
             else:
                 new_mode = [values]
@@ -1183,7 +1232,8 @@ class MatchingModule:
                 if old_mode == new_mode:
                     print_event(
                         self.print_event_enabled,
-                        f"{time_format(self.env.now)} - {request[0]} from {request[1]} to {request[2]} will wait",
+                        f"{time_format(self.env.now)} - {request[0]} from {request[1]} \
+                        to {request[2]} will wait",
                     )
                     assigned_mode = []
                     if self.shipment[request[0]].status == "On board":
@@ -1191,7 +1241,8 @@ class MatchingModule:
                 else:
                     print_event(
                         self.print_event_enabled,
-                        f"{time_format(self.env.now)} - {request[0]} from {request[1]} to {request[2]} is assigned to {new_mode}",
+                        f"{time_format(self.env.now)} - {request[0]} from {request[1]} \
+                        to {request[2]} is assigned to {new_mode}",
                     )
 
                 for mode in new_mode:
@@ -1232,7 +1283,8 @@ class MatchingModule:
                 if new_mode:
                     print_event(
                         self.print_event_enabled,
-                        f"{time_format(self.env.now)} - {request[0]} from {request[1]} to {request[2]} will wait",
+                        f"{time_format(self.env.now)} - {request[0]} from {request[1]} \
+                        to {request[2]} will wait",
                     )
                     for mode in new_mode:
                         assigned_mode.append(self.mode_schedule[current_location])
@@ -1283,7 +1335,7 @@ class ReinforcementLearning:
         immediate_itineraries = action_sets[1:]
         immediate_actions = [itin[0] for itin in immediate_itineraries]
 
-        possible_actions = [wait] + immediate_actions
+        possible_actions = [wait, *immediate_actions]
         # print(f"debug {possible_actions}")
 
         # Convert state to vector
@@ -1413,7 +1465,8 @@ class ReinforcementLearning:
         self.shipment[request[0]].reward = 0
         print_event(
             self.print_event_enabled,
-            f"{time_format(self.env.now)} - {request[0]} got reward: {reward} for action: {action}",
+            f"{time_format(self.env.now)} - {request[0]} got reward: {reward} for \
+            action: {action}",
         )
 
         # Determine next action
@@ -1434,7 +1487,8 @@ class ReinforcementLearning:
 
         print_event(
             self.print_event_enabled,
-            f"{time_format(self.env.now)} - {request[0]} take next action: {next_action}",
+            f"{time_format(self.env.now)} - {request[0]} take next action: \
+            {next_action}",
         )
         self.shipment[request[0]].action_event[action] = self.env.event()
         while self.queue:
@@ -1603,11 +1657,10 @@ class ServiceDisruption:
                                 0  # if no service line as candidate to be disrupted
                             )
                             break
-                        if "Truck" in location:
-                            if self.simulation_vars.truck_name_list:
-                                location = np.random.choice(
-                                    self.simulation_vars.truck_name_list
-                                )
+                        if "Truck" in location and self.simulation_vars.truck_name_list:
+                            location = np.random.choice(
+                                self.simulation_vars.truck_name_list
+                            )
                     count += 1
                     # Prevent infinite looping
                     if count > 10:
@@ -1647,13 +1700,15 @@ class ServiceDisruption:
         self.simulation_vars.s_disruption_event[location] = self.env.event()
         print_event(
             self.print_event_enabled,
-            f"{time_format(self.env.now)} - Service disruption type {type} at/on {location} starts",
+            f"{time_format(self.env.now)} - Service disruption type {type} at/on \
+            {location} starts",
         )
         self.simulation_vars.s_disruption_triggers += 1
         if type == "Capacity reduction":
             print_event(
                 self.print_event_enabled,
-                f"{time_format(self.env.now)} - {self.mode_schedule[location].name} capacity is reduced to {self.mode_schedule[location].capacity}",
+                f"{time_format(self.env.now)} - {self.mode_schedule[location].name} \
+                capacity is reduced to {self.mode_schedule[location].capacity}",
             )
             location_new = location
             self.simulation_vars.s_disruption_event[location_new].succeed()
@@ -1664,14 +1719,16 @@ class ServiceDisruption:
             self.mode_schedule[location].capacity = original_capacity
             print_event(
                 self.print_event_enabled,
-                f"{time_format(self.env.now)} - {self.mode_schedule[location].name} capacity is restored to {original_capacity}",
+                f"{time_format(self.env.now)} - {self.mode_schedule[location].name} \
+                capacity is restored to {original_capacity}",
             )
         else:
             location_new = location
             self.simulation_vars.s_disruption_event[location_new].succeed()
         print_event(
             self.print_event_enabled,
-            f"{time_format(self.env.now)} - Service disruption type {type} at/on {location} ends",
+            f"{time_format(self.env.now)} - Service disruption type {type} at/on \
+            {location} ends",
         )
         self.disruption_sequence.remove(location)
         location_new = location
@@ -1712,7 +1769,8 @@ class DemandDisruption:
                 self.simulation_vars.d_profile_list.append((name, disrupted_shipment))
                 print_event(
                     self.print_event_enabled,
-                    f"{time_format(self.env.now)} - Disrupting {disrupted_shipment} with {disruption}",
+                    f"{time_format(self.env.now)} - Disrupting {disrupted_shipment} \
+                    with {disruption}",
                 )
                 if (
                     self.shipment[disrupted_shipment].status == "Announced"
@@ -1728,15 +1786,14 @@ class DemandDisruption:
                         # Simulate disruption for change in the shipment volume
                         volume_multiplier = np.random.uniform(1 + lbv, 1 + ubv)
                         # Update free capacity for the assigned mode
-                        if self.shipment[disrupted_shipment].mode:
-                            if not isinstance(
+                        if self.shipment[disrupted_shipment].mode and not isinstance(
                                 self.shipment[disrupted_shipment].mode[0], str
                             ):
-                                modes = self.shipment[disrupted_shipment].mode
-                                for mode in modes:
-                                    mode.free_capacity += self.shipment[
-                                        disrupted_shipment
-                                    ].num_containers
+                            modes = self.shipment[disrupted_shipment].mode
+                            for mode in modes:
+                                mode.free_capacity += self.shipment[
+                                    disrupted_shipment
+                                ].num_containers
                         self.shipment[disrupted_shipment].num_containers = math.ceil(
                             self.shipment[disrupted_shipment].num_containers
                             * volume_multiplier

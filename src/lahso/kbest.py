@@ -1,11 +1,13 @@
 import pandas as pd
 
 from lahso.config import Config
-from lahso.model_input import ModelInput
-from lahso.optimization_module import *
+from lahso.optimization_module import (
+    optimization_model,
+    service_update,
+)
 
 
-def kbest(config, model_input):
+def kbest(config):
     # Read datasets
     services = pd.read_csv(config.data_path / config.possible_paths_fn, index_col=None)
     original_services = services.copy()
@@ -130,5 +132,4 @@ def kbest(config, model_input):
 
 def main():
     config = Config()
-    model_input = ModelInput(config)
-    kbest(config, model_input)
+    kbest(config)

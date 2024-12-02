@@ -3,7 +3,7 @@ import pickle
 import matplotlib.pyplot as plt
 import pandas as pd
 
-import lahso.config
+from lahso.config import Config
 
 
 def temp_plot(config):
@@ -47,4 +47,4 @@ def temp_plot(config):
     print(f"Maximum cost at simulation number {index}")
 
 
-temp_plot(config)
+temp_plot(Config())

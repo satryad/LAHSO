@@ -1,13 +1,24 @@
+import pickle
+import time
+
 import numpy as np
 import simpy as sim
 
 from lahso.config import Config
+from lahso.global_variables import AggregateStatistics, SimulationVars
+from lahso.helper_functions import clock, print_event
 from lahso.model_input import ModelInput
-from lahso.global_variables import *
 from lahso.policy_function import make_epsilon_greedy_policy
-
-# import from other python files
-from lahso.simulation_module import *
+from lahso.simulation_module import (
+    DemandDisruption,
+    MatchingModule,
+    Mode,
+    ReinforcementLearning,
+    ServiceDisruption,
+    Shipment,
+    affected_request_detection,
+    update_undelivered_shipments,
+)
 
 
 def model_train(config, model_input, statistics):
@@ -75,7 +86,7 @@ def model_train(config, model_input, statistics):
             env.process(clock(config.print_event_enabled, env, 1440, simulation))
 
             # Restore possible paths departure time
-            possible_paths = model_input.possible_paths_ref.copy()
+            model_input.possible_paths_ref.copy()
 
             # Initiate transport modes
             mode_schedule_dict = {}
@@ -255,11 +266,13 @@ def model_train(config, model_input, statistics):
                     f"Total storage cost: {simulation_vars.total_storage_cost:.2f} EUR"
                 )
                 print(
-                    f"Total handling cost: {simulation_vars.total_handling_cost:.2f} EUR"
+                    f"Total handling cost: {simulation_vars.total_handling_cost:.2f} \
+                    EUR"
                 )
                 print(f"Total travel cost: {simulation_vars.total_travel_cost:.2f} EUR")
                 print(
-                    f"Total delay penalty: {simulation_vars.total_delay_penalty:.2f} EUR"
+                    f"Total delay penalty: {simulation_vars.total_delay_penalty:.2f} \
+                    EUR"
                 )
                 print(f"Total cost: {simulation_vars.total_cost:.2f} EUR")
                 print("----------------------------------------")
@@ -268,20 +281,25 @@ def model_train(config, model_input, statistics):
                 print("\nPERFORMANCE SUMMARY")
                 print("----------------------------------------")
                 print(
-                    f"Average storage time: {average_storage_time / 60:.2f} hours/shipment"
+                    f"Average storage time: {average_storage_time / 60:.2f} \
+                    hours/shipment"
                 )
                 print(
-                    f"Total storage time: {simulation_vars.total_storage_time / 60:.2f} hours"
+                    f"Total storage time: \
+                    {simulation_vars.total_storage_time / 60:.2f} hours"
                 )
                 print(
-                    f"Total delay time: {simulation_vars.total_shipment_delay // 60:02d} hour(s) {simulation_vars.total_shipment_delay % 60:02d} minute(s)"
+                    f"Total delay time: \
+                    {simulation_vars.total_shipment_delay // 60:02d} hour(s) \
+                    {simulation_vars.total_shipment_delay % 60:02d} minute(s)"
                 )
                 print("----------------------------------------\n")
                 total_shipment = len(model_input.request_list)
                 total_delivered = len(simulation_vars.delivered_shipments)
 
                 print(
-                    f"{total_delivered} shipment are delivered from total {total_shipment} requests"
+                    f"{total_delivered} shipment are delivered from total \
+                    {total_shipment} requests"
                 )
                 undelivered = set(model_input.request["Demand_ID"]) - set(
                     simulation_vars.delivered_shipments
@@ -302,7 +320,8 @@ def model_train(config, model_input, statistics):
                 if current_episode % 5000 == 0:
                     print_event(
                         config.print_event_enabled,
-                        f"Q-table is saved as {config.q_name}_{current_episode}_eps.pkl",
+                        f"Q-table is saved as \
+                        {config.q_name}_{current_episode}_eps.pkl",
                     )
                     with open(
                         f"q_table/{config.q_name}_{current_episode}_eps.pkl", "wb"

@@ -8,7 +8,8 @@ def find_paths_recursive(
     current_services=None,
 ):
     """
-    Recursively find all paths from origin to destination from a list of service dictionaries.
+    Recursively find all paths from origin to destination from a list of service
+    dictionaries.
     """
     if current_services is None:
         current_services = []

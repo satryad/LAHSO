@@ -5,8 +5,6 @@ from collections import defaultdict
 import numpy as np
 import pandas as pd
 
-from lahso.config import Config
-
 # import from other python files
 from lahso.helper_functions import (
     get_first_sublist,
@@ -31,14 +29,14 @@ class ModelInput:
         network_train = pd.read_csv(config.data_path / config.network_train_fn)
         network_truck = pd.read_csv(config.data_path / config.network_truck_fn)
 
-        network_ref = network.set_index(["N"])
+        network.set_index(["N"])
         self.network_barge_ref = network_barge.set_index(["N"])
         self.network_train_ref = network_train.set_index(["N"])
         self.network_truck_ref = network_truck.set_index(["N"])
 
         # Create network dictionary and node list
         network_dict = {i + 1: terminal for i, terminal in enumerate(network["N"])}
-        reverse_dict = {terminal: id for id, terminal in network_dict.items()}
+        {terminal: id for id, terminal in network_dict.items()}
         self.node_list = network["N"].tolist()
 
         # Service schedule datasets for
@@ -139,7 +137,8 @@ class ModelInput:
             ["Service_ID", "Origin", "Destination"]
         ].astype("string")  # Added for truck schedule
 
-        # Crate a list for reference, and only consider the service disruption. Profile 6 is used as dummy
+        # Crate a list for reference, and only consider the service disruption.
+        #  Profile 6 is used as dummy
         d_list = [*self.s_disruption_profile["Profile"].tolist(), "Profile6"]
 
         # Add a new column 'Distance' to the fixed_vehicle_schedule

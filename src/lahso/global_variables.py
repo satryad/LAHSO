@@ -1,20 +1,18 @@
-from dataclasses import dataclass
-
-@dataclass
 class AggregateStatistics:
-    # Lists for observation throughout the multiple simulations
-    total_storage_cost_plot = []
-    total_travel_cost_plot = []
-    total_handling_cost_plot = []
-    total_shipment_delay_plot = []
-    total_late_plot = []
-    total_number_late_plot = []
-    total_rl_triggers = []
-    total_assigned_rl = []
-    undelivered_requests = []
-    total_reassign_plot = []
-    total_wait_plot = []
-    x = []
+    def __init__(self):
+        # Lists for observation throughout the multiple simulations
+        self.total_storage_cost_plot = []
+        self.total_travel_cost_plot = []
+        self.total_handling_cost_plot = []
+        self.total_shipment_delay_plot = []
+        self.total_late_plot = []
+        self.total_number_late_plot = []
+        self.total_rl_triggers = []
+        self.total_assigned_rl = []
+        self.undelivered_requests = []
+        self.total_reassign_plot = []
+        self.total_wait_plot = []
+        self.x = []
 
 
 class SimulationVars:
