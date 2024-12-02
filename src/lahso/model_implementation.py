@@ -31,7 +31,7 @@ def model_implementation(config, model_input, statistics):
     # Redirect print statements to a file
     if config.print_event_enabled:
         # Ignoring lint complaint about opening file in a context (with statement)
-        sys.stdout = open(r"csv_output\simulation_logs.txt", "w") # noqa: SIM115
+        sys.stdout = open(r"csv_output\simulation_logs.txt", "w")  # noqa: SIM115
 
     if config.random_seed:
         print_event(config.print_event_enabled, "Random seed is enabled")
