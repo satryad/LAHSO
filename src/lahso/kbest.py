@@ -1,3 +1,5 @@
+from collections import deque
+
 import pandas as pd
 
 from lahso.config import Config
@@ -77,6 +79,7 @@ def kbest(config):
         temp_demand["Demand_ID"]
         log_df = pd.DataFrame(all_log_entries)
         service_counter += 1
+        yield time
 
     print(
         "Optimization completed for all time steps. \
@@ -132,4 +135,4 @@ def kbest(config):
 
 def main():
     config = Config()
-    kbest(config)
+    deque(kbest(config), maxlen=0)

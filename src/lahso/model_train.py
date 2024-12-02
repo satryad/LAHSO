@@ -1,5 +1,6 @@
 import pickle
 import time
+from collections import deque
 
 import numpy as np
 import simpy as sim
@@ -330,8 +331,10 @@ def model_train(config, model_input, statistics):
             eps_end_time = time.time()  # To measure the runtime
             eps_time = eps_end_time - eps_start_time
             print(f"Episode runtime: {eps_time} seconds")
+            yield simulation
         except Exception as e:
             print(f"Error in simulation number {simulation + 1}: {e}")
+            yield simulation
 
     sim_end_time = time.time()  # To measure the runtime
     sim_time = sim_end_time - sim_start_time
@@ -342,4 +345,4 @@ def main():
     config = Config()
     model_input = ModelInput(config)
     statistics = AggregateStatistics()
-    model_train(config, model_input, statistics)
+    deque(model_train(config, model_input, statistics), maxlen=0)
