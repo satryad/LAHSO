@@ -1,21 +1,25 @@
-# Lists for observation throughout the multiple simulation
-total_storage_cost_plot = []
-total_travel_cost_plot = []
-total_handling_cost_plot = []
-total_shipment_delay_plot = []
-total_late_plot = []
-total_number_late_plot = []
-total_rl_triggers = []
-total_assigned_rl = []
-undelivered_requests = []
-total_reassign_plot = []
-total_wait_plot = []
-x = []
+import dataclass from dataclasses
+
+@dataclass
+class AggregateStatistics:
+    # Lists for observation throughout the multiple simulations
+    total_storage_cost_plot = []
+    total_travel_cost_plot = []
+    total_handling_cost_plot = []
+    total_shipment_delay_plot = []
+    total_late_plot = []
+    total_number_late_plot = []
+    total_rl_triggers = []
+    total_assigned_rl = []
+    undelivered_requests = []
+    total_reassign_plot = []
+    total_wait_plot = []
+    x = []
 
 
-class GlobalVars:
+class SimulationVars:
     def __init__(self, possible_paths_ref):
-        # Set Global Variables
+        # Set Simulation Variables
         self.possible_paths = possible_paths_ref.copy()
         self.announced_requests = []
         self.active_requests = []
@@ -56,7 +60,7 @@ class GlobalVars:
         self.reset(possible_paths_ref)
 
     def reset(self, possible_paths_ref):
-        # Reset Global Variables
+        # Reset Simulation Variables
         self.possible_paths = possible_paths_ref.copy()
         self.announced_requests = []
         self.active_requests = []

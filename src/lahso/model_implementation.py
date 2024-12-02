@@ -12,8 +12,8 @@ from lahso.policy_function import make_epsilon_greedy_policy
 from lahso.simulation_module import *
 
 
-def model_implementation(config, model_input):
-    global_vars = GlobalVars(model_input.possible_paths_ref)
+def model_implementation(config, model_input, statistics):
+    simulation_vars = SimulationVars(model_input.possible_paths_ref)
     sim_start_time = time.time()  # To measure the runtime
     env = sim.Environment()
 
@@ -49,23 +49,23 @@ def model_implementation(config, model_input):
     # ----- Run the Simulation ----- #
     for simulation in range(config.number_of_simulation):
         eps_start_time = time.time()
-        global_vars.reset(model_input.possible_paths_ref)
+        simulation_vars.reset(model_input.possible_paths_ref)
 
         # Set global variables that need simpy
-        global_vars.s_disruption_event = {
+        simulation_vars.s_disruption_event = {
             node: env.event()
             for node in (model_input.node_list + model_input.mode_list)
         }
-        global_vars.actual_carried_shipments = {
+        simulation_vars.actual_carried_shipments = {
             mode: 0 for mode in model_input.mode_list
         }
-        global_vars.actual_itinerary = {
+        simulation_vars.actual_itinerary = {
             req_id: [] for req_id in model_input.request_ids
         }
-        global_vars.wait_actions = {req_id: 0 for req_id in model_input.request_ids}
-        global_vars.reassign_actions = {req_id: 0 for req_id in model_input.request_ids}
-        global_vars.late_dict = {mode: [0, 0] for mode in model_input.mode_list}
-        global_vars.current_episode = last_episode + simulation
+        simulation_vars.wait_actions = {req_id: 0 for req_id in model_input.request_ids}
+        simulation_vars.reassign_actions = {req_id: 0 for req_id in model_input.request_ids}
+        simulation_vars.late_dict = {mode: [0, 0] for mode in model_input.mode_list}
+        simulation_vars.current_episode = last_episode + simulation
 
         current_episode = last_episode + simulation
 
@@ -93,14 +93,14 @@ def model_implementation(config, model_input):
                     costs,
                     config,
                     model_input,
-                    global_vars,
+                    simulation_vars,
                 )
                 env.process(mode_schedule_dict[mode].operate())
 
             # Initiate shipment requests
             shipment_dict = {}
             for req in model_input.request_list:
-                shipment = Shipment(env, req, config, model_input, global_vars)
+                shipment = Shipment(env, req, config, model_input, simulation_vars)
                 shipment_dict[req[0]] = shipment
 
             # initiate rl agent
@@ -114,7 +114,7 @@ def model_implementation(config, model_input):
                 policy,
                 config,
                 model_input,
-                global_vars,
+                simulation_vars,
             )
 
             # Initiate matching module
@@ -126,7 +126,7 @@ def model_implementation(config, model_input):
                 config.planning_interval,
                 config,
                 model_input,
-                global_vars,
+                simulation_vars,
             )
             env.process(planning.planning())
 
@@ -137,7 +137,7 @@ def model_implementation(config, model_input):
                 model_input.s_disruption_profile,
                 config,
                 model_input,
-                global_vars,
+                simulation_vars,
             )
             env.process(s_disruption.produce())
 
@@ -147,7 +147,7 @@ def model_implementation(config, model_input):
                 shipment_dict,
                 model_input.d_disruption_profile,
                 config,
-                global_vars,
+                simulation_vars,
             )
             env.process(d_disruption.produce())
 
@@ -160,7 +160,7 @@ def model_implementation(config, model_input):
                     planning,
                     config,
                     model_input,
-                    global_vars,
+                    simulation_vars,
                 )
             )
 
@@ -172,7 +172,7 @@ def model_implementation(config, model_input):
                     config.simulation_duration,
                     config.undelivered_penalty,
                     config,
-                    global_vars,
+                    simulation_vars,
                 )
             )
 
@@ -187,91 +187,91 @@ def model_implementation(config, model_input):
             total_wait_action = 0
             total_reassign_action = 0
             for rq in model_input.request_ids:
-                total_wait_action += global_vars.wait_actions[rq]
-                total_reassign_action += global_vars.reassign_actions[rq]
+                total_wait_action += simulation_vars.wait_actions[rq]
+                total_reassign_action += simulation_vars.reassign_actions[rq]
 
             # Store values for observation throughout multiple simulations
-            total_storage_cost_plot.append(global_vars.total_storage_cost)
-            total_travel_cost_plot.append(global_vars.total_travel_cost)
-            total_handling_cost_plot.append(global_vars.total_handling_cost)
-            total_shipment_delay_plot.append(global_vars.total_delay_penalty)
-            total_cost_plot.append(global_vars.total_cost)
-            total_reward_plot.append(global_vars.total_reward)
-            total_late_plot.append(global_vars.total_late_departure)
-            total_number_late_plot.append(global_vars.nr_late_departure)
-            total_rl_triggers.append(global_vars.rl_triggers)
-            total_assigned_rl.append(len(global_vars.rl_assignment))
-            total_wait_plot.append(total_wait_action)
-            total_reassign_plot.append(total_reassign_action)
+            statistics.total_storage_cost_plot.append(simulation_vars.total_storage_cost)
+            statistics.total_travel_cost_plot.append(simulation_vars.total_travel_cost)
+            statistics.total_handling_cost_plot.append(simulation_vars.total_handling_cost)
+            statistics.total_shipment_delay_plot.append(simulation_vars.total_delay_penalty)
+            total_cost_plot.append(simulation_vars.total_cost)
+            total_reward_plot.append(simulation_vars.total_reward)
+            statistics.total_late_plot.append(simulation_vars.total_late_departure)
+            statistics.total_number_late_plot.append(simulation_vars.nr_late_departure)
+            statistics.total_rl_triggers.append(simulation_vars.rl_triggers)
+            statistics.total_assigned_rl.append(len(simulation_vars.rl_assignment))
+            statistics.total_wait_plot.append(total_wait_action)
+            statistics.total_reassign_plot.append(total_reassign_action)
             total_shipment = len(model_input.request_list)
-            total_delivered = len(global_vars.delivered_shipments)
+            total_delivered = len(simulation_vars.delivered_shipments)
             u_req = total_shipment - total_delivered
-            undelivered_requests.append(u_req)
-            x.append(simulation + 1)
+            statistics.undelivered_requests.append(u_req)
+            statistics.x.append(simulation + 1)
             print(" ")
             print(f"Simulation number {current_episode + 1} ends")
 
             if config.print_output:
                 print(
                     "\nService disruptions: ",
-                    global_vars.s_disruption_triggers,
+                    simulation_vars.s_disruption_triggers,
                     " times",
                 )
                 print(
                     "\nOptimization module is triggred: ",
-                    global_vars.om_triggers,
+                    simulation_vars.om_triggers,
                     " times",
                 )
                 print(
                     "\nReinforcement learning is triggred: ",
-                    global_vars.rl_triggers,
+                    simulation_vars.rl_triggers,
                     " times",
                 )
                 print(
                     "\nTotal late departure: ",
-                    global_vars.total_late_departure,
+                    simulation_vars.total_late_departure,
                     " minutes",
                 )
                 print(
                     "Total number of late departure: ",
-                    global_vars.nr_late_departure,
+                    simulation_vars.nr_late_departure,
                     " times",
                 )
                 print(
                     "Average late departure: ",
-                    global_vars.total_late_departure / global_vars.nr_late_departure,
+                    simulation_vars.total_late_departure / simulation_vars.nr_late_departure,
                     " minutes",
                 )
                 print("\nTOTAL COSTS")
                 print("----------------------------------------")
-                print(f"Total storage cost: {global_vars.total_storage_cost:.2f} EUR")
-                print(f"Total handling cost: {global_vars.total_handling_cost:.2f} EUR")
-                print(f"Total travel cost: {global_vars.total_travel_cost:.2f} EUR")
-                print(f"Total delay penalty: {global_vars.total_delay_penalty:.2f} EUR")
-                print(f"Total cost: {global_vars.total_cost:.2f} EUR")
+                print(f"Total storage cost: {simulation_vars.total_storage_cost:.2f} EUR")
+                print(f"Total handling cost: {simulation_vars.total_handling_cost:.2f} EUR")
+                print(f"Total travel cost: {simulation_vars.total_travel_cost:.2f} EUR")
+                print(f"Total delay penalty: {simulation_vars.total_delay_penalty:.2f} EUR")
+                print(f"Total cost: {simulation_vars.total_cost:.2f} EUR")
                 print("----------------------------------------")
 
-                average_storage_time = np.mean(global_vars.storage_time_list)
+                average_storage_time = np.mean(simulation_vars.storage_time_list)
                 print("\nPERFORMANCE SUMMARY")
                 print("----------------------------------------")
                 print(
                     f"Average storage time: {average_storage_time / 60:.2f} hours/shipment"
                 )
                 print(
-                    f"Total storage time: {global_vars.total_storage_time / 60:.2f} hours"
+                    f"Total storage time: {simulation_vars.total_storage_time / 60:.2f} hours"
                 )
                 print(
-                    f"Total delay time: {global_vars.total_shipment_delay // 60:02d} hour(s) {global_vars.total_shipment_delay % 60:02d} minute(s)"
+                    f"Total delay time: {simulation_vars.total_shipment_delay // 60:02d} hour(s) {simulation_vars.total_shipment_delay % 60:02d} minute(s)"
                 )
                 print("----------------------------------------\n")
                 total_shipment = len(model_input.request_list)
-                total_delivered = len(global_vars.delivered_shipments)
+                total_delivered = len(simulation_vars.delivered_shipments)
 
                 print(
                     f"{total_delivered} shipment are delivered from total {total_shipment} requests"
                 )
                 undelivered = set(model_input.request["Demand_ID"]) - set(
-                    global_vars.delivered_shipments
+                    simulation_vars.delivered_shipments
                 )
                 print(f"List of undelivered shipment: {undelivered}")
 
@@ -280,12 +280,12 @@ def model_implementation(config, model_input):
                 if config.extract_shipment_output:
                     shipment_logs(
                         shipment_dict,
-                        global_vars.actual_itinerary,
-                        global_vars.actual_carried_shipments,
-                        global_vars.shipment_to_rl,
-                        global_vars.wait_actions,
-                        global_vars.reassign_actions,
-                        global_vars.late_dict,
+                        simulation_vars.actual_itinerary,
+                        simulation_vars.actual_carried_shipments,
+                        simulation_vars.shipment_to_rl,
+                        simulation_vars.wait_actions,
+                        simulation_vars.reassign_actions,
+                        simulation_vars.late_dict,
                         current_episode,
                         config.sd,
                         config.policy_name,
@@ -328,4 +328,5 @@ def model_implementation(config, model_input):
 def main():
     config = Config()
     model_input = ModelInput(config)
-    model_implementation(config, model_input)
+    statistics = AggregateStatistics()
+    model_implementation(config, model_input, statistics)
