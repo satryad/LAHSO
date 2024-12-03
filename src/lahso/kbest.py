@@ -9,7 +9,7 @@ from lahso.optimization_module import (
 )
 
 
-def kbest(config):
+def kbest(config, output_postfix=""):
     # Read datasets
     services = pd.read_csv(config.data_path / config.possible_paths_fn, index_col=None)
     original_services = services.copy()
@@ -130,9 +130,9 @@ def kbest(config):
     grouped = grouped.rename(
         columns={"Mode": "Solution_List", "Actual Announce Time": "Announce Time"}
     )
-    grouped.to_csv(config.data_path / rf"{config.request_fn}_kbest_test.csv")
+    grouped.to_csv(config.data_path / rf"{config.request_fn}_kbest{output_postfix}.csv")
 
 
 def main():
     config = Config()
-    deque(kbest(config), maxlen=0)
+    deque(kbest(config, output_postfix="_test"), maxlen=0)
