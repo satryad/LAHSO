@@ -21,7 +21,7 @@ class Config:
     # disruption set (def, S1, S2, S3, S4, S5) according to the last 2 character in the
     #  disruption file name
     sd: str = "Def"
-    demand_type: str = "kbest"  # 'kbest', 'planned', or 'default
+    demand_type: str = "kbest"  # 'kbest', 'planned', or 'default'
     solution_pool: int = (
         10  # number of itineraries to generate in the k-best (if necessary)
     )

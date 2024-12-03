@@ -25,6 +25,7 @@ def training_agent():
 
 def execute_simulation():
     time.sleep(5)
+    # dataframe available in the Python code
     return pd.DataFrame(
         np.array(
             [
@@ -122,13 +123,13 @@ def render_dataset_input_tab():
                 value=str(Path("Datasets/Mode Costs.csv").absolute()),
             )
             storage_cost_input = gr.Number(
-                label="Storage Cost", info="Euro/Container/Hour"
+                label="Storage Cost", info="in Euro/Container/Hour"
             )
             delay_penalty_input = gr.Number(
-                label="Delay Penalty", info="Euro/Container/Hour"
+                label="Delay Penalty", info="in Euro/Container/Hour"
             )
             undelivered_penalty_input = gr.Number(
-                label="Undelivered Penalty", info="Euro/Container"
+                label="Undelivered Penalty", info="in Euro/Container"
             )
             generate_possible_paths_tickbox = gr.Checkbox(
                 label="Generate Possible Paths", value=True
@@ -167,7 +168,6 @@ def training_agent_tabs():
         demand_disruptions,
         learning_rate,
         exploratory_rate,
-        q_table,
         no_of_simulations,
         simulation_durations,
         extract_q_table,
@@ -205,10 +205,9 @@ def training_agent_tabs():
             dataset_input_processing_status,
         ) = render_dataset_input_tab()
 
-        with (
-            gr.Tab("Simulation Settings", interactive=False) as simulation_settings_tab,
-            gr.Row(),
-        ):
+        with gr.Tab(
+            "Simulation Settings", interactive=False
+        ) as simulation_settings_tab, gr.Row():
             with gr.Column():
                 gr.Markdown("## Disruption Settings")
                 service_disruptions_input = gr.File(
@@ -219,36 +218,48 @@ def training_agent_tabs():
                 )
                 gr.Markdown("## Learning Agent Settings")
                 learning_rate_input = gr.Number(
-                    label="Learning Rate (alpha)", value=0.5
+                    label="Learning Rate", info="(alpha)", value=0.5
                 )
                 exploratory_rate_input = gr.Number(
-                    label="Exploratory Rate (epsilon)", value=0.95
-                )
-                q_table_input = gr.File(
-                    label="Q-Table name (for exporting Q-Table)",
-                    file_types=[".pkl"],
-                    type="filepath",
+                    label="Exploratory Rate", info="(epsilon)", value=0.95
                 )
             with gr.Column():
                 gr.Markdown("## Simulation Settings")
-                no_of_simulations_input = gr.Number(
-                    label="Number of Simulations", info="Times"
-                )
+                no_of_simulations_input = gr.Number(label="Number of Simulations")
                 simulation_durations_input = gr.Number(
-                    label="Simulation Durations", info="Minutes"
+                    label="Simulation Durations", info="in minutes"
                 )
                 extract_q_table_input = gr.Number(
-                    label="Extract Q-Table regularly (optional: 0 = off)",
-                    info="Episodes",
+                    label="Extract Q-Table regularly",
+                    info="in episodes (optional: 0 = off)",
+                )
+                gr.Checkbox(
+                    label="Continue from previous training?"
                 )
                 last_q_table_input = gr.File(
-                    label="Last Q-Table", file_types=[".pkl"], type="filepath"
+                    label="Last Q-Table",
+                    file_types=[".pkl"],
+                    type="filepath",
+                    height=100,
+                    value=str(
+                        Path("q_table/q_table_200_50000_eps_test.pkl").absolute()
+                    ),
                 )
                 last_total_cost_input = gr.File(
-                    label="Last Total Cost", file_types=[".pkl"], type="filepath"
+                    label="Last Total Cost",
+                    file_types=[".pkl"],
+                    type="filepath",
+                    height=100,
+                    value=str(Path("training/total_cost_200_test.pkl").absolute()),
                 )
                 last_reward_input = gr.File(
-                    label="Last Reward", file_types=[".pkl"], type="filepath"
+                    label="Last Reward",
+                    file_types=[".pkl"],
+                    type="filepath",
+                    height=100,
+                    value=str(
+                        Path("training/total_reward_200_test.pkl").absolute()
+                    ),
                 )
                 simulation_settings_next_button = gr.Button(value="Next Step")
 
@@ -275,7 +286,6 @@ def training_agent_tabs():
             demand_disruptions_input,
             learning_rate_input,
             exploratory_rate_input,
-            q_table_input,
             no_of_simulations_input,
             simulation_durations_input,
             extract_q_table_input,
@@ -344,10 +354,9 @@ def model_implementation_tabs():
             dataset_input_processing_status,
         ) = render_dataset_input_tab()
 
-        with (
-            gr.Tab("Simulation Settings", interactive=False) as simulation_settings_tab,
-            gr.Row(),
-        ):
+        with gr.Tab(
+            "Simulation Settings", interactive=False
+        ) as simulation_settings_tab, gr.Row():
             with gr.Column():
                 gr.Markdown("## Disruption Settings")
                 service_disruptions_input = gr.File(
@@ -357,19 +366,24 @@ def model_implementation_tabs():
                     label="Demand Disruptions (optional)", file_types=[".csv"]
                 )
                 gr.Markdown("## Learning Agent Settings")
-                policy_input = gr.Dropdown(label="Policy", choices=["Greedy"])
+                policy_input = gr.Dropdown(
+                    label="Policy",
+                    choices=[
+                        ("Greedy", "gp"),
+                        ("Always Wait", "aw"),
+                        ("Always Reassign", "ar"),
+                    ],
+                )
                 learning_agent_input = gr.File(
                     label="Learning Agent", file_types=[".pkl"]
                 )
             with gr.Column():
                 gr.Markdown("## Simulation Settings")
                 no_of_simulations_input = gr.Number(
-                    label="Number of Simulations", info="Times", value="20"
+                    label="Number of Simulations", value="20"
                 )
                 simulation_durations_per_episode_input = gr.Number(
-                    label="Simulation Durations/Episode",
-                    info="Minutes",
-                    value="50400",
+                    label="Simulation Durations/Episode", info="in days", value="42"
                 )
                 simulation_settings_next_button = gr.Button(value="Next Step")
                 simulation_settings_processing_status = gr.Label(visible=False)
@@ -450,22 +464,47 @@ def model_implementation_tabs():
 def results_comparison_tabs():
     with gr.Blocks() as tabs:
         with gr.Tab("Dataset Input"):
-            dataset_input_results_comparison_input = gr.Textbox(label="Dataset Input")
-            dataset_input_results_comparison_output = gr.Textbox(label="Output")
-            dataset_input_results_comparison_input.change(
-                dataset_input_results_comparison,
-                inputs=dataset_input_results_comparison_input,
-                outputs=dataset_input_results_comparison_output,
-            )
+            gr.Markdown("## Output Files")
+            with gr.Row():
+                with gr.Column():
+                    gr.File(
+                        show_label=False,
+                        file_types=[".csv"],
+                        type="filepath",
+                        height=100,
+                    )
+                with gr.Column():
+                    gr.Textbox(
+                        label="Label In Plot",
+                        value="Greedy Policy",
+                    )
+            with gr.Row():
+                with gr.Column():
+                    gr.File(
+                        show_label=False,
+                        file_types=[".csv"],
+                        type="filepath",
+                        height=100,
+                    )
+                with gr.Column():
+                    gr.Textbox(
+                        label="Label In Plot",
+                        value="Always Wait",
+                    )
 
-        with gr.Tab("Policy Comparison"):
-            policy_comparison_input = gr.Textbox(label="Policy Data")
-            policy_comparison_output = gr.Textbox(label="Output")
-            policy_comparison_input.change(
-                policy_comparison_results_comparison,
-                inputs=policy_comparison_input,
-                outputs=policy_comparison_output,
-            )
+        with gr.Tab("Policy Comparison"), gr.Row():
+            with gr.Column():
+                gr.Markdown("## Comparison For Each Cost Parameter")
+                with gr.Row():
+                    gr.Image(interactive=False, show_label=False)
+                    gr.Image(interactive=False, show_label=False)
+                with gr.Row():
+                    gr.Image(interactive=False, show_label=False)
+                    gr.Image(interactive=False, show_label=False)
+            with gr.Column():
+                gr.Markdown("## Total Cost For Each Simulation Episode")
+                gr.Image(interactive=False, show_label=False)
+
 
     return tabs
 
@@ -478,17 +517,8 @@ def main():
     results_comparison = results_comparison_tabs()
 
     # Main Gradio Interface
-    with gr.Blocks() as app:
-        # File input above the tabs
-        load_data_from_export_input = gr.File(label="Load Data from Export")
-        data_from_export_file = gr.State()
-        load_data_from_export_input.change(
-            load_data,
-            inputs=load_data_from_export_input,
-            outputs=[data_from_export_file],
-        )
-
-        with gr.Tab("Training an Agent"):
+    with gr.Blocks(theme=gr.themes.Soft()) as app:
+        with gr.Tab("Training An Agent"):
             training_agent.render()
 
         with gr.Tab("Model Implementation"):
