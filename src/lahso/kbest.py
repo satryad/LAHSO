@@ -11,11 +11,9 @@ from lahso.optimization_module import (
 
 def kbest(config, output_postfix=""):
     # Read datasets
-    services = pd.read_csv(config.data_path / config.possible_paths_fn, index_col=None)
+    services = pd.read_csv(config.possible_paths_path, index_col=None)
     original_services = services.copy()
-    demand = pd.read_csv(
-        config.data_path / f"{config.request_fn}_default.csv", index_col=None
-    )
+    demand = pd.read_csv(config.demand_default_path, index_col=None)
     network = pd.read_csv(config.data_path / config.network_fn)
 
     # Data pre-processing
@@ -130,7 +128,11 @@ def kbest(config, output_postfix=""):
     grouped = grouped.rename(
         columns={"Mode": "Solution_List", "Actual Announce Time": "Announce Time"}
     )
-    grouped.to_csv(config.data_path / rf"{config.request_fn}_kbest{output_postfix}.csv")
+    grouped.to_csv(
+        config.demand_kbest_path.with_stem(
+            f"{config.demand_kbest_path.stem}{output_postfix}"
+        )
+    )
 
 
 def main():

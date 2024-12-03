@@ -205,9 +205,10 @@ def training_agent_tabs():
             dataset_input_processing_status,
         ) = render_dataset_input_tab()
 
-        with gr.Tab(
-            "Simulation Settings", interactive=False
-        ) as simulation_settings_tab, gr.Row():
+        with (
+            gr.Tab("Simulation Settings", interactive=False) as simulation_settings_tab,
+            gr.Row(),
+        ):
             with gr.Column():
                 gr.Markdown("## Disruption Settings")
                 service_disruptions_input = gr.File(
@@ -233,9 +234,7 @@ def training_agent_tabs():
                     label="Extract Q-Table regularly",
                     info="in episodes (optional: 0 = off)",
                 )
-                gr.Checkbox(
-                    label="Continue from previous training?"
-                )
+                gr.Checkbox(label="Continue from previous training?")
                 last_q_table_input = gr.File(
                     label="Last Q-Table",
                     file_types=[".pkl"],
@@ -257,9 +256,7 @@ def training_agent_tabs():
                     file_types=[".pkl"],
                     type="filepath",
                     height=100,
-                    value=str(
-                        Path("training/total_reward_200_test.pkl").absolute()
-                    ),
+                    value=str(Path("training/total_reward_200_test.pkl").absolute()),
                 )
                 simulation_settings_next_button = gr.Button(value="Next Step")
 
@@ -354,9 +351,10 @@ def model_implementation_tabs():
             dataset_input_processing_status,
         ) = render_dataset_input_tab()
 
-        with gr.Tab(
-            "Simulation Settings", interactive=False
-        ) as simulation_settings_tab, gr.Row():
+        with (
+            gr.Tab("Simulation Settings", interactive=False) as simulation_settings_tab,
+            gr.Row(),
+        ):
             with gr.Column():
                 gr.Markdown("## Disruption Settings")
                 service_disruptions_input = gr.File(
@@ -504,7 +502,6 @@ def results_comparison_tabs():
             with gr.Column():
                 gr.Markdown("## Total Cost For Each Simulation Episode")
                 gr.Image(interactive=False, show_label=False)
-
 
     return tabs
 

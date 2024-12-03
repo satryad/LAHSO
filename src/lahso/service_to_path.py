@@ -1,7 +1,6 @@
 import pandas as pd
 
 from lahso.config import Config
-from lahso.model_input import ModelInput
 from lahso.service_to_path_helper import (
     add_loading_unloading_costs,
     calculate_costs_and_emissions,
@@ -21,11 +20,11 @@ from lahso.service_to_path_helper import (
 )
 
 
-def service_to_path(config, output_postfix = ""):
+def service_to_path(config, output_postfix=""):
     # Load the CSV file into a DataFrame
-    data = pd.read_csv(config.data_path / config.fixed_service_schedule_fn)
-    truck_df = pd.read_csv(config.data_path / config.truck_schedule_fn)
-    mode_costs = pd.read_csv(config.data_path / config.mode_costs_fn)
+    data = pd.read_csv(config.fixed_service_schedule_path)
+    truck_df = pd.read_csv(config.truck_schedule_path)
+    mode_costs = pd.read_csv(config.mode_costs_path)
 
     # Constants
     LOADING_TIME = config.loading_time_window / 60  # Loading time in hours
@@ -336,7 +335,11 @@ def service_to_path(config, output_postfix = ""):
         TRANSSHIPMENT_COST_TRUCK,
     )
 
-    new_df.to_csv(config.data_path / f"{config.possible_paths_fn}{output_postfix}")
+    new_df.to_csv(
+        config.possible_paths_path.with_stem(
+            f"{config.possible_paths_path.stem}{output_postfix}"
+        )
+    )
 
 
 def main():

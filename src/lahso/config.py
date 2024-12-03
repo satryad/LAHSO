@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 
@@ -22,9 +22,8 @@ class Config:
     #  disruption file name
     sd: str = "Def"
     demand_type: str = "kbest"  # 'kbest', 'planned', or 'default'
-    solution_pool: int = (
-        10  # number of itineraries to generate in the k-best (if necessary)
-    )
+    # number of itineraries to generate in the k-best (if necessary)
+    solution_pool: int = 10
 
     # paths
     data_path: Path = Path("Datasets")
@@ -46,15 +45,8 @@ class Config:
     request_fn: str = "shipment_requests_200_3w"
 
     ## Disruptions
-    if apply_s_disruption:
-        s_disruption_fn: str = f"Service_Disruption_Profile_{sd}.csv"
-    else:
-        s_disruption_fn: str = "No_Service_Disruption_Profile.csv"
-
-    if apply_d_disruption:
-        d_disruption_fn: str = "Request_Disruption_Profile.csv"
-    else:
-        d_disruption_fn: str = "No_Request_Disruption_Profile.csv"
+    s_disruption_fn: str = field(init=False)
+    d_disruption_fn: str = field(init=False)
 
     ## Possible paths, used for path based optimization
     possible_paths_fn: str = "Possible_Paths.csv"
@@ -69,8 +61,8 @@ class Config:
     smoothing: int = 400  # for training chart
 
     # Training Path
-    tc_path: Path = Path(f"training/{tc_name}")
-    tr_path: Path = Path(f"training/{tr_name}")
+    tc_path: Path = field(init=False)
+    tr_path: Path = field(init=False)
 
     # Dataset for path user
     # path = ....
@@ -86,7 +78,7 @@ class Config:
     eg = epsilon greedy policy
     """
     policy_name: str = "eg"
-    q_table_path: Path = Path(f"q_table/{q_name}_eps_test.pkl")
+    q_table_path: Path = field(init=False)
 
     # Cost Parameters (Manually input)
     storage_cost: int = 1  # EUR/TEU/hour
@@ -108,3 +100,55 @@ class Config:
     epsilon: float = 0.05  # for epsilon greedy (training)
     alpha: float = 0.5  # learning rate
     gamma: float = 0.9  # reward discount factor
+
+    possible_paths_path: Path | None = None
+
+    fixed_service_schedule_path: Path | None = None
+    truck_schedule_path: Path | None = None
+    mode_costs_path: Path | None = None
+
+    demand_default_path: Path | None = None
+    demand_planned_path: Path | None = None
+    demand_kbest_path: Path | None = None
+
+    s_disruption_path: Path | None = None
+    d_disruption_path: Path | None = None
+
+    def __post_init__(self):
+        self.s_disruption_fn = (
+            f"Service_Disruption_Profile_{self.sd}.csv"
+            if self.apply_s_disruption
+            else "No_Service_Disruption_Profile.csv"
+        )
+        self.d_disruption_fn = (
+            "Request_Disruption_Profile.csv"
+            if self.apply_d_disruption
+            else "No_Request_Disruption_Profile.csv"
+        )
+        self.tc_path = Path(f"training/{self.tc_name}")
+        self.tr_path = Path(f"training/{self.tr_name}")
+        self.q_table_path = Path(f"q_table/{self.q_name}_eps_test.pkl")
+
+        if self.possible_paths_path is None:
+            self.possible_paths_path = self.data_path / self.possible_paths_fn
+
+        if self.fixed_service_schedule_path is None:
+            self.fixed_service_schedule_path = (
+                self.data_path / self.fixed_service_schedule_fn
+            )
+        if self.truck_schedule_path is None:
+            self.truck_schedule_path = self.data_path / self.truck_schedule_fn
+        if self.mode_costs_path is None:
+            self.mode_costs_path = self.data_path / self.mode_costs_fn
+
+        if self.demand_default_path is None:
+            self.demand_default_path = self.data_path / f"{self.request_fn}_default.csv"
+        if self.demand_planned_path is None:
+            self.demand_planned_path = self.data_path / f"{self.request_fn}_planned.csv"
+        if self.demand_kbest_path is None:
+            self.demand_kbest_path = self.data_path / f"{self.request_fn}_kbest.csv"
+
+        if self.s_disruption_path is None:
+            self.s_disruption_path = self.disruption_path / self.s_disruption_fn
+        if self.d_disruption_path is None:
+            self.d_disruption_path = self.disruption_path / self.d_disruption_fn
