@@ -24,7 +24,7 @@ class ModelInput:
     def __init__(self, config):
         # Datasets input
         # Network dataset --> distance between terminals for each mode type
-        network = pd.read_csv(config.data_path / config.network_fn)
+        network = pd.read_csv(config.network_path)
         network_barge = pd.read_csv(config.data_path / config.network_barge_fn)
         network_train = pd.read_csv(config.data_path / config.network_train_fn)
         network_truck = pd.read_csv(config.data_path / config.network_truck_fn)

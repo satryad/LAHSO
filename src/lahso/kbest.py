@@ -14,7 +14,7 @@ def kbest(config, output_postfix=""):
     services = pd.read_csv(config.possible_paths_path, index_col=None)
     original_services = services.copy()
     demand = pd.read_csv(config.demand_default_path, index_col=None)
-    network = pd.read_csv(config.data_path / config.network_fn)
+    network = pd.read_csv(config.network_path)
 
     # Data pre-processing
     network_dict = {i + 1: terminal for i, terminal in enumerate(network["N"])}

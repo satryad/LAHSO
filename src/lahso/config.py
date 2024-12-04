@@ -24,6 +24,8 @@ class Config:
     demand_type: str = "kbest"  # 'kbest', 'planned', or 'default'
     # number of itineraries to generate in the k-best (if necessary)
     solution_pool: int = 10
+    # Extract Q-Table every this many episodes, turn off with value 0
+    extract_q_table: int = 5000
 
     # paths
     data_path: Path = Path("Datasets")
@@ -101,6 +103,8 @@ class Config:
     alpha: float = 0.5  # learning rate
     gamma: float = 0.9  # reward discount factor
 
+    network_path: Path | None = None
+
     possible_paths_path: Path | None = None
 
     fixed_service_schedule_path: Path | None = None
@@ -128,6 +132,9 @@ class Config:
         self.tc_path = Path(f"training/{self.tc_name}")
         self.tr_path = Path(f"training/{self.tr_name}")
         self.q_table_path = Path(f"q_table/{self.q_name}_eps_test.pkl")
+
+        if self.network_path is None:
+            self.network_path = self.data_path / self.network_fn
 
         if self.possible_paths_path is None:
             self.possible_paths_path = self.data_path / self.possible_paths_fn

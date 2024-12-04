@@ -318,7 +318,10 @@ def model_train(config, model_input, statistics):
                 with open(config.q_table_path, "wb") as f:
                     pickle.dump(dict(model_input.Q), f)
                     print(f"Total q_table is exported as {config.q_name}")
-                if current_episode % 5000 == 0:
+                if (
+                    config.extract_q_table > 0
+                    and current_episode % config.extract_q_table == 0
+                ):
                     print_event(
                         config.print_event_enabled,
                         f"Q-table is saved as \
