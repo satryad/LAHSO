@@ -1,9 +1,6 @@
-import sys
 import time
-from collections import deque
 
 import numpy as np
-import pandas as pd
 import simpy as sim
 
 from lahso.config import Config
@@ -24,15 +21,17 @@ from lahso.simulation_module import (
 )
 
 
-def model_implementation(config, model_input, statistics = AggregateStatistics()):
+def model_implementation(config, model_input):
+    statistics = AggregateStatistics()
+
     simulation_vars = SimulationVars(model_input.possible_paths_ref)
     sim_start_time = time.time()  # To measure the runtime
     env = sim.Environment()
 
     # Redirect print statements to a file
-    if config.print_event_enabled:
-        # Ignoring lint complaint about opening file in a context (with statement)
-        sys.stdout = open(r"csv_output\simulation_logs.txt", "w")  # noqa: SIM115
+    # if config.print_event_enabled:
+    #     # Ignoring lint complaint about opening file in a context (with statement)
+    #     sys.stdout = open(Path("csv_output") / "simulation_logs.txt", "w")
 
     if config.random_seed:
         print_event(config.print_event_enabled, "Random seed is enabled")
@@ -353,10 +352,10 @@ def model_implementation(config, model_input, statistics = AggregateStatistics()
     if config.extract_shipment_output:
         output.to_csv(config.output_path, index=False)
 
-    return statistics.dataframe(total_cost_plot, total_reward_plot)
+    return output
 
 
 def main():
     config = Config(extract_shipment_output=True)
     model_input = ModelInput(config)
-    deque(model_implementation(config, model_input), maxlen=0)
+    model_implementation(config, model_input)

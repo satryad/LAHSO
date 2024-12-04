@@ -1,14 +1,15 @@
-import gradio as gr
-import pandas as pd
-import numpy as np
-from pathlib import Path
 import time
-from lahso.service_to_path import service_to_path
-from lahso.kbest import kbest
+from pathlib import Path
+
+import gradio as gr
+import numpy as np
+import pandas as pd
+
 from lahso.config import Config
-from lahso.model_input import ModelInput
+from lahso.kbest import kbest
 from lahso.model_implementation import model_implementation
-from lahso.model_train import model_train
+from lahso.model_input import ModelInput
+from lahso.service_to_path import service_to_path
 
 
 # Dummy functions for components
@@ -70,21 +71,29 @@ def dataset_input_next(
     provide_k_best,
 ):
     if intermodal_network is None:
-        raise gr.Error("No Intermodal Network file selected")
+        msg = "No Intermodal Network file selected"
+        raise gr.Error(msg)
     if fixed_schedule_service is None:
-        raise gr.Error("No Fixed Schedule Service file selected")
+        msg = "No Fixed Schedule Service file selected"
+        raise gr.Error(msg)
     if truck_service is None:
-        raise gr.Error("No Truck Service file selected")
+        msg = "No Truck Service file selected"
+        raise gr.Error(msg)
     if truck_service is None:
-        raise gr.Error("No Demand file selected")
+        msg = "No Demand file selected"
+        raise gr.Error(msg)
     if mode_related_costs is None:
-        raise gr.Error("No Mode Related Costs file selected")
+        msg = "No Mode Related Costs file selected"
+        raise gr.Error(msg)
     if storage_cost < 0:
-        raise gr.Error("Storage Cost should be non-negative")
+        msg = "Storage Cost should be non-negative"
+        raise gr.Error(msg)
     if delay_penalty < 0:
-        raise gr.Error("Delay Penalty should be non-negative")
+        msg = "Delay Penalty should be non-negative"
+        raise gr.Error(msg)
     if undelivered_penalty < 0:
-        raise gr.Error("Undelivered Penalty should be non-negative")
+        msg = "Undelivered Penalty should be non-negative"
+        raise gr.Error(msg)
     return (
         gr.Label(label="Processing Status", visible=True),
         gr.Button(interactive=False),
@@ -233,25 +242,35 @@ def training_agent_tabs():
         config,
     ):
         if service_disruptions is None:
-            raise gr.Error("No Service Disruptions file selected")
+            msg = "No Service Disruptions file selected"
+            raise gr.Error(msg)
         if demand_disruptions is None:
-            raise gr.Error("No Demand Disruptions file selected")
+            msg = "No Demand Disruptions file selected"
+            raise gr.Error(msg)
         if learning_rate <= 0:
-            raise gr.Error("Learning Rate should be positive")
+            msg = "Learning Rate should be positive"
+            raise gr.Error(msg)
         if exploratory_rate <= 0:
-            raise gr.Error("Exploratory Rate should be positive")
+            msg = "Exploratory Rate should be positive"
+            raise gr.Error(msg)
         if no_of_simulations <= 0:
-            raise gr.Error("Number of Simulations should be positive")
+            msg = "Number of Simulations should be positive"
+            raise gr.Error(msg)
         if simulation_durations < 0:
-            raise gr.Error("Simulation Durations should be non-negative")
+            msg = "Simulation Durations should be non-negative"
+            raise gr.Error(msg)
         if extract_q_table < 0:
-            raise gr.Error("Extract Q Table should be positive")
+            msg = "Extract Q Table should be positive"
+            raise gr.Error(msg)
         if last_q_table is None:
-            raise gr.Error("No Q-Table file selected")
+            msg = "No Q-Table file selected"
+            raise gr.Error(msg)
         if last_total_cost is None:
-            raise gr.Error("No Last Total Cost file selected")
+            msg = "No Last Total Cost file selected"
+            raise gr.Error(msg)
         if last_reward is None:
-            raise gr.Error("No Last Reward file selected")
+            msg = "No Last Reward file selected"
+            raise gr.Error(msg)
 
         config.service_disruptions = Path(service_disruptions)
         config.demand_disruptions = Path(demand_disruptions)
@@ -478,13 +497,17 @@ def model_implementation_tabs():
         config,
     ):
         if service_disruptions is None:
-            raise gr.Error("No Service Disruptions file selected")
+            msg = "No Service Disruptions file selected"
+            raise gr.Error(msg)
         if demand_disruptions is None:
-            raise gr.Error("No Demand Disruptions file selected")
+            msg = "No Demand Disruptions file selected"
+            raise gr.Error(msg)
         if no_of_simulations <= 0:
-            raise gr.Error("Number of Simulations should be positive")
+            msg = "Number of Simulations should be positive"
+            raise gr.Error(msg)
         if simulation_durations_per_episode < 0:
-            raise gr.Error("Simulation Durations should be non-negative")
+            msg = "Simulation Durations should be non-negative"
+            raise gr.Error(msg)
 
         config.service_disruptions = Path(service_disruptions)
         config.demand_disruptions = Path(demand_disruptions)

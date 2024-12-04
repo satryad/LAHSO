@@ -128,6 +128,7 @@ exclude = ["*.ipynb"]#, "src/lahso/ui.py"]
 ]
 "src/lahso/ui.py" = [
     "ARG001", # Unused function argument is expected while prototyping
+    "F841",   # Unused local variable is expected while prototyping
     "SIM117", # Nested with statements are not combined for clarity, corresponds better with UI output
 ]
 

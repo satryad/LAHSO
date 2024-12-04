@@ -22,7 +22,9 @@ from lahso.simulation_module import (
 )
 
 
-def model_train(config, model_input, statistics = AggregateStatistics()):
+def model_train(config, model_input):
+    statistics = AggregateStatistics()
+
     simulation_vars = SimulationVars(model_input.possible_paths_ref)
     sim_start_time = time.time()  # To measure the runtime
     env = sim.Environment()
