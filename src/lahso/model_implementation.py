@@ -24,7 +24,7 @@ from lahso.simulation_module import (
 )
 
 
-def model_implementation(config, model_input, statistics):
+def model_implementation(config, model_input, statistics = AggregateStatistics()):
     simulation_vars = SimulationVars(model_input.possible_paths_ref)
     sim_start_time = time.time()  # To measure the runtime
     env = sim.Environment()
@@ -339,40 +339,24 @@ def model_implementation(config, model_input, statistics):
             eps_end_time = time.time()  # To measure the runtime
             eps_time = eps_end_time - eps_start_time
             print(f"Episode runtime: {eps_time} seconds")
-            yield simulation
+            # yield statistics.dataframe(total_cost_plot, total_reward_plot)
         except Exception as e:
             print(f"Error in simulation number {simulation + 1}: {e}")
-            yield simulation
+            # yield f"Error in simulation number {simulation + 1}: {e}"
 
     sim_end_time = time.time()  # To measure the runtime
     sim_time = sim_end_time - sim_start_time
     print(f"Simulation time: {sim_time} seconds")
 
     # Create output dataframe
-    output = pd.DataFrame(
-        {
-            "Episode": statistics.x,
-            "Total Storage Cost": statistics.total_storage_cost_plot,
-            "Total Travel Cost": statistics.total_travel_cost_plot,
-            "Total Handling Cost": statistics.total_handling_cost_plot,
-            "Total Delay Penalty": statistics.total_shipment_delay_plot,
-            "Total Cost": total_cost_plot,
-            "Total Reward": total_reward_plot,
-            "Total Late Departure": statistics.total_late_plot,
-            "Number of Late Departure": statistics.total_number_late_plot,
-            "RL Triggers": statistics.total_rl_triggers,
-            "Shipment to RL": statistics.total_assigned_rl,
-            "Undelivered Requests": statistics.undelivered_requests,
-            "Wait Actions": statistics.total_wait_plot,
-            "Reassign Actions": statistics.total_reassign_plot,
-        }
-    )
+    output = statistics.dataframe(total_cost_plot, total_reward_plot)
     if config.extract_shipment_output:
         output.to_csv(config.output_path, index=False)
 
+    return statistics.dataframe(total_cost_plot, total_reward_plot)
+
 
 def main():
-    config = Config()
+    config = Config(extract_shipment_output=True)
     model_input = ModelInput(config)
-    statistics = AggregateStatistics()
-    deque(model_implementation(config, model_input, statistics), maxlen=0)
+    deque(model_implementation(config, model_input), maxlen=0)

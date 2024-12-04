@@ -7,6 +7,8 @@ from lahso.service_to_path import service_to_path
 from lahso.kbest import kbest
 from lahso.config import Config
 from lahso.model_input import ModelInput
+from lahso.model_implementation import model_implementation
+from lahso.model_train import model_train
 
 
 # Dummy functions for components
@@ -39,7 +41,7 @@ def execute_simulation():
                 ["C20", 438000],
             ]
         ),
-        columns=["Sample Case", "Total Costs"],
+        columns=["Sample Case", "Total Cost"],
     )
 
 
@@ -495,7 +497,7 @@ def model_implementation_tabs():
             gr.Button("Resubmit"),
             gr.Tab(interactive=True),
             config,
-            model_input,
+            ModelInput(config),
         )
 
     with gr.Blocks() as tabs:
@@ -591,11 +593,13 @@ def model_implementation_tabs():
             with gr.Row():
                 with gr.Column():
                     gr.Markdown("## Flow Distribution")
-                    # gr.Image(value="")
+                    flow_distribution_image = gr.Image(
+                        interactive=False, show_label=False
+                    )
                 with gr.Column():
                     gr.Markdown("## Total Cost For Each Simulation Episode")
                     execute_simulation_barplot = gr.BarPlot(
-                        pd.DataFrame(), x="Sample Case", y="Total Costs"
+                        pd.DataFrame(), x="Sample Case", y="Total Cost"
                     )
 
         simulation_settings_next_button.click(
@@ -617,17 +621,24 @@ def model_implementation_tabs():
             ],
         )
 
-        def populate_barplot():
-            data = execute_simulation()
-            cost_min = data["Total Costs"].min()
-            cost_max = data["Total Costs"].max()
+        def populate_visualisations(config, model_input):
+            data = model_implementation(config, model_input)
+            print(data)
+            cost_min = int(data["Total Cost"].min())
+            cost_max = int(data["Total Cost"].max())
             cost_ten_percent = (cost_max - cost_min) / 10.0
-            return gr.BarPlot(
-                data, y_lim=[cost_min - cost_ten_percent, cost_max + cost_ten_percent]
-            )
+            return [
+                gr.Image(),
+                gr.BarPlot(
+                    data,
+                    y_lim=[cost_min - cost_ten_percent, cost_max + cost_ten_percent],
+                ),
+            ]
 
         execute_simulation_tab.select(
-            populate_barplot, inputs=[], outputs=[execute_simulation_barplot]
+            populate_visualisations,
+            inputs=[config, model_input],
+            outputs=[flow_distribution_image, execute_simulation_barplot],
         )
 
     return tabs

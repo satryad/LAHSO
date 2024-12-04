@@ -1,3 +1,5 @@
+import pandas as pd
+
 class AggregateStatistics:
     def __init__(self):
         # Lists for observation throughout the multiple simulations
@@ -13,6 +15,26 @@ class AggregateStatistics:
         self.total_reassign_plot = []
         self.total_wait_plot = []
         self.x = []
+
+    def dataframe(self, total_cost_plot, total_reward_plot):
+        return pd.DataFrame(
+            {
+                "Episode": self.x,
+                "Total Storage Cost": self.total_storage_cost_plot,
+                "Total Travel Cost": self.total_travel_cost_plot,
+                "Total Handling Cost": self.total_handling_cost_plot,
+                "Total Delay Penalty": self.total_shipment_delay_plot,
+                "Total Cost": total_cost_plot,
+                "Total Reward": total_reward_plot,
+                "Total Late Departure": self.total_late_plot,
+                "Number of Late Departure": self.total_number_late_plot,
+                "RL Triggers": self.total_rl_triggers,
+                "Shipment to RL": self.total_assigned_rl,
+                "Undelivered Requests": self.undelivered_requests,
+                "Wait Actions": self.total_wait_plot,
+                "Reassign Actions": self.total_reassign_plot,
+            }
+        )
 
 
 class SimulationVars:

@@ -22,7 +22,7 @@ from lahso.simulation_module import (
 )
 
 
-def model_train(config, model_input, statistics):
+def model_train(config, model_input, statistics = AggregateStatistics()):
     simulation_vars = SimulationVars(model_input.possible_paths_ref)
     sim_start_time = time.time()  # To measure the runtime
     env = sim.Environment()
@@ -334,10 +334,10 @@ def model_train(config, model_input, statistics):
             eps_end_time = time.time()  # To measure the runtime
             eps_time = eps_end_time - eps_start_time
             print(f"Episode runtime: {eps_time} seconds")
-            yield simulation
+            yield statistics.dataframe(total_cost_plot, total_reward_plot)
         except Exception as e:
             print(f"Error in simulation number {simulation + 1}: {e}")
-            yield simulation
+            yield f"Error in simulation number {simulation + 1}: {e}"
 
     sim_end_time = time.time()  # To measure the runtime
     sim_time = sim_end_time - sim_start_time
@@ -347,5 +347,4 @@ def model_train(config, model_input, statistics):
 def main():
     config = Config()
     model_input = ModelInput(config)
-    statistics = AggregateStatistics()
-    deque(model_train(config, model_input, statistics), maxlen=0)
+    deque(model_train(config, model_input), maxlen=0)
