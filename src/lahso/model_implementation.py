@@ -28,7 +28,7 @@ def model_implementation(config, model_input):
     sim_start_time = time.time()  # To measure the runtime
     env = sim.Environment()
 
-    # Redirect print statements to a file
+    # # Redirect print statements to a file
     # if config.print_event_enabled:
     #     # Ignoring lint complaint about opening file in a context (with statement)
     #     sys.stdout = open(Path("csv_output") / "simulation_logs.txt", "w")
@@ -267,12 +267,13 @@ def model_implementation(config, model_input):
                     simulation_vars.nr_late_departure,
                     " times",
                 )
-                print(
-                    "Average late departure: ",
+                average_late_departure = (
                     simulation_vars.total_late_departure
-                    / simulation_vars.nr_late_departure,
-                    " minutes",
+                    / simulation_vars.nr_late_departure
+                    if simulation_vars.nr_late_departure
+                    else 0
                 )
+                print("Average late departure: ", average_late_departure, " minutes")
                 print("\nTOTAL COSTS")
                 print("----------------------------------------")
                 print(
@@ -338,10 +339,10 @@ def model_implementation(config, model_input):
             eps_end_time = time.time()  # To measure the runtime
             eps_time = eps_end_time - eps_start_time
             print(f"Episode runtime: {eps_time} seconds")
-            # yield statistics.dataframe(total_cost_plot, total_reward_plot)
+            yield statistics.dataframe(total_cost_plot, total_reward_plot)
         except Exception as e:
             print(f"Error in simulation number {simulation + 1}: {e}")
-            # yield f"Error in simulation number {simulation + 1}: {e}"
+            yield None
 
     sim_end_time = time.time()  # To measure the runtime
     sim_time = sim_end_time - sim_start_time
@@ -352,7 +353,7 @@ def model_implementation(config, model_input):
     if config.extract_shipment_output:
         output.to_csv(config.output_path, index=False)
 
-    return output
+    yield output
 
 
 def main():

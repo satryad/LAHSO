@@ -339,11 +339,13 @@ def model_train(config, model_input):
             yield statistics.dataframe(total_cost_plot, total_reward_plot)
         except Exception as e:
             print(f"Error in simulation number {simulation + 1}: {e}")
-            yield f"Error in simulation number {simulation + 1}: {e}"
+            yield None
 
     sim_end_time = time.time()  # To measure the runtime
     sim_time = sim_end_time - sim_start_time
     print(f"Simulation time: {sim_time} seconds")
+
+    yield statistics.dataframe(total_cost_plot, total_reward_plot)
 
 
 def main():
