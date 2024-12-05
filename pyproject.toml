@@ -126,7 +126,7 @@ exclude = ["*.ipynb"]#, "src/lahso/ui.py"]
     "S101",   # Use of assert is detected
     "INP001", # Missing __init__.py file
 ]
-"src/lahso/ui.py" = [
+"src/lahso/ui/**.py" = [
     "SIM117", # Nested with statements are not combined for clarity, corresponds better with UI output
 ]
 

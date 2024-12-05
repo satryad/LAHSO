@@ -235,6 +235,8 @@ class ModelInput:
         )  # action in terminal state (0) and assigning to a service line
         self.np_actions = 2  # wait or reassign
 
+        print("model_input.py", config.q_table_path)
+
         if os.path.exists(config.q_table_path):
             with open(config.q_table_path, "rb") as f:
                 self.Q = pickle.load(f)
