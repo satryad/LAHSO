@@ -163,7 +163,7 @@ def training_agent_tabs():
             status,
             gen,
         ):
-            print(config)
+            print("\n\n\n\n\n", rolling_average, "\n\n\n\n\n")
             if status is ExecutionStatus.NOT_STARTED:
                 gr.Info("Starting Simulation.", duration=3)
                 gen = model_train(config, model_input)

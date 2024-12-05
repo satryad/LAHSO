@@ -11,7 +11,7 @@ This documentation includes a ready-to-use learning agent that has been trained 
 3. Run `uv sync` in the directory you cloned into.
 4. Run `uv build` in the directory you cloned into.
 5. Run `uv run start` in the directory you cloned into.
-6. Open the printed link in your browser.
+6. A browser window should open automatically, otherwise copy the printed link.
 
 ---
 

@@ -97,7 +97,7 @@ def model_implementation_tabs():
                 with gr.Column():
                     gr.Markdown(
                         lambda config: f"## Total Cost Per Simulation Episode Over \
-                                        {config.number_of_episodes} Episodes",
+                                        {config.number_of_simulation} Episodes",
                         inputs=[config],
                     )
                     execute_simulation_barplot = gr.BarPlot(
