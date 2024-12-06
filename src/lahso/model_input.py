@@ -70,10 +70,6 @@ class ModelInput:
             self.request["Solution_List"] = self.request["Solution_List"].apply(
                 lambda s: [] if s == 0 else split_to_sublists(s)
             )
-            self.request["Origin"] = self.request["Origin"].map(
-                network_dict
-            )  # Convert terminal ID to terminal name
-            self.request["Destination"] = self.request["Destination"].map(network_dict)
 
         self.request["Mode"] = self.request["Solution_List"].apply(
             lambda s: [] if s == [] else get_first_sublist(s)

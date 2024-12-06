@@ -12,15 +12,15 @@ def kbest(config):
     services = pd.read_csv(config.data_path / config.possible_paths_fn, index_col=None)
     original_services = services.copy()
     demand = pd.read_csv(
-        config.data_path / f"{config.request_fn}_default.csv", index_col=None
+        config.data_path / f"{config.request_fn}_default_2.csv", index_col=None
     )
     network = pd.read_csv(config.data_path / config.network_fn)
 
     # Data pre-processing
     network_dict = {i + 1: terminal for i, terminal in enumerate(network["N"])}
     {terminal: id for id, terminal in network_dict.items()}
-    demand["Origin"] = demand["Origin"].map(network_dict)
-    demand["Destination"] = demand["Destination"].map(network_dict)
+    # demand["Origin"] = demand["Origin"].map(network_dict)
+    # demand["Destination"] = demand["Destination"].map(network_dict)
     demand.rename(columns={"Announce Time": "Actual Announce Time"}, inplace=True)
     demand["Fulfilled"] = False
     loading_time = config.handling_time / 60
@@ -89,7 +89,7 @@ def kbest(config):
         on="Demand_ID",
         how="left",
     ).fillna(0)
-    df_combined.Mode = df_combined.Service_ID
+    df_combined.Solution_List = df_combined.Service_ID
     df_combined = df_combined[
         [
             "Demand_ID",
@@ -98,7 +98,7 @@ def kbest(config):
             "Release Time",
             "Due Time",
             "Volume",
-            "Mode",
+            "Solution_List",
             "Service_week",
             "Actual Announce Time",
             "Solution_Number",
@@ -115,7 +115,7 @@ def kbest(config):
                 "Service_week": "first",
                 "Volume": "first",
                 "Actual Announce Time": "first",
-                "Mode": lambda x: "; ".join(
+                "Solution_List": lambda x: "; ".join(
                     f"{item}" for item in list(x)
                 ),  # Join the solutions with ', ' and wrap each in quotes
             }
@@ -125,7 +125,7 @@ def kbest(config):
 
     # Rename the aggregated column
     grouped = grouped.rename(
-        columns={"Mode": "Solution_List", "Actual Announce Time": "Announce Time"}
+        columns={"Actual Announce Time": "Announce Time"}
     )
     grouped.to_csv(config.data_path / rf"{config.request_fn}_kbest_test.csv")
 
@@ -133,3 +133,5 @@ def kbest(config):
 def main():
     config = Config()
     kbest(config)
+
+main()
