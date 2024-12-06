@@ -4,6 +4,15 @@ The **Learning Assisted Hybrid Simulation-Optimization Model** provides a modula
 
 This documentation includes a ready-to-use learning agent that has been trained for 50,000 episodes with a disruption profile located in the dataset folder.
 
+## Installation
+
+1. Clone this repository.
+2. Install [uv](https://docs.astral.sh/uv/).
+3. Run `uv sync` in the directory you cloned into.
+4. Run `uv build` in the directory you cloned into.
+5. Run `uv run start` in the directory you cloned into.
+6. A browser window should open automatically, otherwise copy the printed link.
+
 ---
 
 ## File Descriptions

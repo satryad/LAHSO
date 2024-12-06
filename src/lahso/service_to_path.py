@@ -1,7 +1,6 @@
 import pandas as pd
 
 from lahso.config import Config
-from lahso.model_input import ModelInput
 from lahso.service_to_path_helper import (
     add_loading_unloading_costs,
     calculate_costs_and_emissions,
@@ -21,17 +20,18 @@ from lahso.service_to_path_helper import (
 )
 
 
-def service_to_path(config, model_input):
+def service_to_path(config, output_postfix=""):
     # Load the CSV file into a DataFrame
-    data = pd.read_csv(config.data_path / config.fixed_service_schedule_fn)
-    truck_df = pd.read_csv(config.data_path / config.truck_schedule_fn)
+    data = pd.read_csv(config.fixed_service_schedule_path)
+    truck_df = pd.read_csv(config.truck_schedule_path)
+    mode_costs = pd.read_csv(config.mode_costs_path)
 
     # Constants
     LOADING_TIME = config.loading_time_window / 60  # Loading time in hours
     TRANSSHIPMENT_TIME = 2 * LOADING_TIME  # Loading + Unloading time
-    TRANSSHIPMENT_COST_BARGE = model_input.barge_handling_cost  # Cost per transshipment
-    TRANSSHIPMENT_COST_TRAIN = model_input.train_handling_cost  # Cost per transshipment
-    TRANSSHIPMENT_COST_TRUCK = model_input.truck_handling_cost  # Cost per transshipment
+    TRANSSHIPMENT_COST_BARGE = mode_costs["Barge"][2]  # Cost per transshipment
+    TRANSSHIPMENT_COST_TRAIN = mode_costs["Train"][2]  # Cost per transshipment
+    TRANSSHIPMENT_COST_TRUCK = mode_costs["Truck"][2]  # Cost per transshipment
     STORAGE_COST_PER_HOUR = config.storage_cost  # Storage cost per hour of waiting
 
     services_list = data.to_dict("records")
@@ -335,10 +335,13 @@ def service_to_path(config, model_input):
         TRANSSHIPMENT_COST_TRUCK,
     )
 
-    new_df.to_csv(config.data_path / f"{config.possible_paths_fn}_test")
+    new_df.to_csv(
+        config.possible_paths_path.with_stem(
+            f"{config.possible_paths_path.stem}{output_postfix}"
+        )
+    )
 
 
 def main():
     config = Config()
-    model_input = ModelInput(Config())
-    service_to_path(config, model_input)
+    service_to_path(config, output_postfix="_test")
