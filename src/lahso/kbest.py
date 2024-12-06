@@ -1,3 +1,5 @@
+from collections import deque
+
 import pandas as pd
 
 from lahso.config import Config
@@ -7,14 +9,12 @@ from lahso.optimization_module import (
 )
 
 
-def kbest(config):
+def kbest(config, output_postfix=""):
     # Read datasets
-    services = pd.read_csv(config.data_path / config.possible_paths_fn, index_col=None)
+    services = pd.read_csv(config.possible_paths_path, index_col=None)
     original_services = services.copy()
-    demand = pd.read_csv(
-        config.data_path / f"{config.request_fn}_default.csv", index_col=None
-    )
-    network = pd.read_csv(config.data_path / config.network_fn)
+    demand = pd.read_csv(config.demand_default_path, index_col=None)
+    network = pd.read_csv(config.network_path)
 
     # Data pre-processing
     network_dict = {i + 1: terminal for i, terminal in enumerate(network["N"])}
@@ -77,6 +77,7 @@ def kbest(config):
         temp_demand["Demand_ID"]
         log_df = pd.DataFrame(all_log_entries)
         service_counter += 1
+        yield time
 
     print(
         "Optimization completed for all time steps. \
@@ -127,9 +128,13 @@ def kbest(config):
     grouped = grouped.rename(
         columns={"Mode": "Solution_List", "Actual Announce Time": "Announce Time"}
     )
-    grouped.to_csv(config.data_path / rf"{config.request_fn}_kbest_test.csv")
+    grouped.to_csv(
+        config.demand_kbest_path.with_stem(
+            f"{config.demand_kbest_path.stem}{output_postfix}"
+        )
+    )
 
 
 def main():
     config = Config()
-    kbest(config)
+    deque(kbest(config, output_postfix="_test"), maxlen=0)

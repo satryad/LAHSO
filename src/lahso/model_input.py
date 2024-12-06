@@ -24,7 +24,7 @@ class ModelInput:
     def __init__(self, config):
         # Datasets input
         # Network dataset --> distance between terminals for each mode type
-        network = pd.read_csv(config.data_path / config.network_fn)
+        network = pd.read_csv(config.network_path)
         network_barge = pd.read_csv(config.data_path / config.network_barge_fn)
         network_train = pd.read_csv(config.data_path / config.network_train_fn)
         network_truck = pd.read_csv(config.data_path / config.network_truck_fn)
@@ -40,33 +40,25 @@ class ModelInput:
         self.node_list = network["N"].tolist()
 
         # Service schedule datasets for
-        df_fixed_schedule = pd.read_csv(
-            config.data_path / config.fixed_service_schedule_fn
-        )
+        df_fixed_schedule = pd.read_csv(config.fixed_service_schedule_path)
         df_fixed_schedule = df_fixed_schedule.drop(columns=["Travel Cost"])
         df_fixed_schedule = df_fixed_schedule.drop(columns=["Mode"])
-        df_truck_schedule = pd.read_csv(config.data_path / config.truck_schedule_fn)
+        df_truck_schedule = pd.read_csv(config.truck_schedule_path)
         df_truck_schedule = df_truck_schedule.drop(columns=["Travel Cost"])
 
         # Demand dataset
         if config.demand_type == "kbest":
-            self.request = pd.read_csv(
-                config.data_path / f"{config.request_fn}_kbest.csv"
-            )
+            self.request = pd.read_csv(config.demand_kbest_path)
             self.request["Solution_List"] = self.request["Solution_List"].apply(
                 lambda s: [] if s == "0" else split_to_sublists(s)
             )
         elif config.demand_type == "planned":
-            self.request = pd.read_csv(
-                config.data_path / f"{config.request_fn}_planned.csv"
-            )
+            self.request = pd.read_csv(config.demand_planned_path)
             self.request["Solution_List"] = self.request["Solution_List"].apply(
                 lambda s: [] if s == "0" else split_to_sublists(s)
             )
         else:
-            self.request = pd.read_csv(
-                config.data_path / f"{config.request_fn}_default.csv"
-            )
+            self.request = pd.read_csv(config.demand_default_path)
             self.request["Solution_List"] = self.request["Solution_List"].apply(
                 lambda s: [] if s == 0 else split_to_sublists(s)
             )
@@ -99,22 +91,16 @@ class ModelInput:
 
         # Disruption dataset
         ## Service disruption
-        self.s_disruption_profile = pd.read_csv(
-            config.disruption_path / config.s_disruption_fn
-        )
+        self.s_disruption_profile = pd.read_csv(config.s_disruption_path)
 
         ## Demand disruption
-        self.d_disruption_profile = pd.read_csv(
-            config.disruption_path / config.d_disruption_fn
-        )
+        self.d_disruption_profile = pd.read_csv(config.d_disruption_path)
 
         # For optimization module
-        self.possible_paths_ref = pd.read_csv(
-            config.data_path / config.possible_paths_fn
-        )
+        self.possible_paths_ref = pd.read_csv(config.possible_paths_path)
 
         # Cost parameters
-        mode_costs = pd.read_csv(config.data_path / config.mode_costs_fn)
+        mode_costs = pd.read_csv(config.mode_costs_path)
 
         barge_travel_cost1 = mode_costs["Barge"][0]  # EUR/TEU/hour
         barge_travel_cost2 = mode_costs["Barge"][1]  # EUR/TEU/km
@@ -248,6 +234,8 @@ class ModelInput:
             self.mode_list
         )  # action in terminal state (0) and assigning to a service line
         self.np_actions = 2  # wait or reassign
+
+        print("model_input.py", config.q_table_path)
 
         if os.path.exists(config.q_table_path):
             with open(config.q_table_path, "rb") as f:
