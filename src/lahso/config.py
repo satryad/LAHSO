@@ -5,17 +5,17 @@ from pathlib import Path
 @dataclass
 class Config:
     # Simulation Settings
-    number_of_simulation: int = 1
+    number_of_simulation: int = 25000
     simulation_duration: int = 6 * 7 * 1440
     planning_interval: int = 7 * 1440
     random_seed: bool = True  # False = random seed is the same for each simulation
     # Only applies if random_seed is False to set a certain random seed value
     random_seed_value: int = 0
-    print_event_enabled: bool = True  # Print event logs
+    print_event_enabled: bool = False  # Print event logs
     print_output: bool = True
     extract_shipment_output: bool = False  # Extract a shipment logs in sv file
-    start_from_0: bool = True  # False = continue training from the last saved model
-    training: bool = False
+    start_from_0: bool = False  # False = continue training from the last saved model
+    training: bool = True
     apply_s_disruption: bool = True
     apply_d_disruption: bool = False
     # disruption set (def, S1, S2, S3, S4, S5) according to the last 2 character in the
@@ -29,7 +29,6 @@ class Config:
     # paths
     data_path: Path = Path("Datasets")
     disruption_path: Path = Path("Datasets/Disruption_Profiles")
-    output_path: Path = Path("Output")
 
     # Input file names (fn)
     ## Service Network
@@ -63,12 +62,14 @@ class Config:
     mode_costs_fn: str = "Mode Costs.csv"
 
     # Ouput Names
-    tc_name: str = "total_cost_200_test.pkl"
-    tr_name: str = "total_reward_200_test.pkl"
+    training_output: str = "Training_Output_v2.csv"
+    tc_name: str = "total_cost_200_v2.pkl"
+    tr_name: str = "total_reward_200_v2.pkl"
     q_name: str = "q_table_200_50000"
-    smoothing: int = 400  # for training chart
+    smoothing: int = 300  # for training chart
 
     # Training Path
+    training_path: Path = Path(f"training/{training_output}")
     tc_path: Path = Path(f"training/{tc_name}")
     tr_path: Path = Path(f"training/{tr_name}")
 
@@ -86,7 +87,10 @@ class Config:
     eg = epsilon greedy policy
     """
     policy_name: str = "eg"
-    q_table_path: Path = Path(f"q_table/{q_name}_eps_test.pkl")
+    q_table_path: Path = Path(f"q_table/{q_name}_eps_v2.pkl")
+    output_fn: str = f"{policy_name}_{sd}_{number_of_simulation}.csv"
+    output_path: Path = Path(f"csv_output/{output_fn}")
+
 
     # Cost Parameters (Manually input)
     storage_cost: int = 1  # EUR/TEU/hour

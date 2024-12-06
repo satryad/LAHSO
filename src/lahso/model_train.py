@@ -2,6 +2,7 @@ import pickle
 import time
 
 import numpy as np
+import pandas as pd
 import simpy as sim
 
 from lahso.config import Config
@@ -36,14 +37,18 @@ def model_train(config, model_input, statistics):
 
     # Initiate plot if the training starts from scratch
     if config.start_from_0:
-        total_cost_plot = []
-        total_reward_plot = []
+        # total_cost_plot = []
+        # total_reward_plot = []
         last_episode = 0
+        df_training_output = pd.DataFrame(columns=["Episode", "Total Cost", "Total Reward"])
     # In case of continuing training from previous paused training
     else:
-        total_cost_plot = model_input.total_cost_plot_read
-        total_reward_plot = model_input.total_reward_plot_read
-        last_episode = len(model_input.total_cost_plot_read)
+        # total_cost_plot = model_input.total_cost_plot_read
+        # total_reward_plot = model_input.total_reward_plot_read
+        # last_episode = len(model_input.total_cost_plot_read)
+        df_training_output = model_input.df_training_output_read
+        last_episode = len(df_training_output)
+        
 
     # Create policy function for RL
     policy = make_epsilon_greedy_policy(
@@ -212,8 +217,12 @@ def model_train(config, model_input, statistics):
             statistics.total_shipment_delay_plot.append(
                 simulation_vars.total_delay_penalty
             )
-            total_cost_plot.append(simulation_vars.total_cost)
-            total_reward_plot.append(simulation_vars.total_reward)
+            # total_cost_plot.append(simulation_vars.total_cost)
+            # total_reward_plot.append(simulation_vars.total_reward)
+
+            # For training dataframe output
+            training_output = [current_episode, simulation_vars.total_cost, simulation_vars.total_reward]
+
             statistics.total_late_plot.append(simulation_vars.total_late_departure)
             statistics.total_number_late_plot.append(simulation_vars.nr_late_departure)
             statistics.total_rl_triggers.append(simulation_vars.rl_triggers)
@@ -306,17 +315,23 @@ def model_train(config, model_input, statistics):
                 )
                 print(f"List of undelivered shipment: {undelivered}")
 
-                # Export the episode total cost list
-                current_episode = last_episode + simulation
-                with open(config.tc_path, "wb") as f:
-                    pickle.dump(total_cost_plot, f)
-                    print(f"Total cost per episode is exported as {config.tc_name}")
-                with open(config.tr_path, "wb") as f:
-                    pickle.dump(total_reward_plot, f)
-                    print(f"Total reward per episode is exported as {config.tr_name}")
+                # Export the training progress dataframe
+                df_training_output.loc[len(df_training_output)] = training_output
+                df_training_output.to_csv(config.training_path, index=False)
+                # with open(config.tc_path, "wb") as f:
+                #     pickle.dump(total_cost_plot, f)
+                #     print(f"Total cost per episode is exported as {config.tc_name}")
+                # with open(config.tr_path, "wb") as f:
+                #     pickle.dump(total_reward_plot, f)
+                #     print(f"Total reward per episode is exported as {config.tr_name}")
+                
+                # Export the Q-table
                 with open(config.q_table_path, "wb") as f:
                     pickle.dump(dict(model_input.Q), f)
                     print(f"Total q_table is exported as {config.q_name}")
+
+                # Export the Q-table for every 5000 episodes of training
+                current_episode = last_episode + simulation
                 if current_episode % 5000 == 0:
                     print_event(
                         config.print_event_enabled,
@@ -343,3 +358,5 @@ def main():
     model_input = ModelInput(config)
     statistics = AggregateStatistics()
     model_train(config, model_input, statistics)
+
+main()

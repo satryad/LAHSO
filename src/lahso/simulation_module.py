@@ -779,8 +779,6 @@ def affected_request_detection(
                 s.origin = s.current_location
             else:
                 s.origin = s.mode[0].destination
-                print(f"{s.name} is disrupted on board")  # debug
-                print(f"{s.name} possible itineraries are {s.possible_itineraries}")
             for i in range(len(s.mode)):
                 s.mode[i].status = "Available"
                 s.mode[i].free_capacity += s.num_containers
@@ -1363,9 +1361,6 @@ class ReinforcementLearning:
             if not future:
                 updated_state = state
                 wait = False
-                if self.shipment[request[0]].status == "On board":
-                    wait = True
-                    yield self.function_stop
 
             else:
                 wait = True

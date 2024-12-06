@@ -48,7 +48,7 @@ def make_epsilon_greedy_policy(config, Q, epsilon, _npA, mode_ID, policy_name):
         # Always wait policy
         elif policy_name == "aw":
             A = np.zeros(npA, dtype=float)
-            A[1] = 1.0
+            A[0] = 1.0
 
         return A
 

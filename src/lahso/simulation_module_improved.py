@@ -420,7 +420,7 @@ class Shipment:
                             ]
                         )
                         self.simulation_vars.disruption_location.append(self.name)
-                        self.matching_module.replanning()  # Replan the shipment
+                        self.matching_module.replanning  # Replan the shipment
                         self.simulation_vars.disruption_location.remove(self.name)
 
                 elif self.status == "New Volume":
@@ -680,7 +680,27 @@ class Shipment:
             self.simulation_vars.actual_itinerary[self.name].append(
                 self.mode[0].name
             )  # for observation
+            print(f"{self.name} mode = {self.mode[0].name} itin = {self.possible_itineraries}")  # debug
+            if len(self.possible_itineraries) > 1:
+                #trigger replanning
+                for i in range(len(self.mode)):
+                    # self.mode[i].status = "Available"
+                    self.mode[i] = self.mode[i].name
+                self.simulation_vars.requests_to_replan.append(
+                    [
+                        self.name,
+                        self.origin,
+                        self.destination,
+                        self.release_time,
+                        self.due_time,
+                        self.num_containers,
+                        self.mode,
+                    ]
+                )
+                self.matching_module.replanning  # Replan the shipment
             self.mode.pop(0)  # Remove the completed service from the itinerary
+            self.status = "Arrived"
+            
 
         # Shipment has arrived at the end destination
         self.status = "Delivered"
@@ -956,8 +976,8 @@ class MatchingModule:
                 destination = self.shipment[req[0]].destination
                 old_mode = matching[req[0]][0]
                 if self.shipment[req[0]].status == "On board":
-                    old_mode = old_mode[1:]
-                new_mode = old_mode
+                    old_mode = old_mode[1:] # edited
+                new_mode = [old_mode]
                 for mode in self.truck_list:
                     if (
                         self.truck_schedule_dict[mode][1][0] == origin
@@ -1383,9 +1403,6 @@ class ReinforcementLearning:
             if not future:
                 updated_state = state
                 wait = False
-                if self.shipment[request[0]].status == "On board":
-                    wait = True
-                    yield self.function_stop
 
             else:
                 wait = True
