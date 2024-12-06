@@ -66,10 +66,12 @@ def compute_with_dataset_input(
     provide_k_best,
 ):
     config = Config(
+        print_event_enabled=False,
         network_path=Path(intermodal_network),
         fixed_service_schedule_path=Path(fixed_schedule_service),
         truck_schedule_path=Path(truck_service),
         demand_default_path=Path(demand),
+        demand_type="kbest" if provide_k_best else "default",
         mode_costs_path=Path(mode_related_costs),
         storage_cost=int(storage_cost),
         delay_penalty=int(delay_penalty),
