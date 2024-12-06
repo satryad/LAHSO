@@ -204,8 +204,9 @@ def training_agent_tabs():
                         gen,
                     )
 
-        training_tab_select_event = training_tab.select(
-            update_plots,
+        training_tab_select_event = gr.on(
+            triggers=[training_tab.select, rolling_average_input.change],
+            fn=update_plots,
             inputs=[
                 config,
                 model_input,
@@ -228,7 +229,7 @@ def training_agent_tabs():
                 return ExecutionStatus.FINISHED
             return status
 
-        training_tab_select_event.then(
+        training_tab_select_event.success(
             simulation_finished,
             inputs=[training_execution_status],
             outputs=[training_execution_status],
