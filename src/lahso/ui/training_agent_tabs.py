@@ -1,4 +1,5 @@
 from pathlib import Path
+import math
 
 import gradio as gr
 import pandas as pd
@@ -13,6 +14,7 @@ from lahso.ui.dataset_input_tab import (
 )
 from lahso.ui.execution_status import ExecutionStatus
 
+averages = [x * pow(10, y) for y in range(1,10) for x in range(1,10)]
 
 # Nested Tabs for Training an Agent
 def training_agent_tabs():
@@ -142,7 +144,7 @@ def training_agent_tabs():
                         x="Episode",
                         x_title="Training Episode",
                         y="Total Cost",
-                        y_title="Average Total Cost",
+                        y_title="Total Cost",
                         x_bin=5,
                         y_aggregate="mean",
                     )
@@ -157,43 +159,41 @@ def training_agent_tabs():
                         x="Episode",
                         x_title="Training Episode",
                         y="Total Reward",
-                        y_title="Average Total Reward",
+                        y_title="Total Reward",
                         x_bin=5,
                         y_aggregate="mean",
-                    )
-            with gr.Row():
-                with gr.Column():
-                    rolling_average_input = gr.Number(
-                        label="Rolling Average", info="Episodes", value=5
                     )
             training_execution_status = gr.State(ExecutionStatus.NOT_STARTED)
             training_execution_generator = gr.State()
             # TODO: debugging tool, remove later
             gr.Textbox(value=lambda x: f"{x}", inputs=[training_execution_status])
 
-        # TODO: don't have update_plots be a generator, instead use a change event on
-        #       the saved generator State to call it again? Then changing the rolling
-        #       average should also update the plot?
         def update_plots(
             config,
             model_input,
-            rolling_average,
             status,
             gen,
         ):
             if status is ExecutionStatus.NOT_STARTED:
                 gr.Info("Starting Simulation.", duration=3)
                 gen = model_train(config, model_input)
+                yield (
+                    gr.skip(),
+                    gr.skip(),
+                    ExecutionStatus.EXECUTING,
+                    gen,
+                )
             for result in gen:
                 if result is None:
                     yield (
-                        gr.LinePlot(x_bin=rolling_average),
-                        gr.LinePlot(x_bin=rolling_average),
-                        ExecutionStatus.EXECUTING,
+                        gr.skip(),
+                        gr.skip(),
+                        gr.skip(),
                         gen,
                     )
                 else:
                     data = result[["Episode", "Total Cost", "Total Reward"]]
+                    rolling_average = 0 if data["Episode"].max() <= 10 else math.pow(10, math.floor(math.log10(data["Episode"].max() - 1)))
                     cost_min = data["Total Cost"].min()
                     cost_max = data["Total Cost"].max()
                     cost_ten_percent = (cost_max - cost_min) / 10.0
@@ -208,6 +208,7 @@ def training_agent_tabs():
                                 cost_min - cost_ten_percent,
                                 cost_max + cost_ten_percent,
                             ],
+                            y_title=f"Average Total Cost per {rolling_average} Episodes" if rolling_average > 0 else "Total Cost",
                         ),
                         gr.LinePlot(
                             data,
@@ -216,24 +217,23 @@ def training_agent_tabs():
                                 reward_min - reward_ten_percent,
                                 reward_max + reward_ten_percent,
                             ],
+                            y_title=f"Average Total Reward per {rolling_average} Episodes" if rolling_average > 0 else "Total Reward",
                         ),
-                        ExecutionStatus.EXECUTING,
+                        gr.skip(),
                         gen,
                     )
             yield (
-                gr.LinePlot(x_bin=rolling_average),
-                gr.LinePlot(x_bin=rolling_average),
+                gr.skip(),
+                gr.skip(),
                 ExecutionStatus.FINISHED,
                 gen,
             )
 
-        training_tab_select_event = gr.on(
-            triggers=[training_tab.select, rolling_average_input.change],
+        training_tab_select_event = training_tab.select(
             fn=update_plots,
             inputs=[
                 config,
                 model_input,
-                rolling_average_input,
                 training_execution_status,
                 training_execution_generator,
             ],
@@ -246,8 +246,6 @@ def training_agent_tabs():
             show_progress="minimal",
         )
 
-        # TODO: this doesn't give the "finished" message at the right time, it also
-        #       triggers when paused...
         def training_finished(status):
             if status is ExecutionStatus.FINISHED:
                 gr.Info("Training Finished", duration=10)
