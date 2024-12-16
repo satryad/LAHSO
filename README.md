@@ -6,11 +6,13 @@ This documentation includes a ready-to-use learning agent that has been trained 
 
 ## Installation
 
-1. Clone this repository.
-2. Install [uv](https://docs.astral.sh/uv/).
-3. Run `uv sync` in the directory you cloned into.
-4. Run `uv build` in the directory you cloned into.
-5. Run `uv run start` in the directory you cloned into.
+1. [Clone this repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository), or [download the zip file of the code](https://docs.github.com/en/repositories/working-with-files/using-files/downloading-source-code-archives#downloading-source-code-archives-from-the-repository-view) and unzip it.
+2. Install [Gurobi](https://www.gurobi.com/).
+3. Install [uv](https://docs.astral.sh/uv/).
+4. Open a terminal window in the directory you cloned/unzipped into.
+3. Run `uv sync`.
+4. Run `uv build`.
+5. Run `uv run start`.
 6. A browser window should open automatically, otherwise copy the printed link.
 
 ---
