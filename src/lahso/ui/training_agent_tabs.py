@@ -177,6 +177,9 @@ def training_agent_tabs():
             # TODO: debugging tool, remove later
             gr.Textbox(value=lambda x: f"{x}", inputs=[training_execution_status])
 
+        # TODO: don't have update_plots be a generator, instead use a change event on
+        #       the saved generator State to call it again? Then changing the rolling
+        #       average should also update the plot?
         def update_plots(
             config,
             model_input,
