@@ -132,7 +132,7 @@ def training_agent_tabs():
         with gr.Tab("Training", interactive=False) as training_tab:
             with gr.Row():
                 with gr.Column():
-                    training_cost_heading = gr.Markdown(
+                    gr.Markdown(
                         lambda n: f"## Average Total \
                             Cost For {n} Episodes",
                         inputs=[no_of_simulations_input],
@@ -147,7 +147,7 @@ def training_agent_tabs():
                         y_aggregate="mean",
                     )
                 with gr.Column():
-                    training_reward_heading = gr.Markdown(
+                    gr.Markdown(
                         lambda n: f"## Average \
                             Reward For {n} Episodes",
                         inputs=[no_of_simulations_input],

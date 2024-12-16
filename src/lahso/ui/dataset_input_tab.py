@@ -21,7 +21,7 @@ def dataset_input_next(
     delay_penalty,
     undelivered_penalty,
     _generate_possible_paths,
-    _provide_k_best,
+    _compute_k_best,
 ):
     if intermodal_network is None:
         msg = "No Intermodal Network file selected"
@@ -78,7 +78,7 @@ def compute_with_dataset_input(
     delay_penalty,
     undelivered_penalty,
     generate_possible_paths,
-    provide_k_best,
+    compute_k_best,
 ):
     config = Config(
         print_event_enabled=False,
@@ -89,7 +89,7 @@ def compute_with_dataset_input(
         fixed_service_schedule_path=Path(fixed_schedule_service),
         truck_schedule_path=Path(truck_service),
         demand_default_path=Path(demand),
-        demand_type="kbest" if provide_k_best else "default",
+        demand_type="kbest" if compute_k_best else "default",
         mode_costs_path=Path(mode_related_costs),
         storage_cost=int(storage_cost),
         delay_penalty=int(delay_penalty),
@@ -97,7 +97,7 @@ def compute_with_dataset_input(
     )
     if generate_possible_paths:
         service_to_path(config)
-    if provide_k_best:
+    if compute_k_best:
         kbest(config)
     return (
         gr.Textbox(value="Done. Continue to Simulation Settings."),
@@ -185,8 +185,10 @@ def render_dataset_input_tab():
                 generate_possible_paths_tickbox = gr.Checkbox(
                     label="Generate Possible Paths", value=True
                 )
-                provide_k_best_tickbox = gr.Checkbox(
-                    label="Provide K-Best Solution", value=True
+                # TODO: Provide input for possible paths if above checkbox is unchecked?
+                #       Or untick k-best checkbox and make uninteractive?
+                compute_k_best_tickbox = gr.Checkbox(
+                    label="Compute K-Best Solution", value=True
                 )
                 dataset_input_next_button = gr.Button(value="Next Step")
                 dataset_input_processing_status = gr.Textbox(visible=False)
@@ -204,7 +206,7 @@ def render_dataset_input_tab():
         delay_penalty_input,
         undelivered_penalty_input,
         generate_possible_paths_tickbox,
-        provide_k_best_tickbox,
+        compute_k_best_tickbox,
     ]
 
     return (
