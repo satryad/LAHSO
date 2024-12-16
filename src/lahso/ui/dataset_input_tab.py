@@ -10,6 +10,9 @@ from lahso.ui.execution_status import ExecutionStatus
 
 def dataset_input_next(
     intermodal_network,
+    network_barge,
+    network_train,
+    network_truck,
     fixed_schedule_service,
     truck_service,
     _demand,
@@ -22,6 +25,15 @@ def dataset_input_next(
 ):
     if intermodal_network is None:
         msg = "No Intermodal Network file selected"
+        raise gr.Error(msg)
+    if network_barge is None:
+        msg = "No Barge Network file selected"
+        raise gr.Error(msg)
+    if network_train is None:
+        msg = "No Train Network file selected"
+        raise gr.Error(msg)
+    if network_truck is None:
+        msg = "No Truck Network file selected"
         raise gr.Error(msg)
     if fixed_schedule_service is None:
         msg = "No Fixed Schedule Service file selected"
@@ -55,6 +67,9 @@ def dataset_input_next(
 
 def compute_with_dataset_input(
     intermodal_network,
+    network_barge,
+    network_train,
+    network_truck,
     fixed_schedule_service,
     truck_service,
     demand,
@@ -68,6 +83,9 @@ def compute_with_dataset_input(
     config = Config(
         print_event_enabled=False,
         network_path=Path(intermodal_network),
+        network_barge_path=Path(network_barge),
+        network_train_path=Path(network_train),
+        network_truck_path=Path(network_truck),
         fixed_service_schedule_path=Path(fixed_schedule_service),
         truck_schedule_path=Path(truck_service),
         demand_default_path=Path(demand),
@@ -98,7 +116,25 @@ def render_dataset_input_tab():
                     label="Intermodal Network",
                     file_types=[".csv"],
                     height=100,
-                    value=str(Path("Datasets/Network.csv").absolute()),
+                    value="Datasets/Network.csv",
+                )
+                network_barge_input = gr.File(
+                    label="Barge Network",
+                    file_types=[".csv"],
+                    height=100,
+                    value=str(Path("Datasets/Network_Barge.csv").absolute()),
+                )
+                network_train_input = gr.File(
+                    label="Train Network",
+                    file_types=[".csv"],
+                    height=100,
+                    value=str(Path("Datasets/Network_Train.csv").absolute()),
+                )
+                network_truck_input = gr.File(
+                    label="Truck Network",
+                    file_types=[".csv"],
+                    height=100,
+                    value=str(Path("Datasets/Network_Truck.csv").absolute()),
                 )
                 fixed_schedule_service_input = gr.File(
                     label="Fixed Schedule Service",
@@ -157,6 +193,9 @@ def render_dataset_input_tab():
 
     dataset_inputs = [
         intermodal_network_input,
+        network_barge_input,
+        network_train_input,
+        network_truck_input,
         fixed_schedule_service_input,
         truck_service_input,
         demand_input,

@@ -77,12 +77,6 @@ def training_agent_tabs():
                         value=42,
                         precision=0,
                     )
-                    extract_q_table_input = gr.Number(
-                        label="Extract Q-Table regularly",
-                        info="in episodes (optional: 0 = off)",
-                        value=5000,
-                        precision=0,
-                    )
                     continue_from_prev_training_input = gr.Checkbox(
                         label="Continue from previous training?",
                         value=False,
@@ -323,7 +317,6 @@ def training_agent_tabs():
             exploratory_rate_input,
             no_of_simulations_input,
             simulation_durations_input,
-            extract_q_table_input,
             continue_from_prev_training_input,
             last_q_table_input,
             last_total_cost_input,
@@ -338,7 +331,6 @@ def training_agent_tabs():
             exploratory_rate,
             no_of_simulations,
             simulation_durations,
-            extract_q_table,
             continue_from_prev_training,
             last_q_table,
             last_total_cost,
@@ -363,9 +355,6 @@ def training_agent_tabs():
             if simulation_durations < 0:
                 msg = "Simulation Durations should be non-negative"
                 raise gr.Error(msg)
-            if extract_q_table < 0:
-                msg = "Extract Q Table should be positive"
-                raise gr.Error(msg)
             if last_q_table is None:
                 msg = "No Q-Table file selected"
                 raise gr.Error(msg)
@@ -383,7 +372,7 @@ def training_agent_tabs():
             config.number_of_simulation = no_of_simulations
             # Note that simulation_duration in the config is in minutes, not days
             config.simulation_duration = simulation_durations * 1440
-            config.extract_q_table = extract_q_table
+            config.extract_q_table = 1
             config.start_from_0 = not continue_from_prev_training
             if continue_from_prev_training:
                 config.q_table_path = Path(last_q_table)

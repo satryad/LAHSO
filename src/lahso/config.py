@@ -104,6 +104,9 @@ class Config:
     gamma: float = 0.9  # reward discount factor
 
     network_path: Path | None = None
+    network_barge_path: Path | None = None
+    network_train_path: Path | None = None
+    network_truck_path: Path | None = None
 
     possible_paths_path: Path | None = None
 
@@ -135,6 +138,12 @@ class Config:
 
         if self.network_path is None:
             self.network_path = self.data_path / self.network_fn
+        if self.network_barge_path is None:
+            self.network_barge_path = self.data_path / self.network_barge_fn
+        if self.network_train_path is None:
+            self.network_train_path = self.data_path / self.network_train_fn
+        if self.network_truck_path is None:
+            self.network_truck_path = self.data_path / self.network_truck_fn
 
         if self.possible_paths_path is None:
             self.possible_paths_path = self.data_path / self.possible_paths_fn
