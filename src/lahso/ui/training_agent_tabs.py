@@ -193,7 +193,7 @@ def training_agent_tabs():
                     )
                 else:
                     data = result[["Episode", "Total Cost", "Total Reward"]]
-                    rolling_average = 0 if data["Episode"].max() <= 10 else math.pow(10, math.floor(math.log10(data["Episode"].max() - 1)))
+                    rolling_average = 0 if data["Episode"].max() <= 100 else math.pow(10, math.floor(math.log10(data["Episode"].max())) - 1)
                     cost_min = data["Total Cost"].min()
                     cost_max = data["Total Cost"].max()
                     cost_ten_percent = (cost_max - cost_min) / 10.0
