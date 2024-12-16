@@ -6,7 +6,7 @@ import numpy as np
 import simpy as sim
 
 from lahso.config import Config
-from lahso.global_variables import SimulationVars
+from lahso.global_variables import SimulationVars, AggregateStatistics
 from lahso.helper_functions import clock, print_event
 from lahso.model_input import ModelInput
 from lahso.policy_function import make_epsilon_greedy_policy
@@ -22,7 +22,8 @@ from lahso.simulation_module import (
 )
 
 
-def model_train(config, model_input, statistics):
+def model_train(config, model_input):
+    statistics = AggregateStatistics()
     simulation_vars = SimulationVars(model_input.possible_paths_ref)
     sim_start_time = time.time()  # To measure the runtime
     env = sim.Environment()
