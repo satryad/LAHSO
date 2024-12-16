@@ -10,10 +10,9 @@ This documentation includes a ready-to-use learning agent that has been trained 
 2. Install [Gurobi](https://www.gurobi.com/).
 3. Install [uv](https://docs.astral.sh/uv/).
 4. Open a terminal window in the directory you cloned/unzipped into.
-3. Run `uv sync`.
-4. Run `uv build`.
-5. Run `uv run start`.
-6. A browser window should open automatically, otherwise copy the printed link.
+5. Run `uv sync`.
+6. Run `uv run start`.
+7. A browser window should open automatically, otherwise copy the printed link.
 
 ---
 
