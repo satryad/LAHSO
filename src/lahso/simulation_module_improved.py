@@ -680,9 +680,11 @@ class Shipment:
             self.simulation_vars.actual_itinerary[self.name].append(
                 self.mode[0].name
             )  # for observation
-            print(f"{self.name} mode = {self.mode[0].name} itin = {self.possible_itineraries}")  # debug
+            print(
+                f"{self.name} mode = {self.mode[0].name} itin = {self.possible_itineraries}"
+            )  # debug
             if len(self.possible_itineraries) > 1:
-                #trigger replanning
+                # trigger replanning
                 for i in range(len(self.mode)):
                     # self.mode[i].status = "Available"
                     self.mode[i] = self.mode[i].name
@@ -700,7 +702,6 @@ class Shipment:
                 self.matching_module.replanning  # Replan the shipment
             self.mode.pop(0)  # Remove the completed service from the itinerary
             self.status = "Arrived"
-            
 
         # Shipment has arrived at the end destination
         self.status = "Delivered"
@@ -976,7 +977,7 @@ class MatchingModule:
                 destination = self.shipment[req[0]].destination
                 old_mode = matching[req[0]][0]
                 if self.shipment[req[0]].status == "On board":
-                    old_mode = old_mode[1:] # edited
+                    old_mode = old_mode[1:]  # edited
                 new_mode = [old_mode]
                 for mode in self.truck_list:
                     if (

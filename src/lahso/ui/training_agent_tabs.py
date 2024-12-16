@@ -84,13 +84,17 @@ def training_agent_tabs():
                         precision=0,
                     )
                     continue_from_prev_training_input = gr.Checkbox(
-                        label="Continue from previous training?"
+                        label="Continue from previous training?",
+                        value=False,
                     )
                     last_q_table_input = gr.File(
                         label="Last Q-Table",
                         file_types=[".pkl"],
                         type="filepath",
                         height=100,
+                        visible=False,
+                        # TODO: remove this value=(...) before giving UI to real users
+                        # Currently useful for demo
                         value=str(
                             Path("q_table/q_table_200_50000_eps_test.pkl").absolute()
                         ),
@@ -100,6 +104,7 @@ def training_agent_tabs():
                         file_types=[".pkl"],
                         type="filepath",
                         height=100,
+                        visible=False,
                         value=str(Path("training/total_cost_200_test.pkl").absolute()),
                     )
                     last_reward_input = gr.File(
@@ -107,9 +112,23 @@ def training_agent_tabs():
                         file_types=[".pkl"],
                         type="filepath",
                         height=100,
+                        visible=False,
                         value=str(
                             Path("training/total_reward_200_test.pkl").absolute()
                         ),
+                    )
+                    continue_from_prev_training_input.change(
+                        lambda checked: (
+                            gr.File(visible=checked),
+                            gr.File(visible=checked),
+                            gr.File(visible=checked),
+                        ),
+                        inputs=[continue_from_prev_training_input],
+                        outputs=[
+                            last_q_table_input,
+                            last_total_cost_input,
+                            last_reward_input,
+                        ],
                     )
                     simulation_settings_next_button = gr.Button(value="Next Step")
                     simulation_settings_processing_status = gr.Textbox(
@@ -119,10 +138,10 @@ def training_agent_tabs():
         with gr.Tab("Training", interactive=False) as training_tab:
             with gr.Row():
                 with gr.Column():
-                    gr.Markdown(
-                        value=lambda config: f"## Average Total Cost For \
-                                                {config.number_of_simulation} Episodes",
-                        inputs=[config],
+                    training_cost_heading = gr.Markdown(
+                        lambda n: f"## Average Total \
+                            Cost For {n} Episodes",
+                        inputs=[no_of_simulations_input],
                     )
                     cost_plot = gr.LinePlot(
                         pd.DataFrame(),
@@ -134,10 +153,10 @@ def training_agent_tabs():
                         y_aggregate="mean",
                     )
                 with gr.Column():
-                    gr.Markdown(
-                        value=lambda config: f"## Average Reward For \
-                                                {config.number_of_simulation} Episodes",
-                        inputs=[config],
+                    training_reward_heading = gr.Markdown(
+                        lambda n: f"## Average \
+                            Reward For {n} Episodes",
+                        inputs=[no_of_simulations_input],
                     )
                     reward_plot = gr.LinePlot(
                         pd.DataFrame(),
@@ -155,6 +174,8 @@ def training_agent_tabs():
                     )
             training_execution_status = gr.State(ExecutionStatus.NOT_STARTED)
             training_execution_generator = gr.State()
+            # TODO: debugging tool, remove later
+            gr.Textbox(value=lambda x: f"{x}", inputs=[training_execution_status])
 
         def update_plots(
             config,
@@ -163,7 +184,6 @@ def training_agent_tabs():
             status,
             gen,
         ):
-            print("\n\n\n\n\n", rolling_average, "\n\n\n\n\n")
             if status is ExecutionStatus.NOT_STARTED:
                 gr.Info("Starting Simulation.", duration=3)
                 gen = model_train(config, model_input)
@@ -203,6 +223,12 @@ def training_agent_tabs():
                         ExecutionStatus.EXECUTING,
                         gen,
                     )
+            yield (
+                gr.LinePlot(x_bin=rolling_average),
+                gr.LinePlot(x_bin=rolling_average),
+                ExecutionStatus.FINISHED,
+                gen,
+            )
 
         training_tab_select_event = gr.on(
             triggers=[training_tab.select, rolling_average_input.change],
@@ -223,16 +249,15 @@ def training_agent_tabs():
             show_progress="minimal",
         )
 
-        def simulation_finished(status):
-            if status is ExecutionStatus.EXECUTING:
+        # TODO: this doesn't give the "finished" message at the right time, it also
+        #       triggers when paused...
+        def training_finished(status):
+            if status is ExecutionStatus.FINISHED:
                 gr.Info("Training Finished", duration=10)
-                return ExecutionStatus.FINISHED
-            return status
 
         training_tab_select_event.success(
-            simulation_finished,
+            training_finished,
             inputs=[training_execution_status],
-            outputs=[training_execution_status],
         )
 
         def cancel_training(status):
@@ -357,9 +382,14 @@ def training_agent_tabs():
             config.simulation_duration = simulation_durations * 1440
             config.extract_q_table = extract_q_table
             config.start_from_0 = not continue_from_prev_training
-            config.q_table_path = Path(last_q_table)
-            config.tc_path = Path(last_total_cost)
-            config.tr_path = Path(last_reward)
+            if continue_from_prev_training:
+                config.q_table_path = Path(last_q_table)
+                config.tc_path = Path(last_total_cost)
+                config.tr_path = Path(last_reward)
+            else:
+                config.q_table_path = Path("q_table/default_q_table_output.pkl")
+                config.tc_path = Path("training/default_total_cost_output.pkl")
+                config.tr_path = Path("training/default_total_reward_output.pkl")
 
             print(config)
 

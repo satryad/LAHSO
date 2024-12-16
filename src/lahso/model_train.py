@@ -6,7 +6,7 @@ import numpy as np
 import simpy as sim
 
 from lahso.config import Config
-from lahso.global_variables import SimulationVars, AggregateStatistics
+from lahso.global_variables import AggregateStatistics, SimulationVars
 from lahso.helper_functions import clock, print_event
 from lahso.model_input import ModelInput
 from lahso.policy_function import make_epsilon_greedy_policy
@@ -325,12 +325,9 @@ def model_train(config, model_input):
                 ):
                     print_event(
                         config.print_event_enabled,
-                        f"Q-table is saved as \
-                        {config.q_name}_{current_episode}_eps.pkl",
+                        f"Q-table is saved as q_table/{config.q_name}_eps.pkl",
                     )
-                    with open(
-                        f"q_table/{config.q_name}_{current_episode}_eps.pkl", "wb"
-                    ) as f:
+                    with open(f"q_table/{config.q_name}_eps.pkl", "wb") as f:
                         pickle.dump(dict(model_input.Q), f)
             eps_end_time = time.time()  # To measure the runtime
             eps_time = eps_end_time - eps_start_time
