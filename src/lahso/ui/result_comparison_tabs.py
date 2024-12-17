@@ -11,6 +11,8 @@ def check_inputs(file1, file1_label, file2, file2_label):
 
 
 def compare_results(file1, file1_label, file2, file2_label):
+    file1_label = f"{file1_label} performs better"
+    file2_label = f"{file2_label} performs better"
     df_comparison = comparison(file1, file2, file1_label, file2_label)
     color_map = {}
     color_map[file1_label] = "blue"

@@ -3,7 +3,7 @@ import pandas as pd
 
 cost = "Cost"
 path = "csv_output"
-simulations = 1
+simulations = 100
 
 
 def column_color(delta, label1, label2):
@@ -71,7 +71,7 @@ def main():
     plt.xticks(rotation=90)
 
     # Create custom legend
-    blue_patch = plt.Line2D([0], [0], color="blue", lw=4, label="RL-Assisted")
+    blue_patch = plt.Line2D([0], [0], color="blue", lw=4, label="Greedy Policy")
     orange_patch = plt.Line2D([0], [0], color="orange", lw=4, label="Always Wait")
     plt.legend(handles=[blue_patch, orange_patch])
 
