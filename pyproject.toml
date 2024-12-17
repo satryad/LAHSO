@@ -54,6 +54,7 @@ service_to_path = "lahso.service_to_path:main"
 generate_kbest = "lahso.kbest:main"
 model_train = "lahso.model_train:main"
 model_implementation = "lahso.model_implementation:main"
+bar_chart_plot = "lahso.bar_chart_plot:main"
 
 [tool.pytest.ini_options]
 minversion = "6.0"
