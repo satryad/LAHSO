@@ -169,11 +169,14 @@ def model_implementation_tabs():
 
             config.service_disruptions = Path(service_disruptions)
             config.demand_disruptions = Path(demand_disruptions)
-            config.q_table_path = Path(q_table)
-            config.policy_name = policy
             config.number_of_simulation = no_of_simulations
             # Note that simulation_duration in the config is in minutes, not days
             config.simulation_duration = simulation_durations_per_episode * 1440
+            config.start_from_0 = True
+            config.q_table_path = Path(q_table)
+            config.policy_name = policy
+
+            print(config)
 
             return (
                 gr.Textbox(value="Done. Continue to Execute Simulation."),

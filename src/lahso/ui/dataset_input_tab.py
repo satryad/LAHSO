@@ -92,9 +92,6 @@ def compute_with_dataset_input(
         storage_cost=int(storage_cost),
         delay_penalty=int(delay_penalty),
         undelivered_penalty=int(undelivered_penalty),
-        tc_name="total_cost.pkl",
-        tr_name="total_reward.pkl",
-        q_name="q_table.pkl",
     )
     config.demand_kbest_path = config.demand_default_path.with_stem(
         f"{config.demand_default_path.stem}_kbest"
@@ -108,7 +105,7 @@ def compute_with_dataset_input(
         gr.Tab(interactive=True),
         config,
         gr.Checkbox(value=False),
-        gr.File(value=str(config.demand_kbest_path.absolute()))
+        gr.File(value=str(config.demand_kbest_path)) if compute_k_best else gr.skip()
     )
 
 
