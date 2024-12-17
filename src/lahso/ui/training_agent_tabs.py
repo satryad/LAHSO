@@ -90,10 +90,8 @@ def training_agent_tabs():
                         type="filepath",
                         height=100,
                         visible=False,
-                        # TODO: remove this value=(...) before giving UI to real users
-                        # Currently useful for demo
                         value=str(
-                            Path("q_table/q_table_200_50000_eps_test.pkl").absolute()
+                            Path("q_table/default_q_table_output.pkl").absolute()
                         ),
                     )
                     last_total_cost_input = gr.File(
@@ -102,7 +100,7 @@ def training_agent_tabs():
                         type="filepath",
                         height=100,
                         visible=False,
-                        value=str(Path("training/total_cost_200_test.pkl").absolute()),
+                        value=str(Path("training/default_total_cost_output.pkl").absolute()),
                     )
                     last_reward_input = gr.File(
                         label="Last Reward",
@@ -111,7 +109,7 @@ def training_agent_tabs():
                         height=100,
                         visible=False,
                         value=str(
-                            Path("training/total_reward_200_test.pkl").absolute()
+                            Path("training/default_total_reward_output.pkl").absolute()
                         ),
                     )
                     continue_from_prev_training_input.change(
