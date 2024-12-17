@@ -49,7 +49,7 @@ version-file = "_version.py"
 Homepage = "https://github.com/satryad/LAHSO"
 
 [project.scripts]
-start = "lahso.ui:main"
+ui = "lahso.ui:main"
 service_to_path = "lahso.service_to_path:main"
 generate_kbest = "lahso.kbest:main"
 model_train = "lahso.model_train:main"
