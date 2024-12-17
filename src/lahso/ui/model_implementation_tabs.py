@@ -54,6 +54,14 @@ def model_implementation_tabs():
                         ),
                     )
                     gr.Markdown("## Learning Agent Settings")
+                    q_table_input = gr.File(
+                        label="Q-Table",
+                        file_types=[".pkl"],
+                        height=100,
+                        value=str(
+                            Path("q_table/default_q_table_output.pkl").absolute()
+                        )
+                    )
                     policy_input = gr.Dropdown(
                         label="Policy",
                         choices=[
@@ -81,6 +89,7 @@ def model_implementation_tabs():
         simulation_settings = [
             service_disruptions_input,
             demand_disruptions_input,
+            q_table_input,
             policy_input,
             no_of_simulations_input,
             simulation_durations_per_episode_input,
@@ -136,6 +145,7 @@ def model_implementation_tabs():
         def check_simulation_settings(
             service_disruptions,
             demand_disruptions,
+            q_table,
             policy,
             no_of_simulations,
             simulation_durations_per_episode,
@@ -156,6 +166,7 @@ def model_implementation_tabs():
 
             config.service_disruptions = Path(service_disruptions)
             config.demand_disruptions = Path(demand_disruptions)
+            config.q_table_path = Path(q_table)
             config.policy_name = policy
             config.number_of_simulation = no_of_simulations
             # Note that simulation_duration in the config is in minutes, not days
