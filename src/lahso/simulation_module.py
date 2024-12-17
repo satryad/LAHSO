@@ -1734,7 +1734,6 @@ class DemandDisruption:
         # disruption_type = ('Release Time', 'Volume')
         while True:
             # Randomize disruptions
-            lambda_rate = lambda_rate
             start_time_d = int(np.random.exponential(scale=1 / lambda_rate))
             yield self.env.timeout(start_time_d)
             disruption = type

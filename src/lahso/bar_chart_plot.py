@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
+# change to "Storage Cost" for the next plot,
 cost = "Cost"
 disruption = "3"
 path = "csv_output"
@@ -37,9 +38,6 @@ df_comparison = df_comparison.reset_index()
 # Bar chart for Delta
 plt.figure(figsize=(10, 6))
 
-# df_opt = pd.read_csv(f'{path}/gp_{disruption}_20_opt_v0.csv')
-df_aw = pd.read_csv(f"{path}/aw_{disruption}_20.csv")
-df_gp = pd.read_csv(f"{path}/gp_{disruption}_20.csv")
 # Assign colors based on the Delta values
 colors = ["blue" if delta > 0 else "orange" for delta in df_comparison["Delta"]]
 

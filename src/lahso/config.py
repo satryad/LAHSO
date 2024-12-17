@@ -59,7 +59,7 @@ class Config:
     training_output: str = "Training_Output_v2.csv"
     tc_name: str = "total_cost_200_v2.pkl"
     tr_name: str = "total_reward_200_v2.pkl"
-    q_name: str = "q_table_200_50000"
+    q_name: str = "q_table_200_50000_eps_test.pkl"
     smoothing: int = 300  # for training chart
 
     # Training Path
@@ -134,7 +134,7 @@ class Config:
         )
         self.tc_path = Path(f"training/{self.tc_name}")
         self.tr_path = Path(f"training/{self.tr_name}")
-        self.q_table_path = Path(f"q_table/{self.q_name}_eps_test.pkl")
+        self.q_table_path = Path(f"q_table/{self.q_name}")
 
         if self.network_path is None:
             self.network_path = self.data_path / self.network_fn

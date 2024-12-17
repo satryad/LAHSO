@@ -1,5 +1,5 @@
-from pathlib import Path
 import math
+from pathlib import Path
 
 import gradio as gr
 import pandas as pd
@@ -14,7 +14,8 @@ from lahso.ui.dataset_input_tab import (
 )
 from lahso.ui.execution_status import ExecutionStatus
 
-averages = [x * pow(10, y) for y in range(1,10) for x in range(1,10)]
+averages = [x * pow(10, y) for y in range(1, 10) for x in range(1, 10)]
+
 
 # Nested Tabs for Training an Agent
 def training_agent_tabs():
@@ -193,7 +194,13 @@ def training_agent_tabs():
                     )
                 else:
                     data = result[["Episode", "Total Cost", "Total Reward"]]
-                    rolling_average = 0 if data["Episode"].max() <= 100 else math.pow(10, math.floor(math.log10(data["Episode"].max())) - 1)
+                    rolling_average = (
+                        0
+                        if data["Episode"].max() <= 100
+                        else math.pow(
+                            10, math.floor(math.log10(data["Episode"].max())) - 1
+                        )
+                    )
                     cost_min = data["Total Cost"].min()
                     cost_max = data["Total Cost"].max()
                     cost_ten_percent = (cost_max - cost_min) / 10.0
@@ -208,7 +215,10 @@ def training_agent_tabs():
                                 cost_min - cost_ten_percent,
                                 cost_max + cost_ten_percent,
                             ],
-                            y_title=f"Average Total Cost per {rolling_average} Episodes" if rolling_average > 0 else "Total Cost",
+                            y_title=f"Average Total Cost per \
+                                {int(rolling_average)} Episodes"
+                            if rolling_average > 0
+                            else "Total Cost",
                         ),
                         gr.LinePlot(
                             data,
@@ -217,7 +227,10 @@ def training_agent_tabs():
                                 reward_min - reward_ten_percent,
                                 reward_max + reward_ten_percent,
                             ],
-                            y_title=f"Average Total Reward per {rolling_average} Episodes" if rolling_average > 0 else "Total Reward",
+                            y_title=f"Average Total Reward per \
+                                {int(rolling_average)} Episodes"
+                            if rolling_average > 0
+                            else "Total Reward",
                         ),
                         gr.skip(),
                         gen,

@@ -116,7 +116,7 @@ ignore = [
   "ISC001", # Conflicts with formatter
 ]
 pydocstyle.convention = "google"
-exclude = ["*.ipynb"]#, "src/lahso/ui.py"]
+exclude = ["*.ipynb", "src/lahso/simulation_module_improved.py"]
 
 [tool.ruff.lint.per-file-ignores]
 # Tests can ignore a few extra rules

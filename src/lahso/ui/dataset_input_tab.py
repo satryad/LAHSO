@@ -94,6 +94,12 @@ def compute_with_dataset_input(
         storage_cost=int(storage_cost),
         delay_penalty=int(delay_penalty),
         undelivered_penalty=int(undelivered_penalty),
+        tc_name="total_cost.pkl",
+        tr_name="total_reward.pkl",
+        q_name="q_table.pkl",
+    )
+    config.demand_kbest_path = config.demand_default_path.with_stem(
+        f"{config.demand_default_path.stem}_kbest"
     )
     if generate_possible_paths:
         service_to_path(config)
