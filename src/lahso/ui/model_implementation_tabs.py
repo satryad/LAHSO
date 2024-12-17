@@ -54,13 +54,12 @@ def model_implementation_tabs():
                         ),
                     )
                     gr.Markdown("## Learning Agent Settings")
+                    p = Path("q_table/default_q_table_output.pkl")
                     q_table_input = gr.File(
                         label="Q-Table",
                         file_types=[".pkl"],
                         height=100,
-                        value=str(
-                            Path("q_table/default_q_table_output.pkl").absolute()
-                        )
+                        value=str(p) if p.exists() else None,
                     )
                     policy_input = gr.Dropdown(
                         label="Policy",

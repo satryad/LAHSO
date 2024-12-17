@@ -84,33 +84,32 @@ def training_agent_tabs():
                         label="Continue from previous training?",
                         value=False,
                     )
+                    p = Path("q_table/default_q_table_output.pkl")
                     last_q_table_input = gr.File(
                         label="Last Q-Table",
                         file_types=[".pkl"],
                         type="filepath",
                         height=100,
                         visible=False,
-                        value=str(
-                            Path("q_table/default_q_table_output.pkl").absolute()
-                        ),
+                        value=str(p) if p.exists() else None,
                     )
+                    p = Path("training/default_total_cost_output.pkl")
                     last_total_cost_input = gr.File(
                         label="Last Total Cost",
                         file_types=[".pkl"],
                         type="filepath",
                         height=100,
                         visible=False,
-                        value=str(Path("training/default_total_cost_output.pkl").absolute()),
+                        value=str(p) if p.exists() else None,
                     )
+                    p = Path("training/default_total_reward_output.pkl")
                     last_reward_input = gr.File(
                         label="Last Reward",
                         file_types=[".pkl"],
                         type="filepath",
                         height=100,
                         visible=False,
-                        value=str(
-                            Path("training/default_total_reward_output.pkl").absolute()
-                        ),
+                        value=str(p) if p.exists() else None,
                     )
                     continue_from_prev_training_input.change(
                         lambda checked: (
