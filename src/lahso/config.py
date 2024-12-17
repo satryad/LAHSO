@@ -57,8 +57,8 @@ class Config:
 
     # Ouput Names
     training_output: str = "Training_Output_v2.csv"
-    tc_name: str = "total_cost_200_v2.pkl"
-    tr_name: str = "total_reward_200_v2.pkl"
+    tc_name: str = "total_cost_200_Dec.pkl"
+    tr_name: str = "total_reward_200_Dec.pkl"
     q_name: str = "q_table_200_50000"
     smoothing: int = 300  # for training chart
 
@@ -86,7 +86,7 @@ class Config:
     storage_cost: int = 1  # EUR/TEU/hour
     delay_penalty: int = 1  # EUR/TEU/hour
     penalty_per_unfulfilled_demand: int = 150000  # For optimization module
-    undelivered_penalty: int = 100  # For RL
+    undelivered_penalty: int = 10000  # For RL
 
     # Time Parameter
     handling_time: int = 1  # minute/TEU (for simplification)
@@ -131,7 +131,7 @@ class Config:
         )
         self.tc_path = Path(f"training/{self.tc_name}")
         self.tr_path = Path(f"training/{self.tr_name}")
-        self.q_table_path = Path(f"q_table/{self.q_name}_eps_test.pkl")
+        self.q_table_path = Path(f"q_table/{self.q_name}_eps_Dec.pkl")
 
         if self.network_path is None:
             self.network_path = self.data_path / self.network_fn

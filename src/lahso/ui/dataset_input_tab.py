@@ -66,7 +66,7 @@ def compute_with_dataset_input(
     provide_k_best,
 ):
     config = Config(
-        print_event_enabled=False,
+        print_event_enabled=True, # for testing
         network_path=Path(intermodal_network),
         fixed_service_schedule_path=Path(fixed_schedule_service),
         truck_schedule_path=Path(truck_service),

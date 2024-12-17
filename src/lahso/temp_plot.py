@@ -9,10 +9,17 @@ from lahso.config import Config
 def temp_plot(config):
     plt.style.use("ggplot")
 
-    with open(f"{config.training_path}", "rb") as f:
-        df = pd.read_csv(f)
-        cst = df["Total Cost"].tolist()
-        rwd = df["Total Reward"].tolist()
+    # with open(f"{config.training_path}", "rb") as f:
+    #     df = pd.read_csv(f)
+    #     cst = df["Total Cost"].tolist()
+    #     rwd = df["Total Reward"].tolist()
+
+    with open(f'{config.tc_path}', 'rb') as f:
+        cst = pickle.load(f)
+
+    with open(f'{config.tr_path}', 'rb') as f:
+        rwd = pickle.load(f)
+    
 
     fig, axs = plt.subplots(1, 2, figsize=(20, 8))
     seed = len(cst)

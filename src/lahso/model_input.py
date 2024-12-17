@@ -243,17 +243,17 @@ class ModelInput:
             print("New Q-table is created")
 
         # Load the last output of the training
-        # if not config.start_from_0:
-        #     with open(config.tc_path, "rb") as f:
-        #         self.total_cost_plot_read = pickle.load(f)
+        if not config.start_from_0:
+            with open(config.tc_path, "rb") as f:
+                self.total_cost_plot_read = pickle.load(f)
 
-        #     with open(config.tr_path, "rb") as f:
-        #         self.total_reward_plot_read = pickle.load(f)
-        #     print(len(self.total_cost_plot_read))
+            with open(config.tr_path, "rb") as f:
+                self.total_reward_plot_read = pickle.load(f)
+            print(len(self.total_cost_plot_read))
 
         # Load the last output of the training (dataframe)
-        if not config.start_from_0:
-            with open(config.training_path, "rb") as f:
-                self.df_training_output_read = pd.read_csv(f)
+        # if not config.start_from_0:
+        #     with open(config.training_path, "rb") as f:
+        #         self.df_training_output_read = pd.read_csv(f)
 
-            print(len(self.df_training_output_read))
+        #     print(len(self.df_training_output_read))
