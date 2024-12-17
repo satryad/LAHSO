@@ -25,6 +25,8 @@ def model_implementation_tabs():
             dataset_inputs,
             dataset_input_next_button,
             dataset_input_processing_status,
+            compute_k_best_checkbox,
+            demand_input,
         ) = render_dataset_input_tab()
 
         with gr.Tab(
@@ -135,6 +137,8 @@ def model_implementation_tabs():
                 dataset_input_next_button,
                 simulation_settings_tab,
                 config,
+                compute_k_best_checkbox,
+                demand_input,
             ],
         )
 

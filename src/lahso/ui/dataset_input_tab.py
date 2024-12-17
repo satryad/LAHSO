@@ -107,6 +107,8 @@ def compute_with_dataset_input(
         gr.Button("Resubmit", interactive=True),
         gr.Tab(interactive=True),
         config,
+        gr.Checkbox(value=False),
+        gr.File(value=str(config.demand_kbest_path.absolute()))
     )
 
 
@@ -185,7 +187,7 @@ def render_dataset_input_tab():
                     value=100,
                     precision=0,
                 )
-                compute_k_best_tickbox = gr.Checkbox(
+                compute_k_best_checkbox = gr.Checkbox(
                     label="Compute K-Best Solution", value=True
                 )
                 dataset_input_next_button = gr.Button(value="Next Step")
@@ -203,7 +205,7 @@ def render_dataset_input_tab():
         storage_cost_input,
         delay_penalty_input,
         undelivered_penalty_input,
-        compute_k_best_tickbox,
+        compute_k_best_checkbox,
     ]
 
     return (
@@ -211,4 +213,6 @@ def render_dataset_input_tab():
         dataset_inputs,
         dataset_input_next_button,
         dataset_input_processing_status,
+        compute_k_best_checkbox,
+        demand_input,
     )
