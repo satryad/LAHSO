@@ -20,7 +20,6 @@ def dataset_input_next(
     storage_cost,
     delay_penalty,
     undelivered_penalty,
-    _generate_possible_paths,
     _compute_k_best,
 ):
     if intermodal_network is None:
@@ -77,7 +76,6 @@ def compute_with_dataset_input(
     storage_cost,
     delay_penalty,
     undelivered_penalty,
-    generate_possible_paths,
     compute_k_best,
 ):
     config = Config(
@@ -101,8 +99,7 @@ def compute_with_dataset_input(
     config.demand_kbest_path = config.demand_default_path.with_stem(
         f"{config.demand_default_path.stem}_kbest"
     )
-    if generate_possible_paths:
-        service_to_path(config)
+    service_to_path(config)
     if compute_k_best:
         kbest(config)
     return (
@@ -188,11 +185,6 @@ def render_dataset_input_tab():
                     value=100,
                     precision=0,
                 )
-                generate_possible_paths_tickbox = gr.Checkbox(
-                    label="Generate Possible Paths", value=True
-                )
-                # TODO: Provide input for possible paths if above checkbox is unchecked?
-                #       Or untick k-best checkbox and make uninteractive?
                 compute_k_best_tickbox = gr.Checkbox(
                     label="Compute K-Best Solution", value=True
                 )
@@ -211,7 +203,6 @@ def render_dataset_input_tab():
         storage_cost_input,
         delay_penalty_input,
         undelivered_penalty_input,
-        generate_possible_paths_tickbox,
         compute_k_best_tickbox,
     ]
 
