@@ -1,7 +1,7 @@
 # Known Issues
 
 - [X] Missing "Training Paused" notification on tab switch. When switching to a previous sub-tab of "Training an Agent", while training is happening, there should be a "Training Paused" message, but none is displayed.
-- [ ] When model implementation is done, switching away from the tab and back to it erases the barplot.
+- [X] When model implementation is done, switching away from the tab and back to it erases the barplot.
 - [ ] Training not paused when switching away from "Training an Agent" tab. This only happens within the sub-tabs of "Training an Agent"
 - [ ] Headings in the Training and Execute Simulation tabs are now connected directly to the simulation number input of the Simulation Settings tabs; reflecting the value in there. However, they should only change on submission.
 
