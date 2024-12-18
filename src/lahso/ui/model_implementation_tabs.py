@@ -220,11 +220,18 @@ def model_implementation_tabs():
                 gr.Info("Starting Simulation.", duration=3)
                 gen = model_implementation(config, model_input)
             for result in gen:
+                if status is ExecutionStatus.PAUSED:
+                    yield (
+                        # gr.skip(),
+                        gr.skip(),
+                        ExecutionStatus.EXECUTING,
+                        gen,
+                    )
                 if result is None:
                     yield (
-                        # gr.Image(),
-                        gr.BarPlot(),
-                        ExecutionStatus.EXECUTING,
+                        # gr.skip(),
+                        gr.skip(),
+                        gr.skip(),
                         gen,
                     )
                 else:
@@ -246,9 +253,15 @@ def model_implementation_tabs():
                                 cost_max + cost_ten_percent,
                             ],
                         ),
-                        ExecutionStatus.EXECUTING,
+                        gr.skip(),
                         gen,
                     )
+            yield (
+                # gr.skip(),
+                gr.skip(),
+                ExecutionStatus.FINISHED,
+                gen,
+            )
 
         execute_simulation_tab_select_event = execute_simulation_tab.select(
             fn=populate_visualisations,
@@ -268,15 +281,12 @@ def model_implementation_tabs():
         )
 
         def simulation_finished(status):
-            if status is ExecutionStatus.EXECUTING:
+            if status is ExecutionStatus.FINISHED:
                 gr.Info("Simulation Finished", duration=10)
-                return ExecutionStatus.FINISHED
-            return status
 
-        execute_simulation_tab_select_event.then(
+        execute_simulation_tab_select_event.success(
             simulation_finished,
             inputs=[simulation_execution_status],
-            outputs=[simulation_execution_status],
         )
 
         def cancel_simulation_execution(status):
@@ -288,14 +298,7 @@ def model_implementation_tabs():
                 return ExecutionStatus.PAUSED
             return status
 
-        simulation_settings_tab.select(
-            fn=cancel_simulation_execution,
-            inputs=[simulation_execution_status],
-            outputs=[simulation_execution_status],
-            cancels=[execute_simulation_tab_select_event],
-        )
-
-        dataset_input_tab.select(
+        gr.on([simulation_settings_tab.select, dataset_input_tab.select],
             fn=cancel_simulation_execution,
             inputs=[simulation_execution_status],
             outputs=[simulation_execution_status],

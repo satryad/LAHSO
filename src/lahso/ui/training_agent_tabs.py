@@ -184,6 +184,13 @@ def training_agent_tabs():
                     gen,
                 )
             for result in gen:
+                if status is ExecutionStatus.PAUSED:
+                    yield (
+                        gr.skip(),
+                        gr.skip(),
+                        ExecutionStatus.EXECUTING,
+                        gen,
+                    )
                 if result is None:
                     yield (
                         gr.skip(),
