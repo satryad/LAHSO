@@ -80,7 +80,7 @@ class Config:
     eg = epsilon greedy policy
     """
     policy_name: str = "eg"
-    q_table_path: Path = field(init=False)
+    q_table_path: Path | None = None
 
     # Cost Parameters (Manually input)
     storage_cost: int = 1  # EUR/TEU/hour
@@ -121,6 +121,8 @@ class Config:
     s_disruption_path: Path | None = None
     d_disruption_path: Path | None = None
 
+    output_path: Path | None = None
+
     def __post_init__(self):
         self.s_disruption_fn = (
             f"Service_Disruption_Profile_{self.sd}.csv"
@@ -134,7 +136,9 @@ class Config:
         )
         self.tc_path = Path(f"training/{self.tc_name}")
         self.tr_path = Path(f"training/{self.tr_name}")
-        self.q_table_path = Path(f"q_table/{self.q_name}")
+        
+        if self.q_table_path is None:
+            self.q_table_path = Path(f"q_table/{self.q_name}")
 
         if self.network_path is None:
             self.network_path = self.data_path / self.network_fn
@@ -168,3 +172,6 @@ class Config:
             self.s_disruption_path = self.disruption_path / self.s_disruption_fn
         if self.d_disruption_path is None:
             self.d_disruption_path = self.disruption_path / self.d_disruption_fn
+
+        if self.output_path is None:
+            self.output_path = Path("csv_output") / f"{self.policy_name}_{self.number_of_simulation}.csv"

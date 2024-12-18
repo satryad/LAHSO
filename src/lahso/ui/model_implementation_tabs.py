@@ -106,9 +106,9 @@ def model_implementation_tabs():
                 #     )
                 with gr.Column():
                     gr.Markdown(
-                        lambda config: f"## Total Cost Per Simulation Episode Over \
-                                        {config.number_of_simulation} Episodes",
-                        inputs=[config],
+                        lambda number_of_simulation: f"## Total Cost Per Simulation Episode Over \
+                                        {number_of_simulation} Episodes",
+                        inputs=[no_of_simulations_input],
                     )
                     execute_simulation_barplot = gr.BarPlot(
                         value=pd.DataFrame(),
@@ -167,15 +167,17 @@ def model_implementation_tabs():
                 msg = "Simulation Durations should be non-negative"
                 raise gr.Error(msg)
 
-            config.service_disruptions = Path(service_disruptions)
-            config.demand_disruptions = Path(demand_disruptions)
-            config.number_of_simulation = no_of_simulations
-            # Note that simulation_duration in the config is in minutes, not days
-            config.simulation_duration = simulation_durations_per_episode * 1440
-            config.start_from_0 = True
-            config.q_table_path = Path(q_table)
-            config.policy_name = policy
-            config.extract_shipment_output = True
+            config = Config(
+                s_disruption_path = Path(service_disruptions),
+                d_disruption_path = Path(demand_disruptions),
+                number_of_simulation = no_of_simulations,
+                # Note that simulation_duration in the config is in minutes, not days
+                simulation_duration = simulation_durations_per_episode * 1440,
+                start_from_0 = True,
+                q_table_path = Path(q_table),
+                policy_name = policy,
+                extract_shipment_output = True,
+            )
 
             print(config)
 
