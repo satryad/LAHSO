@@ -1,6 +1,6 @@
 # Learning Assisted Hybrid Simulation-Optimization Model
 
-The **Learning Assisted Hybrid Simulation-Optimization Model** provides a modular framework, applying a Reinforcement Learning approach to synchromodal transport in response to disruptions. The model can be used to train a learning agent or implement an existing one.
+The **Learning Assisted Hybrid Simulation-Optimization Model** provides a modular framework, applying a Reinforcement Learning approach to synchromodal transport in response to disruptions. The model can be used to train a learning agent and implement the trained agent to be compared with different policies or different training strategies.
 
 This documentation includes a ready-to-use learning agent that has been trained for 50,000 episodes with a disruption profile located in the dataset folder.
 
@@ -13,6 +13,37 @@ This documentation includes a ready-to-use learning agent that has been trained 
 5. Run `uv sync`.
 6. Run `uv run ui`.
 7. A browser window should open automatically, otherwise copy the printed link.
+
+## Run the Model
+
+### 1. Model input
+- Once the repository is cloned, there is a folder called "Datasets" consisting of default datasets required for running the model.
+- The default dataset is provided automatically once the model is started. Users can also create their input dataset by following the format given in the default data.
+
+### 2. Providing K-Best solutions
+- In the "Datasets" folder, the K-best solution for the default demand is already given.
+- If the user wants to generate a new demand file, the user needs to tick the box "Provide K-Best Solution" to generate the K-Best solution. The model will create a new file consisting of the demand with K-best solutions after "Next Step" button is clicked
+
+### 3. Learning Agent Settings
+- For training an agent, this settings is used to change hyperparameters of the agent
+- For implementation, users can upload different Q-table (a product of trained agent) and choose different polices. The greedy policy utilizes the RL agent while the others are benchmark policies
+
+### 4. Training an Agent
+- Users can train a model from scratch and will get training output (Q-table, record of total cost, and record of total reward) in a default name.
+- Since the training can take days to complete, users can stop the training and continue to train the agent by ticking the "Continue from previous training" box
+- After ticking the "Continue from previous training" box, the user will have an option to upload the last trained agent (Q-table, along with the recorded total costs and reward).
+- If users leave those options in the default files, the model will overwrite the Q-table with the default name. **Therefore it is important to rename the Q-table file (along with the recorded total costs and reward) if the user wants to save it.**
+
+### 5. Executing Model Implementation
+- After clicking the "Next Step" button in Simulation Settings tab, the model is ready to run. The user simply selects the tab "Execute Simulation" and the model will run until the desired number of simulations are completed
+- The bar chart provide the total costs of each episode.
+
+### 6. Comparing results
+- In the "Results Comparison" tab, users can compare output from Model Implementation after running different policies or learning agent.
+- The output of the Model Implementation are stored in csv_ouptut folder. Users can upload to files for comparison in the given box and determine the labell
+- By switching to the "Policy Comparison" tab, users will get 5 charts of comparison of different cost parameters. The bar chart represent cost different between 2 polices.
+
+
 
 ---
 
