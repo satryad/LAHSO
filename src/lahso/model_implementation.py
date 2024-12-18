@@ -9,8 +9,8 @@ from lahso.extract_output import shipment_logs
 from lahso.global_variables import AggregateStatistics, SimulationVars
 from lahso.helper_functions import clock, print_event
 from lahso.model_input import ModelInput
-from lahso.policy_function_improved import make_epsilon_greedy_policy
-from lahso.simulation_module_improved import (
+from lahso.policy_function import make_epsilon_greedy_policy
+from lahso.simulation_module import (
     DemandDisruption,
     MatchingModule,
     Mode,
@@ -360,4 +360,4 @@ def model_implementation(config, model_input):
 def main():
     config = Config()
     model_input = ModelInput(config)
-    model_implementation(config, model_input)
+    deque(model_implementation(config, model_input), maxlen=0)
