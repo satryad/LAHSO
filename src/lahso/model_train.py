@@ -1,5 +1,6 @@
 import pickle
 import time
+import traceback
 from collections import deque
 
 import numpy as np
@@ -334,7 +335,8 @@ def model_train(config, model_input):
             print(f"Episode runtime: {eps_time} seconds")
             yield statistics.dataframe(total_cost_plot, total_reward_plot)
         except Exception as e:
-            print(f"Error in simulation number {simulation + 1}: {e}")
+            print(f"Error in simulation number {simulation + 1}: {repr(e)}")
+            print(traceback.format_exc())
             yield None
 
     sim_end_time = time.time()  # To measure the runtime
