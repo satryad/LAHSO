@@ -276,14 +276,7 @@ def training_agent_tabs():
                 return ExecutionStatus.PAUSED
             return status
 
-        simulation_settings_tab.select(
-            fn=cancel_training,
-            inputs=[training_execution_status],
-            outputs=[training_execution_status],
-            cancels=[training_tab_select_event],
-        )
-
-        dataset_input_tab.select(
+        gr.on([simulation_settings_tab.select, dataset_input_tab.select],
             fn=cancel_training,
             inputs=[training_execution_status],
             outputs=[training_execution_status],
