@@ -42,7 +42,7 @@ def results_comparison_tabs():
                 with gr.Column():
                     file1_label_input = gr.Textbox(
                         label="Label In Plot",
-                        value="Greedy Policy",
+                        value="Always Wait",
                     )
             with gr.Row():
                 with gr.Column():
@@ -55,7 +55,7 @@ def results_comparison_tabs():
                 with gr.Column():
                     file2_label_input = gr.Textbox(
                         label="Label In Plot",
-                        value="Always Wait",
+                        value="Greedy Policy",
                     )
 
         with gr.Tab("Policy Comparison", interactive=False) as comparison_tab:
