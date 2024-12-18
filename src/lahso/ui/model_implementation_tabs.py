@@ -175,6 +175,7 @@ def model_implementation_tabs():
             config.start_from_0 = True
             config.q_table_path = Path(q_table)
             config.policy_name = policy
+            config.extract_shipment_output = True
 
             print(config)
 
