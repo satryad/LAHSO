@@ -60,7 +60,7 @@ class ModelInput:
         else:
             self.request = pd.read_csv(config.demand_default_path)
             self.request["Solution_List"] = self.request["Solution_List"].apply(
-                lambda s: [] if s == 0 else split_to_sublists(s)
+                lambda s: [] if s == "0" else split_to_sublists(s)
             )
 
         self.request["Mode"] = self.request["Solution_List"].apply(
