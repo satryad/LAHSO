@@ -9,8 +9,8 @@ from lahso.extract_output import shipment_logs
 from lahso.global_variables import AggregateStatistics, SimulationVars
 from lahso.helper_functions import clock, print_event
 from lahso.model_input import ModelInput
-from lahso.policy_function import make_epsilon_greedy_policy
-from lahso.simulation_module import (
+from lahso.policy_function_improved import make_epsilon_greedy_policy
+from lahso.simulation_module_improved import (
     DemandDisruption,
     MatchingModule,
     Mode,
@@ -200,6 +200,10 @@ def model_implementation(config, model_input):
                     simulation_vars,
                 )
             )
+
+            # Setup bidirectional communication between shipment and matching module
+            for value in shipment_dict.values():
+                value.set_replanning(planning)
 
             # Random seed is set according to the simulation order
             seed = current_episode if config.random_seed else config.random_seed_value
