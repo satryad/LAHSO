@@ -367,13 +367,13 @@ def training_agent_tabs():
             if simulation_durations < 0:
                 msg = "Simulation Durations should be non-negative"
                 raise gr.Error(msg)
-            if last_q_table is None:
+            if continue_from_prev_training and last_q_table is None:
                 msg = "No Q-Table file selected"
                 raise gr.Error(msg)
-            if last_total_cost is None:
+            if continue_from_prev_training and last_total_cost is None:
                 msg = "No Last Total Cost file selected"
                 raise gr.Error(msg)
-            if last_reward is None:
+            if continue_from_prev_training and last_reward is None:
                 msg = "No Last Reward file selected"
                 raise gr.Error(msg)
 
