@@ -1,3 +1,8 @@
+"""
+The subtabs for the 'Model Implementation' tab. Uses dataset_input_tab.py for the first
+ subtab, then a custom 'Simulation Settings' subtab (different from the one in the 
+ 'Training an Agent' tab!), then the 'Execute Simulation' subtab.
+"""
 import math
 from pathlib import Path
 
@@ -15,7 +20,6 @@ from lahso.ui.dataset_input_tab import (
 from lahso.ui.execution_status import ExecutionStatus
 
 
-# Nested Tabs for Model Implementation
 def model_implementation_tabs():
     with gr.Blocks() as tabs:
         config = gr.State(Config())
@@ -99,6 +103,10 @@ def model_implementation_tabs():
 
         with gr.Tab("Execute Simulation", interactive=False) as execute_simulation_tab:
             with gr.Row():
+                # Note that a flow distribution image was not a supported feature of the
+                #  LAHSO code at the time of building this UI. Hopefully this can be
+                #  added later
+
                 # with gr.Column():
                 #     gr.Markdown("## Flow Distribution")
                 #     flow_distribution_image = gr.Image(
@@ -111,6 +119,9 @@ def model_implementation_tabs():
                         inputs=[no_of_simulations_input],
                     )
                     execute_simulation_barplot = gr.BarPlot(
+                        # N.B. Big pitfall is to not provide this `value` field
+                        #  the UI will start up but the generated JavaScript will be
+                        #  broken, making the UI entirely non-interactive.
                         value=pd.DataFrame(),
                         x="Episode",
                         y="Total Cost",
@@ -119,6 +130,11 @@ def model_implementation_tabs():
                     simulation_execution_status = gr.State(ExecutionStatus.NOT_STARTED)
                     simulation_execution_generator = gr.State()
 
+        # Wiring up these event needs to happen within a gr.Blocks() context, that's
+        #  why we do it here instead of in dataset_input_tab.py even though it would
+        #  have been nicer there. Perhaps I missed something and it _is_ possible to
+        #  encapsulate things better in one file. Give it a try if you have the time,
+        #  it would clean up the code a bit.
         dataset_input_next_button.click(
             dataset_input_next,
             inputs=dataset_inputs,
@@ -154,6 +170,9 @@ def model_implementation_tabs():
             simulation_durations_per_episode,
             config,
         ):
+            """
+            Input validation function.
+            """
             if service_disruptions is None:
                 msg = "No Service Disruptions file selected"
                 raise gr.Error(msg)
@@ -216,10 +235,20 @@ def model_implementation_tabs():
             status,
             gen,
         ):
+            """
+            Model execution _generator_.
+            Is called continuously by the UI framework until completion, once triggered;
+            but that trigger can be cancelled to pause things.
+            """
             if status is ExecutionStatus.NOT_STARTED:
                 gr.Info("Starting Simulation.", duration=3)
                 gen = model_implementation(config, model_input)
             for result in gen:
+                # Using gr.skip() makes sure the output component doesn't update at all
+                # This is useful with e.g. the ExecutionStatus in a gr.State component,
+                #  so we can have another function respond to real changes in the status
+                #  instead of triggering even when we overwrite the value with the same
+                #  value.
                 if status is ExecutionStatus.PAUSED:
                     yield (
                         # gr.skip(),
@@ -236,6 +265,8 @@ def model_implementation_tabs():
                     )
                 else:
                     data = result[["Episode", "Total Cost"]]
+                    # We change the 'Episode' column to a string column so the barplot
+                    #  component doesn't display a full numeric axis
                     width = 1 + int(math.log10(config.number_of_simulation))
                     # noinspection PyTypeChecker
                     data["Episode"] = data["Episode"].map(
@@ -298,6 +329,8 @@ def model_implementation_tabs():
                 return ExecutionStatus.PAUSED
             return status
 
+        # TODO: return the arguments here with the function, wire up the cancellation
+        #       with selecting the top-level tabs too.
         gr.on([simulation_settings_tab.select, dataset_input_tab.select],
             fn=cancel_simulation_execution,
             inputs=[simulation_execution_status],

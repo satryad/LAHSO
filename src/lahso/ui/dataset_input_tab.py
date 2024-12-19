@@ -1,3 +1,8 @@
+"""
+This is the dataset input sub-tab. Since this sub-tab is the same for both the
+ 'Training an Agent' and 'Model Implementation' tabs, the code is shared here.
+"""
+
 from pathlib import Path
 
 import gradio as gr
@@ -22,6 +27,9 @@ def dataset_input_next(
     undelivered_penalty,
     _compute_k_best,
 ):
+    """
+    Input validation function.
+    """
     if intermodal_network is None:
         msg = "No Intermodal Network file selected"
         raise gr.Error(msg)
@@ -55,6 +63,8 @@ def dataset_input_next(
     if undelivered_penalty < 0:
         msg = "Undelivered Penalty should be non-negative"
         raise gr.Error(msg)
+    # Consider making this a dict for better readability:
+    # https://www.gradio.app/guides/blocks-and-event-listeners#function-return-list-vs-dict
     return (
         gr.Textbox(label="Processing Status", visible=True),
         gr.Button(interactive=False),
@@ -78,6 +88,9 @@ def compute_with_dataset_input(
     undelivered_penalty,
     compute_k_best,
 ):
+    """
+    Execution step before making the next tab interactive
+    """
     config = Config(
         print_event_enabled=False,
         network_path=Path(intermodal_network),
@@ -99,6 +112,8 @@ def compute_with_dataset_input(
     service_to_path(config)
     if compute_k_best:
         kbest(config)
+    # Consider making this a dict for better readability:
+    # https://www.gradio.app/guides/blocks-and-event-listeners#function-return-list-vs-dict
     return (
         gr.Textbox(value="Done. Continue to Simulation Settings."),
         gr.Button("Resubmit", interactive=True),
@@ -205,6 +220,8 @@ def render_dataset_input_tab():
         compute_k_best_checkbox,
     ]
 
+    # Consider making this a dict for better readability:
+    # https://www.gradio.app/guides/blocks-and-event-listeners#function-return-list-vs-dict
     return (
         dataset_input_tab,
         dataset_inputs,
