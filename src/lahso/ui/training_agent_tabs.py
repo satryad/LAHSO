@@ -1,3 +1,8 @@
+"""
+The subtabs for the 'Training an Agent' tab. Uses dataset_input_tab.py for the first
+ subtab, then a custom 'Simulation Settings' subtab (different from the one in the 
+ 'Model Implementation' tab!), then the 'Training' subtab.
+"""
 import math
 from pathlib import Path
 
@@ -14,10 +19,7 @@ from lahso.ui.dataset_input_tab import (
 )
 from lahso.ui.execution_status import ExecutionStatus
 
-averages = [x * pow(10, y) for y in range(1, 10) for x in range(1, 10)]
 
-
-# Nested Tabs for Training an Agent
 def training_agent_tabs():
     with gr.Blocks() as tabs:
         config = gr.State(Config())
@@ -165,7 +167,7 @@ def training_agent_tabs():
                     )
             training_execution_status = gr.State(ExecutionStatus.NOT_STARTED)
             training_execution_generator = gr.State()
-            # TODO: debugging tool, remove later
+            # TODO: debugging tool, remove?
             gr.Textbox(value=lambda x: f"{x}", inputs=[training_execution_status])
 
         def update_plots(
@@ -174,6 +176,11 @@ def training_agent_tabs():
             status,
             gen,
         ):
+            """
+            Training _generator_.
+            Is called continuously by the UI framework until completion, once triggered;
+            but that trigger can be cancelled to pause things.
+            """
             if status is ExecutionStatus.NOT_STARTED:
                 gr.Info("Starting Simulation.", duration=3)
                 gen = model_train(config, model_input)
@@ -283,6 +290,8 @@ def training_agent_tabs():
                 return ExecutionStatus.PAUSED
             return status
 
+        # TODO: return the arguments here with the function, wire up the cancellation
+        #       with selecting the top-level tabs too.
         gr.on([simulation_settings_tab.select, dataset_input_tab.select],
             fn=cancel_training,
             inputs=[training_execution_status],
@@ -349,6 +358,10 @@ def training_agent_tabs():
             last_reward,
             config,
         ):
+            """
+            Input validation function.
+            Also constructs a ModelInput, which will actually open and read files!
+            """
             if service_disruptions is None:
                 msg = "No Service Disruptions file selected"
                 raise gr.Error(msg)
@@ -377,6 +390,10 @@ def training_agent_tabs():
                 msg = "No Last Reward file selected"
                 raise gr.Error(msg)
 
+            # TODO: Use the Config() constructor for most of these fields, since it has
+            #       a __post_init__ method that derives more fields from the ones you
+            #       set. See model_implementation_tab.py def check_simulation_settings
+            #       for an example.
             config.service_disruptions = Path(service_disruptions)
             config.demand_disruptions = Path(demand_disruptions)
             config.alpha = learning_rate

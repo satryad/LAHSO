@@ -1,3 +1,8 @@
+"""
+The subtabs for the 'Result Comparison' tab. The simpler part of this UI, with subtabs
+'Dataset Input' and 'Policy Comparison'. Does some basic datavisualisation based on
+logic in bar_chart_plot.py
+"""
 import gradio as gr
 import pandas as pd
 
@@ -5,12 +10,18 @@ from lahso.bar_chart_plot import comparison
 
 
 def check_inputs(file1, file1_label, file2, file2_label):
+    """
+    Input Validation.
+    """
     if file1 is None or file1_label is None or file2 is None or file2_label is None:
         return gr.Tab(interactive=False)
     return gr.Tab(interactive=True)
 
 
 def compare_results(file1, file1_label, file2, file2_label):
+    """
+    Create the bar plots.
+    """
     file1_label = f"{file1_label} performs better"
     file2_label = f"{file2_label} performs better"
     df_comparison = comparison(file1, file2, file1_label, file2_label)
