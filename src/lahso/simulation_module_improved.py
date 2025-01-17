@@ -313,7 +313,7 @@ class Shipment:
         self.tot_shipment_delay_penalty = 0
         self.current_location = self.origin
         self.planning = self.env.event()
-        self.matching_module = None  # to call the matching module
+        self.matching_module = MatchingModule  # to call the matching module
         self.process = self.env.process(self.handled())
         self.status = "Announced"
         self.loading_signal = self.env.event()
@@ -331,10 +331,6 @@ class Shipment:
         self.state_event = {mode: self.env.event() for mode in (model_input.mode_list)}
         self.action_event = {mode: self.env.event() for mode in (model_input.mode_list)}
         self.missed_service = 0
-        self.last_disruption = "no disruption"  # improved
-
-    def set_replanning(self, matching_module):  # for improving the replanning process
-        self.matching_module = matching_module
 
     def handled(self):
         yield self.env.timeout(self.announce_time)
@@ -467,7 +463,6 @@ class Shipment:
 
             # Order truck if the mode is truck
             if "Truck" in self.mode[0].name:
-                # self.mode[0].truck_service = self.env.event()
                 self.mode[0].truck_service.succeed()  # trigger the truck service
                 self.mode[0].departure_time = (
                     self.release_time + self.truck_waiting_time
@@ -630,9 +625,19 @@ class Shipment:
             # Trigger the reward generation if the shipment is assigned to RL
             if self.assigned_to_rl:
                 if (
-                    self.current_location != self.destination
+                    self.mode[0] != self.mode[-1]
                 ):  # Check if the shipment is on the last mode
+                    self.rl_start_time = (
+                        self.env.now
+                    )  # Update start time for next reward calculation
                     self.reward_event.succeed()
+
+                    # Update state for next action
+                    if "Truck" in self.mode[1].name:
+                        name = identify_truck_line(self.mode[1].name)
+                        self.state_event[name].succeed()
+                    else:
+                        self.state_event[self.mode[1].name].succeed()
 
                     # Signal for action completion
                     if "Truck" in self.mode[0].name:
@@ -675,18 +680,18 @@ class Shipment:
             self.simulation_vars.actual_itinerary[self.name].append(
                 self.mode[0].name
             )  # for observation
-            self.status = "Arrived"  # improved
-            if self.assigned_to_rl and self.current_location != self.destination:
+            print(
+                f"{self.name} mode = {self.mode[0].name} itin = {self.possible_itineraries}"
+            )  # debug
+            if len(self.possible_itineraries) > 1:
                 # trigger replanning
                 for i in range(len(self.mode)):
-                    self.mode[i].status = "Available"
-                    if i > 0:
-                        self.mode[i].free_capacity += self.num_containers
+                    # self.mode[i].status = "Available"
                     self.mode[i] = self.mode[i].name
                 self.simulation_vars.requests_to_replan.append(
                     [
                         self.name,
-                        self.current_location,
+                        self.origin,
                         self.destination,
                         self.release_time,
                         self.due_time,
@@ -694,13 +699,9 @@ class Shipment:
                         self.mode,
                     ]
                 )
-                self.simulation_vars.disruption_location.append("RL next action")
-
-                self.matching_module.replanning()  # Replan the shipment
-                self.simulation_vars.disruption_location.remove(
-                    "RL next action"
-                )  # Replan the shipment
+                self.matching_module.replanning  # Replan the shipment
             self.mode.pop(0)  # Remove the completed service from the itinerary
+            self.status = "Arrived"
 
         # Shipment has arrived at the end destination
         self.status = "Delivered"
@@ -795,11 +796,12 @@ def affected_request_detection(
         # Populate the request to replan with current information
         for af_r in affected_requests_list:
             s = shipment[af_r]
-            s.last_disruption = simulation_vars.d_profile_list[-1][0]  # improved
             if s.current_location in model_input.node_list:
                 s.origin = s.current_location
             else:
                 s.origin = s.mode[0].destination
+                print(f"{s.name} is disrupted on board")  # debug
+                print(f"{s.name} possible itineraries are {s.possible_itineraries}")
             for i in range(len(s.mode)):
                 s.mode[i].status = "Available"
                 s.mode[i].free_capacity += s.num_containers
@@ -920,39 +922,37 @@ class MatchingModule:
             for path in self.shipment[req[0]].possible_itineraries:
                 if disrupted_location not in path:
                     available_next_solution.append(path)
-            if (
-                not available_next_solution
-                and self.shipment[req[0]].status != "Arrived"
-            ):
+            if not available_next_solution:
                 unsolved_requests.append(req)
             else:
                 # Identify capacity constraint
                 next_solution_list = []
-                if available_next_solution:  # improved
-                    for path in available_next_solution:
-                        path_capacity = []
-                        for mode in path:
-                            if "Truck" not in mode:
-                                path_capacity.append(
-                                    self.mode_schedule[mode].free_capacity
-                                )
-                            else:
-                                path_capacity.append(99999)
-                        path_capacity = min(
-                            path_capacity
-                        )  # Determine path capacity from possible itineraries
-                        # Remove path with unsufficient free capacity
-                        if req[5] <= path_capacity:
-                            next_solution_list.append(path)
+                for path in available_next_solution:
+                    path_capacity = []
+                    for mode in path:
+                        if "Truck" not in mode:
+                            path_capacity.append(self.mode_schedule[mode].free_capacity)
+                        else:
+                            path_capacity.append(99999)
+                    path_capacity = min(
+                        path_capacity
+                    )  # Determine path capacity from possible itineraries
+
+                    # if req[5] <= path_capacity:
+                    #     solved_requests.append(req)
+                    #     new_mode = path
+                    #     req[6] = [req[6], new_mode]
+                    #     break
+
+                    # Remove path with unsufficient free capacity
+                    if req[5] >= path_capacity:
+                        next_solution_list.append(path)
                 if next_solution_list:
                     req[6] = [req[6], next_solution_list]
                     solved_requests.append(req)
+                    # print(f"test :{req[6]}") #debug
                 else:
-                    if self.shipment[req[0]].status == "Arrived":  # improved
-                        req[6] = [req[6], [[]]]
-                        solved_requests.append(req)
-                    else:
-                        unsolved_requests.append(req)
+                    unsolved_requests.append(req)
 
         # Trigger optimization model if there are unsolved requests
         if unsolved_requests:
@@ -964,18 +964,16 @@ class MatchingModule:
         for req in solved_requests:
             new_mode_candidate = req[6][1]
             old_mode = req[6][0]
-            # print(f"{req[0]} old mode is {old_mode} debug3") #debug
-            if (
-                self.shipment[req[0]].status == "On board"
-                or self.shipment[req[0]].status == "Arrived"
-            ):
+            if self.shipment[req[0]].status == "On board":
                 old_mode = old_mode[1:]
             matching[req[0]] = (old_mode, new_mode_candidate)
 
         # Assign the unmatched requests to truck
         for req in request_list:
+            # print(f"{req[0]} match = {matching[req[0]]}") #debug
             if not matching[req[0]][1][0]:
-                origin = req[1]
+                # print(f"is the {req[0]} here") #debug
+                origin = self.shipment[req[0]].origin
                 destination = self.shipment[req[0]].destination
                 old_mode = matching[req[0]][0]
                 if self.shipment[req[0]].status == "On board":
@@ -995,7 +993,6 @@ class MatchingModule:
             disrupted_location in self.node_list
             or disrupted_location in self.mode_list
             or disrupted_location in self.simulation_vars.truck_name_list
-            or disrupted_location == "RL next action"  # improved version
         ):
             # Start RL assginment
             self.simulation_vars.rl_triggers += 1
@@ -1014,16 +1011,12 @@ class MatchingModule:
                 # states
                 current_location = self.shipment[request[0]].current_location
                 if self.shipment[request[0]].status == "On board":
-                    mode = action_sets[0][0]  # the current mode
-                    if "Truck" in mode:
-                        mode = identify_truck_line(mode)
-                        current_location = self.truck_schedule_dict[mode][1][1]
-                    else:
-                        current_location = self.mode_schedule[mode].destination
+                    mode = action_sets[0]  # the current mode
+                    current_location = self.mode_schedule[mode[0]].destination
                 destination = self.shipment[request[0]].destination
                 due_time = self.shipment[request[0]].due_time // 60
-                volume = self.shipment[request[0]].num_containers  # improved
-                d_profile = self.shipment[request[0]].last_disruption
+                volume = self.shipment[request[0]].num_containers
+                d_profile = self.simulation_vars.d_profile_list[-1][0]
                 current_time = self.env.now % (1440 * 7) // 60
                 current_state = (
                     current_location,
@@ -1065,6 +1058,7 @@ class MatchingModule:
                             self.env.now, self.shipment[request[0]].release_time
                         )
                         self.shipment[request[0]].assigned_to_rl = True
+
                 else:
                     # Update reward from previous actions
                     if self.shipment[request[0]].status == "Waiting for arrival":
@@ -1077,69 +1071,43 @@ class MatchingModule:
                             * self.shipment[request[0]].num_containers
                         ) * -1
 
-                    if self.shipment[request[0]].status != "Arrived":  # improved
-                        # Interrupt the previous reward generation process for shipment
-                        #  with multiple disruptions
-                        for process_ID in self.simulation_vars.reward_generator[
-                            request[0]
-                        ]:
-                            process = process_ID[0]
-                            process.interrupt()
+                    # Interrupt the previous reward generation process for shipment
+                    #  with multiple disruptions
+                    for process_ID in self.simulation_vars.reward_generator[request[0]]:
+                        process = process_ID[0]
+                        process.interrupt()
 
                     self.simulation_vars.reward_generator[request[0]] = []
                     self.shipment[request[0]].rl_start_time = self.env.now
                     self.shipment[request[0]].assigned_to_rl = True
 
                 # Generate initial state for each action
-                mode_taken = action_set_taken[0]
-                print_event(
-                    self.print_event_enabled,
-                    f"RL ASSIGNMENT: {request[0]} - {mode_taken}",
-                )
-                state = current_state
-                future = False
-                self.simulation_vars.rg_order += 1
-                if "Truck" in mode_taken:
-                    mode_taken = identify_truck_line(mode_taken)
-                reward_gen = self.env.process(
-                    self.rl_module.reward_generator(
-                        request,
-                        state,
-                        mode_taken,
-                        future,
-                        self.simulation_vars.rg_order,
+                for i in range(len(action_set_taken)):
+                    print_event(
+                        self.print_event_enabled,
+                        f"RL ASSIGNMENT: {request[0]} - {action_set_taken[i]}",
                     )
-                )
-                self.simulation_vars.reward_generator[request[0]].append(
-                    [reward_gen, self.simulation_vars.rg_order]
-                )
-
-                # for i in range(len(action_set_taken)):
-                #     print_event(
-                #         self.print_event_enabled,
-                #         f"RL ASSIGNMENT: {request[0]} - {action_set_taken[i]}",
-                #     )
-                #     if i == 0:
-                #         state = current_state
-                #         future = False
-                #     else:  # for future actions
-                #         state = current_state
-                #         future = True
-                #     self.simulation_vars.rg_order += 1
-                #     if "Truck" in action_set_taken[i]:
-                #         action_set_taken[i] = identify_truck_line(action_set_taken[i])
-                #     reward_gen = self.env.process(
-                #         self.rl_module.reward_generator(
-                #             request,
-                #             state,
-                #             action_set_taken[i],
-                #             future,
-                #             self.simulation_vars.rg_order,
-                #         )
-                #     )
-                #     self.simulation_vars.reward_generator[request[0]].append(
-                #         [reward_gen, self.simulation_vars.rg_order]
-                #     )
+                    if i == 0:
+                        state = current_state
+                        future = False
+                    else:  # for future actions
+                        state = current_state
+                        future = True
+                    self.simulation_vars.rg_order += 1
+                    if "Truck" in action_set_taken[i]:
+                        action_set_taken[i] = identify_truck_line(action_set_taken[i])
+                    reward_gen = self.env.process(
+                        self.rl_module.reward_generator(
+                            request,
+                            state,
+                            action_set_taken[i],
+                            future,
+                            self.simulation_vars.rg_order,
+                        )
+                    )
+                    self.simulation_vars.reward_generator[request[0]].append(
+                        [reward_gen, self.simulation_vars.rg_order]
+                    )
 
                 self.simulation_vars.rl_assignment.append(request[0])
                 rl_match[request[0]] = (action_sets[0], [action_set_taken])  # edited
@@ -1276,14 +1244,12 @@ class MatchingModule:
         for request in request_list:
             current_location = self.shipment[request[0]].current_location
             old_mode, new_mode = match[request[0]]
+            # print(f"{old_mode},{new_mode}") #debug
             new_mode = new_mode[0]  # edited
             assigned_mode = []
             if new_mode:
-                if self.shipment[request[0]].status == "On board":
-                    assigned_mode.append(self.mode_schedule[current_location])
-                elif self.shipment[request[0]].status == "Arrived":  # improved version
-                    current_mode = request[6][0][0]
-                    assigned_mode.append(self.mode_schedule[current_mode])
+                if current_location in self.mode_list:
+                    assigned_mode = [self.mode_schedule[current_location]]
 
                 if old_mode == new_mode:
                     print_event(
@@ -1294,12 +1260,6 @@ class MatchingModule:
                     assigned_mode = []
                     if self.shipment[request[0]].status == "On board":
                         assigned_mode.append(self.mode_schedule[current_location])
-                    elif (
-                        self.shipment[request[0]].status == "Arrived"
-                    ):  # improved version
-                        current_mode = request[6][0][0]
-                        assigned_mode.append(self.mode_schedule[current_mode])
-
                 else:
                     print_event(
                         self.print_event_enabled,
@@ -1330,7 +1290,6 @@ class MatchingModule:
                             )
                             self.simulation_vars.truck_name_list.append(name)
                             self.env.process(self.mode_schedule[name].operate())
-
                         else:
                             name = mode
                         assigned_mode.append(self.mode_schedule[name])
@@ -1392,17 +1351,14 @@ class ReinforcementLearning:
     def action_generator(self, request, state, action_sets):
         # Define actions based on the first mode in each itinerary
         wait = action_sets[0][0]
-        # print(f"{request[0]} wait is {wait} debug 5") #debug
-        # if "Truck" in wait:
-        #     wait = identify_truck_line(wait)  # Convert truck object to truck name
+        if "Truck" in wait:
+            wait = identify_truck_line(wait)  # Convert truck object to truck name
         # edited
         immediate_itineraries = action_sets[1:]
         immediate_actions = [itin[0] for itin in immediate_itineraries]
 
         possible_actions = [wait, *immediate_actions]
-        for i in range(len(possible_actions)):
-            if "Truck" in possible_actions[i]:
-                possible_actions[i] = identify_truck_line(possible_actions[i])
+        # print(f"debug {possible_actions}")
 
         # Convert state to vector
         current_location_vector = tuple(state_to_vector(state[0], self.loc_to_index))
@@ -1448,8 +1404,7 @@ class ReinforcementLearning:
             if not future:
                 updated_state = state
                 wait = False
-                if self.shipment[request[0]].status == "On board":
-                    yield self.function_stop
+
             else:
                 wait = True
                 yield self.shipment[request[0]].state_event[
@@ -1462,7 +1417,7 @@ class ReinforcementLearning:
                 destination = self.shipment[request[0]].destination
                 due_time = self.shipment[request[0]].due_time // 60
                 volume = self.shipment[request[0]].num_containers
-                d_profile = self.shipment[request[0]].last_disruption
+                d_profile = "no disruption"
                 current_time = self.env.now % (1440 * 7) // 60
                 updated_state = (
                     current_location,
@@ -1482,7 +1437,7 @@ class ReinforcementLearning:
                 updated_state
             )
             current_location = self.shipment[request[0]].current_location
-            d_profile = self.shipment[request[0]].last_disruption
+            d_profile = "no disruption"
             current_time = self.env.now % (1440 * 7) // 60
             next_state = (
                 current_location,
@@ -1540,7 +1495,6 @@ class ReinforcementLearning:
             or self.shipment[request[0]].status == "Undelivered"
         ):
             next_action = 0  # no action after a terminal state
-            mode = "None"
 
         else:
             mode = self.shipment[request[0]].mode[0].name
@@ -1553,7 +1507,7 @@ class ReinforcementLearning:
         print_event(
             self.print_event_enabled,
             f"{time_format(self.env.now)} - {request[0]} take next action: \
-            {mode}, ID: {next_action}",
+            {next_action}",
         )
         self.shipment[request[0]].action_event[action] = self.env.event()
         while self.queue:
@@ -1875,7 +1829,7 @@ class DemandDisruption:
 def update_undelivered_shipments(
     env, shipment_dict, simulation_duration, penalty, config, simulation_vars
 ):
-    yield env.timeout(simulation_duration - env.now - 2)
+    yield env.timeout(simulation_duration - env.now - 1)
     print_event(config.print_event_enabled, "\nUPDATE UNDELIVERED SHIPMENTS")
     for _key, value in shipment_dict.items():
         if value.status != "Delivered":
