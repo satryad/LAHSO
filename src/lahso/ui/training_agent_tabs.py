@@ -214,12 +214,27 @@ def training_agent_tabs():
                             10, math.floor(math.log10(data["Episode"].max())) - 1
                         )
                     )
-                    cost_min = data["Total Cost"].min()
-                    cost_max = data["Total Cost"].max()
-                    cost_ten_percent = (cost_max - cost_min) / 10.0
-                    reward_min = data["Total Reward"].min()
-                    reward_max = data["Total Reward"].max()
-                    reward_ten_percent = (reward_max - reward_min) / 10.0
+                    if rolling_average > 0:
+                        data['Cost_Rolling_Avg'] = data['Total Cost'].rolling(
+                            window=int(rolling_average)).mean()
+                        data['Reward_Rolling_Avg'] = data['Total Reward'].rolling(
+                            window=int(rolling_average)).mean()
+
+                        cost_min = data['Cost_Rolling_Avg'].min()
+                        cost_max = data['Cost_Rolling_Avg'].max()
+                        cost_ten_percent = (cost_max - cost_min) / 10.0
+
+                        reward_min = data['Reward_Rolling_Avg'].min()
+                        reward_max = data['Reward_Rolling_Avg'].max()
+                        reward_ten_percent = (reward_max - reward_min) / 10.0
+                    else:
+                        # If rolling_average is 0, fall back to original min and max
+                        cost_min = data["Total Cost"].min()
+                        cost_max = data["Total Cost"].max()
+                        cost_ten_percent = (cost_max - cost_min) / 10.0
+                        reward_min = data["Total Reward"].min()
+                        reward_max = data["Total Reward"].max()
+                        reward_ten_percent = (reward_max - reward_min) / 10.0
                     yield (
                         gr.LinePlot(
                             data,
@@ -228,8 +243,7 @@ def training_agent_tabs():
                                 cost_min - cost_ten_percent,
                                 cost_max + cost_ten_percent,
                             ],
-                            y_title=f"Average Total Cost per \
-                                {int(rolling_average)} Episodes"
+                            y_title=f"Average Total Cost per {int(rolling_average)} Episodes"
                             if rolling_average > 0
                             else "Total Cost",
                         ),
@@ -240,8 +254,7 @@ def training_agent_tabs():
                                 reward_min - reward_ten_percent,
                                 reward_max + reward_ten_percent,
                             ],
-                            y_title=f"Average Total Reward per \
-                                {int(rolling_average)} Episodes"
+                            y_title=f"Average Total Reward per {int(rolling_average)} Episodes"
                             if rolling_average > 0
                             else "Total Reward",
                         ),
