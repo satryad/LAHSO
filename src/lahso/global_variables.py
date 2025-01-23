@@ -36,6 +36,15 @@ class AggregateStatistics:
                 "Reassign Actions": self.total_reassign_plot,
             }
         )
+    
+    def dataframe_tr(self, episode, total_cost_plot, total_reward_plot):
+        return pd.DataFrame(
+            {
+                "Episode": episode,
+                "Total Cost": total_cost_plot,
+                "Total Reward": total_reward_plot,
+            }
+        )
 
     def __repr__(self):
         return f"AggregateStatistics(\

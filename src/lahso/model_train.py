@@ -228,6 +228,7 @@ def model_train(config, model_input):
             u_req = total_shipment - total_delivered
             statistics.undelivered_requests.append(u_req)
             statistics.x.append(simulation + 1)
+            episode_plot = list(range(1, current_episode + 2))
             print(" ")
             print(f"Simulation number {current_episode + 1} ends")
 
@@ -333,7 +334,12 @@ def model_train(config, model_input):
             eps_end_time = time.time()  # To measure the runtime
             eps_time = eps_end_time - eps_start_time
             print(f"Episode runtime: {eps_time} seconds")
-            yield statistics.dataframe(total_cost_plot, total_reward_plot)
+            print(f"""
+            episode: {len(episode_plot)}
+            total_cost_plot: {len(total_cost_plot)}
+            total_reward_plot: {len(total_reward_plot)}
+                  """)
+            yield statistics.dataframe_tr(episode_plot, total_cost_plot, total_reward_plot)
         except Exception as e:
             print(f"Error in simulation number {simulation + 1}: {repr(e)}")
             print(traceback.format_exc())
@@ -343,7 +349,7 @@ def model_train(config, model_input):
     sim_time = sim_end_time - sim_start_time
     print(f"Simulation time: {sim_time} seconds")
 
-    yield statistics.dataframe(total_cost_plot, total_reward_plot)
+    yield statistics.dataframe_tr(episode_plot, total_cost_plot, total_reward_plot)
 
 
 def main():
