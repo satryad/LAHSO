@@ -9,7 +9,6 @@ import lahso.optimization_module as om
 from lahso.helper_functions import (
     identify_truck_line,
     print_event,
-    state_to_vector,
     time_format,
     unique_origin_destination_pairs,
     update_service_capacity,
@@ -981,6 +980,7 @@ class MatchingModule:
                 due_time = self.shipment[request[0]].due_time // 60
                 volume = self.shipment[request[0]].num_containers
                 d_profile = self.simulation_vars.d_profile_list[-1][0]
+                d_loc = self.simulation_vars.d_profile_list[-1][1]
                 current_time = self.env.now % (1440 * 7) // 60
                 current_state = (
                     current_location,
@@ -988,8 +988,11 @@ class MatchingModule:
                     due_time,
                     volume,
                     d_profile,
+                    d_loc,
                     current_time,
                 )
+
+                print(f"DEBUG {self.simulation_vars.d_profile_list[-1]}")
                 print_event(
                     self.print_event_enabled,
                     f"{request[0]} state for RL: {current_state}, \
@@ -1318,21 +1321,8 @@ class ReinforcementLearning:
         immediate_action = action_sets[1][0]
         possible_action = [wait, immediate_action]
 
-        # Convert state to vector
-        current_location_vector = tuple(state_to_vector(state[0], self.loc_to_index))
-        destination_vector = tuple(state_to_vector(state[1], self.dest_to_index))
-        profile_vector = tuple(state_to_vector(state[4], self.d_profile_to_index))
-        state_vector = (
-            current_location_vector,
-            destination_vector,
-            state[2],
-            state[3],
-            profile_vector,
-            state[5],
-        )
-
         # Select action based on the policy
-        action_probs = self.policy(state_vector, possible_action)
+        action_probs = self.policy(state, possible_action)
         vary_seed = np.random.default_rng(
             int(time.time() * 1000)
         )  # independent random seed for epsilon greedy
@@ -1376,6 +1366,7 @@ class ReinforcementLearning:
                 due_time = self.shipment[request[0]].due_time // 60
                 volume = self.shipment[request[0]].num_containers
                 d_profile = "no disruption"
+                d_loc = "no disruption"
                 current_time = self.env.now % (1440 * 7) // 60
                 updated_state = (
                     current_location,
@@ -1383,6 +1374,7 @@ class ReinforcementLearning:
                     due_time,
                     volume,
                     d_profile,
+                    d_loc,
                     current_time,
                 )
 
@@ -1391,11 +1383,12 @@ class ReinforcementLearning:
             yield self.shipment[request[0]].action_event[action]
 
             # Determine next state
-            current_location, destination, due_time, volume, d_profile, current_time = (
+            current_location, destination, due_time, volume, d_profile, d_loc, current_time = (
                 updated_state
             )
             current_location = self.shipment[request[0]].current_location
             d_profile = "no disruption"
+            d_loc = "no disruption"
             current_time = self.env.now % (1440 * 7) // 60
             next_state = (
                 current_location,
@@ -1403,6 +1396,7 @@ class ReinforcementLearning:
                 due_time,
                 volume,
                 d_profile,
+                d_loc,
                 current_time,
             )
 
@@ -1415,7 +1409,7 @@ class ReinforcementLearning:
                 yield self.shipment[request[0]].reward_event
                 yield self.shipment[request[0]].action_event[action]
             # Determine next state
-            current_location, destination, due_time, volume, d_profile, current_time = (
+            current_location, destination, due_time, volume, d_profile, d_loc, current_time = (
                 updated_state
             )
             current_location = self.shipment[request[0]].current_location
@@ -1426,6 +1420,11 @@ class ReinforcementLearning:
                 if self.simulation_vars.d_profile_list
                 else "no disruption"
             )
+            d_loc = (
+                self.simulation_vars.d_profile_list[-1][1]
+                if self.simulation_vars.d_profile_list
+                else "no disruption"
+            )
             current_time = self.env.now % (1440 * 7) // 60
             next_state = (
                 current_location,
@@ -1433,6 +1432,7 @@ class ReinforcementLearning:
                 due_time,
                 volume,
                 d_profile,
+                d_loc,
                 current_time,
             )
 
@@ -1471,42 +1471,8 @@ class ReinforcementLearning:
         while self.queue:
             yield self.env.timeout(1)
 
-        # Convert current state to vector (could be useful for upgrading using deep RL)
-        current_location_vector = tuple(
-            state_to_vector(updated_state[0], self.loc_to_index)
-        )
-        destination_vector = tuple(
-            state_to_vector(updated_state[1], self.dest_to_index)
-        )
-        profile_vector = tuple(
-            state_to_vector(updated_state[4], self.d_profile_to_index)
-        )
-        updated_state_vector = (
-            current_location_vector,
-            destination_vector,
-            updated_state[2],
-            updated_state[3],
-            profile_vector,
-            updated_state[5],
-        )
-
-        # Convert next state to vector (could be useful for upgrading using deep RL)
-        current_location_vector = tuple(
-            state_to_vector(next_state[0], self.loc_to_index)
-        )
-        destination_vector = tuple(state_to_vector(next_state[1], self.dest_to_index))
-        profile_vector = tuple(state_to_vector(next_state[4], self.d_profile_to_index))
-        next_state_vector = (
-            current_location_vector,
-            destination_vector,
-            next_state[2],
-            next_state[3],
-            profile_vector,
-            next_state[5],
-        )
-
-        updated_state_tuple = tuple(updated_state_vector)
-        next_state_tuple = tuple(next_state_vector)
+        updated_state_tuple = tuple(updated_state)
+        next_state_tuple = tuple(next_state)
 
         # Add the request to the queue for q table updating
         self.queue.append(

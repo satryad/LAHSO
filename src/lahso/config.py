@@ -5,15 +5,15 @@ from pathlib import Path
 @dataclass
 class Config:
     # Simulation Settings
-    number_of_simulation: int = 100
+    number_of_simulation: int = 1
     simulation_duration: int = 6 * 7 * 1440
     planning_interval: int = 7 * 1440
     random_seed: bool = True  # False = random seed is the same for each simulation
     # Only applies if random_seed is False to set a certain random seed value
     random_seed_value: int = 0
-    print_event_enabled: bool = False  # Print event logs
+    print_event_enabled: bool = True  # Print event logs
     print_output: bool = True
-    extract_shipment_output: bool = True  # Extract a shipment logs in sv file
+    extract_shipment_output: bool = False  # Extract a shipment logs in sv file
     start_from_0: bool = True  # False = continue training from the last saved model
     training: bool = False
     apply_s_disruption: bool = True
