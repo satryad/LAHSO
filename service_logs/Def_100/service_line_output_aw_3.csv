@@ -1,6 +1,6 @@
 Service Line,Number of Shipments,Late time,Number of late departure
-Barge01,331,188,4
-Barge02,0,151,1
+Barge01,331,37,3
+Barge02,0,0,0
 Barge03,53,0,0
 Barge04,54,0,0
 Barge05,21,0,0
@@ -18,7 +18,7 @@ Barge16,0,0,0
 Barge17,263,18,2
 Barge18,70,0,0
 Barge19,85,0,0
-Barge20,44,210,1
+Barge20,44,0,0
 Barge21,131,0,0
 Barge22,22,0,0
 Barge23,178,11,1
@@ -56,7 +56,7 @@ Train05,0,0,0
 Train06,0,0,0
 Train07,0,0,0
 Train08,0,0,0
-Train09,0,270,1
+Train09,0,0,0
 Train10,0,0,0
 Train11,11,0,0
 Train12,0,0,0

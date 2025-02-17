@@ -1,9 +1,9 @@
 Service Line,Number of Shipments,Late time,Number of late departure
 Barge01,304,37,3
 Barge02,0,0,0
-Barge03,93,0,0
-Barge04,39,99,1
-Barge05,70,0,0
+Barge03,53,0,0
+Barge04,54,114,1
+Barge05,0,0,0
 Barge06,32,0,0
 Barge07,7,0,0
 Barge08,20,0,0
@@ -16,7 +16,7 @@ Barge14,0,0,0
 Barge15,0,0,0
 Barge16,0,0,0
 Barge17,250,11,1
-Barge18,56,115,1
+Barge18,83,142,1
 Barge19,85,0,0
 Barge20,44,0,0
 Barge21,131,0,0
@@ -24,7 +24,7 @@ Barge22,22,0,0
 Barge23,201,34,1
 Barge24,9,0,0
 Barge25,0,0,0
-Barge26,359,110,2
+Barge26,432,165,3
 Barge27,28,0,0
 Barge28,23,0,0
 Barge29,0,0,0
@@ -38,16 +38,16 @@ Barge36,130,10,1
 Barge37,27,0,0
 Barge38,9,0,0
 Barge39,412,145,3
-Barge40,30,0,0
+Barge40,56,0,0
 Barge41,42,0,0
 Barge42,0,0,0
 Barge43,0,0,0
 Barge44,0,0,0
-Barge45,362,100,2
+Barge45,336,74,2
 Barge46,11,168,1
 Barge47,25,0,0
-Barge48,431,411,3
-Barge49,68,0,0
+Barge48,362,93,2
+Barge49,41,0,0
 Train01,0,0,0
 Train02,0,0,0
 Train03,0,0,0
@@ -63,7 +63,7 @@ Train12,0,0,0
 Train13,0,0,0
 Train14,0,0,0
 Train15,210,0,0
-Train16,25,0,0
+Train16,20,0,0
 Train17,0,0,0
 Train18,0,261,1
 Train19,0,0,0
@@ -79,8 +79,8 @@ Train28,0,0,0
 Train29,6,0,0
 Train30,169,316,1
 Train31,215,0,0
-Train32,228,1773,1
-Train33,233,0,0
+Train32,228,0,0
+Train33,238,100,1
 Truck1,0,0,0
 Truck2,0,0,0
 Truck3,0,0,0

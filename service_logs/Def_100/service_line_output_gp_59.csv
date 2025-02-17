@@ -4,8 +4,8 @@ Barge02,0,0,0
 Barge03,53,0,0
 Barge04,54,0,0
 Barge05,21,0,0
-Barge06,24,0,0
-Barge07,7,0,0
+Barge06,10,0,0
+Barge07,21,0,0
 Barge08,20,0,0
 Barge09,0,0,0
 Barge10,0,0,0
@@ -15,8 +15,8 @@ Barge13,0,0,0
 Barge14,0,0,0
 Barge15,0,0,0
 Barge16,0,0,0
-Barge17,221,11,1
-Barge18,112,0,0
+Barge17,250,11,1
+Barge18,83,0,0
 Barge19,85,0,0
 Barge20,44,178,1
 Barge21,131,0,0
@@ -31,7 +31,7 @@ Barge29,0,0,0
 Barge30,0,0,0
 Barge31,371,114,2
 Barge32,24,0,0
-Barge33,150,0,0
+Barge33,122,0,0
 Barge34,0,0,0
 Barge35,151,218,1
 Barge36,149,10,1
@@ -46,7 +46,7 @@ Barge44,0,0,0
 Barge45,379,112,3
 Barge46,11,0,0
 Barge47,32,0,0
-Barge48,268,279,2
+Barge48,208,219,2
 Barge49,14,0,0
 Train01,0,0,0
 Train02,0,0,0
@@ -69,13 +69,13 @@ Train18,0,0,0
 Train19,0,0,0
 Train20,0,0,0
 Train21,0,0,0
-Train22,0,0,0
+Train22,28,0,0
 Train23,20,0,0
 Train24,25,101,1
 Train25,0,0,0
 Train26,32,0,0
 Train27,0,0,0
-Train28,48,0,0
+Train28,80,0,0
 Train29,6,0,0
 Train30,148,0,1
 Train31,215,0,0

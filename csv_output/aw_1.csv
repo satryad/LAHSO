@@ -1,0 +1,2 @@
+Episode,Total Storage Cost,Total Travel Cost,Total Handling Cost,Total Delay Penalty,Total Cost,Total Reward,Total Late Departure,Number of Late Departure,RL Triggers,Shipment to RL,Undelivered Requests,Wait Actions,Reassign Actions
+1,162277.78333333333,196352.9154133333,94578.0,32505.2,485713.8987466667,-131125.41885666669,4412,25,11,1,0,45,0

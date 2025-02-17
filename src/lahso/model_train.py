@@ -11,7 +11,7 @@ from lahso.global_variables import AggregateStatistics, SimulationVars
 from lahso.helper_functions import clock, print_event
 from lahso.model_input import ModelInput
 from lahso.policy_function import make_epsilon_greedy_policy
-from lahso.simulation_module import (
+from lahso.simulation_module_v2 import (
     DemandDisruption,
     MatchingModule,
     Mode,
@@ -228,7 +228,7 @@ def model_train(config, model_input):
             u_req = total_shipment - total_delivered
             statistics.undelivered_requests.append(u_req)
             statistics.x.append(simulation + 1)
-            episode_plot = list(range(1, current_episode + 2))
+            episode_plot = list(range(1, len(total_cost_plot) + 1))
             print(" ")
             print(f"Simulation number {current_episode + 1} ends")
 
@@ -327,9 +327,9 @@ def model_train(config, model_input):
                 ):
                     print_event(
                         config.print_event_enabled,
-                        f"Q-table is saved as q_table/{config.q_name}_eps.pkl",
+                        f"Q-table is saved as q_table/{config.q_name}",
                     )
-                    with open(f"q_table/{config.q_name}_eps.pkl", "wb") as f:
+                    with open(f"q_table/{config.q_name}", "wb") as f:
                         pickle.dump(dict(model_input.Q), f)
             eps_end_time = time.time()  # To measure the runtime
             eps_time = eps_end_time - eps_start_time

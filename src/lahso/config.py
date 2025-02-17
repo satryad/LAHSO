@@ -5,7 +5,7 @@ from pathlib import Path
 @dataclass
 class Config:
     # Simulation Settings
-    number_of_simulation: int = 25000
+    number_of_simulation: int = 100
     simulation_duration: int = 6 * 7 * 1440
     planning_interval: int = 7 * 1440
     random_seed: bool = True  # False = random seed is the same for each simulation
@@ -13,9 +13,9 @@ class Config:
     random_seed_value: int = 0
     print_event_enabled: bool = False  # Print event logs
     print_output: bool = True
-    extract_shipment_output: bool = False  # Extract a shipment logs in sv file
-    start_from_0: bool = False  # False = continue training from the last saved model
-    training: bool = True
+    extract_shipment_output: bool = True  # Extract a shipment logs in sv file
+    start_from_0: bool = True  # False = continue training from the last saved model
+    training: bool = False
     apply_s_disruption: bool = True
     apply_d_disruption: bool = False
     # disruption set (def, S1, S2, S3, S4, S5) according to the last 2 character in the
@@ -57,10 +57,11 @@ class Config:
 
     # Ouput Names
     training_output: str = "Training_Output_v2.csv"
-    tc_name: str = "total_cost_200_v2.pkl"
-    tr_name: str = "total_reward_200_v2.pkl"
-    q_name: str = "q_table_200_50000_eps_test.pkl"
-    smoothing: int = 300  # for training chart
+    tc_name: str = "total_cost_200_Jan.pkl"
+    tr_name: str = "total_reward_200_Jan.pkl"
+    q_name: str = "q_table_200_50000_eps_Jan.pkl"
+    smoothing: int = 1000  # for training chart
+    training_path = Path("training")
 
     # Training Path
     tc_path: Path = field(init=False)
@@ -79,7 +80,7 @@ class Config:
     For Training
     eg = epsilon greedy policy
     """
-    policy_name: str = "eg"
+    policy_name: str = "gp"
     q_table_path: Path | None = None
 
     # Cost Parameters (Manually input)
@@ -100,7 +101,7 @@ class Config:
 
     # Learning Agent Parameters
     epsilon: float = 0.05  # for epsilon greedy (training)
-    alpha: float = 0.5  # learning rate
+    alpha: float = 0.2  # learning rate
     gamma: float = 0.9  # reward discount factor
 
     network_path: Path | None = None

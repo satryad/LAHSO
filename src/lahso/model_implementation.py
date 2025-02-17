@@ -1,5 +1,6 @@
 import sys
 import time
+from collections import deque
 
 import numpy as np
 import simpy as sim
@@ -10,7 +11,7 @@ from lahso.global_variables import AggregateStatistics, SimulationVars
 from lahso.helper_functions import clock, print_event
 from lahso.model_input import ModelInput
 from lahso.policy_function import make_epsilon_greedy_policy
-from lahso.simulation_module import (
+from lahso.simulation_module_v2 import (
     DemandDisruption,
     MatchingModule,
     Mode,

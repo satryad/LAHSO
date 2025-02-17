@@ -4,7 +4,7 @@ Barge02,0,0,0
 Barge03,53,0,0
 Barge04,54,0,0
 Barge05,21,0,0
-Barge06,24,195,1
+Barge06,24,0,0
 Barge07,7,0,0
 Barge08,20,0,0
 Barge09,0,0,0
@@ -70,7 +70,7 @@ Train19,0,0,0
 Train20,0,0,0
 Train21,0,0,0
 Train22,0,0,0
-Train23,20,289,1
+Train23,20,0,0
 Train24,43,0,0
 Train25,0,0,0
 Train26,14,0,0
