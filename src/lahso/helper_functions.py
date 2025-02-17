@@ -9,7 +9,6 @@ def split_to_sublists(input_string):
 
 def get_first_sublist(sub_lists):
     first_in_list = sub_lists[0]
-    sub_lists.pop(0)
     return first_in_list
 
 

@@ -975,7 +975,7 @@ class MatchingModule:
                 current_location = self.shipment[request[0]].current_location
                 if self.shipment[request[0]].status == "On board":
                     mode = action_sets[0]  # the current mode
-                    current_location = self.mode_schedule[mode[0]].destination
+                    current_location = self.mode_schedule[mode[0]].origin
                 destination = self.shipment[request[0]].destination
                 due_time = self.shipment[request[0]].due_time // 60
                 volume = self.shipment[request[0]].num_containers
