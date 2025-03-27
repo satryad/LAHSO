@@ -1,0 +1,798 @@
+,origin,destination,path,service_ids,first_service_mode,last_service_mode,first_service,first_service_departure,service_capacities,service_capacity,total_transport_cost,transshipment_cost,transshipment_time,storage_time,storage_cost,total_cost,last_service_arrival,Transshipment Terminal(s),Loading_cost_at_origin,Unloading_cost_at_destination
+0,Delta,Euromax,Delta to Euromax,Barge01,Barge,Barge,Barge01,53,160,160,0.9317,0.0,0,0.0,0.0,0.9317,,0,3.0,3.0
+1,Delta,HOME,Delta to HOME,Barge02,Barge,Barge,Barge02,53,160,160,2.32925,0.0,0,0.0,0.0,2.32925,,0,3.0,3.0
+2,Delta,Moerdijk,Delta to Euromax -> Euromax to Moerdijk,"Barge01, Barge34",Barge,Barge,Barge01,53,"160, 160",160,6.05605,6.0,1,42.0,42.0,54.05605,,Euromax,3.0,3.0
+3,Delta,Moerdijk,Delta to HOME -> HOME to Moerdijk,"Barge02, Barge42",Barge,Barge,Barge02,53,"160, 160",160,5.12435,6.0,1,42.5,42.5,53.62435,,HOME,3.0,3.0
+4,Delta,Moerdijk,Delta to Moerdijk,Barge03,Barge,Barge,Barge03,3,160,160,4.6585,0.0,0,0.0,0.0,4.6585,,0,3.0,3.0
+5,Delta,Moerdijk,Delta to Moerdijk,Barge04,Barge,Barge,Barge04,15,160,160,4.6585,0.0,0,0.0,0.0,4.6585,,0,3.0,3.0
+6,Delta,Moerdijk,Delta to Moerdijk,Barge05,Barge,Barge,Barge05,27,160,160,4.6585,0.0,0,0.0,0.0,4.6585,,0,3.0,3.0
+7,Delta,Moerdijk,Delta to Moerdijk,Barge06,Barge,Barge,Barge06,39,160,160,4.6585,0.0,0,0.0,0.0,4.6585,,0,3.0,3.0
+8,Delta,Moerdijk,Delta to Moerdijk,Barge07,Barge,Barge,Barge07,51,160,160,4.6585,0.0,0,0.0,0.0,4.6585,,0,3.0,3.0
+9,Delta,Moerdijk,Delta to Moerdijk,Barge08,Barge,Barge,Barge08,63,160,160,4.6585,0.0,0,0.0,0.0,4.6585,,0,3.0,3.0
+10,Delta,Moerdijk,Delta to Moerdijk,Barge09,Barge,Barge,Barge09,75,160,160,4.6585,0.0,0,0.0,0.0,4.6585,,0,3.0,3.0
+11,Delta,Moerdijk,Delta to Moerdijk,Barge10,Barge,Barge,Barge10,87,160,160,4.6585,0.0,0,0.0,0.0,4.6585,,0,3.0,3.0
+12,Delta,Moerdijk,Delta to Moerdijk,Barge11,Barge,Barge,Barge11,99,160,160,4.6585,0.0,0,0.0,0.0,4.6585,,0,3.0,3.0
+13,Delta,Moerdijk,Delta to Moerdijk,Barge12,Barge,Barge,Barge12,111,160,160,4.6585,0.0,0,0.0,0.0,4.6585,,0,3.0,3.0
+14,Delta,Moerdijk,Delta to Moerdijk,Barge13,Barge,Barge,Barge13,123,160,160,4.6585,0.0,0,0.0,0.0,4.6585,,0,3.0,3.0
+15,Delta,Moerdijk,Delta to Moerdijk,Barge14,Barge,Barge,Barge14,135,160,160,4.6585,0.0,0,0.0,0.0,4.6585,,0,3.0,3.0
+16,Delta,Moerdijk,Delta to Moerdijk,Barge15,Barge,Barge,Barge15,147,160,160,4.6585,0.0,0,0.0,0.0,4.6585,,0,3.0,3.0
+17,Delta,Moerdijk,Delta to Moerdijk,Barge16,Barge,Barge,Barge16,159,160,160,4.6585,0.0,0,0.0,0.0,4.6585,,0,3.0,3.0
+18,Delta,Venlo,Delta to Euromax -> Euromax to Venlo,"Barge01, Barge36",Barge,Barge,Barge01,53,"160, 160",160,13.509649999999999,6.0,1,18.0,18.0,37.50965,,Euromax,3.0,3.0
+19,Delta,Venlo,Delta to Euromax -> Euromax to Venlo,"Barge01, Train17",Barge,Train,Barge01,53,"160, 90",90,48.08495,21.0,1,21.0,21.0,90.08494999999999,,Euromax,3.0,18.0
+20,Delta,Venlo,Delta to Euromax -> Euromax to Venlo,"Barge01, Train18",Barge,Train,Barge01,53,"160, 90",90,48.08495,21.0,1,45.0,45.0,114.08494999999999,,Euromax,3.0,18.0
+21,Delta,Venlo,Delta to HOME -> HOME to Venlo,"Barge02, Barge43",Barge,Barge,Barge02,53,"160, 160",160,12.57795,6.0,1,40.5,40.5,59.07795,,HOME,3.0,3.0
+22,Delta,Venlo,Delta to HOME -> HOME to Venlo,"Barge02, Barge44",Barge,Barge,Barge02,53,"160, 160",160,12.57795,6.0,1,67.5,67.5,86.07795,,HOME,3.0,3.0
+23,Delta,Venlo,Delta to HOME -> HOME to Venlo,"Barge02, Train24",Barge,Train,Barge02,53,"160, 90",90,39.004000000000005,21.0,1,27.5,27.5,87.504,,HOME,3.0,18.0
+24,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge03, Barge47",Barge,Barge,Barge03,3,"160, 160",160,13.9755,6.0,1,84.0,84.0,103.9755,,Moerdijk,3.0,3.0
+25,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge03, Train27",Barge,Train,Barge03,3,"160, 90",90,36.094,21.0,1,64.0,64.0,121.094,,Moerdijk,3.0,18.0
+26,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge04, Barge47",Barge,Barge,Barge04,15,"160, 160",160,13.9755,6.0,1,72.0,72.0,91.9755,,Moerdijk,3.0,3.0
+27,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge04, Train27",Barge,Train,Barge04,15,"160, 90",90,36.094,21.0,1,52.0,52.0,109.094,,Moerdijk,3.0,18.0
+28,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge05, Barge47",Barge,Barge,Barge05,27,"160, 160",160,13.9755,6.0,1,60.0,60.0,79.9755,,Moerdijk,3.0,3.0
+29,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge05, Train27",Barge,Train,Barge05,27,"160, 90",90,36.094,21.0,1,40.0,40.0,97.094,,Moerdijk,3.0,18.0
+30,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge06, Barge47",Barge,Barge,Barge06,39,"160, 160",160,13.9755,6.0,1,48.0,48.0,67.9755,,Moerdijk,3.0,3.0
+31,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge06, Train27",Barge,Train,Barge06,39,"160, 90",90,36.094,21.0,1,28.0,28.0,85.094,,Moerdijk,3.0,18.0
+32,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge07, Barge47",Barge,Barge,Barge07,51,"160, 160",160,13.9755,6.0,1,36.0,36.0,55.9755,,Moerdijk,3.0,3.0
+33,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge07, Train27",Barge,Train,Barge07,51,"160, 90",90,36.094,21.0,1,16.0,16.0,73.094,,Moerdijk,3.0,18.0
+34,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge08, Barge47",Barge,Barge,Barge08,63,"160, 160",160,13.9755,6.0,1,24.0,24.0,43.9755,,Moerdijk,3.0,3.0
+35,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge08, Train27",Barge,Train,Barge08,63,"160, 90",90,36.094,21.0,1,4.0,4.0,61.094,,Moerdijk,3.0,18.0
+36,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge09, Barge47",Barge,Barge,Barge09,75,"160, 160",160,13.9755,6.0,1,12.0,12.0,31.9755,,Moerdijk,3.0,3.0
+37,Delta,Venlo,Delta to Venlo,Barge17,Barge,Barge,Barge17,12,160,160,12.1121,0.0,0,0.0,0.0,12.1121,,0,3.0,3.0
+38,Delta,Venlo,Delta to Venlo,Barge18,Barge,Barge,Barge18,18,160,160,12.1121,0.0,0,0.0,0.0,12.1121,,0,3.0,3.0
+39,Delta,Venlo,Delta to Venlo,Barge19,Barge,Barge,Barge19,36,160,160,12.1121,0.0,0,0.0,0.0,12.1121,,0,3.0,3.0
+40,Delta,Venlo,Delta to Venlo,Barge20,Barge,Barge,Barge20,42,160,160,12.1121,0.0,0,0.0,0.0,12.1121,,0,3.0,3.0
+41,Delta,Venlo,Delta to Venlo,Barge21,Barge,Barge,Barge21,60,160,160,12.1121,0.0,0,0.0,0.0,12.1121,,0,3.0,3.0
+42,Delta,Venlo,Delta to Venlo,Barge22,Barge,Barge,Barge22,66,160,160,12.1121,0.0,0,0.0,0.0,12.1121,,0,3.0,3.0
+43,Delta,Venlo,Delta to Venlo,Barge23,Barge,Barge,Barge23,90,160,160,12.1121,0.0,0,0.0,0.0,12.1121,,0,3.0,3.0
+44,Delta,Venlo,Delta to Venlo,Barge24,Barge,Barge,Barge24,96,160,160,12.1121,0.0,0,0.0,0.0,12.1121,,0,3.0,3.0
+45,Delta,Venlo,Delta to Venlo,Barge25,Barge,Barge,Barge25,120,160,160,12.1121,0.0,0,0.0,0.0,12.1121,,0,3.0,3.0
+46,Delta,Venlo,Delta to Venlo,Train01,Train,Train,Train01,16,90,90,41.914,0.0,0,0.0,0.0,41.914,,0,18.0,18.0
+47,Delta,Venlo,Delta to Venlo,Train02,Train,Train,Train02,40,90,90,41.914,0.0,0,0.0,0.0,41.914,,0,18.0,18.0
+48,Delta,Venlo,Delta to Venlo,Train03,Train,Train,Train03,9,90,90,41.914,0.0,0,0.0,0.0,41.914,,0,18.0,18.0
+49,Delta,Venlo,Delta to Venlo,Train04,Train,Train,Train04,33,90,90,41.914,0.0,0,0.0,0.0,41.914,,0,18.0,18.0
+50,Delta,Venlo,Delta to Venlo,Train05,Train,Train,Train05,57,90,90,41.914,0.0,0,0.0,0.0,41.914,,0,18.0,18.0
+51,Delta,Venlo,Delta to Venlo,Train06,Train,Train,Train06,81,90,90,41.914,0.0,0,0.0,0.0,41.914,,0,18.0,18.0
+52,Delta,Venlo,Delta to Venlo,Train07,Train,Train,Train07,105,90,90,41.914,0.0,0,0.0,0.0,41.914,,0,18.0,18.0
+53,Delta,Venlo,Delta to Venlo,Train08,Train,Train,Train08,129,90,90,41.914,0.0,0,0.0,0.0,41.914,,0,18.0,18.0
+54,Delta,Duisburg,Delta to Euromax -> Euromax to Duisburg,"Barge01, Barge37",Barge,Barge,Barge01,53,"160, 160",160,16.30475,6.0,1,46.0,46.0,68.30475,,Euromax,3.0,3.0
+55,Delta,Duisburg,Delta to Euromax -> Euromax to Duisburg,"Barge01, Train19",Barge,Train,Barge01,53,"160, 90",90,69.04195,21.0,1,18.0,18.0,108.04195,,Euromax,3.0,18.0
+56,Delta,Duisburg,Delta to Euromax -> Euromax to Duisburg,"Barge01, Train20",Barge,Train,Barge01,53,"160, 90",90,69.04195,21.0,1,42.0,42.0,132.04194999999999,,Euromax,3.0,18.0
+57,Delta,Duisburg,Delta to HOME -> HOME to Duisburg,"Barge02, Train26",Barge,Train,Barge02,53,"160, 90",90,59.961,21.0,1,16.5,16.5,97.461,,HOME,3.0,18.0
+58,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge03, Barge48",Barge,Barge,Barge03,3,"160, 160",160,15.8389,6.0,1,60.0,60.0,81.8389,,Moerdijk,3.0,3.0
+59,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge03, Train28",Barge,Train,Barge03,3,"160, 90",90,46.572500000000005,21.0,1,66.0,66.0,133.5725,,Moerdijk,3.0,18.0
+60,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge04, Barge48",Barge,Barge,Barge04,15,"160, 160",160,15.8389,6.0,1,48.0,48.0,69.8389,,Moerdijk,3.0,3.0
+61,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge04, Train28",Barge,Train,Barge04,15,"160, 90",90,46.572500000000005,21.0,1,54.0,54.0,121.5725,,Moerdijk,3.0,18.0
+62,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge05, Barge48",Barge,Barge,Barge05,27,"160, 160",160,15.8389,6.0,1,36.0,36.0,57.8389,,Moerdijk,3.0,3.0
+63,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge05, Train28",Barge,Train,Barge05,27,"160, 90",90,46.572500000000005,21.0,1,42.0,42.0,109.5725,,Moerdijk,3.0,18.0
+64,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge06, Barge48",Barge,Barge,Barge06,39,"160, 160",160,15.8389,6.0,1,24.0,24.0,45.8389,,Moerdijk,3.0,3.0
+65,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge06, Train28",Barge,Train,Barge06,39,"160, 90",90,46.572500000000005,21.0,1,30.0,30.0,97.5725,,Moerdijk,3.0,18.0
+66,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge07, Barge48",Barge,Barge,Barge07,51,"160, 160",160,15.8389,6.0,1,12.0,12.0,33.8389,,Moerdijk,3.0,3.0
+67,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge07, Train28",Barge,Train,Barge07,51,"160, 90",90,46.572500000000005,21.0,1,18.0,18.0,85.5725,,Moerdijk,3.0,18.0
+68,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge08, Train28",Barge,Train,Barge08,63,"160, 90",90,46.572500000000005,21.0,1,6.0,6.0,73.5725,,Moerdijk,3.0,18.0
+69,Delta,Duisburg,Delta to Duisburg,Barge26,Barge,Barge,Barge26,82,160,160,14.9072,0.0,0,0.0,0.0,14.9072,,0,3.0,3.0
+70,Delta,Duisburg,Delta to Duisburg,Barge27,Barge,Barge,Barge27,102,160,160,14.9072,0.0,0,0.0,0.0,14.9072,,0,3.0,3.0
+71,Delta,Duisburg,Delta to Duisburg,Train09,Train,Train,Train09,41,90,90,62.871,0.0,0,0.0,0.0,62.871,,0,18.0,18.0
+72,Delta,Duisburg,Delta to Duisburg,Train10,Train,Train,Train10,75,90,90,62.871,0.0,0,0.0,0.0,62.871,,0,18.0,18.0
+73,Delta,Duisburg,Delta to Duisburg,Train11,Train,Train,Train11,99,90,90,62.871,0.0,0,0.0,0.0,62.871,,0,18.0,18.0
+74,Delta,Duisburg,Delta to Duisburg,Train12,Train,Train,Train12,113,90,90,62.871,0.0,0,0.0,0.0,62.871,,0,18.0,18.0
+75,Delta,Willebroek,Delta to Euromax -> Euromax to Willebroek,"Barge01, Barge38",Barge,Barge,Barge01,53,"160, 160",160,11.646249999999998,6.0,1,55.0,55.0,72.64625,,Euromax,3.0,3.0
+76,Delta,Willebroek,Delta to Willebroek,Barge28,Barge,Barge,Barge28,68,160,160,10.2487,0.0,0,0.0,0.0,10.2487,,0,3.0,3.0
+77,Delta,Willebroek,Delta to Willebroek,Barge29,Barge,Barge,Barge29,98,160,160,10.2487,0.0,0,0.0,0.0,10.2487,,0,3.0,3.0
+78,Delta,Willebroek,Delta to Willebroek,Barge30,Barge,Barge,Barge30,146,160,160,10.2487,0.0,0,0.0,0.0,10.2487,,0,3.0,3.0
+79,Delta,Neuss,Delta to Euromax -> Euromax to Venlo -> Venlo to Neuss,"Barge01, Barge36, Train29",Barge,Train,Barge01,53,"160, 160, 90",90,29.2274,27.0,2,38.5,38.5,94.7274,,"Euromax,Venlo",3.0,18.0
+80,Delta,Neuss,Delta to Euromax -> Euromax to Neuss,"Barge01, Barge39",Barge,Barge,Barge01,53,"160, 160",160,17.236449999999998,6.0,1,9.0,9.0,32.23645,,Euromax,3.0,3.0
+81,Delta,Neuss,Delta to Euromax -> Euromax to Venlo -> Venlo to Neuss,"Barge01, Train17, Train29",Barge,Train,Barge01,53,"160, 90, 90",90,63.8027,57.0,2,47.5,47.5,168.30270000000002,,"Euromax,Venlo",3.0,18.0
+82,Delta,Neuss,Delta to Euromax -> Euromax to Venlo -> Venlo to Neuss,"Barge01, Train18, Train29",Barge,Train,Barge01,53,"160, 90, 90",90,63.8027,57.0,2,47.5,47.5,168.30270000000002,,"Euromax,Venlo",3.0,18.0
+83,Delta,Neuss,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Neuss,"Barge01, Train19, Barge49",Barge,Barge,Barge01,53,"160, 90, 160",90,71.3712,42.0,2,53.5,53.5,166.8712,,"Euromax,Duisburg",3.0,3.0
+84,Delta,Neuss,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Neuss,"Barge01, Train20, Barge49",Barge,Barge,Barge01,53,"160, 90, 160",90,71.3712,42.0,2,53.5,53.5,166.8712,,"Euromax,Duisburg",3.0,3.0
+85,Delta,Neuss,Delta to Euromax -> Euromax to Neuss,"Barge01, Train21",Barge,Train,Barge01,53,"160, 90",90,58.563449999999996,21.0,1,20.0,20.0,99.56344999999999,,Euromax,3.0,18.0
+86,Delta,Neuss,Delta to HOME -> HOME to Venlo -> Venlo to Neuss,"Barge02, Train24, Train29",Barge,Train,Barge02,53,"160, 90, 90",90,54.72175000000001,57.0,2,47.0,47.0,158.72175000000001,,"HOME,Venlo",3.0,18.0
+87,Delta,Neuss,Delta to HOME -> HOME to Duisburg -> Duisburg to Neuss,"Barge02, Train26, Barge49",Barge,Barge,Barge02,53,"160, 90, 160",90,62.29025,42.0,2,53.0,53.0,157.29025000000001,,"HOME,Duisburg",3.0,3.0
+88,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge03, Barge47, Train29",Barge,Train,Barge03,3,"160, 160, 90",90,29.69325,27.0,2,88.0,88.0,144.69325,,"Moerdijk,Venlo",3.0,18.0
+89,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge03, Barge48, Barge49",Barge,Barge,Barge03,3,"160, 160, 160",160,18.16815,12.0,2,94.0,94.0,124.16815,,"Moerdijk,Duisburg",3.0,3.0
+90,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge03, Train27, Train29",Barge,Train,Barge03,3,"160, 90, 90",90,51.81175,57.0,2,95.0,95.0,203.81175000000002,,"Moerdijk,Venlo",3.0,18.0
+91,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge03, Train28, Barge49",Barge,Barge,Barge03,3,"160, 90, 160",90,48.90175000000001,42.0,2,102.0,102.0,192.90175,,"Moerdijk,Duisburg",3.0,3.0
+92,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge04, Barge47, Train29",Barge,Train,Barge04,15,"160, 160, 90",90,29.69325,27.0,2,76.0,76.0,132.69325,,"Moerdijk,Venlo",3.0,18.0
+93,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge04, Barge48, Barge49",Barge,Barge,Barge04,15,"160, 160, 160",160,18.16815,12.0,2,82.0,82.0,112.16815,,"Moerdijk,Duisburg",3.0,3.0
+94,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge04, Train27, Train29",Barge,Train,Barge04,15,"160, 90, 90",90,51.81175,57.0,2,83.0,83.0,191.81175000000002,,"Moerdijk,Venlo",3.0,18.0
+95,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge04, Train28, Barge49",Barge,Barge,Barge04,15,"160, 90, 160",90,48.90175000000001,42.0,2,90.0,90.0,180.90175,,"Moerdijk,Duisburg",3.0,3.0
+96,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge05, Barge47, Train29",Barge,Train,Barge05,27,"160, 160, 90",90,29.69325,27.0,2,64.0,64.0,120.69325,,"Moerdijk,Venlo",3.0,18.0
+97,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge05, Barge48, Barge49",Barge,Barge,Barge05,27,"160, 160, 160",160,18.16815,12.0,2,70.0,70.0,100.16815,,"Moerdijk,Duisburg",3.0,3.0
+98,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge05, Train27, Train29",Barge,Train,Barge05,27,"160, 90, 90",90,51.81175,57.0,2,71.0,71.0,179.81175000000002,,"Moerdijk,Venlo",3.0,18.0
+99,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge05, Train28, Barge49",Barge,Barge,Barge05,27,"160, 90, 160",90,48.90175000000001,42.0,2,78.0,78.0,168.90175,,"Moerdijk,Duisburg",3.0,3.0
+100,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge06, Barge47, Train29",Barge,Train,Barge06,39,"160, 160, 90",90,29.69325,27.0,2,52.0,52.0,108.69325,,"Moerdijk,Venlo",3.0,18.0
+101,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge06, Barge48, Barge49",Barge,Barge,Barge06,39,"160, 160, 160",160,18.16815,12.0,2,58.0,58.0,88.16815,,"Moerdijk,Duisburg",3.0,3.0
+102,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge06, Train27, Train29",Barge,Train,Barge06,39,"160, 90, 90",90,51.81175,57.0,2,59.0,59.0,167.81175000000002,,"Moerdijk,Venlo",3.0,18.0
+103,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge06, Train28, Barge49",Barge,Barge,Barge06,39,"160, 90, 160",90,48.90175000000001,42.0,2,66.0,66.0,156.90175,,"Moerdijk,Duisburg",3.0,3.0
+104,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge07, Barge47, Train29",Barge,Train,Barge07,51,"160, 160, 90",90,29.69325,27.0,2,40.0,40.0,96.69325,,"Moerdijk,Venlo",3.0,18.0
+105,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge07, Barge48, Barge49",Barge,Barge,Barge07,51,"160, 160, 160",160,18.16815,12.0,2,46.0,46.0,76.16815,,"Moerdijk,Duisburg",3.0,3.0
+106,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge07, Train27, Train29",Barge,Train,Barge07,51,"160, 90, 90",90,51.81175,57.0,2,47.0,47.0,155.81175000000002,,"Moerdijk,Venlo",3.0,18.0
+107,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge07, Train28, Barge49",Barge,Barge,Barge07,51,"160, 90, 160",90,48.90175000000001,42.0,2,54.0,54.0,144.90175,,"Moerdijk,Duisburg",3.0,3.0
+108,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge08, Barge47, Train29",Barge,Train,Barge08,63,"160, 160, 90",90,29.69325,27.0,2,28.0,28.0,84.69325,,"Moerdijk,Venlo",3.0,18.0
+109,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge08, Train27, Train29",Barge,Train,Barge08,63,"160, 90, 90",90,51.81175,57.0,2,35.0,35.0,143.81175000000002,,"Moerdijk,Venlo",3.0,18.0
+110,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge08, Train28, Barge49",Barge,Barge,Barge08,63,"160, 90, 160",90,48.90175000000001,42.0,2,42.0,42.0,132.90175,,"Moerdijk,Duisburg",3.0,3.0
+111,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge09, Barge47, Train29",Barge,Train,Barge09,75,"160, 160, 90",90,29.69325,27.0,2,16.0,16.0,72.69325,,"Moerdijk,Venlo",3.0,18.0
+112,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Barge17, Train29",Barge,Train,Barge17,12,"160, 90",90,27.82985,21.0,1,84.0,84.0,132.82985,,Venlo,3.0,18.0
+113,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Barge18, Train29",Barge,Train,Barge18,18,"160, 90",90,27.82985,21.0,1,78.0,78.0,126.82985,,Venlo,3.0,18.0
+114,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Barge19, Train29",Barge,Train,Barge19,36,"160, 90",90,27.82985,21.0,1,60.0,60.0,108.82985,,Venlo,3.0,18.0
+115,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Barge20, Train29",Barge,Train,Barge20,42,"160, 90",90,27.82985,21.0,1,54.0,54.0,102.82985,,Venlo,3.0,18.0
+116,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Barge21, Train29",Barge,Train,Barge21,60,"160, 90",90,27.82985,21.0,1,36.0,36.0,84.82985,,Venlo,3.0,18.0
+117,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Barge22, Train29",Barge,Train,Barge22,66,"160, 90",90,27.82985,21.0,1,30.0,30.0,78.82985,,Venlo,3.0,18.0
+118,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Barge23, Train29",Barge,Train,Barge23,90,"160, 90",90,27.82985,21.0,1,6.0,6.0,54.82985,,Venlo,3.0,18.0
+119,Delta,Neuss,Delta to Duisburg -> Duisburg to Neuss,"Barge26, Barge49",Barge,Barge,Barge26,82,"160, 160",160,17.236449999999998,6.0,1,19.0,19.0,42.23645,,Duisburg,3.0,3.0
+120,Delta,Neuss,Delta to Neuss,Barge31,Barge,Barge,Barge31,80,160,160,15.8389,0.0,0,0.0,0.0,15.8389,,0,3.0,3.0
+121,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Train01, Train29",Train,Train,Train01,16,"90, 90",90,57.631750000000004,36.0,1,89.0,89.0,182.63175,,Venlo,18.0,18.0
+122,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Train02, Train29",Train,Train,Train02,40,"90, 90",90,57.631750000000004,36.0,1,65.0,65.0,158.63175,,Venlo,18.0,18.0
+123,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Train03, Train29",Train,Train,Train03,9,"90, 90",90,57.631750000000004,36.0,1,96.0,96.0,189.63175,,Venlo,18.0,18.0
+124,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Train04, Train29",Train,Train,Train04,33,"90, 90",90,57.631750000000004,36.0,1,72.0,72.0,165.63175,,Venlo,18.0,18.0
+125,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Train05, Train29",Train,Train,Train05,57,"90, 90",90,57.631750000000004,36.0,1,48.0,48.0,141.63175,,Venlo,18.0,18.0
+126,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Train06, Train29",Train,Train,Train06,81,"90, 90",90,57.631750000000004,36.0,1,24.0,24.0,117.63175000000001,,Venlo,18.0,18.0
+127,Delta,Neuss,Delta to Duisburg -> Duisburg to Neuss,"Train09, Barge49",Train,Barge,Train09,41,"90, 160",90,65.20025,21.0,1,70.0,70.0,156.20024999999998,,Duisburg,18.0,3.0
+128,Delta,Neuss,Delta to Duisburg -> Duisburg to Neuss,"Train10, Barge49",Train,Barge,Train10,75,"90, 160",90,65.20025,21.0,1,36.0,36.0,122.20025,,Duisburg,18.0,3.0
+129,Delta,Neuss,Delta to Duisburg -> Duisburg to Neuss,"Train11, Barge49",Train,Barge,Train11,99,"90, 160",90,65.20025,21.0,1,12.0,12.0,98.20025,,Duisburg,18.0,3.0
+130,Delta,Neuss,Delta to Neuss,Train13,Train,Train,Train13,110,90,90,52.3925,0.0,0,0.0,0.0,52.3925,,0,18.0,18.0
+131,Delta,Dortmund,Delta to Euromax -> Euromax to Venlo -> Venlo to Dortmund,"Barge01, Barge36, Train30",Barge,Train,Barge01,53,"160, 160, 90",90,39.7059,27.0,2,39.5,39.5,106.2059,,"Euromax,Venlo",3.0,18.0
+132,Delta,Dortmund,Delta to Euromax -> Euromax to Venlo -> Venlo to Dortmund,"Barge01, Train17, Train30",Barge,Train,Barge01,53,"160, 90, 90",90,74.2812,57.0,2,48.5,48.5,179.7812,,"Euromax,Venlo",3.0,18.0
+133,Delta,Dortmund,Delta to Euromax -> Euromax to Venlo -> Venlo to Dortmund,"Barge01, Train18, Train30",Barge,Train,Barge01,53,"160, 90, 90",90,74.2812,57.0,2,48.5,48.5,179.7812,,"Euromax,Venlo",3.0,18.0
+134,Delta,Dortmund,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Dortmund,"Barge01, Train19, Train32",Barge,Train,Barge01,53,"160, 90, 90",90,84.7597,57.0,2,54.5,54.5,196.2597,,"Euromax,Duisburg",3.0,18.0
+135,Delta,Dortmund,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Dortmund,"Barge01, Train20, Train32",Barge,Train,Barge01,53,"160, 90, 90",90,84.7597,57.0,2,54.5,54.5,196.2597,,"Euromax,Duisburg",3.0,18.0
+136,Delta,Dortmund,Delta to Euromax -> Euromax to Dortmund,"Barge01, Train22",Barge,Train,Barge01,53,"160, 90",90,79.52045000000001,21.0,1,21.0,21.0,121.52045000000001,,Euromax,3.0,18.0
+137,Delta,Dortmund,Delta to HOME -> HOME to Venlo -> Venlo to Dortmund,"Barge02, Train24, Train30",Barge,Train,Barge02,53,"160, 90, 90",90,65.20025000000001,57.0,2,48.0,48.0,170.20025,,"HOME,Venlo",3.0,18.0
+138,Delta,Dortmund,Delta to HOME -> HOME to Duisburg -> Duisburg to Dortmund,"Barge02, Train26, Train32",Barge,Train,Barge02,53,"160, 90, 90",90,75.67875,57.0,2,54.0,54.0,186.67874999999998,,"HOME,Duisburg",3.0,18.0
+139,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge03, Barge47, Train30",Barge,Train,Barge03,3,"160, 160, 90",90,40.17175,27.0,2,89.0,89.0,156.17175,,"Moerdijk,Venlo",3.0,18.0
+140,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge03, Barge48, Train32",Barge,Train,Barge03,3,"160, 160, 90",90,31.55665,27.0,2,95.0,95.0,153.55665,,"Moerdijk,Duisburg",3.0,18.0
+141,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge03, Train27, Train30",Barge,Train,Barge03,3,"160, 90, 90",90,62.29025,57.0,2,96.0,96.0,215.29025000000001,,"Moerdijk,Venlo",3.0,18.0
+142,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge03, Train28, Train32",Barge,Train,Barge03,3,"160, 90, 90",90,62.29025000000001,57.0,2,103.0,103.0,222.29025000000001,,"Moerdijk,Duisburg",3.0,18.0
+143,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge04, Barge47, Train30",Barge,Train,Barge04,15,"160, 160, 90",90,40.17175,27.0,2,77.0,77.0,144.17175,,"Moerdijk,Venlo",3.0,18.0
+144,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge04, Barge48, Train32",Barge,Train,Barge04,15,"160, 160, 90",90,31.55665,27.0,2,83.0,83.0,141.55665,,"Moerdijk,Duisburg",3.0,18.0
+145,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge04, Train27, Train30",Barge,Train,Barge04,15,"160, 90, 90",90,62.29025,57.0,2,84.0,84.0,203.29025000000001,,"Moerdijk,Venlo",3.0,18.0
+146,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge04, Train28, Train32",Barge,Train,Barge04,15,"160, 90, 90",90,62.29025000000001,57.0,2,91.0,91.0,210.29025000000001,,"Moerdijk,Duisburg",3.0,18.0
+147,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge05, Barge47, Train30",Barge,Train,Barge05,27,"160, 160, 90",90,40.17175,27.0,2,65.0,65.0,132.17175,,"Moerdijk,Venlo",3.0,18.0
+148,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge05, Barge48, Train32",Barge,Train,Barge05,27,"160, 160, 90",90,31.55665,27.0,2,71.0,71.0,129.55665,,"Moerdijk,Duisburg",3.0,18.0
+149,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge05, Train27, Train30",Barge,Train,Barge05,27,"160, 90, 90",90,62.29025,57.0,2,72.0,72.0,191.29025000000001,,"Moerdijk,Venlo",3.0,18.0
+150,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge05, Train28, Train32",Barge,Train,Barge05,27,"160, 90, 90",90,62.29025000000001,57.0,2,79.0,79.0,198.29025000000001,,"Moerdijk,Duisburg",3.0,18.0
+151,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge06, Barge47, Train30",Barge,Train,Barge06,39,"160, 160, 90",90,40.17175,27.0,2,53.0,53.0,120.17175,,"Moerdijk,Venlo",3.0,18.0
+152,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge06, Barge48, Train32",Barge,Train,Barge06,39,"160, 160, 90",90,31.55665,27.0,2,59.0,59.0,117.55665,,"Moerdijk,Duisburg",3.0,18.0
+153,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge06, Train27, Train30",Barge,Train,Barge06,39,"160, 90, 90",90,62.29025,57.0,2,60.0,60.0,179.29025000000001,,"Moerdijk,Venlo",3.0,18.0
+154,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge06, Train28, Train32",Barge,Train,Barge06,39,"160, 90, 90",90,62.29025000000001,57.0,2,67.0,67.0,186.29025000000001,,"Moerdijk,Duisburg",3.0,18.0
+155,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge07, Barge47, Train30",Barge,Train,Barge07,51,"160, 160, 90",90,40.17175,27.0,2,41.0,41.0,108.17175,,"Moerdijk,Venlo",3.0,18.0
+156,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge07, Barge48, Train32",Barge,Train,Barge07,51,"160, 160, 90",90,31.55665,27.0,2,47.0,47.0,105.55665,,"Moerdijk,Duisburg",3.0,18.0
+157,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge07, Train27, Train30",Barge,Train,Barge07,51,"160, 90, 90",90,62.29025,57.0,2,48.0,48.0,167.29025000000001,,"Moerdijk,Venlo",3.0,18.0
+158,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge07, Train28, Train32",Barge,Train,Barge07,51,"160, 90, 90",90,62.29025000000001,57.0,2,55.0,55.0,174.29025000000001,,"Moerdijk,Duisburg",3.0,18.0
+159,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge08, Barge47, Train30",Barge,Train,Barge08,63,"160, 160, 90",90,40.17175,27.0,2,29.0,29.0,96.17175,,"Moerdijk,Venlo",3.0,18.0
+160,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge08, Train27, Train30",Barge,Train,Barge08,63,"160, 90, 90",90,62.29025,57.0,2,36.0,36.0,155.29025000000001,,"Moerdijk,Venlo",3.0,18.0
+161,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge08, Train28, Train32",Barge,Train,Barge08,63,"160, 90, 90",90,62.29025000000001,57.0,2,43.0,43.0,162.29025000000001,,"Moerdijk,Duisburg",3.0,18.0
+162,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge09, Barge47, Train30",Barge,Train,Barge09,75,"160, 160, 90",90,40.17175,27.0,2,17.0,17.0,84.17175,,"Moerdijk,Venlo",3.0,18.0
+163,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Barge17, Train30",Barge,Train,Barge17,12,"160, 90",90,38.30835,21.0,1,85.0,85.0,144.30835,,Venlo,3.0,18.0
+164,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Barge18, Train30",Barge,Train,Barge18,18,"160, 90",90,38.30835,21.0,1,79.0,79.0,138.30835,,Venlo,3.0,18.0
+165,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Barge19, Train30",Barge,Train,Barge19,36,"160, 90",90,38.30835,21.0,1,61.0,61.0,120.30834999999999,,Venlo,3.0,18.0
+166,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Barge20, Train30",Barge,Train,Barge20,42,"160, 90",90,38.30835,21.0,1,55.0,55.0,114.30834999999999,,Venlo,3.0,18.0
+167,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Barge21, Train30",Barge,Train,Barge21,60,"160, 90",90,38.30835,21.0,1,37.0,37.0,96.30834999999999,,Venlo,3.0,18.0
+168,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Barge22, Train30",Barge,Train,Barge22,66,"160, 90",90,38.30835,21.0,1,31.0,31.0,90.30834999999999,,Venlo,3.0,18.0
+169,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Barge23, Train30",Barge,Train,Barge23,90,"160, 90",90,38.30835,21.0,1,7.0,7.0,66.30834999999999,,Venlo,3.0,18.0
+170,Delta,Dortmund,Delta to Duisburg -> Duisburg to Dortmund,"Barge26, Train32",Barge,Train,Barge26,82,"160, 90",90,30.62495,21.0,1,20.0,20.0,71.62495,,Duisburg,3.0,18.0
+171,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Train01, Train30",Train,Train,Train01,16,"90, 90",90,68.11025000000001,36.0,1,90.0,90.0,194.11025,,Venlo,18.0,18.0
+172,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Train02, Train30",Train,Train,Train02,40,"90, 90",90,68.11025000000001,36.0,1,66.0,66.0,170.11025,,Venlo,18.0,18.0
+173,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Train03, Train30",Train,Train,Train03,9,"90, 90",90,68.11025000000001,36.0,1,97.0,97.0,201.11025,,Venlo,18.0,18.0
+174,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Train04, Train30",Train,Train,Train04,33,"90, 90",90,68.11025000000001,36.0,1,73.0,73.0,177.11025,,Venlo,18.0,18.0
+175,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Train05, Train30",Train,Train,Train05,57,"90, 90",90,68.11025000000001,36.0,1,49.0,49.0,153.11025,,Venlo,18.0,18.0
+176,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Train06, Train30",Train,Train,Train06,81,"90, 90",90,68.11025000000001,36.0,1,25.0,25.0,129.11025,,Venlo,18.0,18.0
+177,Delta,Dortmund,Delta to Duisburg -> Duisburg to Dortmund,"Train09, Train32",Train,Train,Train09,41,"90, 90",90,78.58875,36.0,1,71.0,71.0,185.58875,,Duisburg,18.0,18.0
+178,Delta,Dortmund,Delta to Duisburg -> Duisburg to Dortmund,"Train10, Train32",Train,Train,Train10,75,"90, 90",90,78.58875,36.0,1,37.0,37.0,151.58875,,Duisburg,18.0,18.0
+179,Delta,Dortmund,Delta to Duisburg -> Duisburg to Dortmund,"Train11, Train32",Train,Train,Train11,99,"90, 90",90,78.58875,36.0,1,13.0,13.0,127.58875,,Duisburg,18.0,18.0
+180,Delta,Dortmund,Delta to Dortmund,Train14,Train,Train,Train14,88,90,90,73.3495,0.0,0,0.0,0.0,73.3495,,0,18.0,18.0
+181,Delta,Nuremberg,Delta to Euromax -> Euromax to Venlo -> Venlo to Nuremberg,"Barge01, Barge36, Train31",Barge,Train,Barge01,53,"160, 160, 90",90,128.77315,27.0,2,40.5,40.5,196.27315,,"Euromax,Venlo",3.0,18.0
+182,Delta,Nuremberg,Delta to Euromax -> Euromax to Venlo -> Venlo to Nuremberg,"Barge01, Train17, Train31",Barge,Train,Barge01,53,"160, 90, 90",90,163.34844999999999,57.0,2,49.5,49.5,269.84844999999996,,"Euromax,Venlo",3.0,18.0
+183,Delta,Nuremberg,Delta to Euromax -> Euromax to Venlo -> Venlo to Nuremberg,"Barge01, Train18, Train31",Barge,Train,Barge01,53,"160, 90, 90",90,163.34844999999999,57.0,2,49.5,49.5,269.84844999999996,,"Euromax,Venlo",3.0,18.0
+184,Delta,Nuremberg,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Nuremberg,"Barge01, Train19, Train33",Barge,Train,Barge01,53,"160, 90, 90",90,173.82695,57.0,2,55.5,55.5,286.32695,,"Euromax,Duisburg",3.0,18.0
+185,Delta,Nuremberg,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Nuremberg,"Barge01, Train20, Train33",Barge,Train,Barge01,53,"160, 90, 90",90,173.82695,57.0,2,55.5,55.5,286.32695,,"Euromax,Duisburg",3.0,18.0
+186,Delta,Nuremberg,Delta to Euromax -> Euromax to Nuremberg,"Barge01, Train23",Barge,Train,Barge01,53,"160, 90",90,163.34845,21.0,1,22.0,22.0,206.34845,,Euromax,3.0,18.0
+187,Delta,Nuremberg,Delta to HOME -> HOME to Venlo -> Venlo to Nuremberg,"Barge02, Train24, Train31",Barge,Train,Barge02,53,"160, 90, 90",90,154.26749999999998,57.0,2,49.0,49.0,260.2675,,"HOME,Venlo",3.0,18.0
+188,Delta,Nuremberg,Delta to HOME -> HOME to Duisburg -> Duisburg to Nuremberg,"Barge02, Train26, Train33",Barge,Train,Barge02,53,"160, 90, 90",90,164.74599999999998,57.0,2,55.0,55.0,276.746,,"HOME,Duisburg",3.0,18.0
+189,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge03, Barge47, Train31",Barge,Train,Barge03,3,"160, 160, 90",90,129.239,27.0,2,90.0,90.0,246.239,,"Moerdijk,Venlo",3.0,18.0
+190,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge03, Barge48, Train33",Barge,Train,Barge03,3,"160, 160, 90",90,120.62389999999999,27.0,2,96.0,96.0,243.6239,,"Moerdijk,Duisburg",3.0,18.0
+191,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge03, Train27, Train31",Barge,Train,Barge03,3,"160, 90, 90",90,151.3575,57.0,2,97.0,97.0,305.35749999999996,,"Moerdijk,Venlo",3.0,18.0
+192,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge03, Train28, Train33",Barge,Train,Barge03,3,"160, 90, 90",90,151.35750000000002,57.0,2,104.0,104.0,312.3575,,"Moerdijk,Duisburg",3.0,18.0
+193,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge04, Barge47, Train31",Barge,Train,Barge04,15,"160, 160, 90",90,129.239,27.0,2,78.0,78.0,234.239,,"Moerdijk,Venlo",3.0,18.0
+194,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge04, Barge48, Train33",Barge,Train,Barge04,15,"160, 160, 90",90,120.62389999999999,27.0,2,84.0,84.0,231.6239,,"Moerdijk,Duisburg",3.0,18.0
+195,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge04, Train27, Train31",Barge,Train,Barge04,15,"160, 90, 90",90,151.3575,57.0,2,85.0,85.0,293.35749999999996,,"Moerdijk,Venlo",3.0,18.0
+196,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge04, Train28, Train33",Barge,Train,Barge04,15,"160, 90, 90",90,151.35750000000002,57.0,2,92.0,92.0,300.3575,,"Moerdijk,Duisburg",3.0,18.0
+197,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge05, Barge47, Train31",Barge,Train,Barge05,27,"160, 160, 90",90,129.239,27.0,2,66.0,66.0,222.239,,"Moerdijk,Venlo",3.0,18.0
+198,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge05, Barge48, Train33",Barge,Train,Barge05,27,"160, 160, 90",90,120.62389999999999,27.0,2,72.0,72.0,219.6239,,"Moerdijk,Duisburg",3.0,18.0
+199,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge05, Train27, Train31",Barge,Train,Barge05,27,"160, 90, 90",90,151.3575,57.0,2,73.0,73.0,281.35749999999996,,"Moerdijk,Venlo",3.0,18.0
+200,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge05, Train28, Train33",Barge,Train,Barge05,27,"160, 90, 90",90,151.35750000000002,57.0,2,80.0,80.0,288.3575,,"Moerdijk,Duisburg",3.0,18.0
+201,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge06, Barge47, Train31",Barge,Train,Barge06,39,"160, 160, 90",90,129.239,27.0,2,54.0,54.0,210.239,,"Moerdijk,Venlo",3.0,18.0
+202,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge06, Barge48, Train33",Barge,Train,Barge06,39,"160, 160, 90",90,120.62389999999999,27.0,2,60.0,60.0,207.6239,,"Moerdijk,Duisburg",3.0,18.0
+203,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge06, Train27, Train31",Barge,Train,Barge06,39,"160, 90, 90",90,151.3575,57.0,2,61.0,61.0,269.35749999999996,,"Moerdijk,Venlo",3.0,18.0
+204,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge06, Train28, Train33",Barge,Train,Barge06,39,"160, 90, 90",90,151.35750000000002,57.0,2,68.0,68.0,276.3575,,"Moerdijk,Duisburg",3.0,18.0
+205,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge07, Barge47, Train31",Barge,Train,Barge07,51,"160, 160, 90",90,129.239,27.0,2,42.0,42.0,198.239,,"Moerdijk,Venlo",3.0,18.0
+206,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge07, Barge48, Train33",Barge,Train,Barge07,51,"160, 160, 90",90,120.62389999999999,27.0,2,48.0,48.0,195.6239,,"Moerdijk,Duisburg",3.0,18.0
+207,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge07, Train27, Train31",Barge,Train,Barge07,51,"160, 90, 90",90,151.3575,57.0,2,49.0,49.0,257.35749999999996,,"Moerdijk,Venlo",3.0,18.0
+208,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge07, Train28, Train33",Barge,Train,Barge07,51,"160, 90, 90",90,151.35750000000002,57.0,2,56.0,56.0,264.3575,,"Moerdijk,Duisburg",3.0,18.0
+209,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge08, Barge47, Train31",Barge,Train,Barge08,63,"160, 160, 90",90,129.239,27.0,2,30.0,30.0,186.239,,"Moerdijk,Venlo",3.0,18.0
+210,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge08, Train27, Train31",Barge,Train,Barge08,63,"160, 90, 90",90,151.3575,57.0,2,37.0,37.0,245.3575,,"Moerdijk,Venlo",3.0,18.0
+211,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge08, Train28, Train33",Barge,Train,Barge08,63,"160, 90, 90",90,151.35750000000002,57.0,2,44.0,44.0,252.35750000000002,,"Moerdijk,Duisburg",3.0,18.0
+212,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge09, Barge47, Train31",Barge,Train,Barge09,75,"160, 160, 90",90,129.239,27.0,2,18.0,18.0,174.239,,"Moerdijk,Venlo",3.0,18.0
+213,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge17, Train31",Barge,Train,Barge17,12,"160, 90",90,127.37559999999999,21.0,1,86.0,86.0,234.3756,,Venlo,3.0,18.0
+214,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge18, Train31",Barge,Train,Barge18,18,"160, 90",90,127.37559999999999,21.0,1,80.0,80.0,228.3756,,Venlo,3.0,18.0
+215,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge19, Train31",Barge,Train,Barge19,36,"160, 90",90,127.37559999999999,21.0,1,62.0,62.0,210.3756,,Venlo,3.0,18.0
+216,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge20, Train31",Barge,Train,Barge20,42,"160, 90",90,127.37559999999999,21.0,1,56.0,56.0,204.3756,,Venlo,3.0,18.0
+217,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge21, Train31",Barge,Train,Barge21,60,"160, 90",90,127.37559999999999,21.0,1,38.0,38.0,186.3756,,Venlo,3.0,18.0
+218,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge22, Train31",Barge,Train,Barge22,66,"160, 90",90,127.37559999999999,21.0,1,32.0,32.0,180.3756,,Venlo,3.0,18.0
+219,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge23, Train31",Barge,Train,Barge23,90,"160, 90",90,127.37559999999999,21.0,1,8.0,8.0,156.3756,,Venlo,3.0,18.0
+220,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge24, Train31",Barge,Train,Barge24,96,"160, 90",90,127.37559999999999,21.0,1,2.0,2.0,150.3756,,Venlo,3.0,18.0
+221,Delta,Nuremberg,Delta to Duisburg -> Duisburg to Nuremberg,"Barge26, Train33",Barge,Train,Barge26,82,"160, 90",90,119.6922,21.0,1,21.0,21.0,161.6922,,Duisburg,3.0,18.0
+222,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Train01, Train31",Train,Train,Train01,16,"90, 90",90,157.1775,36.0,1,91.0,91.0,284.1775,,Venlo,18.0,18.0
+223,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Train02, Train31",Train,Train,Train02,40,"90, 90",90,157.1775,36.0,1,67.0,67.0,260.1775,,Venlo,18.0,18.0
+224,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Train03, Train31",Train,Train,Train03,9,"90, 90",90,157.1775,36.0,1,98.0,98.0,291.1775,,Venlo,18.0,18.0
+225,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Train04, Train31",Train,Train,Train04,33,"90, 90",90,157.1775,36.0,1,74.0,74.0,267.1775,,Venlo,18.0,18.0
+226,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Train05, Train31",Train,Train,Train05,57,"90, 90",90,157.1775,36.0,1,50.0,50.0,243.1775,,Venlo,18.0,18.0
+227,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Train06, Train31",Train,Train,Train06,81,"90, 90",90,157.1775,36.0,1,26.0,26.0,219.1775,,Venlo,18.0,18.0
+228,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Train07, Train31",Train,Train,Train07,105,"90, 90",90,157.1775,36.0,1,2.0,2.0,195.1775,,Venlo,18.0,18.0
+229,Delta,Nuremberg,Delta to Duisburg -> Duisburg to Nuremberg,"Train09, Train33",Train,Train,Train09,41,"90, 90",90,167.656,36.0,1,72.0,72.0,275.656,,Duisburg,18.0,18.0
+230,Delta,Nuremberg,Delta to Duisburg -> Duisburg to Nuremberg,"Train10, Train33",Train,Train,Train10,75,"90, 90",90,167.656,36.0,1,38.0,38.0,241.656,,Duisburg,18.0,18.0
+231,Delta,Nuremberg,Delta to Duisburg -> Duisburg to Nuremberg,"Train11, Train33",Train,Train,Train11,99,"90, 90",90,167.656,36.0,1,14.0,14.0,217.656,,Duisburg,18.0,18.0
+232,Delta,Nuremberg,Delta to Nuremberg,Train15,Train,Train,Train15,51,90,90,157.1775,0.0,0,0.0,0.0,157.1775,,0,18.0,18.0
+233,Delta,Nuremberg,Delta to Nuremberg,Train16,Train,Train,Train16,99,90,90,157.1775,0.0,0,0.0,0.0,157.1775,,0,18.0,18.0
+234,Euromax,Moerdijk,Euromax to Moerdijk,Barge32,Barge,Barge,Barge32,3,160,160,5.12435,0.0,0,0.0,0.0,5.12435,,0,3.0,3.0
+235,Euromax,Moerdijk,Euromax to Moerdijk,Barge33,Barge,Barge,Barge33,51,160,160,5.12435,0.0,0,0.0,0.0,5.12435,,0,3.0,3.0
+236,Euromax,Moerdijk,Euromax to Moerdijk,Barge34,Barge,Barge,Barge34,99,160,160,5.12435,0.0,0,0.0,0.0,5.12435,,0,3.0,3.0
+237,Euromax,Venlo,Euromax to Moerdijk -> Moerdijk to Venlo,"Barge32, Barge47",Barge,Barge,Barge32,3,"160, 160",160,14.44135,6.0,1,83.5,83.5,103.94135,,Moerdijk,3.0,3.0
+238,Euromax,Venlo,Euromax to Moerdijk -> Moerdijk to Venlo,"Barge32, Train27",Barge,Train,Barge32,3,"160, 90",90,36.55985,21.0,1,63.5,63.5,121.05985,,Moerdijk,3.0,18.0
+239,Euromax,Venlo,Euromax to Moerdijk -> Moerdijk to Venlo,"Barge33, Barge47",Barge,Barge,Barge33,51,"160, 160",160,14.44135,6.0,1,35.5,35.5,55.94135,,Moerdijk,3.0,3.0
+240,Euromax,Venlo,Euromax to Moerdijk -> Moerdijk to Venlo,"Barge33, Train27",Barge,Train,Barge33,51,"160, 90",90,36.55985,21.0,1,15.5,15.5,73.05985,,Moerdijk,3.0,18.0
+241,Euromax,Venlo,Euromax to Venlo,Barge35,Barge,Barge,Barge35,27,160,160,12.57795,0.0,0,0.0,0.0,12.57795,,0,3.0,3.0
+242,Euromax,Venlo,Euromax to Venlo,Barge36,Barge,Barge,Barge36,75,160,160,12.57795,0.0,0,0.0,0.0,12.57795,,0,3.0,3.0
+243,Euromax,Venlo,Euromax to Venlo,Train17,Train,Train,Train17,78,90,90,47.15325,0.0,0,0.0,0.0,47.15325,,0,18.0,18.0
+244,Euromax,Venlo,Euromax to Venlo,Train18,Train,Train,Train18,102,90,90,47.15325,0.0,0,0.0,0.0,47.15325,,0,18.0,18.0
+245,Euromax,Duisburg,Euromax to Moerdijk -> Moerdijk to Duisburg,"Barge32, Barge48",Barge,Barge,Barge32,3,"160, 160",160,16.30475,6.0,1,59.5,59.5,81.80475,,Moerdijk,3.0,3.0
+246,Euromax,Duisburg,Euromax to Moerdijk -> Moerdijk to Duisburg,"Barge32, Train28",Barge,Train,Barge32,3,"160, 90",90,47.03835,21.0,1,65.5,65.5,133.53835,,Moerdijk,3.0,18.0
+247,Euromax,Duisburg,Euromax to Moerdijk -> Moerdijk to Duisburg,"Barge33, Barge48",Barge,Barge,Barge33,51,"160, 160",160,16.30475,6.0,1,11.5,11.5,33.80475,,Moerdijk,3.0,3.0
+248,Euromax,Duisburg,Euromax to Moerdijk -> Moerdijk to Duisburg,"Barge33, Train28",Barge,Train,Barge33,51,"160, 90",90,47.03835,21.0,1,17.5,17.5,85.53835000000001,,Moerdijk,3.0,18.0
+249,Euromax,Duisburg,Euromax to Duisburg,Barge37,Barge,Barge,Barge37,103,160,160,15.37305,0.0,0,0.0,0.0,15.37305,,0,3.0,3.0
+250,Euromax,Duisburg,Euromax to Duisburg,Train19,Train,Train,Train19,75,90,90,68.11025,0.0,0,0.0,0.0,68.11025,,0,18.0,18.0
+251,Euromax,Duisburg,Euromax to Duisburg,Train20,Train,Train,Train20,99,90,90,68.11025,0.0,0,0.0,0.0,68.11025,,0,18.0,18.0
+252,Euromax,Willebroek,Euromax to Willebroek,Barge38,Barge,Barge,Barge38,112,160,160,10.71455,0.0,0,0.0,0.0,10.71455,,0,3.0,3.0
+253,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge32, Barge47, Train29",Barge,Train,Barge32,3,"160, 160, 90",90,30.159100000000002,27.0,2,87.5,87.5,144.6591,,"Moerdijk,Venlo",3.0,18.0
+254,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge32, Barge48, Barge49",Barge,Barge,Barge32,3,"160, 160, 160",160,18.634,12.0,2,93.5,93.5,124.134,,"Moerdijk,Duisburg",3.0,3.0
+255,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge32, Train27, Train29",Barge,Train,Barge32,3,"160, 90, 90",90,52.2776,57.0,2,94.5,94.5,203.7776,,"Moerdijk,Venlo",3.0,18.0
+256,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge32, Train28, Barge49",Barge,Barge,Barge32,3,"160, 90, 160",90,49.3676,42.0,2,101.5,101.5,192.8676,,"Moerdijk,Duisburg",3.0,3.0
+257,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge33, Barge47, Train29",Barge,Train,Barge33,51,"160, 160, 90",90,30.159100000000002,27.0,2,39.5,39.5,96.6591,,"Moerdijk,Venlo",3.0,18.0
+258,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge33, Barge48, Barge49",Barge,Barge,Barge33,51,"160, 160, 160",160,18.634,12.0,2,45.5,45.5,76.134,,"Moerdijk,Duisburg",3.0,3.0
+259,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge33, Train27, Train29",Barge,Train,Barge33,51,"160, 90, 90",90,52.2776,57.0,2,46.5,46.5,155.7776,,"Moerdijk,Venlo",3.0,18.0
+260,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge33, Train28, Barge49",Barge,Barge,Barge33,51,"160, 90, 160",90,49.3676,42.0,2,53.5,53.5,144.8676,,"Moerdijk,Duisburg",3.0,3.0
+261,Euromax,Neuss,Euromax to Venlo -> Venlo to Neuss,"Barge35, Train29",Barge,Train,Barge35,27,"160, 90",90,28.2957,21.0,1,68.5,68.5,117.7957,,Venlo,3.0,18.0
+262,Euromax,Neuss,Euromax to Venlo -> Venlo to Neuss,"Barge36, Train29",Barge,Train,Barge36,75,"160, 90",90,28.2957,21.0,1,20.5,20.5,69.7957,,Venlo,3.0,18.0
+263,Euromax,Neuss,Euromax to Neuss,Barge39,Barge,Barge,Barge39,66,160,160,16.30475,0.0,0,0.0,0.0,16.30475,,0,3.0,3.0
+264,Euromax,Neuss,Euromax to Venlo -> Venlo to Neuss,"Train17, Train29",Train,Train,Train17,78,"90, 90",90,62.871,36.0,1,26.5,26.5,125.37100000000001,,Venlo,18.0,18.0
+265,Euromax,Neuss,Euromax to Venlo -> Venlo to Neuss,"Train18, Train29",Train,Train,Train18,102,"90, 90",90,62.871,36.0,1,2.5,2.5,101.37100000000001,,Venlo,18.0,18.0
+266,Euromax,Neuss,Euromax to Duisburg -> Duisburg to Neuss,"Train19, Barge49",Train,Barge,Train19,75,"90, 160",90,70.4395,21.0,1,35.5,35.5,126.9395,,Duisburg,18.0,3.0
+267,Euromax,Neuss,Euromax to Duisburg -> Duisburg to Neuss,"Train20, Barge49",Train,Barge,Train20,99,"90, 160",90,70.4395,21.0,1,11.5,11.5,102.9395,,Duisburg,18.0,3.0
+268,Euromax,Neuss,Euromax to Neuss,Train21,Train,Train,Train21,77,90,90,57.63175,0.0,0,0.0,0.0,57.63175,,0,18.0,18.0
+269,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge32, Barge47, Train30",Barge,Train,Barge32,3,"160, 160, 90",90,40.6376,27.0,2,88.5,88.5,156.1376,,"Moerdijk,Venlo",3.0,18.0
+270,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge32, Barge48, Train32",Barge,Train,Barge32,3,"160, 160, 90",90,32.0225,27.0,2,94.5,94.5,153.5225,,"Moerdijk,Duisburg",3.0,18.0
+271,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge32, Train27, Train30",Barge,Train,Barge32,3,"160, 90, 90",90,62.756099999999996,57.0,2,95.5,95.5,215.2561,,"Moerdijk,Venlo",3.0,18.0
+272,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge32, Train28, Train32",Barge,Train,Barge32,3,"160, 90, 90",90,62.7561,57.0,2,102.5,102.5,222.2561,,"Moerdijk,Duisburg",3.0,18.0
+273,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge33, Barge47, Train30",Barge,Train,Barge33,51,"160, 160, 90",90,40.6376,27.0,2,40.5,40.5,108.13759999999999,,"Moerdijk,Venlo",3.0,18.0
+274,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge33, Barge48, Train32",Barge,Train,Barge33,51,"160, 160, 90",90,32.0225,27.0,2,46.5,46.5,105.52250000000001,,"Moerdijk,Duisburg",3.0,18.0
+275,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge33, Train27, Train30",Barge,Train,Barge33,51,"160, 90, 90",90,62.756099999999996,57.0,2,47.5,47.5,167.2561,,"Moerdijk,Venlo",3.0,18.0
+276,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge33, Train28, Train32",Barge,Train,Barge33,51,"160, 90, 90",90,62.7561,57.0,2,54.5,54.5,174.2561,,"Moerdijk,Duisburg",3.0,18.0
+277,Euromax,Dortmund,Euromax to Venlo -> Venlo to Dortmund,"Barge35, Train30",Barge,Train,Barge35,27,"160, 90",90,38.7742,21.0,1,69.5,69.5,129.2742,,Venlo,3.0,18.0
+278,Euromax,Dortmund,Euromax to Venlo -> Venlo to Dortmund,"Barge36, Train30",Barge,Train,Barge36,75,"160, 90",90,38.7742,21.0,1,21.5,21.5,81.27420000000001,,Venlo,3.0,18.0
+279,Euromax,Dortmund,Euromax to Venlo -> Venlo to Dortmund,"Train17, Train30",Train,Train,Train17,78,"90, 90",90,73.3495,36.0,1,27.5,27.5,136.8495,,Venlo,18.0,18.0
+280,Euromax,Dortmund,Euromax to Venlo -> Venlo to Dortmund,"Train18, Train30",Train,Train,Train18,102,"90, 90",90,73.3495,36.0,1,3.5,3.5,112.8495,,Venlo,18.0,18.0
+281,Euromax,Dortmund,Euromax to Duisburg -> Duisburg to Dortmund,"Train19, Train32",Train,Train,Train19,75,"90, 90",90,83.82799999999999,36.0,1,36.5,36.5,156.32799999999997,,Duisburg,18.0,18.0
+282,Euromax,Dortmund,Euromax to Duisburg -> Duisburg to Dortmund,"Train20, Train32",Train,Train,Train20,99,"90, 90",90,83.82799999999999,36.0,1,12.5,12.5,132.32799999999997,,Duisburg,18.0,18.0
+283,Euromax,Dortmund,Euromax to Dortmund,Train22,Train,Train,Train22,78,90,90,78.58875,0.0,0,0.0,0.0,78.58875,,0,18.0,18.0
+284,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge32, Barge47, Train31",Barge,Train,Barge32,3,"160, 160, 90",90,129.70485,27.0,2,89.5,89.5,246.20485,,"Moerdijk,Venlo",3.0,18.0
+285,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge32, Barge48, Train33",Barge,Train,Barge32,3,"160, 160, 90",90,121.08975,27.0,2,95.5,95.5,243.58974999999998,,"Moerdijk,Duisburg",3.0,18.0
+286,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge32, Train27, Train31",Barge,Train,Barge32,3,"160, 90, 90",90,151.82335,57.0,2,96.5,96.5,305.32335,,"Moerdijk,Venlo",3.0,18.0
+287,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge32, Train28, Train33",Barge,Train,Barge32,3,"160, 90, 90",90,151.82335,57.0,2,103.5,103.5,312.32335,,"Moerdijk,Duisburg",3.0,18.0
+288,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge33, Barge47, Train31",Barge,Train,Barge33,51,"160, 160, 90",90,129.70485,27.0,2,41.5,41.5,198.20485,,"Moerdijk,Venlo",3.0,18.0
+289,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge33, Barge48, Train33",Barge,Train,Barge33,51,"160, 160, 90",90,121.08975,27.0,2,47.5,47.5,195.58974999999998,,"Moerdijk,Duisburg",3.0,18.0
+290,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge33, Train27, Train31",Barge,Train,Barge33,51,"160, 90, 90",90,151.82335,57.0,2,48.5,48.5,257.32335,,"Moerdijk,Venlo",3.0,18.0
+291,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge33, Train28, Train33",Barge,Train,Barge33,51,"160, 90, 90",90,151.82335,57.0,2,55.5,55.5,264.32335,,"Moerdijk,Duisburg",3.0,18.0
+292,Euromax,Nuremberg,Euromax to Venlo -> Venlo to Nuremberg,"Barge35, Train31",Barge,Train,Barge35,27,"160, 90",90,127.84145,21.0,1,70.5,70.5,219.34145,,Venlo,3.0,18.0
+293,Euromax,Nuremberg,Euromax to Venlo -> Venlo to Nuremberg,"Barge36, Train31",Barge,Train,Barge36,75,"160, 90",90,127.84145,21.0,1,22.5,22.5,171.34145,,Venlo,3.0,18.0
+294,Euromax,Nuremberg,Euromax to Venlo -> Venlo to Nuremberg,"Train17, Train31",Train,Train,Train17,78,"90, 90",90,162.41674999999998,36.0,1,28.5,28.5,226.91674999999998,,Venlo,18.0,18.0
+295,Euromax,Nuremberg,Euromax to Venlo -> Venlo to Nuremberg,"Train18, Train31",Train,Train,Train18,102,"90, 90",90,162.41674999999998,36.0,1,4.5,4.5,202.91674999999998,,Venlo,18.0,18.0
+296,Euromax,Nuremberg,Euromax to Duisburg -> Duisburg to Nuremberg,"Train19, Train33",Train,Train,Train19,75,"90, 90",90,172.89524999999998,36.0,1,37.5,37.5,246.39524999999998,,Duisburg,18.0,18.0
+297,Euromax,Nuremberg,Euromax to Duisburg -> Duisburg to Nuremberg,"Train20, Train33",Train,Train,Train20,99,"90, 90",90,172.89524999999998,36.0,1,13.5,13.5,222.39524999999998,,Duisburg,18.0,18.0
+298,Euromax,Nuremberg,Euromax to Nuremberg,Train23,Train,Train,Train23,79,90,90,162.41675,0.0,0,0.0,0.0,162.41675,,0,18.0,18.0
+299,HOME,Moerdijk,HOME to Moerdijk,Barge40,Barge,Barge,Barge40,5,160,160,2.7951,0.0,0,0.0,0.0,2.7951,,0,3.0,3.0
+300,HOME,Moerdijk,HOME to Moerdijk,Barge41,Barge,Barge,Barge41,53,160,160,2.7951,0.0,0,0.0,0.0,2.7951,,0,3.0,3.0
+301,HOME,Moerdijk,HOME to Moerdijk,Barge42,Barge,Barge,Barge42,101,160,160,2.7951,0.0,0,0.0,0.0,2.7951,,0,3.0,3.0
+302,HOME,Venlo,HOME to Moerdijk -> Moerdijk to Venlo,"Barge40, Barge47",Barge,Barge,Barge40,5,"160, 160",160,12.1121,6.0,1,84.0,84.0,102.1121,,Moerdijk,3.0,3.0
+303,HOME,Venlo,HOME to Moerdijk -> Moerdijk to Venlo,"Barge40, Train27",Barge,Train,Barge40,5,"160, 90",90,34.2306,21.0,1,64.0,64.0,119.23060000000001,,Moerdijk,3.0,18.0
+304,HOME,Venlo,HOME to Moerdijk -> Moerdijk to Venlo,"Barge41, Barge47",Barge,Barge,Barge41,53,"160, 160",160,12.1121,6.0,1,36.0,36.0,54.1121,,Moerdijk,3.0,3.0
+305,HOME,Venlo,HOME to Moerdijk -> Moerdijk to Venlo,"Barge41, Train27",Barge,Train,Barge41,53,"160, 90",90,34.2306,21.0,1,16.0,16.0,71.23060000000001,,Moerdijk,3.0,18.0
+306,HOME,Venlo,HOME to Venlo,Barge43,Barge,Barge,Barge43,99,160,160,10.2487,0.0,0,0.0,0.0,10.2487,,0,3.0,3.0
+307,HOME,Venlo,HOME to Venlo,Barge44,Barge,Barge,Barge44,126,160,160,10.2487,0.0,0,0.0,0.0,10.2487,,0,3.0,3.0
+308,HOME,Venlo,HOME to Venlo,Train24,Train,Train,Train24,86,90,90,36.67475,0.0,0,0.0,0.0,36.67475,,0,18.0,18.0
+309,HOME,Duisburg,HOME to Moerdijk -> Moerdijk to Duisburg,"Barge40, Barge48",Barge,Barge,Barge40,5,"160, 160",160,13.9755,6.0,1,60.0,60.0,79.9755,,Moerdijk,3.0,3.0
+310,HOME,Duisburg,HOME to Moerdijk -> Moerdijk to Duisburg,"Barge40, Train28",Barge,Train,Barge40,5,"160, 90",90,44.7091,21.0,1,66.0,66.0,131.7091,,Moerdijk,3.0,18.0
+311,HOME,Duisburg,HOME to Moerdijk -> Moerdijk to Duisburg,"Barge41, Barge48",Barge,Barge,Barge41,53,"160, 160",160,13.9755,6.0,1,12.0,12.0,31.9755,,Moerdijk,3.0,3.0
+312,HOME,Duisburg,HOME to Moerdijk -> Moerdijk to Duisburg,"Barge41, Train28",Barge,Train,Barge41,53,"160, 90",90,44.7091,21.0,1,18.0,18.0,83.7091,,Moerdijk,3.0,18.0
+313,HOME,Duisburg,HOME to Duisburg,Barge45,Barge,Barge,Barge45,51,160,160,14.44135,0.0,0,0.0,0.0,14.44135,,0,3.0,3.0
+314,HOME,Duisburg,HOME to Duisburg,Train25,Train,Train,Train25,27,90,90,57.63175,0.0,0,0.0,0.0,57.63175,,0,18.0,18.0
+315,HOME,Duisburg,HOME to Duisburg,Train26,Train,Train,Train26,75,90,90,57.63175,0.0,0,0.0,0.0,57.63175,,0,18.0,18.0
+316,HOME,Willebroek,HOME to Willebroek,Barge46,Barge,Barge,Barge46,20,160,160,9.78285,0.0,0,0.0,0.0,9.78285,,0,3.0,3.0
+317,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge40, Barge47, Train29",Barge,Train,Barge40,5,"160, 160, 90",90,27.82985,27.0,2,88.0,88.0,142.82985,,"Moerdijk,Venlo",3.0,18.0
+318,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge40, Barge48, Barge49",Barge,Barge,Barge40,5,"160, 160, 160",160,16.30475,12.0,2,94.0,94.0,122.30475,,"Moerdijk,Duisburg",3.0,3.0
+319,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge40, Train27, Train29",Barge,Train,Barge40,5,"160, 90, 90",90,49.948350000000005,57.0,2,95.0,95.0,201.94835,,"Moerdijk,Venlo",3.0,18.0
+320,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge40, Train28, Barge49",Barge,Barge,Barge40,5,"160, 90, 160",90,47.03835,42.0,2,102.0,102.0,191.03835,,"Moerdijk,Duisburg",3.0,3.0
+321,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge41, Barge47, Train29",Barge,Train,Barge41,53,"160, 160, 90",90,27.82985,27.0,2,40.0,40.0,94.82985,,"Moerdijk,Venlo",3.0,18.0
+322,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge41, Barge48, Barge49",Barge,Barge,Barge41,53,"160, 160, 160",160,16.30475,12.0,2,46.0,46.0,74.30475,,"Moerdijk,Duisburg",3.0,3.0
+323,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge41, Train27, Train29",Barge,Train,Barge41,53,"160, 90, 90",90,49.948350000000005,57.0,2,47.0,47.0,153.94835,,"Moerdijk,Venlo",3.0,18.0
+324,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge41, Train28, Barge49",Barge,Barge,Barge41,53,"160, 90, 160",90,47.03835,42.0,2,54.0,54.0,143.03835,,"Moerdijk,Duisburg",3.0,3.0
+325,HOME,Neuss,HOME to Duisburg -> Duisburg to Neuss,"Barge45, Barge49",Barge,Barge,Barge45,51,"160, 160",160,16.7706,6.0,1,50.5,50.5,73.2706,,Duisburg,3.0,3.0
+326,HOME,Neuss,HOME to Venlo -> Venlo to Neuss,"Train24, Train29",Train,Train,Train24,86,"90, 90",90,52.392500000000005,36.0,1,19.5,19.5,107.89250000000001,,Venlo,18.0,18.0
+327,HOME,Neuss,HOME to Duisburg -> Duisburg to Neuss,"Train25, Barge49",Train,Barge,Train25,27,"90, 160",90,59.961,21.0,1,84.5,84.5,165.461,,Duisburg,18.0,3.0
+328,HOME,Neuss,HOME to Duisburg -> Duisburg to Neuss,"Train26, Barge49",Train,Barge,Train26,75,"90, 160",90,59.961,21.0,1,36.5,36.5,117.461,,Duisburg,18.0,3.0
+329,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge40, Barge47, Train30",Barge,Train,Barge40,5,"160, 160, 90",90,38.30835,27.0,2,89.0,89.0,154.30835,,"Moerdijk,Venlo",3.0,18.0
+330,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge40, Barge48, Train32",Barge,Train,Barge40,5,"160, 160, 90",90,29.69325,27.0,2,95.0,95.0,151.69325,,"Moerdijk,Duisburg",3.0,18.0
+331,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge40, Train27, Train30",Barge,Train,Barge40,5,"160, 90, 90",90,60.42685,57.0,2,96.0,96.0,213.42685,,"Moerdijk,Venlo",3.0,18.0
+332,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge40, Train28, Train32",Barge,Train,Barge40,5,"160, 90, 90",90,60.42685,57.0,2,103.0,103.0,220.42685,,"Moerdijk,Duisburg",3.0,18.0
+333,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge41, Barge47, Train30",Barge,Train,Barge41,53,"160, 160, 90",90,38.30835,27.0,2,41.0,41.0,106.30834999999999,,"Moerdijk,Venlo",3.0,18.0
+334,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge41, Barge48, Train32",Barge,Train,Barge41,53,"160, 160, 90",90,29.69325,27.0,2,47.0,47.0,103.69325,,"Moerdijk,Duisburg",3.0,18.0
+335,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge41, Train27, Train30",Barge,Train,Barge41,53,"160, 90, 90",90,60.42685,57.0,2,48.0,48.0,165.42685,,"Moerdijk,Venlo",3.0,18.0
+336,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge41, Train28, Train32",Barge,Train,Barge41,53,"160, 90, 90",90,60.42685,57.0,2,55.0,55.0,172.42685,,"Moerdijk,Duisburg",3.0,18.0
+337,HOME,Dortmund,HOME to Duisburg -> Duisburg to Dortmund,"Barge45, Train32",Barge,Train,Barge45,51,"160, 90",90,30.159100000000002,21.0,1,51.5,51.5,102.6591,,Duisburg,3.0,18.0
+338,HOME,Dortmund,HOME to Venlo -> Venlo to Dortmund,"Train24, Train30",Train,Train,Train24,86,"90, 90",90,62.871,36.0,1,20.5,20.5,119.37100000000001,,Venlo,18.0,18.0
+339,HOME,Dortmund,HOME to Duisburg -> Duisburg to Dortmund,"Train25, Train32",Train,Train,Train25,27,"90, 90",90,73.34949999999999,36.0,1,85.5,85.5,194.84949999999998,,Duisburg,18.0,18.0
+340,HOME,Dortmund,HOME to Duisburg -> Duisburg to Dortmund,"Train26, Train32",Train,Train,Train26,75,"90, 90",90,73.34949999999999,36.0,1,37.5,37.5,146.84949999999998,,Duisburg,18.0,18.0
+341,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge40, Barge47, Train31",Barge,Train,Barge40,5,"160, 160, 90",90,127.37559999999999,27.0,2,90.0,90.0,244.3756,,"Moerdijk,Venlo",3.0,18.0
+342,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge40, Barge48, Train33",Barge,Train,Barge40,5,"160, 160, 90",90,118.7605,27.0,2,96.0,96.0,241.76049999999998,,"Moerdijk,Duisburg",3.0,18.0
+343,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge40, Train27, Train31",Barge,Train,Barge40,5,"160, 90, 90",90,149.4941,57.0,2,97.0,97.0,303.4941,,"Moerdijk,Venlo",3.0,18.0
+344,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge40, Train28, Train33",Barge,Train,Barge40,5,"160, 90, 90",90,149.4941,57.0,2,104.0,104.0,310.4941,,"Moerdijk,Duisburg",3.0,18.0
+345,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge41, Barge47, Train31",Barge,Train,Barge41,53,"160, 160, 90",90,127.37559999999999,27.0,2,42.0,42.0,196.3756,,"Moerdijk,Venlo",3.0,18.0
+346,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge41, Barge48, Train33",Barge,Train,Barge41,53,"160, 160, 90",90,118.7605,27.0,2,48.0,48.0,193.76049999999998,,"Moerdijk,Duisburg",3.0,18.0
+347,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge41, Train27, Train31",Barge,Train,Barge41,53,"160, 90, 90",90,149.4941,57.0,2,49.0,49.0,255.4941,,"Moerdijk,Venlo",3.0,18.0
+348,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge41, Train28, Train33",Barge,Train,Barge41,53,"160, 90, 90",90,149.4941,57.0,2,56.0,56.0,262.4941,,"Moerdijk,Duisburg",3.0,18.0
+349,HOME,Nuremberg,HOME to Duisburg -> Duisburg to Nuremberg,"Barge45, Train33",Barge,Train,Barge45,51,"160, 90",90,119.22635,21.0,1,52.5,52.5,192.72635,,Duisburg,3.0,18.0
+350,HOME,Nuremberg,HOME to Venlo -> Venlo to Nuremberg,"Train24, Train31",Train,Train,Train24,86,"90, 90",90,151.93824999999998,36.0,1,21.5,21.5,209.43824999999998,,Venlo,18.0,18.0
+351,HOME,Nuremberg,HOME to Duisburg -> Duisburg to Nuremberg,"Train25, Train33",Train,Train,Train25,27,"90, 90",90,162.41674999999998,36.0,1,86.5,86.5,284.91675,,Duisburg,18.0,18.0
+352,HOME,Nuremberg,HOME to Duisburg -> Duisburg to Nuremberg,"Train26, Train33",Train,Train,Train26,75,"90, 90",90,162.41674999999998,36.0,1,38.5,38.5,236.91674999999998,,Duisburg,18.0,18.0
+353,Moerdijk,Venlo,Moerdijk to Venlo,Barge47,Barge,Barge,Barge47,95,160,160,9.317,0.0,0,0.0,0.0,9.317,,0,3.0,3.0
+354,Moerdijk,Venlo,Moerdijk to Venlo,Train27,Train,Train,Train27,75,90,90,31.4355,0.0,0,0.0,0.0,31.4355,,0,18.0,18.0
+355,Moerdijk,Duisburg,Moerdijk to Duisburg,Barge48,Barge,Barge,Barge48,71,160,160,11.1804,0.0,0,0.0,0.0,11.1804,,0,3.0,3.0
+356,Moerdijk,Duisburg,Moerdijk to Duisburg,Train28,Train,Train,Train28,77,90,90,41.914,0.0,0,0.0,0.0,41.914,,0,18.0,18.0
+357,Moerdijk,Neuss,Moerdijk to Venlo -> Venlo to Neuss,"Barge47, Train29",Barge,Train,Barge47,95,"160, 90",90,25.034750000000003,21.0,1,4.0,4.0,50.03475,,Venlo,3.0,18.0
+358,Moerdijk,Neuss,Moerdijk to Duisburg -> Duisburg to Neuss,"Barge48, Barge49",Barge,Barge,Barge48,71,"160, 160",160,13.50965,6.0,1,34.0,34.0,53.50965,,Duisburg,3.0,3.0
+359,Moerdijk,Neuss,Moerdijk to Venlo -> Venlo to Neuss,"Train27, Train29",Train,Train,Train27,75,"90, 90",90,47.15325,36.0,1,31.0,31.0,114.15325,,Venlo,18.0,18.0
+360,Moerdijk,Neuss,Moerdijk to Duisburg -> Duisburg to Neuss,"Train28, Barge49",Train,Barge,Train28,77,"90, 160",90,44.24325,21.0,1,36.0,36.0,101.24325,,Duisburg,18.0,3.0
+361,Moerdijk,Dortmund,Moerdijk to Venlo -> Venlo to Dortmund,"Barge47, Train30",Barge,Train,Barge47,95,"160, 90",90,35.51325,21.0,1,5.0,5.0,61.51325,,Venlo,3.0,18.0
+362,Moerdijk,Dortmund,Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge48, Train32",Barge,Train,Barge48,71,"160, 90",90,26.89815,21.0,1,35.0,35.0,82.89815,,Duisburg,3.0,18.0
+363,Moerdijk,Dortmund,Moerdijk to Venlo -> Venlo to Dortmund,"Train27, Train30",Train,Train,Train27,75,"90, 90",90,57.63175,36.0,1,32.0,32.0,125.63175,,Venlo,18.0,18.0
+364,Moerdijk,Dortmund,Moerdijk to Duisburg -> Duisburg to Dortmund,"Train28, Train32",Train,Train,Train28,77,"90, 90",90,57.631750000000004,36.0,1,37.0,37.0,130.63175,,Duisburg,18.0,18.0
+365,Moerdijk,Nuremberg,Moerdijk to Venlo -> Venlo to Nuremberg,"Barge47, Train31",Barge,Train,Barge47,95,"160, 90",90,124.5805,21.0,1,6.0,6.0,151.5805,,Venlo,3.0,18.0
+366,Moerdijk,Nuremberg,Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge48, Train33",Barge,Train,Barge48,71,"160, 90",90,115.9654,21.0,1,36.0,36.0,172.9654,,Duisburg,3.0,18.0
+367,Moerdijk,Nuremberg,Moerdijk to Venlo -> Venlo to Nuremberg,"Train27, Train31",Train,Train,Train27,75,"90, 90",90,146.69899999999998,36.0,1,33.0,33.0,215.69899999999998,,Venlo,18.0,18.0
+368,Moerdijk,Nuremberg,Moerdijk to Duisburg -> Duisburg to Nuremberg,"Train28, Train33",Train,Train,Train28,77,"90, 90",90,146.699,36.0,1,38.0,38.0,220.699,,Duisburg,18.0,18.0
+369,Duisburg,Neuss,Duisburg to Neuss,Barge49,Barge,Barge,Barge49,120,160,160,2.32925,0.0,0,0.0,0.0,2.32925,,0,3.0,3.0
+370,Duisburg,Dortmund,Duisburg to Dortmund,Train32,Train,Train,Train32,121,90,90,15.71775,0.0,0,0.0,0.0,15.71775,,0,18.0,18.0
+371,Duisburg,Nuremberg,Duisburg to Nuremberg,Train33,Train,Train,Train33,122,90,90,104.785,0.0,0,0.0,0.0,104.785,,0,18.0,18.0
+372,Venlo,Neuss,Venlo to Neuss,Train29,Train,Train,Train29,112,90,90,15.71775,0.0,0,0.0,0.0,15.71775,,0,18.0,18.0
+373,Venlo,Dortmund,Venlo to Dortmund,Train30,Train,Train,Train30,113,90,90,26.19625,0.0,0,0.0,0.0,26.19625,,0,18.0,18.0
+374,Venlo,Nuremberg,Venlo to Nuremberg,Train31,Train,Train,Train31,114,90,90,115.2635,0.0,0,0.0,0.0,115.2635,,0,18.0,18.0
+375,Delta,Moerdijk,Delta to Euromax -> Euromax to Moerdijk,"Barge01, Truck11",Barge,Truck,Barge01,53,"160, 160",160,62.9297,21.0,1,1.0,1.0,69.9297,57.5,Euromax,3.0,18.0
+376,Delta,Moerdijk,Delta to HOME -> HOME to Moerdijk,"Barge02, Truck18",Barge,Truck,Barge02,53,"160, 160",160,33.32825,21.0,1,1.0,1.0,40.32825,59.0,HOME,3.0,18.0
+377,Delta,Venlo,Delta to Euromax -> Euromax to Venlo,"Barge01, Truck12",Barge,Truck,Barge01,53,"160, 160",160,145.5937,21.0,1,1.0,1.0,152.5937,59.1,Euromax,3.0,18.0
+378,Delta,Venlo,Delta to Euromax -> Euromax to Venlo,"Barge01, Truck12",Barge,Truck,Barge01,53,"160, 90",160,145.5937,21.0,1,1.0,1.0,167.5937,59.1,Euromax,3.0,18.0
+379,Delta,Venlo,Delta to Euromax -> Euromax to Venlo,"Barge01, Truck12",Barge,Truck,Barge01,53,"160, 90",160,145.5937,21.0,1,1.0,1.0,167.5937,59.1,Euromax,3.0,18.0
+380,Delta,Venlo,Delta to HOME -> HOME to Venlo,"Barge02, Truck19",Barge,Truck,Barge02,53,"160, 160",160,121.15875,21.0,1,1.0,1.0,128.15875,60.6,HOME,3.0,18.0
+381,Delta,Venlo,Delta to HOME -> HOME to Venlo,"Barge02, Truck19",Barge,Truck,Barge02,53,"160, 160",160,121.15875,21.0,1,1.0,1.0,128.15875,60.6,HOME,3.0,18.0
+382,Delta,Venlo,Delta to HOME -> HOME to Venlo,"Barge02, Truck19",Barge,Truck,Barge02,53,"160, 90",160,121.15875,21.0,1,1.0,1.0,143.15875,60.6,HOME,3.0,18.0
+383,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge03, Truck25",Barge,Truck,Barge03,3,"160, 160",160,97.6555,21.0,1,1.0,1.0,104.6555,13.1,Moerdijk,3.0,18.0
+384,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge03, Truck25",Barge,Truck,Barge03,3,"160, 90",160,97.6555,21.0,1,1.0,1.0,119.6555,13.1,Moerdijk,3.0,18.0
+385,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge04, Truck25",Barge,Truck,Barge04,15,"160, 160",160,97.6555,21.0,1,1.0,1.0,104.6555,25.1,Moerdijk,3.0,18.0
+386,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge04, Truck25",Barge,Truck,Barge04,15,"160, 90",160,97.6555,21.0,1,1.0,1.0,119.6555,25.1,Moerdijk,3.0,18.0
+387,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge05, Truck25",Barge,Truck,Barge05,27,"160, 160",160,97.6555,21.0,1,1.0,1.0,104.6555,37.1,Moerdijk,3.0,18.0
+388,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge05, Truck25",Barge,Truck,Barge05,27,"160, 90",160,97.6555,21.0,1,1.0,1.0,119.6555,37.1,Moerdijk,3.0,18.0
+389,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge06, Truck25",Barge,Truck,Barge06,39,"160, 160",160,97.6555,21.0,1,1.0,1.0,104.6555,49.1,Moerdijk,3.0,18.0
+390,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge06, Truck25",Barge,Truck,Barge06,39,"160, 90",160,97.6555,21.0,1,1.0,1.0,119.6555,49.1,Moerdijk,3.0,18.0
+391,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge07, Truck25",Barge,Truck,Barge07,51,"160, 160",160,97.6555,21.0,1,1.0,1.0,104.6555,61.1,Moerdijk,3.0,18.0
+392,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge07, Truck25",Barge,Truck,Barge07,51,"160, 90",160,97.6555,21.0,1,1.0,1.0,119.6555,61.1,Moerdijk,3.0,18.0
+393,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge08, Truck25",Barge,Truck,Barge08,63,"160, 160",160,97.6555,21.0,1,1.0,1.0,104.6555,73.1,Moerdijk,3.0,18.0
+394,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge08, Truck25",Barge,Truck,Barge08,63,"160, 90",160,97.6555,21.0,1,1.0,1.0,119.6555,73.1,Moerdijk,3.0,18.0
+395,Delta,Venlo,Delta to Moerdijk -> Moerdijk to Venlo,"Barge09, Truck25",Barge,Truck,Barge09,75,"160, 160",160,97.6555,21.0,1,1.0,1.0,104.6555,85.1,Moerdijk,3.0,18.0
+396,Delta,Duisburg,Delta to Euromax -> Euromax to Duisburg,"Barge01, Truck13",Barge,Truck,Barge01,53,"160, 160",160,171.4262,21.0,1,1.0,1.0,178.4262,59.7,Euromax,3.0,18.0
+397,Delta,Duisburg,Delta to Euromax -> Euromax to Duisburg,"Barge01, Truck13",Barge,Truck,Barge01,53,"160, 90",160,171.4262,21.0,1,1.0,1.0,193.4262,59.7,Euromax,3.0,18.0
+398,Delta,Duisburg,Delta to Euromax -> Euromax to Duisburg,"Barge01, Truck13",Barge,Truck,Barge01,53,"160, 90",160,171.4262,21.0,1,1.0,1.0,193.4262,59.7,Euromax,3.0,18.0
+399,Delta,Duisburg,Delta to HOME -> HOME to Duisburg,"Barge02, Truck20",Barge,Truck,Barge02,53,"160, 90",160,141.82475,21.0,1,1.0,1.0,163.82475,61.2,HOME,3.0,18.0
+400,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge03, Truck26",Barge,Truck,Barge03,3,"160, 160",160,128.65449999999998,21.0,1,1.0,1.0,135.65449999999998,13.7,Moerdijk,3.0,18.0
+401,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge03, Truck26",Barge,Truck,Barge03,3,"160, 90",160,128.65449999999998,21.0,1,1.0,1.0,150.65449999999998,13.7,Moerdijk,3.0,18.0
+402,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge04, Truck26",Barge,Truck,Barge04,15,"160, 160",160,128.65449999999998,21.0,1,1.0,1.0,135.65449999999998,25.7,Moerdijk,3.0,18.0
+403,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge04, Truck26",Barge,Truck,Barge04,15,"160, 90",160,128.65449999999998,21.0,1,1.0,1.0,150.65449999999998,25.7,Moerdijk,3.0,18.0
+404,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge05, Truck26",Barge,Truck,Barge05,27,"160, 160",160,128.65449999999998,21.0,1,1.0,1.0,135.65449999999998,37.7,Moerdijk,3.0,18.0
+405,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge05, Truck26",Barge,Truck,Barge05,27,"160, 90",160,128.65449999999998,21.0,1,1.0,1.0,150.65449999999998,37.7,Moerdijk,3.0,18.0
+406,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge06, Truck26",Barge,Truck,Barge06,39,"160, 160",160,128.65449999999998,21.0,1,1.0,1.0,135.65449999999998,49.7,Moerdijk,3.0,18.0
+407,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge06, Truck26",Barge,Truck,Barge06,39,"160, 90",160,128.65449999999998,21.0,1,1.0,1.0,150.65449999999998,49.7,Moerdijk,3.0,18.0
+408,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge07, Truck26",Barge,Truck,Barge07,51,"160, 160",160,128.65449999999998,21.0,1,1.0,1.0,135.65449999999998,61.7,Moerdijk,3.0,18.0
+409,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge07, Truck26",Barge,Truck,Barge07,51,"160, 90",160,128.65449999999998,21.0,1,1.0,1.0,150.65449999999998,61.7,Moerdijk,3.0,18.0
+410,Delta,Duisburg,Delta to Moerdijk -> Moerdijk to Duisburg,"Barge08, Truck26",Barge,Truck,Barge08,63,"160, 90",160,128.65449999999998,21.0,1,1.0,1.0,150.65449999999998,73.7,Moerdijk,3.0,18.0
+411,Delta,Willebroek,Delta to Euromax -> Euromax to Willebroek,"Barge01, Truck14",Barge,Truck,Barge01,53,"160, 160",160,114.5947,21.0,1,1.0,1.0,121.5947,58.5,Euromax,3.0,18.0
+412,Delta,Neuss,Delta to Euromax -> Euromax to Venlo -> Venlo to Neuss,"Barge01, Truck12, Train29",Barge,Train,Barge01,53,"160, 160, 90",90,161.31145,57.0,2,52.2,52.2,240.51145000000002,113.5,"Euromax,Venlo",3.0,18.0
+413,Delta,Neuss,Delta to Euromax -> Euromax to Venlo -> Venlo to Neuss,"Barge01, Barge36, Truck29",Barge,Truck,Barge01,53,"160, 160, 90",160,60.00815,27.0,2,20.5,20.5,107.50815,91.9,"Euromax,Venlo",3.0,18.0
+414,Delta,Neuss,Delta to Euromax -> Euromax to Neuss,"Barge01, Truck15",Barge,Truck,Barge01,53,"160, 160",160,186.9257,21.0,1,1.0,1.0,193.9257,60.0,Euromax,3.0,18.0
+415,Delta,Neuss,Delta to Euromax -> Euromax to Venlo -> Venlo to Neuss,"Barge01, Truck12, Train29",Barge,Train,Barge01,53,"160, 90, 90",90,161.31145,57.0,2,52.2,52.2,270.51145,113.5,"Euromax,Venlo",3.0,18.0
+416,Delta,Neuss,Delta to Euromax -> Euromax to Venlo -> Venlo to Neuss,"Barge01, Train17, Truck29",Barge,Truck,Barge01,53,"160, 90, 90",90,94.58345,57.0,2,23.5,23.5,175.08345,85.9,"Euromax,Venlo",3.0,18.0
+417,Delta,Neuss,Delta to Euromax -> Euromax to Venlo -> Venlo to Neuss,"Barge01, Truck12, Train29",Barge,Train,Barge01,53,"160, 90, 90",90,161.31145,57.0,2,52.2,52.2,270.51145,113.5,"Euromax,Venlo",3.0,18.0
+418,Delta,Neuss,Delta to Euromax -> Euromax to Venlo -> Venlo to Neuss,"Barge01, Train18, Truck29",Barge,Truck,Barge01,53,"160, 90, 90",90,94.58345,57.0,2,47.5,47.5,199.08345,109.9,"Euromax,Venlo",3.0,18.0
+419,Delta,Neuss,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Neuss,"Barge01, Truck13, Barge49",Barge,Barge,Barge01,53,"160, 90, 160",160,173.75545,42.0,2,59.7,59.7,275.45545,122.5,"Euromax,Duisburg",3.0,3.0
+420,Delta,Neuss,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Neuss,"Barge01, Train19, Truck32",Barge,Truck,Barge01,53,"160, 90, 160",90,94.87445,57.0,2,20.5,20.5,157.37445,84.5,"Euromax,Duisburg",3.0,18.0
+421,Delta,Neuss,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Neuss,"Barge01, Truck13, Barge49",Barge,Barge,Barge01,53,"160, 90, 160",160,173.75545,42.0,2,59.7,59.7,275.45545,122.5,"Euromax,Duisburg",3.0,3.0
+422,Delta,Neuss,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Neuss,"Barge01, Train20, Truck32",Barge,Truck,Barge01,53,"160, 90, 160",90,94.87445,57.0,2,44.5,44.5,181.37445,108.5,"Euromax,Duisburg",3.0,18.0
+423,Delta,Neuss,Delta to Euromax -> Euromax to Neuss,"Barge01, Truck15",Barge,Truck,Barge01,53,"160, 90",160,186.9257,21.0,1,1.0,1.0,208.9257,60.0,Euromax,3.0,18.0
+424,Delta,Neuss,Delta to HOME -> HOME to Venlo -> Venlo to Neuss,"Barge02, Truck19, Train29",Barge,Train,Barge02,53,"160, 90, 90",90,136.8765,57.0,2,51.2,51.2,245.0765,113.5,"HOME,Venlo",3.0,18.0
+425,Delta,Neuss,Delta to HOME -> HOME to Venlo -> Venlo to Neuss,"Barge02, Train24, Truck29",Barge,Truck,Barge02,53,"160, 90, 90",90,85.5025,57.0,2,30.0,30.0,172.5025,92.9,"HOME,Venlo",3.0,18.0
+426,Delta,Neuss,Delta to HOME -> HOME to Duisburg -> Duisburg to Neuss,"Barge02, Truck20, Barge49",Barge,Barge,Barge02,53,"160, 90, 160",160,144.154,42.0,2,58.8,58.8,244.954,122.5,"HOME,Duisburg",3.0,3.0
+427,Delta,Neuss,Delta to HOME -> HOME to Duisburg -> Duisburg to Neuss,"Barge02, Train26, Truck32",Barge,Truck,Barge02,53,"160, 90, 160",90,85.7935,57.0,2,19.0,19.0,146.7935,83.5,"HOME,Duisburg",3.0,18.0
+428,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge03, Truck25, Train29",Barge,Train,Barge03,3,"160, 160, 90",90,113.37325,57.0,2,99.2,99.2,239.57325,113.5,"Moerdijk,Venlo",3.0,18.0
+429,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge03, Barge47, Truck29",Barge,Truck,Barge03,3,"160, 160, 90",160,60.474000000000004,27.0,2,86.5,86.5,173.974,108.4,"Moerdijk,Venlo",3.0,18.0
+430,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge03, Truck26, Barge49",Barge,Barge,Barge03,3,"160, 160, 160",160,130.98375,42.0,2,106.6,106.6,249.58374999999998,122.5,"Moerdijk,Duisburg",3.0,3.0
+431,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge03, Barge48, Truck32",Barge,Truck,Barge03,3,"160, 160, 160",160,41.6714,27.0,2,62.5,62.5,116.1714,86.0,"Moerdijk,Duisburg",3.0,18.0
+432,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge03, Truck25, Train29",Barge,Train,Barge03,3,"160, 90, 90",90,113.37325,57.0,2,99.2,99.2,269.57325000000003,113.5,"Moerdijk,Venlo",3.0,18.0
+433,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge03, Train27, Truck29",Barge,Truck,Barge03,3,"160, 90, 90",90,82.5925,57.0,2,66.5,66.5,206.0925,81.4,"Moerdijk,Venlo",3.0,18.0
+434,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge03, Truck26, Barge49",Barge,Barge,Barge03,3,"160, 90, 160",160,130.98375,42.0,2,106.6,106.6,279.58375,122.5,"Moerdijk,Duisburg",3.0,3.0
+435,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge03, Train28, Truck32",Barge,Truck,Barge03,3,"160, 90, 160",90,72.405,57.0,2,68.5,68.5,182.905,84.0,"Moerdijk,Duisburg",3.0,18.0
+436,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge04, Truck25, Train29",Barge,Train,Barge04,15,"160, 160, 90",90,113.37325,57.0,2,87.2,87.2,227.57325,113.5,"Moerdijk,Venlo",3.0,18.0
+437,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge04, Barge47, Truck29",Barge,Truck,Barge04,15,"160, 160, 90",160,60.474000000000004,27.0,2,74.5,74.5,161.974,108.4,"Moerdijk,Venlo",3.0,18.0
+438,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge04, Truck26, Barge49",Barge,Barge,Barge04,15,"160, 160, 160",160,130.98375,42.0,2,94.6,94.6,237.58374999999998,122.5,"Moerdijk,Duisburg",3.0,3.0
+439,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge04, Barge48, Truck32",Barge,Truck,Barge04,15,"160, 160, 160",160,41.6714,27.0,2,50.5,50.5,104.1714,86.0,"Moerdijk,Duisburg",3.0,18.0
+440,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge04, Truck25, Train29",Barge,Train,Barge04,15,"160, 90, 90",90,113.37325,57.0,2,87.2,87.2,257.57325000000003,113.5,"Moerdijk,Venlo",3.0,18.0
+441,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge04, Train27, Truck29",Barge,Truck,Barge04,15,"160, 90, 90",90,82.5925,57.0,2,54.5,54.5,194.0925,81.4,"Moerdijk,Venlo",3.0,18.0
+442,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge04, Truck26, Barge49",Barge,Barge,Barge04,15,"160, 90, 160",160,130.98375,42.0,2,94.6,94.6,267.58375,122.5,"Moerdijk,Duisburg",3.0,3.0
+443,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge04, Train28, Truck32",Barge,Truck,Barge04,15,"160, 90, 160",90,72.405,57.0,2,56.5,56.5,170.905,84.0,"Moerdijk,Duisburg",3.0,18.0
+444,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge05, Truck25, Train29",Barge,Train,Barge05,27,"160, 160, 90",90,113.37325,57.0,2,75.2,75.2,215.57325,113.5,"Moerdijk,Venlo",3.0,18.0
+445,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge05, Barge47, Truck29",Barge,Truck,Barge05,27,"160, 160, 90",160,60.474000000000004,27.0,2,62.5,62.5,149.974,108.4,"Moerdijk,Venlo",3.0,18.0
+446,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge05, Truck26, Barge49",Barge,Barge,Barge05,27,"160, 160, 160",160,130.98375,42.0,2,82.6,82.6,225.58374999999998,122.5,"Moerdijk,Duisburg",3.0,3.0
+447,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge05, Barge48, Truck32",Barge,Truck,Barge05,27,"160, 160, 160",160,41.6714,27.0,2,38.5,38.5,92.1714,86.0,"Moerdijk,Duisburg",3.0,18.0
+448,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge05, Truck25, Train29",Barge,Train,Barge05,27,"160, 90, 90",90,113.37325,57.0,2,75.2,75.2,245.57325,113.5,"Moerdijk,Venlo",3.0,18.0
+449,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge05, Train27, Truck29",Barge,Truck,Barge05,27,"160, 90, 90",90,82.5925,57.0,2,42.5,42.5,182.0925,81.4,"Moerdijk,Venlo",3.0,18.0
+450,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge05, Truck26, Barge49",Barge,Barge,Barge05,27,"160, 90, 160",160,130.98375,42.0,2,82.6,82.6,255.58374999999998,122.5,"Moerdijk,Duisburg",3.0,3.0
+451,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge05, Train28, Truck32",Barge,Truck,Barge05,27,"160, 90, 160",90,72.405,57.0,2,44.5,44.5,158.905,84.0,"Moerdijk,Duisburg",3.0,18.0
+452,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge06, Truck25, Train29",Barge,Train,Barge06,39,"160, 160, 90",90,113.37325,57.0,2,63.2,63.2,203.57325,113.5,"Moerdijk,Venlo",3.0,18.0
+453,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge06, Barge47, Truck29",Barge,Truck,Barge06,39,"160, 160, 90",160,60.474000000000004,27.0,2,50.5,50.5,137.974,108.4,"Moerdijk,Venlo",3.0,18.0
+454,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge06, Truck26, Barge49",Barge,Barge,Barge06,39,"160, 160, 160",160,130.98375,42.0,2,70.6,70.6,213.58374999999998,122.5,"Moerdijk,Duisburg",3.0,3.0
+455,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge06, Barge48, Truck32",Barge,Truck,Barge06,39,"160, 160, 160",160,41.6714,27.0,2,26.5,26.5,80.1714,86.0,"Moerdijk,Duisburg",3.0,18.0
+456,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge06, Truck25, Train29",Barge,Train,Barge06,39,"160, 90, 90",90,113.37325,57.0,2,63.2,63.2,233.57325,113.5,"Moerdijk,Venlo",3.0,18.0
+457,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge06, Train27, Truck29",Barge,Truck,Barge06,39,"160, 90, 90",90,82.5925,57.0,2,30.5,30.5,170.0925,81.4,"Moerdijk,Venlo",3.0,18.0
+458,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge06, Truck26, Barge49",Barge,Barge,Barge06,39,"160, 90, 160",160,130.98375,42.0,2,70.6,70.6,243.58374999999998,122.5,"Moerdijk,Duisburg",3.0,3.0
+459,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge06, Train28, Truck32",Barge,Truck,Barge06,39,"160, 90, 160",90,72.405,57.0,2,32.5,32.5,146.905,84.0,"Moerdijk,Duisburg",3.0,18.0
+460,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge07, Truck25, Train29",Barge,Train,Barge07,51,"160, 160, 90",90,113.37325,57.0,2,51.2,51.2,191.57325,113.5,"Moerdijk,Venlo",3.0,18.0
+461,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge07, Barge47, Truck29",Barge,Truck,Barge07,51,"160, 160, 90",160,60.474000000000004,27.0,2,38.5,38.5,125.974,108.4,"Moerdijk,Venlo",3.0,18.0
+462,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge07, Truck26, Barge49",Barge,Barge,Barge07,51,"160, 160, 160",160,130.98375,42.0,2,58.6,58.6,201.58374999999998,122.5,"Moerdijk,Duisburg",3.0,3.0
+463,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge07, Barge48, Truck32",Barge,Truck,Barge07,51,"160, 160, 160",160,41.6714,27.0,2,14.5,14.5,68.1714,86.0,"Moerdijk,Duisburg",3.0,18.0
+464,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge07, Truck25, Train29",Barge,Train,Barge07,51,"160, 90, 90",90,113.37325,57.0,2,51.2,51.2,221.57325,113.5,"Moerdijk,Venlo",3.0,18.0
+465,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge07, Train27, Truck29",Barge,Truck,Barge07,51,"160, 90, 90",90,82.5925,57.0,2,18.5,18.5,158.0925,81.4,"Moerdijk,Venlo",3.0,18.0
+466,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge07, Truck26, Barge49",Barge,Barge,Barge07,51,"160, 90, 160",160,130.98375,42.0,2,58.6,58.6,231.58374999999998,122.5,"Moerdijk,Duisburg",3.0,3.0
+467,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge07, Train28, Truck32",Barge,Truck,Barge07,51,"160, 90, 160",90,72.405,57.0,2,20.5,20.5,134.905,84.0,"Moerdijk,Duisburg",3.0,18.0
+468,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge08, Truck25, Train29",Barge,Train,Barge08,63,"160, 160, 90",90,113.37325,57.0,2,39.2,39.2,179.57325,113.5,"Moerdijk,Venlo",3.0,18.0
+469,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge08, Barge47, Truck29",Barge,Truck,Barge08,63,"160, 160, 90",160,60.474000000000004,27.0,2,26.5,26.5,113.974,108.4,"Moerdijk,Venlo",3.0,18.0
+470,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge08, Truck25, Train29",Barge,Train,Barge08,63,"160, 90, 90",90,113.37325,57.0,2,39.2,39.2,209.57325,113.5,"Moerdijk,Venlo",3.0,18.0
+471,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge08, Train27, Truck29",Barge,Truck,Barge08,63,"160, 90, 90",90,82.5925,57.0,2,6.5,6.5,146.0925,81.4,"Moerdijk,Venlo",3.0,18.0
+472,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge08, Truck26, Barge49",Barge,Barge,Barge08,63,"160, 90, 160",160,130.98375,42.0,2,46.599999999999994,46.599999999999994,219.58374999999998,122.5,"Moerdijk,Duisburg",3.0,3.0
+473,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge08, Train28, Truck32",Barge,Truck,Barge08,63,"160, 90, 160",90,72.405,57.0,2,8.5,8.5,122.905,84.0,"Moerdijk,Duisburg",3.0,18.0
+474,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge09, Truck25, Train29",Barge,Train,Barge09,75,"160, 160, 90",90,113.37325,57.0,2,27.200000000000003,27.200000000000003,167.57325,113.5,"Moerdijk,Venlo",3.0,18.0
+475,Delta,Neuss,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge09, Barge47, Truck29",Barge,Truck,Barge09,75,"160, 160, 90",160,60.474000000000004,27.0,2,14.5,14.5,101.974,108.4,"Moerdijk,Venlo",3.0,18.0
+476,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Barge17, Truck29",Barge,Truck,Barge17,12,"160, 90",160,58.6106,21.0,1,1.0,1.0,80.6106,31.0,Venlo,3.0,18.0
+477,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Barge18, Truck29",Barge,Truck,Barge18,18,"160, 90",160,58.6106,21.0,1,1.0,1.0,80.6106,37.0,Venlo,3.0,18.0
+478,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Barge19, Truck29",Barge,Truck,Barge19,36,"160, 90",160,58.6106,21.0,1,1.0,1.0,80.6106,55.0,Venlo,3.0,18.0
+479,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Barge20, Truck29",Barge,Truck,Barge20,42,"160, 90",160,58.6106,21.0,1,1.0,1.0,80.6106,61.0,Venlo,3.0,18.0
+480,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Barge21, Truck29",Barge,Truck,Barge21,60,"160, 90",160,58.6106,21.0,1,1.0,1.0,80.6106,79.0,Venlo,3.0,18.0
+481,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Barge22, Truck29",Barge,Truck,Barge22,66,"160, 90",160,58.6106,21.0,1,1.0,1.0,80.6106,85.0,Venlo,3.0,18.0
+482,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Barge23, Truck29",Barge,Truck,Barge23,90,"160, 90",160,58.6106,21.0,1,1.0,1.0,80.6106,109.0,Venlo,3.0,18.0
+483,Delta,Neuss,Delta to Duisburg -> Duisburg to Neuss,"Barge26, Truck32",Barge,Truck,Barge26,82,"160, 160",160,40.7397,21.0,1,1.0,1.0,47.7397,104.0,Duisburg,3.0,18.0
+484,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Train01, Truck29",Train,Truck,Train01,16,"90, 90",90,88.4125,36.0,1,1.0,1.0,125.4125,26.0,Venlo,18.0,18.0
+485,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Train02, Truck29",Train,Truck,Train02,40,"90, 90",90,88.4125,36.0,1,1.0,1.0,125.4125,50.0,Venlo,18.0,18.0
+486,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Train03, Truck29",Train,Truck,Train03,9,"90, 90",90,88.4125,36.0,1,1.0,1.0,125.4125,19.0,Venlo,18.0,18.0
+487,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Train04, Truck29",Train,Truck,Train04,33,"90, 90",90,88.4125,36.0,1,1.0,1.0,125.4125,43.0,Venlo,18.0,18.0
+488,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Train05, Truck29",Train,Truck,Train05,57,"90, 90",90,88.4125,36.0,1,1.0,1.0,125.4125,67.0,Venlo,18.0,18.0
+489,Delta,Neuss,Delta to Venlo -> Venlo to Neuss,"Train06, Truck29",Train,Truck,Train06,81,"90, 90",90,88.4125,36.0,1,1.0,1.0,125.4125,91.0,Venlo,18.0,18.0
+490,Delta,Neuss,Delta to Duisburg -> Duisburg to Neuss,"Train09, Truck32",Train,Truck,Train09,41,"90, 160",90,88.7035,36.0,1,1.0,1.0,110.7035,53.0,Duisburg,18.0,18.0
+491,Delta,Neuss,Delta to Duisburg -> Duisburg to Neuss,"Train10, Truck32",Train,Truck,Train10,75,"90, 160",90,88.7035,36.0,1,1.0,1.0,110.7035,87.0,Duisburg,18.0,18.0
+492,Delta,Neuss,Delta to Duisburg -> Duisburg to Neuss,"Train11, Truck32",Train,Truck,Train11,99,"90, 160",90,88.7035,36.0,1,1.0,1.0,110.7035,111.0,Duisburg,18.0,18.0
+493,Delta,Dortmund,Delta to Euromax -> Euromax to Venlo -> Venlo to Dortmund,"Barge01, Truck12, Train30",Barge,Train,Barge01,53,"160, 160, 90",90,171.78995,57.0,2,53.2,53.2,251.98995000000002,115.5,"Euromax,Venlo",3.0,18.0
+494,Delta,Dortmund,Delta to Euromax -> Euromax to Venlo -> Venlo to Dortmund,"Barge01, Barge36, Truck30",Barge,Truck,Barge01,53,"160, 160, 90",160,91.00715,27.0,2,20.5,20.5,138.50715,92.5,"Euromax,Venlo",3.0,18.0
+495,Delta,Dortmund,Delta to Euromax -> Euromax to Venlo -> Venlo to Dortmund,"Barge01, Truck12, Train30",Barge,Train,Barge01,53,"160, 90, 90",90,171.78995,57.0,2,53.2,53.2,281.98995,115.5,"Euromax,Venlo",3.0,18.0
+496,Delta,Dortmund,Delta to Euromax -> Euromax to Venlo -> Venlo to Dortmund,"Barge01, Train17, Truck30",Barge,Truck,Barge01,53,"160, 90, 90",90,125.58245,57.0,2,23.5,23.5,206.08245,86.5,"Euromax,Venlo",3.0,18.0
+497,Delta,Dortmund,Delta to Euromax -> Euromax to Venlo -> Venlo to Dortmund,"Barge01, Truck12, Train30",Barge,Train,Barge01,53,"160, 90, 90",90,171.78995,57.0,2,53.2,53.2,281.98995,115.5,"Euromax,Venlo",3.0,18.0
+498,Delta,Dortmund,Delta to Euromax -> Euromax to Venlo -> Venlo to Dortmund,"Barge01, Train18, Truck30",Barge,Truck,Barge01,53,"160, 90, 90",90,125.58245,57.0,2,47.5,47.5,230.08245,110.5,"Euromax,Venlo",3.0,18.0
+499,Delta,Dortmund,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Dortmund,"Barge01, Truck13, Train32",Barge,Train,Barge01,53,"160, 90, 90",90,187.14395,57.0,2,60.7,60.7,304.84395,122.5,"Euromax,Duisburg",3.0,18.0
+500,Delta,Dortmund,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Dortmund,"Barge01, Train19, Truck33",Barge,Truck,Barge01,53,"160, 90, 90",90,115.54044999999999,57.0,2,20.5,20.5,193.04045,84.9,"Euromax,Duisburg",3.0,18.0
+501,Delta,Dortmund,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Dortmund,"Barge01, Truck13, Train32",Barge,Train,Barge01,53,"160, 90, 90",90,187.14395,57.0,2,60.7,60.7,304.84395,122.5,"Euromax,Duisburg",3.0,18.0
+502,Delta,Dortmund,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Dortmund,"Barge01, Train20, Truck33",Barge,Truck,Barge01,53,"160, 90, 90",90,115.54044999999999,57.0,2,44.5,44.5,217.04045,108.9,"Euromax,Duisburg",3.0,18.0
+503,Delta,Dortmund,Delta to Euromax -> Euromax to Dortmund,"Barge01, Truck16",Barge,Truck,Barge01,53,"160, 90",160,217.9247,21.0,1,1.0,1.0,239.9247,60.5,Euromax,3.0,18.0
+504,Delta,Dortmund,Delta to HOME -> HOME to Venlo -> Venlo to Dortmund,"Barge02, Truck19, Train30",Barge,Train,Barge02,53,"160, 90, 90",90,147.355,57.0,2,52.2,52.2,256.555,115.5,"HOME,Venlo",3.0,18.0
+505,Delta,Dortmund,Delta to HOME -> HOME to Venlo -> Venlo to Dortmund,"Barge02, Train24, Truck30",Barge,Truck,Barge02,53,"160, 90, 90",90,116.50150000000001,57.0,2,30.0,30.0,203.50150000000002,93.5,"HOME,Venlo",3.0,18.0
+506,Delta,Dortmund,Delta to HOME -> HOME to Duisburg -> Duisburg to Dortmund,"Barge02, Truck20, Train32",Barge,Train,Barge02,53,"160, 90, 90",90,157.5425,57.0,2,59.8,59.8,274.3425,122.5,"HOME,Duisburg",3.0,18.0
+507,Delta,Dortmund,Delta to HOME -> HOME to Duisburg -> Duisburg to Dortmund,"Barge02, Train26, Truck33",Barge,Truck,Barge02,53,"160, 90, 90",90,106.45949999999999,57.0,2,19.0,19.0,182.4595,83.9,"HOME,Duisburg",3.0,18.0
+508,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge03, Truck25, Train30",Barge,Train,Barge03,3,"160, 160, 90",90,123.85175,57.0,2,100.2,100.2,251.05175,115.5,"Moerdijk,Venlo",3.0,18.0
+509,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge03, Barge47, Truck30",Barge,Truck,Barge03,3,"160, 160, 90",160,91.473,27.0,2,86.5,86.5,204.973,109.0,"Moerdijk,Venlo",3.0,18.0
+510,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge03, Truck26, Train32",Barge,Train,Barge03,3,"160, 160, 90",90,144.37225,57.0,2,107.6,107.6,278.97225000000003,122.5,"Moerdijk,Duisburg",3.0,18.0
+511,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge03, Barge48, Truck33",Barge,Truck,Barge03,3,"160, 160, 90",160,62.3374,27.0,2,62.5,62.5,151.8374,86.4,"Moerdijk,Duisburg",3.0,18.0
+512,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge03, Truck25, Train30",Barge,Train,Barge03,3,"160, 90, 90",90,123.85175,57.0,2,100.2,100.2,281.05174999999997,115.5,"Moerdijk,Venlo",3.0,18.0
+513,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge03, Train27, Truck30",Barge,Truck,Barge03,3,"160, 90, 90",90,113.5915,57.0,2,66.5,66.5,237.0915,82.0,"Moerdijk,Venlo",3.0,18.0
+514,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge03, Truck26, Train32",Barge,Train,Barge03,3,"160, 90, 90",90,144.37225,57.0,2,107.6,107.6,308.97225000000003,122.5,"Moerdijk,Duisburg",3.0,18.0
+515,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge03, Train28, Truck33",Barge,Truck,Barge03,3,"160, 90, 90",90,93.071,57.0,2,68.5,68.5,218.571,84.4,"Moerdijk,Duisburg",3.0,18.0
+516,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge04, Truck25, Train30",Barge,Train,Barge04,15,"160, 160, 90",90,123.85175,57.0,2,88.2,88.2,239.05175,115.5,"Moerdijk,Venlo",3.0,18.0
+517,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge04, Barge47, Truck30",Barge,Truck,Barge04,15,"160, 160, 90",160,91.473,27.0,2,74.5,74.5,192.973,109.0,"Moerdijk,Venlo",3.0,18.0
+518,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge04, Truck26, Train32",Barge,Train,Barge04,15,"160, 160, 90",90,144.37225,57.0,2,95.6,95.6,266.97225000000003,122.5,"Moerdijk,Duisburg",3.0,18.0
+519,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge04, Barge48, Truck33",Barge,Truck,Barge04,15,"160, 160, 90",160,62.3374,27.0,2,50.5,50.5,139.8374,86.4,"Moerdijk,Duisburg",3.0,18.0
+520,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge04, Truck25, Train30",Barge,Train,Barge04,15,"160, 90, 90",90,123.85175,57.0,2,88.2,88.2,269.05174999999997,115.5,"Moerdijk,Venlo",3.0,18.0
+521,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge04, Train27, Truck30",Barge,Truck,Barge04,15,"160, 90, 90",90,113.5915,57.0,2,54.5,54.5,225.0915,82.0,"Moerdijk,Venlo",3.0,18.0
+522,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge04, Truck26, Train32",Barge,Train,Barge04,15,"160, 90, 90",90,144.37225,57.0,2,95.6,95.6,296.97225000000003,122.5,"Moerdijk,Duisburg",3.0,18.0
+523,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge04, Train28, Truck33",Barge,Truck,Barge04,15,"160, 90, 90",90,93.071,57.0,2,56.5,56.5,206.571,84.4,"Moerdijk,Duisburg",3.0,18.0
+524,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge05, Truck25, Train30",Barge,Train,Barge05,27,"160, 160, 90",90,123.85175,57.0,2,76.2,76.2,227.05175,115.5,"Moerdijk,Venlo",3.0,18.0
+525,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge05, Barge47, Truck30",Barge,Truck,Barge05,27,"160, 160, 90",160,91.473,27.0,2,62.5,62.5,180.973,109.0,"Moerdijk,Venlo",3.0,18.0
+526,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge05, Truck26, Train32",Barge,Train,Barge05,27,"160, 160, 90",90,144.37225,57.0,2,83.6,83.6,254.97225,122.5,"Moerdijk,Duisburg",3.0,18.0
+527,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge05, Barge48, Truck33",Barge,Truck,Barge05,27,"160, 160, 90",160,62.3374,27.0,2,38.5,38.5,127.8374,86.4,"Moerdijk,Duisburg",3.0,18.0
+528,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge05, Truck25, Train30",Barge,Train,Barge05,27,"160, 90, 90",90,123.85175,57.0,2,76.2,76.2,257.05174999999997,115.5,"Moerdijk,Venlo",3.0,18.0
+529,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge05, Train27, Truck30",Barge,Truck,Barge05,27,"160, 90, 90",90,113.5915,57.0,2,42.5,42.5,213.0915,82.0,"Moerdijk,Venlo",3.0,18.0
+530,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge05, Truck26, Train32",Barge,Train,Barge05,27,"160, 90, 90",90,144.37225,57.0,2,83.6,83.6,284.97225000000003,122.5,"Moerdijk,Duisburg",3.0,18.0
+531,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge05, Train28, Truck33",Barge,Truck,Barge05,27,"160, 90, 90",90,93.071,57.0,2,44.5,44.5,194.571,84.4,"Moerdijk,Duisburg",3.0,18.0
+532,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge06, Truck25, Train30",Barge,Train,Barge06,39,"160, 160, 90",90,123.85175,57.0,2,64.2,64.2,215.05175,115.5,"Moerdijk,Venlo",3.0,18.0
+533,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge06, Barge47, Truck30",Barge,Truck,Barge06,39,"160, 160, 90",160,91.473,27.0,2,50.5,50.5,168.973,109.0,"Moerdijk,Venlo",3.0,18.0
+534,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge06, Truck26, Train32",Barge,Train,Barge06,39,"160, 160, 90",90,144.37225,57.0,2,71.6,71.6,242.97225,122.5,"Moerdijk,Duisburg",3.0,18.0
+535,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge06, Barge48, Truck33",Barge,Truck,Barge06,39,"160, 160, 90",160,62.3374,27.0,2,26.5,26.5,115.8374,86.4,"Moerdijk,Duisburg",3.0,18.0
+536,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge06, Truck25, Train30",Barge,Train,Barge06,39,"160, 90, 90",90,123.85175,57.0,2,64.2,64.2,245.05175,115.5,"Moerdijk,Venlo",3.0,18.0
+537,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge06, Train27, Truck30",Barge,Truck,Barge06,39,"160, 90, 90",90,113.5915,57.0,2,30.5,30.5,201.0915,82.0,"Moerdijk,Venlo",3.0,18.0
+538,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge06, Truck26, Train32",Barge,Train,Barge06,39,"160, 90, 90",90,144.37225,57.0,2,71.6,71.6,272.97225000000003,122.5,"Moerdijk,Duisburg",3.0,18.0
+539,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge06, Train28, Truck33",Barge,Truck,Barge06,39,"160, 90, 90",90,93.071,57.0,2,32.5,32.5,182.571,84.4,"Moerdijk,Duisburg",3.0,18.0
+540,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge07, Truck25, Train30",Barge,Train,Barge07,51,"160, 160, 90",90,123.85175,57.0,2,52.2,52.2,203.05175,115.5,"Moerdijk,Venlo",3.0,18.0
+541,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge07, Barge47, Truck30",Barge,Truck,Barge07,51,"160, 160, 90",160,91.473,27.0,2,38.5,38.5,156.973,109.0,"Moerdijk,Venlo",3.0,18.0
+542,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge07, Truck26, Train32",Barge,Train,Barge07,51,"160, 160, 90",90,144.37225,57.0,2,59.6,59.6,230.97225,122.5,"Moerdijk,Duisburg",3.0,18.0
+543,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge07, Barge48, Truck33",Barge,Truck,Barge07,51,"160, 160, 90",160,62.3374,27.0,2,14.5,14.5,103.8374,86.4,"Moerdijk,Duisburg",3.0,18.0
+544,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge07, Truck25, Train30",Barge,Train,Barge07,51,"160, 90, 90",90,123.85175,57.0,2,52.2,52.2,233.05175,115.5,"Moerdijk,Venlo",3.0,18.0
+545,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge07, Train27, Truck30",Barge,Truck,Barge07,51,"160, 90, 90",90,113.5915,57.0,2,18.5,18.5,189.0915,82.0,"Moerdijk,Venlo",3.0,18.0
+546,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge07, Truck26, Train32",Barge,Train,Barge07,51,"160, 90, 90",90,144.37225,57.0,2,59.6,59.6,260.97225000000003,122.5,"Moerdijk,Duisburg",3.0,18.0
+547,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge07, Train28, Truck33",Barge,Truck,Barge07,51,"160, 90, 90",90,93.071,57.0,2,20.5,20.5,170.571,84.4,"Moerdijk,Duisburg",3.0,18.0
+548,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge08, Truck25, Train30",Barge,Train,Barge08,63,"160, 160, 90",90,123.85175,57.0,2,40.2,40.2,191.05175,115.5,"Moerdijk,Venlo",3.0,18.0
+549,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge08, Barge47, Truck30",Barge,Truck,Barge08,63,"160, 160, 90",160,91.473,27.0,2,26.5,26.5,144.973,109.0,"Moerdijk,Venlo",3.0,18.0
+550,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge08, Truck25, Train30",Barge,Train,Barge08,63,"160, 90, 90",90,123.85175,57.0,2,40.2,40.2,221.05175,115.5,"Moerdijk,Venlo",3.0,18.0
+551,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge08, Train27, Truck30",Barge,Truck,Barge08,63,"160, 90, 90",90,113.5915,57.0,2,6.5,6.5,177.0915,82.0,"Moerdijk,Venlo",3.0,18.0
+552,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge08, Truck26, Train32",Barge,Train,Barge08,63,"160, 90, 90",90,144.37225,57.0,2,47.599999999999994,47.599999999999994,248.97225,122.5,"Moerdijk,Duisburg",3.0,18.0
+553,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge08, Train28, Truck33",Barge,Truck,Barge08,63,"160, 90, 90",90,93.071,57.0,2,8.5,8.5,158.571,84.4,"Moerdijk,Duisburg",3.0,18.0
+554,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge09, Truck25, Train30",Barge,Train,Barge09,75,"160, 160, 90",90,123.85175,57.0,2,28.200000000000003,28.200000000000003,179.05175,115.5,"Moerdijk,Venlo",3.0,18.0
+555,Delta,Dortmund,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge09, Barge47, Truck30",Barge,Truck,Barge09,75,"160, 160, 90",160,91.473,27.0,2,14.5,14.5,132.973,109.0,"Moerdijk,Venlo",3.0,18.0
+556,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Barge17, Truck30",Barge,Truck,Barge17,12,"160, 90",160,89.6096,21.0,1,1.0,1.0,111.6096,31.5,Venlo,3.0,18.0
+557,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Barge18, Truck30",Barge,Truck,Barge18,18,"160, 90",160,89.6096,21.0,1,1.0,1.0,111.6096,37.5,Venlo,3.0,18.0
+558,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Barge19, Truck30",Barge,Truck,Barge19,36,"160, 90",160,89.6096,21.0,1,1.0,1.0,111.6096,55.5,Venlo,3.0,18.0
+559,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Barge20, Truck30",Barge,Truck,Barge20,42,"160, 90",160,89.6096,21.0,1,1.0,1.0,111.6096,61.5,Venlo,3.0,18.0
+560,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Barge21, Truck30",Barge,Truck,Barge21,60,"160, 90",160,89.6096,21.0,1,1.0,1.0,111.6096,79.5,Venlo,3.0,18.0
+561,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Barge22, Truck30",Barge,Truck,Barge22,66,"160, 90",160,89.6096,21.0,1,1.0,1.0,111.6096,85.5,Venlo,3.0,18.0
+562,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Barge23, Truck30",Barge,Truck,Barge23,90,"160, 90",160,89.6096,21.0,1,1.0,1.0,111.6096,109.5,Venlo,3.0,18.0
+563,Delta,Dortmund,Delta to Duisburg -> Duisburg to Dortmund,"Barge26, Truck33",Barge,Truck,Barge26,82,"160, 90",160,61.405699999999996,21.0,1,1.0,1.0,83.4057,104.5,Duisburg,3.0,18.0
+564,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Train01, Truck30",Train,Truck,Train01,16,"90, 90",90,119.4115,36.0,1,1.0,1.0,156.4115,26.5,Venlo,18.0,18.0
+565,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Train02, Truck30",Train,Truck,Train02,40,"90, 90",90,119.4115,36.0,1,1.0,1.0,156.4115,50.5,Venlo,18.0,18.0
+566,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Train03, Truck30",Train,Truck,Train03,9,"90, 90",90,119.4115,36.0,1,1.0,1.0,156.4115,19.5,Venlo,18.0,18.0
+567,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Train04, Truck30",Train,Truck,Train04,33,"90, 90",90,119.4115,36.0,1,1.0,1.0,156.4115,43.5,Venlo,18.0,18.0
+568,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Train05, Truck30",Train,Truck,Train05,57,"90, 90",90,119.4115,36.0,1,1.0,1.0,156.4115,67.5,Venlo,18.0,18.0
+569,Delta,Dortmund,Delta to Venlo -> Venlo to Dortmund,"Train06, Truck30",Train,Truck,Train06,81,"90, 90",90,119.4115,36.0,1,1.0,1.0,156.4115,91.5,Venlo,18.0,18.0
+570,Delta,Dortmund,Delta to Duisburg -> Duisburg to Dortmund,"Train09, Truck33",Train,Truck,Train09,41,"90, 90",90,109.3695,36.0,1,1.0,1.0,146.36950000000002,53.5,Duisburg,18.0,18.0
+571,Delta,Dortmund,Delta to Duisburg -> Duisburg to Dortmund,"Train10, Truck33",Train,Truck,Train10,75,"90, 90",90,109.3695,36.0,1,1.0,1.0,146.36950000000002,87.5,Duisburg,18.0,18.0
+572,Delta,Dortmund,Delta to Duisburg -> Duisburg to Dortmund,"Train11, Truck33",Train,Truck,Train11,99,"90, 90",90,109.3695,36.0,1,1.0,1.0,146.36950000000002,111.5,Duisburg,18.0,18.0
+573,Delta,Nuremberg,Delta to Euromax -> Euromax to Venlo -> Venlo to Nuremberg,"Barge01, Truck12, Train31",Barge,Train,Barge01,53,"160, 160, 90",90,260.85720000000003,57.0,2,54.2,54.2,342.0572,125.0,"Euromax,Venlo",3.0,18.0
+574,Delta,Nuremberg,Delta to Euromax -> Euromax to Venlo -> Venlo to Nuremberg,"Barge01, Barge36, Truck31",Barge,Truck,Barge01,53,"160, 160, 90",160,354.49865,27.0,2,20.5,20.5,401.99865,97.6,"Euromax,Venlo",3.0,18.0
+575,Delta,Nuremberg,Delta to Euromax -> Euromax to Venlo -> Venlo to Nuremberg,"Barge01, Truck12, Train31",Barge,Train,Barge01,53,"160, 90, 90",90,260.85720000000003,57.0,2,54.2,54.2,372.0572,125.0,"Euromax,Venlo",3.0,18.0
+576,Delta,Nuremberg,Delta to Euromax -> Euromax to Venlo -> Venlo to Nuremberg,"Barge01, Train17, Truck31",Barge,Truck,Barge01,53,"160, 90, 90",90,389.07394999999997,57.0,2,23.5,23.5,469.57394999999997,91.6,"Euromax,Venlo",3.0,18.0
+577,Delta,Nuremberg,Delta to Euromax -> Euromax to Venlo -> Venlo to Nuremberg,"Barge01, Truck12, Train31",Barge,Train,Barge01,53,"160, 90, 90",90,260.85720000000003,57.0,2,54.2,54.2,372.0572,125.0,"Euromax,Venlo",3.0,18.0
+578,Delta,Nuremberg,Delta to Euromax -> Euromax to Venlo -> Venlo to Nuremberg,"Barge01, Train18, Truck31",Barge,Truck,Barge01,53,"160, 90, 90",90,389.07394999999997,57.0,2,47.5,47.5,493.57394999999997,115.6,"Euromax,Venlo",3.0,18.0
+579,Delta,Nuremberg,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Nuremberg,"Barge01, Truck13, Train33",Barge,Train,Barge01,53,"160, 90, 90",90,276.21119999999996,57.0,2,61.7,61.7,394.91119999999995,132.0,"Euromax,Duisburg",3.0,18.0
+580,Delta,Nuremberg,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Nuremberg,"Barge01, Train19, Truck34",Barge,Truck,Barge01,53,"160, 90, 90",90,379.03195,57.0,2,20.5,20.5,456.53195,90.0,"Euromax,Duisburg",3.0,18.0
+581,Delta,Nuremberg,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Nuremberg,"Barge01, Truck13, Train33",Barge,Train,Barge01,53,"160, 90, 90",90,276.21119999999996,57.0,2,61.7,61.7,394.91119999999995,132.0,"Euromax,Duisburg",3.0,18.0
+582,Delta,Nuremberg,Delta to Euromax -> Euromax to Duisburg -> Duisburg to Nuremberg,"Barge01, Train20, Truck34",Barge,Truck,Barge01,53,"160, 90, 90",90,379.03195,57.0,2,44.5,44.5,480.53195,114.0,"Euromax,Duisburg",3.0,18.0
+583,Delta,Nuremberg,Delta to Euromax -> Euromax to Nuremberg,"Barge01, Truck17",Barge,Truck,Barge01,53,"160, 90",160,491.7492,21.0,1,1.0,1.0,513.7492,65.5,Euromax,3.0,18.0
+584,Delta,Nuremberg,Delta to HOME -> HOME to Venlo -> Venlo to Nuremberg,"Barge02, Truck19, Train31",Barge,Train,Barge02,53,"160, 90, 90",90,236.42225,57.0,2,53.2,53.2,346.62225,125.0,"HOME,Venlo",3.0,18.0
+585,Delta,Nuremberg,Delta to HOME -> HOME to Venlo -> Venlo to Nuremberg,"Barge02, Train24, Truck31",Barge,Truck,Barge02,53,"160, 90, 90",90,379.993,57.0,2,30.0,30.0,466.993,98.6,"HOME,Venlo",3.0,18.0
+586,Delta,Nuremberg,Delta to HOME -> HOME to Duisburg -> Duisburg to Nuremberg,"Barge02, Truck20, Train33",Barge,Train,Barge02,53,"160, 90, 90",90,246.60975,57.0,2,60.8,60.8,364.40975,132.0,"HOME,Duisburg",3.0,18.0
+587,Delta,Nuremberg,Delta to HOME -> HOME to Duisburg -> Duisburg to Nuremberg,"Barge02, Train26, Truck34",Barge,Truck,Barge02,53,"160, 90, 90",90,369.951,57.0,2,19.0,19.0,445.951,89.0,"HOME,Duisburg",3.0,18.0
+588,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge03, Truck25, Train31",Barge,Train,Barge03,3,"160, 160, 90",90,212.91899999999998,57.0,2,101.2,101.2,341.11899999999997,125.0,"Moerdijk,Venlo",3.0,18.0
+589,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge03, Barge47, Truck31",Barge,Truck,Barge03,3,"160, 160, 90",160,354.9645,27.0,2,86.5,86.5,468.4645,114.1,"Moerdijk,Venlo",3.0,18.0
+590,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge03, Truck26, Train33",Barge,Train,Barge03,3,"160, 160, 90",90,233.4395,57.0,2,108.6,108.6,369.0395,132.0,"Moerdijk,Duisburg",3.0,18.0
+591,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge03, Barge48, Truck34",Barge,Truck,Barge03,3,"160, 160, 90",160,325.82890000000003,27.0,2,62.5,62.5,415.32890000000003,91.5,"Moerdijk,Duisburg",3.0,18.0
+592,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge03, Truck25, Train31",Barge,Train,Barge03,3,"160, 90, 90",90,212.91899999999998,57.0,2,101.2,101.2,371.11899999999997,125.0,"Moerdijk,Venlo",3.0,18.0
+593,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge03, Train27, Truck31",Barge,Truck,Barge03,3,"160, 90, 90",90,377.08299999999997,57.0,2,66.5,66.5,500.58299999999997,87.1,"Moerdijk,Venlo",3.0,18.0
+594,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge03, Truck26, Train33",Barge,Train,Barge03,3,"160, 90, 90",90,233.4395,57.0,2,108.6,108.6,399.0395,132.0,"Moerdijk,Duisburg",3.0,18.0
+595,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge03, Train28, Truck34",Barge,Truck,Barge03,3,"160, 90, 90",90,356.5625,57.0,2,68.5,68.5,482.0625,89.5,"Moerdijk,Duisburg",3.0,18.0
+596,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge04, Truck25, Train31",Barge,Train,Barge04,15,"160, 160, 90",90,212.91899999999998,57.0,2,89.2,89.2,329.11899999999997,125.0,"Moerdijk,Venlo",3.0,18.0
+597,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge04, Barge47, Truck31",Barge,Truck,Barge04,15,"160, 160, 90",160,354.9645,27.0,2,74.5,74.5,456.4645,114.1,"Moerdijk,Venlo",3.0,18.0
+598,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge04, Truck26, Train33",Barge,Train,Barge04,15,"160, 160, 90",90,233.4395,57.0,2,96.6,96.6,357.0395,132.0,"Moerdijk,Duisburg",3.0,18.0
+599,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge04, Barge48, Truck34",Barge,Truck,Barge04,15,"160, 160, 90",160,325.82890000000003,27.0,2,50.5,50.5,403.32890000000003,91.5,"Moerdijk,Duisburg",3.0,18.0
+600,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge04, Truck25, Train31",Barge,Train,Barge04,15,"160, 90, 90",90,212.91899999999998,57.0,2,89.2,89.2,359.11899999999997,125.0,"Moerdijk,Venlo",3.0,18.0
+601,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge04, Train27, Truck31",Barge,Truck,Barge04,15,"160, 90, 90",90,377.08299999999997,57.0,2,54.5,54.5,488.58299999999997,87.1,"Moerdijk,Venlo",3.0,18.0
+602,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge04, Truck26, Train33",Barge,Train,Barge04,15,"160, 90, 90",90,233.4395,57.0,2,96.6,96.6,387.0395,132.0,"Moerdijk,Duisburg",3.0,18.0
+603,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge04, Train28, Truck34",Barge,Truck,Barge04,15,"160, 90, 90",90,356.5625,57.0,2,56.5,56.5,470.0625,89.5,"Moerdijk,Duisburg",3.0,18.0
+604,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge05, Truck25, Train31",Barge,Train,Barge05,27,"160, 160, 90",90,212.91899999999998,57.0,2,77.2,77.2,317.11899999999997,125.0,"Moerdijk,Venlo",3.0,18.0
+605,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge05, Barge47, Truck31",Barge,Truck,Barge05,27,"160, 160, 90",160,354.9645,27.0,2,62.5,62.5,444.4645,114.1,"Moerdijk,Venlo",3.0,18.0
+606,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge05, Truck26, Train33",Barge,Train,Barge05,27,"160, 160, 90",90,233.4395,57.0,2,84.6,84.6,345.0395,132.0,"Moerdijk,Duisburg",3.0,18.0
+607,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge05, Barge48, Truck34",Barge,Truck,Barge05,27,"160, 160, 90",160,325.82890000000003,27.0,2,38.5,38.5,391.32890000000003,91.5,"Moerdijk,Duisburg",3.0,18.0
+608,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge05, Truck25, Train31",Barge,Train,Barge05,27,"160, 90, 90",90,212.91899999999998,57.0,2,77.2,77.2,347.11899999999997,125.0,"Moerdijk,Venlo",3.0,18.0
+609,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge05, Train27, Truck31",Barge,Truck,Barge05,27,"160, 90, 90",90,377.08299999999997,57.0,2,42.5,42.5,476.58299999999997,87.1,"Moerdijk,Venlo",3.0,18.0
+610,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge05, Truck26, Train33",Barge,Train,Barge05,27,"160, 90, 90",90,233.4395,57.0,2,84.6,84.6,375.0395,132.0,"Moerdijk,Duisburg",3.0,18.0
+611,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge05, Train28, Truck34",Barge,Truck,Barge05,27,"160, 90, 90",90,356.5625,57.0,2,44.5,44.5,458.0625,89.5,"Moerdijk,Duisburg",3.0,18.0
+612,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge06, Truck25, Train31",Barge,Train,Barge06,39,"160, 160, 90",90,212.91899999999998,57.0,2,65.2,65.2,305.11899999999997,125.0,"Moerdijk,Venlo",3.0,18.0
+613,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge06, Barge47, Truck31",Barge,Truck,Barge06,39,"160, 160, 90",160,354.9645,27.0,2,50.5,50.5,432.4645,114.1,"Moerdijk,Venlo",3.0,18.0
+614,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge06, Truck26, Train33",Barge,Train,Barge06,39,"160, 160, 90",90,233.4395,57.0,2,72.6,72.6,333.0395,132.0,"Moerdijk,Duisburg",3.0,18.0
+615,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge06, Barge48, Truck34",Barge,Truck,Barge06,39,"160, 160, 90",160,325.82890000000003,27.0,2,26.5,26.5,379.32890000000003,91.5,"Moerdijk,Duisburg",3.0,18.0
+616,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge06, Truck25, Train31",Barge,Train,Barge06,39,"160, 90, 90",90,212.91899999999998,57.0,2,65.2,65.2,335.11899999999997,125.0,"Moerdijk,Venlo",3.0,18.0
+617,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge06, Train27, Truck31",Barge,Truck,Barge06,39,"160, 90, 90",90,377.08299999999997,57.0,2,30.5,30.5,464.58299999999997,87.1,"Moerdijk,Venlo",3.0,18.0
+618,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge06, Truck26, Train33",Barge,Train,Barge06,39,"160, 90, 90",90,233.4395,57.0,2,72.6,72.6,363.0395,132.0,"Moerdijk,Duisburg",3.0,18.0
+619,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge06, Train28, Truck34",Barge,Truck,Barge06,39,"160, 90, 90",90,356.5625,57.0,2,32.5,32.5,446.0625,89.5,"Moerdijk,Duisburg",3.0,18.0
+620,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge07, Truck25, Train31",Barge,Train,Barge07,51,"160, 160, 90",90,212.91899999999998,57.0,2,53.2,53.2,293.11899999999997,125.0,"Moerdijk,Venlo",3.0,18.0
+621,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge07, Barge47, Truck31",Barge,Truck,Barge07,51,"160, 160, 90",160,354.9645,27.0,2,38.5,38.5,420.4645,114.1,"Moerdijk,Venlo",3.0,18.0
+622,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge07, Truck26, Train33",Barge,Train,Barge07,51,"160, 160, 90",90,233.4395,57.0,2,60.6,60.6,321.03950000000003,132.0,"Moerdijk,Duisburg",3.0,18.0
+623,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge07, Barge48, Truck34",Barge,Truck,Barge07,51,"160, 160, 90",160,325.82890000000003,27.0,2,14.5,14.5,367.32890000000003,91.5,"Moerdijk,Duisburg",3.0,18.0
+624,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge07, Truck25, Train31",Barge,Train,Barge07,51,"160, 90, 90",90,212.91899999999998,57.0,2,53.2,53.2,323.11899999999997,125.0,"Moerdijk,Venlo",3.0,18.0
+625,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge07, Train27, Truck31",Barge,Truck,Barge07,51,"160, 90, 90",90,377.08299999999997,57.0,2,18.5,18.5,452.58299999999997,87.1,"Moerdijk,Venlo",3.0,18.0
+626,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge07, Truck26, Train33",Barge,Train,Barge07,51,"160, 90, 90",90,233.4395,57.0,2,60.6,60.6,351.03950000000003,132.0,"Moerdijk,Duisburg",3.0,18.0
+627,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge07, Train28, Truck34",Barge,Truck,Barge07,51,"160, 90, 90",90,356.5625,57.0,2,20.5,20.5,434.0625,89.5,"Moerdijk,Duisburg",3.0,18.0
+628,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge08, Truck25, Train31",Barge,Train,Barge08,63,"160, 160, 90",90,212.91899999999998,57.0,2,41.2,41.2,281.11899999999997,125.0,"Moerdijk,Venlo",3.0,18.0
+629,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge08, Barge47, Truck31",Barge,Truck,Barge08,63,"160, 160, 90",160,354.9645,27.0,2,26.5,26.5,408.4645,114.1,"Moerdijk,Venlo",3.0,18.0
+630,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge08, Truck25, Train31",Barge,Train,Barge08,63,"160, 90, 90",90,212.91899999999998,57.0,2,41.2,41.2,311.11899999999997,125.0,"Moerdijk,Venlo",3.0,18.0
+631,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge08, Train27, Truck31",Barge,Truck,Barge08,63,"160, 90, 90",90,377.08299999999997,57.0,2,6.5,6.5,440.58299999999997,87.1,"Moerdijk,Venlo",3.0,18.0
+632,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge08, Truck26, Train33",Barge,Train,Barge08,63,"160, 90, 90",90,233.4395,57.0,2,48.599999999999994,48.599999999999994,339.0395,132.0,"Moerdijk,Duisburg",3.0,18.0
+633,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge08, Train28, Truck34",Barge,Truck,Barge08,63,"160, 90, 90",90,356.5625,57.0,2,8.5,8.5,422.0625,89.5,"Moerdijk,Duisburg",3.0,18.0
+634,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge09, Truck25, Train31",Barge,Train,Barge09,75,"160, 160, 90",90,212.91899999999998,57.0,2,29.200000000000003,29.200000000000003,269.11899999999997,125.0,"Moerdijk,Venlo",3.0,18.0
+635,Delta,Nuremberg,Delta to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge09, Barge47, Truck31",Barge,Truck,Barge09,75,"160, 160, 90",160,354.9645,27.0,2,14.5,14.5,396.4645,114.1,"Moerdijk,Venlo",3.0,18.0
+636,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge17, Truck31",Barge,Truck,Barge17,12,"160, 90",160,353.1011,21.0,1,1.0,1.0,375.1011,36.5,Venlo,3.0,18.0
+637,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge18, Truck31",Barge,Truck,Barge18,18,"160, 90",160,353.1011,21.0,1,1.0,1.0,375.1011,42.5,Venlo,3.0,18.0
+638,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge19, Truck31",Barge,Truck,Barge19,36,"160, 90",160,353.1011,21.0,1,1.0,1.0,375.1011,60.5,Venlo,3.0,18.0
+639,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge20, Truck31",Barge,Truck,Barge20,42,"160, 90",160,353.1011,21.0,1,1.0,1.0,375.1011,66.5,Venlo,3.0,18.0
+640,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge21, Truck31",Barge,Truck,Barge21,60,"160, 90",160,353.1011,21.0,1,1.0,1.0,375.1011,84.5,Venlo,3.0,18.0
+641,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge22, Truck31",Barge,Truck,Barge22,66,"160, 90",160,353.1011,21.0,1,1.0,1.0,375.1011,90.5,Venlo,3.0,18.0
+642,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge23, Truck31",Barge,Truck,Barge23,90,"160, 90",160,353.1011,21.0,1,1.0,1.0,375.1011,114.5,Venlo,3.0,18.0
+643,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Barge24, Truck31",Barge,Truck,Barge24,96,"160, 90",160,353.1011,21.0,1,1.0,1.0,375.1011,120.5,Venlo,3.0,18.0
+644,Delta,Nuremberg,Delta to Duisburg -> Duisburg to Nuremberg,"Barge26, Truck34",Barge,Truck,Barge26,82,"160, 90",160,324.8972,21.0,1,1.0,1.0,346.8972,109.5,Duisburg,3.0,18.0
+645,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Train01, Truck31",Train,Truck,Train01,16,"90, 90",90,382.90299999999996,36.0,1,1.0,1.0,419.90299999999996,31.5,Venlo,18.0,18.0
+646,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Train02, Truck31",Train,Truck,Train02,40,"90, 90",90,382.90299999999996,36.0,1,1.0,1.0,419.90299999999996,55.5,Venlo,18.0,18.0
+647,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Train03, Truck31",Train,Truck,Train03,9,"90, 90",90,382.90299999999996,36.0,1,1.0,1.0,419.90299999999996,24.5,Venlo,18.0,18.0
+648,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Train04, Truck31",Train,Truck,Train04,33,"90, 90",90,382.90299999999996,36.0,1,1.0,1.0,419.90299999999996,48.5,Venlo,18.0,18.0
+649,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Train05, Truck31",Train,Truck,Train05,57,"90, 90",90,382.90299999999996,36.0,1,1.0,1.0,419.90299999999996,72.5,Venlo,18.0,18.0
+650,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Train06, Truck31",Train,Truck,Train06,81,"90, 90",90,382.90299999999996,36.0,1,1.0,1.0,419.90299999999996,96.5,Venlo,18.0,18.0
+651,Delta,Nuremberg,Delta to Venlo -> Venlo to Nuremberg,"Train07, Truck31",Train,Truck,Train07,105,"90, 90",90,382.90299999999996,36.0,1,1.0,1.0,419.90299999999996,120.5,Venlo,18.0,18.0
+652,Delta,Nuremberg,Delta to Duisburg -> Duisburg to Nuremberg,"Train09, Truck34",Train,Truck,Train09,41,"90, 90",90,372.861,36.0,1,1.0,1.0,409.861,58.5,Duisburg,18.0,18.0
+653,Delta,Nuremberg,Delta to Duisburg -> Duisburg to Nuremberg,"Train10, Truck34",Train,Truck,Train10,75,"90, 90",90,372.861,36.0,1,1.0,1.0,409.861,92.5,Duisburg,18.0,18.0
+654,Delta,Nuremberg,Delta to Duisburg -> Duisburg to Nuremberg,"Train11, Truck34",Train,Truck,Train11,99,"90, 90",90,372.861,36.0,1,1.0,1.0,409.861,116.5,Duisburg,18.0,18.0
+655,Euromax,Venlo,Euromax to Moerdijk -> Moerdijk to Venlo,"Barge32, Truck25",Barge,Truck,Barge32,3,"160, 160",160,98.12135,21.0,1,1.0,1.0,105.12135,13.8,Moerdijk,3.0,18.0
+656,Euromax,Venlo,Euromax to Moerdijk -> Moerdijk to Venlo,"Barge32, Truck25",Barge,Truck,Barge32,3,"160, 90",160,98.12135,21.0,1,1.0,1.0,120.12135,13.8,Moerdijk,3.0,18.0
+657,Euromax,Venlo,Euromax to Moerdijk -> Moerdijk to Venlo,"Barge33, Truck25",Barge,Truck,Barge33,51,"160, 160",160,98.12135,21.0,1,1.0,1.0,105.12135,61.8,Moerdijk,3.0,18.0
+658,Euromax,Venlo,Euromax to Moerdijk -> Moerdijk to Venlo,"Barge33, Truck25",Barge,Truck,Barge33,51,"160, 90",160,98.12135,21.0,1,1.0,1.0,120.12135,61.8,Moerdijk,3.0,18.0
+659,Euromax,Duisburg,Euromax to Moerdijk -> Moerdijk to Duisburg,"Barge32, Truck26",Barge,Truck,Barge32,3,"160, 160",160,129.12035,21.0,1,1.0,1.0,136.12035,14.3,Moerdijk,3.0,18.0
+660,Euromax,Duisburg,Euromax to Moerdijk -> Moerdijk to Duisburg,"Barge32, Truck26",Barge,Truck,Barge32,3,"160, 90",160,129.12035,21.0,1,1.0,1.0,151.12035,14.3,Moerdijk,3.0,18.0
+661,Euromax,Duisburg,Euromax to Moerdijk -> Moerdijk to Duisburg,"Barge33, Truck26",Barge,Truck,Barge33,51,"160, 160",160,129.12035,21.0,1,1.0,1.0,136.12035,62.3,Moerdijk,3.0,18.0
+662,Euromax,Duisburg,Euromax to Moerdijk -> Moerdijk to Duisburg,"Barge33, Truck26",Barge,Truck,Barge33,51,"160, 90",160,129.12035,21.0,1,1.0,1.0,151.12035,62.3,Moerdijk,3.0,18.0
+663,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge32, Truck25, Train29",Barge,Train,Barge32,3,"160, 160, 90",90,113.8391,57.0,2,98.7,98.7,239.53910000000002,113.5,"Moerdijk,Venlo",3.0,18.0
+664,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge32, Barge47, Truck29",Barge,Truck,Barge32,3,"160, 160, 90",160,60.93985,27.0,2,86.0,86.0,173.93985,108.4,"Moerdijk,Venlo",3.0,18.0
+665,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge32, Truck26, Barge49",Barge,Barge,Barge32,3,"160, 160, 160",160,131.4496,42.0,2,106.1,106.1,249.5496,122.5,"Moerdijk,Duisburg",3.0,3.0
+666,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge32, Barge48, Truck32",Barge,Truck,Barge32,3,"160, 160, 160",160,42.137249999999995,27.0,2,62.0,62.0,116.13725,86.0,"Moerdijk,Duisburg",3.0,18.0
+667,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge32, Truck25, Train29",Barge,Train,Barge32,3,"160, 90, 90",90,113.8391,57.0,2,98.7,98.7,269.5391,113.5,"Moerdijk,Venlo",3.0,18.0
+668,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge32, Train27, Truck29",Barge,Truck,Barge32,3,"160, 90, 90",90,83.05834999999999,57.0,2,66.0,66.0,206.05835,81.4,"Moerdijk,Venlo",3.0,18.0
+669,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge32, Truck26, Barge49",Barge,Barge,Barge32,3,"160, 90, 160",160,131.4496,42.0,2,106.1,106.1,279.5496,122.5,"Moerdijk,Duisburg",3.0,3.0
+670,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge32, Train28, Truck32",Barge,Truck,Barge32,3,"160, 90, 160",90,72.87085,57.0,2,68.0,68.0,182.87085000000002,84.0,"Moerdijk,Duisburg",3.0,18.0
+671,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge33, Truck25, Train29",Barge,Train,Barge33,51,"160, 160, 90",90,113.8391,57.0,2,50.7,50.7,191.53910000000002,113.5,"Moerdijk,Venlo",3.0,18.0
+672,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge33, Barge47, Truck29",Barge,Truck,Barge33,51,"160, 160, 90",160,60.93985,27.0,2,38.0,38.0,125.93985,108.4,"Moerdijk,Venlo",3.0,18.0
+673,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge33, Truck26, Barge49",Barge,Barge,Barge33,51,"160, 160, 160",160,131.4496,42.0,2,58.1,58.1,201.5496,122.5,"Moerdijk,Duisburg",3.0,3.0
+674,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge33, Barge48, Truck32",Barge,Truck,Barge33,51,"160, 160, 160",160,42.137249999999995,27.0,2,14.0,14.0,68.13725,86.0,"Moerdijk,Duisburg",3.0,18.0
+675,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge33, Truck25, Train29",Barge,Train,Barge33,51,"160, 90, 90",90,113.8391,57.0,2,50.7,50.7,221.53910000000002,113.5,"Moerdijk,Venlo",3.0,18.0
+676,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge33, Train27, Truck29",Barge,Truck,Barge33,51,"160, 90, 90",90,83.05834999999999,57.0,2,18.0,18.0,158.05835,81.4,"Moerdijk,Venlo",3.0,18.0
+677,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge33, Truck26, Barge49",Barge,Barge,Barge33,51,"160, 90, 160",160,131.4496,42.0,2,58.1,58.1,231.5496,122.5,"Moerdijk,Duisburg",3.0,3.0
+678,Euromax,Neuss,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge33, Train28, Truck32",Barge,Truck,Barge33,51,"160, 90, 160",90,72.87085,57.0,2,20.0,20.0,134.87085000000002,84.0,"Moerdijk,Duisburg",3.0,18.0
+679,Euromax,Neuss,Euromax to Venlo -> Venlo to Neuss,"Barge35, Truck29",Barge,Truck,Barge35,27,"160, 90",160,59.07645,21.0,1,1.0,1.0,81.07645,46.6,Venlo,3.0,18.0
+680,Euromax,Neuss,Euromax to Venlo -> Venlo to Neuss,"Barge36, Truck29",Barge,Truck,Barge36,75,"160, 90",160,59.07645,21.0,1,1.0,1.0,81.07645,94.6,Venlo,3.0,18.0
+681,Euromax,Neuss,Euromax to Venlo -> Venlo to Neuss,"Train17, Truck29",Train,Truck,Train17,78,"90, 90",90,93.65174999999999,36.0,1,1.0,1.0,130.65175,88.6,Venlo,18.0,18.0
+682,Euromax,Neuss,Euromax to Venlo -> Venlo to Neuss,"Train18, Truck29",Train,Truck,Train18,102,"90, 90",90,93.65174999999999,36.0,1,1.0,1.0,130.65175,112.6,Venlo,18.0,18.0
+683,Euromax,Neuss,Euromax to Duisburg -> Duisburg to Neuss,"Train19, Truck32",Train,Truck,Train19,75,"90, 160",90,93.94274999999999,36.0,1,1.0,1.0,115.94274999999999,87.6,Duisburg,18.0,18.0
+684,Euromax,Neuss,Euromax to Duisburg -> Duisburg to Neuss,"Train20, Truck32",Train,Truck,Train20,99,"90, 160",90,93.94274999999999,36.0,1,1.0,1.0,115.94274999999999,111.6,Duisburg,18.0,18.0
+685,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge32, Truck25, Train30",Barge,Train,Barge32,3,"160, 160, 90",90,124.3176,57.0,2,99.7,99.7,251.01760000000002,115.5,"Moerdijk,Venlo",3.0,18.0
+686,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge32, Barge47, Truck30",Barge,Truck,Barge32,3,"160, 160, 90",160,91.93885,27.0,2,86.0,86.0,204.93885,109.0,"Moerdijk,Venlo",3.0,18.0
+687,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge32, Truck26, Train32",Barge,Train,Barge32,3,"160, 160, 90",90,144.8381,57.0,2,107.1,107.1,278.93809999999996,122.5,"Moerdijk,Duisburg",3.0,18.0
+688,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge32, Barge48, Truck33",Barge,Truck,Barge32,3,"160, 160, 90",160,62.80325,27.0,2,62.0,62.0,151.80325,86.4,"Moerdijk,Duisburg",3.0,18.0
+689,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge32, Truck25, Train30",Barge,Train,Barge32,3,"160, 90, 90",90,124.3176,57.0,2,99.7,99.7,281.0176,115.5,"Moerdijk,Venlo",3.0,18.0
+690,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge32, Train27, Truck30",Barge,Truck,Barge32,3,"160, 90, 90",90,114.05735,57.0,2,66.0,66.0,237.05734999999999,82.0,"Moerdijk,Venlo",3.0,18.0
+691,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge32, Truck26, Train32",Barge,Train,Barge32,3,"160, 90, 90",90,144.8381,57.0,2,107.1,107.1,308.93809999999996,122.5,"Moerdijk,Duisburg",3.0,18.0
+692,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge32, Train28, Truck33",Barge,Truck,Barge32,3,"160, 90, 90",90,93.53685,57.0,2,68.0,68.0,218.53685000000002,84.4,"Moerdijk,Duisburg",3.0,18.0
+693,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge33, Truck25, Train30",Barge,Train,Barge33,51,"160, 160, 90",90,124.3176,57.0,2,51.7,51.7,203.01760000000002,115.5,"Moerdijk,Venlo",3.0,18.0
+694,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge33, Barge47, Truck30",Barge,Truck,Barge33,51,"160, 160, 90",160,91.93885,27.0,2,38.0,38.0,156.93885,109.0,"Moerdijk,Venlo",3.0,18.0
+695,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge33, Truck26, Train32",Barge,Train,Barge33,51,"160, 160, 90",90,144.8381,57.0,2,59.1,59.1,230.9381,122.5,"Moerdijk,Duisburg",3.0,18.0
+696,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge33, Barge48, Truck33",Barge,Truck,Barge33,51,"160, 160, 90",160,62.80325,27.0,2,14.0,14.0,103.80324999999999,86.4,"Moerdijk,Duisburg",3.0,18.0
+697,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge33, Truck25, Train30",Barge,Train,Barge33,51,"160, 90, 90",90,124.3176,57.0,2,51.7,51.7,233.01760000000002,115.5,"Moerdijk,Venlo",3.0,18.0
+698,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge33, Train27, Truck30",Barge,Truck,Barge33,51,"160, 90, 90",90,114.05735,57.0,2,18.0,18.0,189.05734999999999,82.0,"Moerdijk,Venlo",3.0,18.0
+699,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge33, Truck26, Train32",Barge,Train,Barge33,51,"160, 90, 90",90,144.8381,57.0,2,59.1,59.1,260.93809999999996,122.5,"Moerdijk,Duisburg",3.0,18.0
+700,Euromax,Dortmund,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge33, Train28, Truck33",Barge,Truck,Barge33,51,"160, 90, 90",90,93.53685,57.0,2,20.0,20.0,170.53685000000002,84.4,"Moerdijk,Duisburg",3.0,18.0
+701,Euromax,Dortmund,Euromax to Venlo -> Venlo to Dortmund,"Barge35, Truck30",Barge,Truck,Barge35,27,"160, 90",160,90.07545,21.0,1,1.0,1.0,112.07545,47.2,Venlo,3.0,18.0
+702,Euromax,Dortmund,Euromax to Venlo -> Venlo to Dortmund,"Barge36, Truck30",Barge,Truck,Barge36,75,"160, 90",160,90.07545,21.0,1,1.0,1.0,112.07545,95.2,Venlo,3.0,18.0
+703,Euromax,Dortmund,Euromax to Venlo -> Venlo to Dortmund,"Train17, Truck30",Train,Truck,Train17,78,"90, 90",90,124.65075,36.0,1,1.0,1.0,161.65075000000002,89.2,Venlo,18.0,18.0
+704,Euromax,Dortmund,Euromax to Venlo -> Venlo to Dortmund,"Train18, Truck30",Train,Truck,Train18,102,"90, 90",90,124.65075,36.0,1,1.0,1.0,161.65075000000002,113.2,Venlo,18.0,18.0
+705,Euromax,Dortmund,Euromax to Duisburg -> Duisburg to Dortmund,"Train19, Truck33",Train,Truck,Train19,75,"90, 90",90,114.60874999999999,36.0,1,1.0,1.0,151.60875,88.2,Duisburg,18.0,18.0
+706,Euromax,Dortmund,Euromax to Duisburg -> Duisburg to Dortmund,"Train20, Truck33",Train,Truck,Train20,99,"90, 90",90,114.60874999999999,36.0,1,1.0,1.0,151.60875,112.2,Duisburg,18.0,18.0
+707,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge32, Truck25, Train31",Barge,Train,Barge32,3,"160, 160, 90",90,213.38484999999997,57.0,2,100.7,100.7,341.08484999999996,125.0,"Moerdijk,Venlo",3.0,18.0
+708,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge32, Barge47, Truck31",Barge,Truck,Barge32,3,"160, 160, 90",160,355.43035,27.0,2,86.0,86.0,468.43035,114.1,"Moerdijk,Venlo",3.0,18.0
+709,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge32, Truck26, Train33",Barge,Train,Barge32,3,"160, 160, 90",90,233.90535,57.0,2,108.1,108.1,369.00535,132.0,"Moerdijk,Duisburg",3.0,18.0
+710,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge32, Barge48, Truck34",Barge,Truck,Barge32,3,"160, 160, 90",160,326.29475,27.0,2,62.0,62.0,415.29475,91.5,"Moerdijk,Duisburg",3.0,18.0
+711,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge32, Truck25, Train31",Barge,Train,Barge32,3,"160, 90, 90",90,213.38484999999997,57.0,2,100.7,100.7,371.08484999999996,125.0,"Moerdijk,Venlo",3.0,18.0
+712,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge32, Train27, Truck31",Barge,Truck,Barge32,3,"160, 90, 90",90,377.54884999999996,57.0,2,66.0,66.0,500.54884999999996,87.1,"Moerdijk,Venlo",3.0,18.0
+713,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge32, Truck26, Train33",Barge,Train,Barge32,3,"160, 90, 90",90,233.90535,57.0,2,108.1,108.1,399.00535,132.0,"Moerdijk,Duisburg",3.0,18.0
+714,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge32, Train28, Truck34",Barge,Truck,Barge32,3,"160, 90, 90",90,357.02835,57.0,2,68.0,68.0,482.02835,89.5,"Moerdijk,Duisburg",3.0,18.0
+715,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge33, Truck25, Train31",Barge,Train,Barge33,51,"160, 160, 90",90,213.38484999999997,57.0,2,52.7,52.7,293.08484999999996,125.0,"Moerdijk,Venlo",3.0,18.0
+716,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge33, Barge47, Truck31",Barge,Truck,Barge33,51,"160, 160, 90",160,355.43035,27.0,2,38.0,38.0,420.43035,114.1,"Moerdijk,Venlo",3.0,18.0
+717,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge33, Truck26, Train33",Barge,Train,Barge33,51,"160, 160, 90",90,233.90535,57.0,2,60.1,60.1,321.00535,132.0,"Moerdijk,Duisburg",3.0,18.0
+718,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge33, Barge48, Truck34",Barge,Truck,Barge33,51,"160, 160, 90",160,326.29475,27.0,2,14.0,14.0,367.29475,91.5,"Moerdijk,Duisburg",3.0,18.0
+719,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge33, Truck25, Train31",Barge,Train,Barge33,51,"160, 90, 90",90,213.38484999999997,57.0,2,52.7,52.7,323.08484999999996,125.0,"Moerdijk,Venlo",3.0,18.0
+720,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge33, Train27, Truck31",Barge,Truck,Barge33,51,"160, 90, 90",90,377.54884999999996,57.0,2,18.0,18.0,452.54884999999996,87.1,"Moerdijk,Venlo",3.0,18.0
+721,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge33, Truck26, Train33",Barge,Train,Barge33,51,"160, 90, 90",90,233.90535,57.0,2,60.1,60.1,351.00535,132.0,"Moerdijk,Duisburg",3.0,18.0
+722,Euromax,Nuremberg,Euromax to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge33, Train28, Truck34",Barge,Truck,Barge33,51,"160, 90, 90",90,357.02835,57.0,2,20.0,20.0,434.02835,89.5,"Moerdijk,Duisburg",3.0,18.0
+723,Euromax,Nuremberg,Euromax to Venlo -> Venlo to Nuremberg,"Barge35, Truck31",Barge,Truck,Barge35,27,"160, 90",160,353.56694999999996,21.0,1,1.0,1.0,375.56694999999996,52.5,Venlo,3.0,18.0
+724,Euromax,Nuremberg,Euromax to Venlo -> Venlo to Nuremberg,"Barge36, Truck31",Barge,Truck,Barge36,75,"160, 90",160,353.56694999999996,21.0,1,1.0,1.0,375.56694999999996,100.5,Venlo,3.0,18.0
+725,Euromax,Nuremberg,Euromax to Venlo -> Venlo to Nuremberg,"Train17, Truck31",Train,Truck,Train17,78,"90, 90",90,388.14225,36.0,1,1.0,1.0,425.14225,94.5,Venlo,18.0,18.0
+726,Euromax,Nuremberg,Euromax to Venlo -> Venlo to Nuremberg,"Train18, Truck31",Train,Truck,Train18,102,"90, 90",90,388.14225,36.0,1,1.0,1.0,425.14225,118.5,Venlo,18.0,18.0
+727,Euromax,Nuremberg,Euromax to Duisburg -> Duisburg to Nuremberg,"Train19, Truck34",Train,Truck,Train19,75,"90, 90",90,378.10025,36.0,1,1.0,1.0,415.10025,93.5,Duisburg,18.0,18.0
+728,Euromax,Nuremberg,Euromax to Duisburg -> Duisburg to Nuremberg,"Train20, Truck34",Train,Truck,Train20,99,"90, 90",90,378.10025,36.0,1,1.0,1.0,415.10025,117.5,Duisburg,18.0,18.0
+729,HOME,Venlo,HOME to Moerdijk -> Moerdijk to Venlo,"Barge40, Truck25",Barge,Truck,Barge40,5,"160, 160",160,95.7921,21.0,1,1.0,1.0,102.7921,12.8,Moerdijk,3.0,18.0
+730,HOME,Venlo,HOME to Moerdijk -> Moerdijk to Venlo,"Barge40, Truck25",Barge,Truck,Barge40,5,"160, 90",160,95.7921,21.0,1,1.0,1.0,117.7921,12.8,Moerdijk,3.0,18.0
+731,HOME,Venlo,HOME to Moerdijk -> Moerdijk to Venlo,"Barge41, Truck25",Barge,Truck,Barge41,53,"160, 160",160,95.7921,21.0,1,1.0,1.0,102.7921,60.8,Moerdijk,3.0,18.0
+732,HOME,Venlo,HOME to Moerdijk -> Moerdijk to Venlo,"Barge41, Truck25",Barge,Truck,Barge41,53,"160, 90",160,95.7921,21.0,1,1.0,1.0,117.7921,60.8,Moerdijk,3.0,18.0
+733,HOME,Duisburg,HOME to Moerdijk -> Moerdijk to Duisburg,"Barge40, Truck26",Barge,Truck,Barge40,5,"160, 160",160,126.7911,21.0,1,1.0,1.0,133.7911,13.2,Moerdijk,3.0,18.0
+734,HOME,Duisburg,HOME to Moerdijk -> Moerdijk to Duisburg,"Barge40, Truck26",Barge,Truck,Barge40,5,"160, 90",160,126.7911,21.0,1,1.0,1.0,148.7911,13.2,Moerdijk,3.0,18.0
+735,HOME,Duisburg,HOME to Moerdijk -> Moerdijk to Duisburg,"Barge41, Truck26",Barge,Truck,Barge41,53,"160, 160",160,126.7911,21.0,1,1.0,1.0,133.7911,61.2,Moerdijk,3.0,18.0
+736,HOME,Duisburg,HOME to Moerdijk -> Moerdijk to Duisburg,"Barge41, Truck26",Barge,Truck,Barge41,53,"160, 90",160,126.7911,21.0,1,1.0,1.0,148.7911,61.2,Moerdijk,3.0,18.0
+737,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge40, Truck25, Train29",Barge,Train,Barge40,5,"160, 160, 90",90,111.50985,57.0,2,99.2,99.2,237.70985000000002,113.5,"Moerdijk,Venlo",3.0,18.0
+738,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge40, Barge47, Truck29",Barge,Truck,Barge40,5,"160, 160, 90",160,58.6106,27.0,2,86.5,86.5,172.1106,108.4,"Moerdijk,Venlo",3.0,18.0
+739,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge40, Truck26, Barge49",Barge,Barge,Barge40,5,"160, 160, 160",160,129.12035,42.0,2,106.6,106.6,247.72035,122.5,"Moerdijk,Duisburg",3.0,3.0
+740,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge40, Barge48, Truck32",Barge,Truck,Barge40,5,"160, 160, 160",160,39.808,27.0,2,62.5,62.5,114.30799999999999,86.0,"Moerdijk,Duisburg",3.0,18.0
+741,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge40, Truck25, Train29",Barge,Train,Barge40,5,"160, 90, 90",90,111.50985,57.0,2,99.2,99.2,267.70985,113.5,"Moerdijk,Venlo",3.0,18.0
+742,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge40, Train27, Truck29",Barge,Truck,Barge40,5,"160, 90, 90",90,80.7291,57.0,2,66.5,66.5,204.22910000000002,81.4,"Moerdijk,Venlo",3.0,18.0
+743,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge40, Truck26, Barge49",Barge,Barge,Barge40,5,"160, 90, 160",160,129.12035,42.0,2,106.6,106.6,277.72035,122.5,"Moerdijk,Duisburg",3.0,3.0
+744,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge40, Train28, Truck32",Barge,Truck,Barge40,5,"160, 90, 160",90,70.5416,57.0,2,68.5,68.5,181.04160000000002,84.0,"Moerdijk,Duisburg",3.0,18.0
+745,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge41, Truck25, Train29",Barge,Train,Barge41,53,"160, 160, 90",90,111.50985,57.0,2,51.2,51.2,189.70985000000002,113.5,"Moerdijk,Venlo",3.0,18.0
+746,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge41, Barge47, Truck29",Barge,Truck,Barge41,53,"160, 160, 90",160,58.6106,27.0,2,38.5,38.5,124.1106,108.4,"Moerdijk,Venlo",3.0,18.0
+747,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge41, Truck26, Barge49",Barge,Barge,Barge41,53,"160, 160, 160",160,129.12035,42.0,2,58.6,58.6,199.72035,122.5,"Moerdijk,Duisburg",3.0,3.0
+748,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge41, Barge48, Truck32",Barge,Truck,Barge41,53,"160, 160, 160",160,39.808,27.0,2,14.5,14.5,66.30799999999999,86.0,"Moerdijk,Duisburg",3.0,18.0
+749,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge41, Truck25, Train29",Barge,Train,Barge41,53,"160, 90, 90",90,111.50985,57.0,2,51.2,51.2,219.70985000000002,113.5,"Moerdijk,Venlo",3.0,18.0
+750,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Neuss,"Barge41, Train27, Truck29",Barge,Truck,Barge41,53,"160, 90, 90",90,80.7291,57.0,2,18.5,18.5,156.22910000000002,81.4,"Moerdijk,Venlo",3.0,18.0
+751,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge41, Truck26, Barge49",Barge,Barge,Barge41,53,"160, 90, 160",160,129.12035,42.0,2,58.6,58.6,229.72035,122.5,"Moerdijk,Duisburg",3.0,3.0
+752,HOME,Neuss,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Neuss,"Barge41, Train28, Truck32",Barge,Truck,Barge41,53,"160, 90, 160",90,70.5416,57.0,2,20.5,20.5,133.04160000000002,84.0,"Moerdijk,Duisburg",3.0,18.0
+753,HOME,Neuss,HOME to Duisburg -> Duisburg to Neuss,"Barge45, Truck32",Barge,Truck,Barge45,51,"160, 160",160,40.273849999999996,21.0,1,1.0,1.0,47.273849999999996,72.0,Duisburg,3.0,18.0
+754,HOME,Neuss,HOME to Venlo -> Venlo to Neuss,"Train24, Truck29",Train,Truck,Train24,86,"90, 90",90,83.17325,36.0,1,1.0,1.0,120.17325,95.0,Venlo,18.0,18.0
+755,HOME,Neuss,HOME to Duisburg -> Duisburg to Neuss,"Train25, Truck32",Train,Truck,Train25,27,"90, 160",90,83.46424999999999,36.0,1,1.0,1.0,105.46424999999999,38.0,Duisburg,18.0,18.0
+756,HOME,Neuss,HOME to Duisburg -> Duisburg to Neuss,"Train26, Truck32",Train,Truck,Train26,75,"90, 160",90,83.46424999999999,36.0,1,1.0,1.0,105.46424999999999,86.0,Duisburg,18.0,18.0
+757,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge40, Truck25, Train30",Barge,Train,Barge40,5,"160, 160, 90",90,121.98835,57.0,2,100.2,100.2,249.18835,115.5,"Moerdijk,Venlo",3.0,18.0
+758,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge40, Barge47, Truck30",Barge,Truck,Barge40,5,"160, 160, 90",160,89.6096,27.0,2,86.5,86.5,203.1096,109.0,"Moerdijk,Venlo",3.0,18.0
+759,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge40, Truck26, Train32",Barge,Train,Barge40,5,"160, 160, 90",90,142.50885,57.0,2,107.6,107.6,277.10884999999996,122.5,"Moerdijk,Duisburg",3.0,18.0
+760,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge40, Barge48, Truck33",Barge,Truck,Barge40,5,"160, 160, 90",160,60.474000000000004,27.0,2,62.5,62.5,149.974,86.4,"Moerdijk,Duisburg",3.0,18.0
+761,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge40, Truck25, Train30",Barge,Train,Barge40,5,"160, 90, 90",90,121.98835,57.0,2,100.2,100.2,279.18835,115.5,"Moerdijk,Venlo",3.0,18.0
+762,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge40, Train27, Truck30",Barge,Truck,Barge40,5,"160, 90, 90",90,111.72810000000001,57.0,2,66.5,66.5,235.2281,82.0,"Moerdijk,Venlo",3.0,18.0
+763,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge40, Truck26, Train32",Barge,Train,Barge40,5,"160, 90, 90",90,142.50885,57.0,2,107.6,107.6,307.10884999999996,122.5,"Moerdijk,Duisburg",3.0,18.0
+764,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge40, Train28, Truck33",Barge,Truck,Barge40,5,"160, 90, 90",90,91.2076,57.0,2,68.5,68.5,216.7076,84.4,"Moerdijk,Duisburg",3.0,18.0
+765,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge41, Truck25, Train30",Barge,Train,Barge41,53,"160, 160, 90",90,121.98835,57.0,2,52.2,52.2,201.18835,115.5,"Moerdijk,Venlo",3.0,18.0
+766,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge41, Barge47, Truck30",Barge,Truck,Barge41,53,"160, 160, 90",160,89.6096,27.0,2,38.5,38.5,155.1096,109.0,"Moerdijk,Venlo",3.0,18.0
+767,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge41, Truck26, Train32",Barge,Train,Barge41,53,"160, 160, 90",90,142.50885,57.0,2,59.6,59.6,229.10885,122.5,"Moerdijk,Duisburg",3.0,18.0
+768,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge41, Barge48, Truck33",Barge,Truck,Barge41,53,"160, 160, 90",160,60.474000000000004,27.0,2,14.5,14.5,101.974,86.4,"Moerdijk,Duisburg",3.0,18.0
+769,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge41, Truck25, Train30",Barge,Train,Barge41,53,"160, 90, 90",90,121.98835,57.0,2,52.2,52.2,231.18835,115.5,"Moerdijk,Venlo",3.0,18.0
+770,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Dortmund,"Barge41, Train27, Truck30",Barge,Truck,Barge41,53,"160, 90, 90",90,111.72810000000001,57.0,2,18.5,18.5,187.2281,82.0,"Moerdijk,Venlo",3.0,18.0
+771,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge41, Truck26, Train32",Barge,Train,Barge41,53,"160, 90, 90",90,142.50885,57.0,2,59.6,59.6,259.10884999999996,122.5,"Moerdijk,Duisburg",3.0,18.0
+772,HOME,Dortmund,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Dortmund,"Barge41, Train28, Truck33",Barge,Truck,Barge41,53,"160, 90, 90",90,91.2076,57.0,2,20.5,20.5,168.7076,84.4,"Moerdijk,Duisburg",3.0,18.0
+773,HOME,Dortmund,HOME to Duisburg -> Duisburg to Dortmund,"Barge45, Truck33",Barge,Truck,Barge45,51,"160, 90",160,60.93985,21.0,1,1.0,1.0,82.93985,72.4,Duisburg,3.0,18.0
+774,HOME,Dortmund,HOME to Venlo -> Venlo to Dortmund,"Train24, Truck30",Train,Truck,Train24,86,"90, 90",90,114.17225,36.0,1,1.0,1.0,151.17225000000002,95.4,Venlo,18.0,18.0
+775,HOME,Dortmund,HOME to Duisburg -> Duisburg to Dortmund,"Train25, Truck33",Train,Truck,Train25,27,"90, 90",90,104.13024999999999,36.0,1,1.0,1.0,141.13025,38.4,Duisburg,18.0,18.0
+776,HOME,Dortmund,HOME to Duisburg -> Duisburg to Dortmund,"Train26, Truck33",Train,Truck,Train26,75,"90, 90",90,104.13024999999999,36.0,1,1.0,1.0,141.13025,86.4,Duisburg,18.0,18.0
+777,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge40, Truck25, Train31",Barge,Train,Barge40,5,"160, 160, 90",90,211.0556,57.0,2,101.2,101.2,339.2556,125.0,"Moerdijk,Venlo",3.0,18.0
+778,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge40, Barge47, Truck31",Barge,Truck,Barge40,5,"160, 160, 90",160,353.1011,27.0,2,86.5,86.5,466.6011,114.1,"Moerdijk,Venlo",3.0,18.0
+779,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge40, Truck26, Train33",Barge,Train,Barge40,5,"160, 160, 90",90,231.5761,57.0,2,108.6,108.6,367.1761,132.0,"Moerdijk,Duisburg",3.0,18.0
+780,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge40, Barge48, Truck34",Barge,Truck,Barge40,5,"160, 160, 90",160,323.9655,27.0,2,62.5,62.5,413.4655,91.5,"Moerdijk,Duisburg",3.0,18.0
+781,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge40, Truck25, Train31",Barge,Train,Barge40,5,"160, 90, 90",90,211.0556,57.0,2,101.2,101.2,369.2556,125.0,"Moerdijk,Venlo",3.0,18.0
+782,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge40, Train27, Truck31",Barge,Truck,Barge40,5,"160, 90, 90",90,375.21959999999996,57.0,2,66.5,66.5,498.71959999999996,87.1,"Moerdijk,Venlo",3.0,18.0
+783,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge40, Truck26, Train33",Barge,Train,Barge40,5,"160, 90, 90",90,231.5761,57.0,2,108.6,108.6,397.1761,132.0,"Moerdijk,Duisburg",3.0,18.0
+784,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge40, Train28, Truck34",Barge,Truck,Barge40,5,"160, 90, 90",90,354.6991,57.0,2,68.5,68.5,480.1991,89.5,"Moerdijk,Duisburg",3.0,18.0
+785,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge41, Truck25, Train31",Barge,Train,Barge41,53,"160, 160, 90",90,211.0556,57.0,2,53.2,53.2,291.2556,125.0,"Moerdijk,Venlo",3.0,18.0
+786,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge41, Barge47, Truck31",Barge,Truck,Barge41,53,"160, 160, 90",160,353.1011,27.0,2,38.5,38.5,418.6011,114.1,"Moerdijk,Venlo",3.0,18.0
+787,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge41, Truck26, Train33",Barge,Train,Barge41,53,"160, 160, 90",90,231.5761,57.0,2,60.6,60.6,319.1761,132.0,"Moerdijk,Duisburg",3.0,18.0
+788,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge41, Barge48, Truck34",Barge,Truck,Barge41,53,"160, 160, 90",160,323.9655,27.0,2,14.5,14.5,365.4655,91.5,"Moerdijk,Duisburg",3.0,18.0
+789,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge41, Truck25, Train31",Barge,Train,Barge41,53,"160, 90, 90",90,211.0556,57.0,2,53.2,53.2,321.2556,125.0,"Moerdijk,Venlo",3.0,18.0
+790,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Venlo -> Venlo to Nuremberg,"Barge41, Train27, Truck31",Barge,Truck,Barge41,53,"160, 90, 90",90,375.21959999999996,57.0,2,18.5,18.5,450.71959999999996,87.1,"Moerdijk,Venlo",3.0,18.0
+791,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge41, Truck26, Train33",Barge,Train,Barge41,53,"160, 90, 90",90,231.5761,57.0,2,60.6,60.6,349.1761,132.0,"Moerdijk,Duisburg",3.0,18.0
+792,HOME,Nuremberg,HOME to Moerdijk -> Moerdijk to Duisburg -> Duisburg to Nuremberg,"Barge41, Train28, Truck34",Barge,Truck,Barge41,53,"160, 90, 90",90,354.6991,57.0,2,20.5,20.5,432.1991,89.5,"Moerdijk,Duisburg",3.0,18.0
+793,HOME,Nuremberg,HOME to Duisburg -> Duisburg to Nuremberg,"Barge45, Truck34",Barge,Truck,Barge45,51,"160, 90",160,324.43135,21.0,1,1.0,1.0,346.43135,77.8,Duisburg,3.0,18.0
+794,HOME,Nuremberg,HOME to Venlo -> Venlo to Nuremberg,"Train24, Truck31",Train,Truck,Train24,86,"90, 90",90,377.66375,36.0,1,1.0,1.0,414.66375,100.8,Venlo,18.0,18.0
+795,HOME,Nuremberg,HOME to Duisburg -> Duisburg to Nuremberg,"Train25, Truck34",Train,Truck,Train25,27,"90, 90",90,367.62175,36.0,1,1.0,1.0,404.62175,43.8,Duisburg,18.0,18.0
+796,HOME,Nuremberg,HOME to Duisburg -> Duisburg to Nuremberg,"Train26, Truck34",Train,Truck,Train26,75,"90, 90",90,367.62175,36.0,1,1.0,1.0,404.62175,91.8,Duisburg,18.0,18.0

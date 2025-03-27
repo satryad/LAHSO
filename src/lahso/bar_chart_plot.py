@@ -49,8 +49,8 @@ def comparison(file1, file2, label1, label2):
 
 def main():
     df_comparison = comparison(
-        f"{path}/aw_Def_{simulations}.csv",
-        f"{path}/gp_Def_{simulations}.csv",
+        f"{path}/aw_{simulations}.csv",
+        f"{path}/gp_{simulations}.csv",
         "blue",
         "orange",
     )

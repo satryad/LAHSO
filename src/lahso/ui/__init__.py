@@ -22,7 +22,13 @@ def main():
     model_implementation = model_implementation_tabs()
     results_comparison = results_comparison_tabs()
 
-    with gr.Blocks(theme=gr.themes.Soft()) as app:
+    light_theme = gr.themes.Soft().set(
+        body_background_fill="white",   # Set background to white
+        body_text_color="black",        # Set text color to black
+        button_primary_background_fill="blue",  # Change button color
+        )
+
+    with gr.Blocks(theme=light_theme) as app:
         with gr.Tab("Training An Agent"):
             training_agent.render()
 

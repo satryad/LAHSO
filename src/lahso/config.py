@@ -5,17 +5,17 @@ from pathlib import Path
 @dataclass
 class Config:
     # Simulation Settings
-    number_of_simulation: int = 1
+    number_of_simulation: int = 100000
     simulation_duration: int = 6 * 7 * 1440
     planning_interval: int = 7 * 1440
     random_seed: bool = True  # False = random seed is the same for each simulation
     # Only applies if random_seed is False to set a certain random seed value
     random_seed_value: int = 0
-    print_event_enabled: bool = True  # Print event logs
+    print_event_enabled: bool = False  # Print event logs
     print_output: bool = True
-    extract_shipment_output: bool = False  # Extract a shipment logs in sv file
-    start_from_0: bool = True  # False = continue training from the last saved model
-    training: bool = False
+    extract_shipment_output: bool = False  # Extract a shipment logs in csv file
+    start_from_0: bool = False  # False = continue training from the last saved model
+    training: bool = True
     apply_s_disruption: bool = True
     apply_d_disruption: bool = False
     # disruption set (def, S1, S2, S3, S4, S5) according to the last 2 character in the
@@ -57,10 +57,10 @@ class Config:
 
     # Ouput Names
     training_output: str = "Training_Output_v2.csv"
-    tc_name: str = "total_cost_200_Jan.pkl"
-    tr_name: str = "total_reward_200_Jan.pkl"
-    q_name: str = "q_table_200_50000_eps_Jan.pkl"
-    smoothing: int = 1000  # for training chart
+    tc_name: str = "total_cost_200_Mar.pkl"
+    tr_name: str = "total_reward_200_Mar.pkl"
+    q_name: str = "q_table_200_Mar.pkl"
+    smoothing: int = 2000  # for training chart
     training_path = Path("training")
 
     # Training Path
@@ -80,7 +80,7 @@ class Config:
     For Training
     eg = epsilon greedy policy
     """
-    policy_name: str = "gp"
+    policy_name: str = "eg"
     q_table_path: Path | None = None
 
     # Cost Parameters (Manually input)
@@ -167,7 +167,7 @@ class Config:
         if self.demand_planned_path is None:
             self.demand_planned_path = self.data_path / f"{self.request_fn}_planned.csv"
         if self.demand_kbest_path is None:
-            self.demand_kbest_path = self.data_path / f"{self.request_fn}_kbest.csv"
+            self.demand_kbest_path = self.data_path / f"{self.request_fn}_kbest_mar.csv"
 
         if self.s_disruption_path is None:
             self.s_disruption_path = self.disruption_path / self.s_disruption_fn

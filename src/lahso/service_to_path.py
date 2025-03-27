@@ -105,6 +105,7 @@ def service_to_path(config, output_postfix=""):
             "first_service_departure": path["services"][0][
                 "Departure"
             ],  # First service departure time
+            "last_service_arrival": path["services"][-1]["Arrival"],
             "service_capacities": ", ".join(
                 str(service["Capacity"]) for service in path["services"]
             ),

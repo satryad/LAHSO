@@ -25,15 +25,30 @@ def compare_results(file1, file1_label, file2, file2_label):
     file1_label = f"{file1_label} performs better"
     file2_label = f"{file2_label} performs better"
     df_comparison = comparison(file1, file2, file1_label, file2_label)
+    
+    # Sorting in descending order based on each relevant column
+    df_sorted_storage = df_comparison.sort_values(by="Total Storage Cost Delta", ascending=False)
+    df_sorted_delay = df_comparison.sort_values(by="Total Delay Penalty Delta", ascending=False)
+    df_sorted_handling = df_comparison.sort_values(by="Total Handling Cost Delta", ascending=False)
+    df_sorted_travel = df_comparison.sort_values(by="Total Travel Cost Delta", ascending=False)
+    df_sorted_total = df_comparison.sort_values(by="Total Cost Delta", ascending=False)
+
+    df_sorted_storage['Episode'] = range(1, len(df_sorted_storage) + 1)
+    df_sorted_delay['Episode'] = range(1, len(df_sorted_delay) + 1)
+    df_sorted_handling['Episode'] = range(1, len(df_sorted_handling) + 1)
+    df_sorted_travel['Episode'] = range(1, len(df_sorted_travel) + 1)
+    df_sorted_total['Episode'] = range(1, len(df_sorted_total) + 1)
+
+    print(df_sorted_storage)
     color_map = {}
     color_map[file1_label] = "blue"
     color_map[file2_label] = "orange"
     return (
-        gr.BarPlot(value=df_comparison, color_map=color_map),
-        gr.BarPlot(value=df_comparison, color_map=color_map),
-        gr.BarPlot(value=df_comparison, color_map=color_map),
-        gr.BarPlot(value=df_comparison, color_map=color_map),
-        gr.BarPlot(value=df_comparison, color_map=color_map),
+        gr.BarPlot(value=df_sorted_storage, color_map=color_map),
+        gr.BarPlot(value=df_sorted_delay, color_map=color_map),
+        gr.BarPlot(value=df_sorted_handling, color_map=color_map),
+        gr.BarPlot(value=df_sorted_travel, color_map=color_map),
+        gr.BarPlot(value=df_sorted_total, color_map=color_map),
     )
 
 

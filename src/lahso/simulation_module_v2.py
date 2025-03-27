@@ -980,7 +980,7 @@ class MatchingModule:
                 due_time = self.shipment[request[0]].due_time // 60
                 volume = self.shipment[request[0]].num_containers
                 d_profile = self.simulation_vars.d_profile_list[-1][0]
-                d_loc = self.simulation_vars.d_profile_list[-1][1]
+                d_loc = str(self.simulation_vars.d_profile_list[-1][1])
                 current_time = self.env.now % (1440 * 7) // 60
                 current_state = (
                     current_location,
@@ -992,7 +992,6 @@ class MatchingModule:
                     current_time,
                 )
 
-                print(f"DEBUG {self.simulation_vars.d_profile_list[-1]}")
                 print_event(
                     self.print_event_enabled,
                     f"{request[0]} state for RL: {current_state}, \
@@ -1421,7 +1420,7 @@ class ReinforcementLearning:
                 else "no disruption"
             )
             d_loc = (
-                self.simulation_vars.d_profile_list[-1][1]
+                str(self.simulation_vars.d_profile_list[-1][1])
                 if self.simulation_vars.d_profile_list
                 else "no disruption"
             )

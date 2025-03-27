@@ -307,6 +307,8 @@ class Shipment:
         self.release_time = release_time * 60  # minutes
         self.due_time = due_time * 60  # minutes
         self.loading = self.env.event()
+        self.actual_departure = 0
+        self.actual_arrival = 0
         self.tot_shipment_storage_cost = 0
         self.tot_shipment_handling_cost = 0
         self.tot_shipment_travel_cost = 0

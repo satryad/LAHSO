@@ -135,7 +135,7 @@ def optimization_model(
                     0,
                     services.loc[s, "first_service_departure"]
                     - demands.loc[d, "Release Time"]
-                    - services.loc[s, "Loading Time"] * demands.loc[d, "Volume"],
+                    # - services.loc[s, "Loading Time"] * demands.loc[d, "Volume"],
                 )
                 * x[d, s],
                 name=f"storage_time_{d}_{s}",
@@ -220,13 +220,13 @@ def optimization_model(
                             {
                                 "Time_Step": time_step,
                                 "Service_ID": services.loc[s, "service_ids"],
-                                "Service_Capacity": services.loc[s, "service_capacity"],
-                                "Service_first_departure": services.loc[
-                                    s, "first_service_departure"
-                                ],
-                                "Service_last_arrival": services.loc[
-                                    s, "last_service_arrival"
-                                ],
+                                # "Service_Capacity": services.loc[s, "service_capacity"],
+                                # "Service_first_departure": services.loc[
+                                #     s, "first_service_departure"
+                                # ],
+                                # "Service_last_arrival": services.loc[
+                                #     s, "last_service_arrival"
+                                # ],
                                 "Demand_ID": demands.loc[d, "Demand_ID"],
                                 "Containers_Moved": demands.loc[d, "Volume"],
                                 "Demand_Announce_time": demands.loc[d, "Announce Time"],
@@ -235,9 +235,10 @@ def optimization_model(
                                 "service_week": services.loc[s, "Week"],
                                 "Storage_hours": storage_hours[d, s].X,
                                 "delay_hours": delay_hours[d, s].X,
-                                "Number of transshipments": services.loc[
-                                    s, "transshipment_time"
-                                ],
+                                'storage_cost': storage_hours[d, s].X * storage_cost * demands.loc[d, 'Volume'],
+                                'delay_penalty': delay_hours[d, s].X * delay_penalty * demands.loc[d, 'Volume'],
+                                'handling_cost': (services.loc[s, 'transshipment_cost'] + services.loc[s, 'Loading_cost_at_origin'] + 
+                                services.loc[s, 'Unloading_cost_at_destination']) * demands.loc[d, 'Volume'],
                                 "transportation_cost": best_solution_vars[d, s]
                                 * demands.loc[d, "Volume"]
                                 * services.loc[s, "total_cost"],
@@ -247,6 +248,8 @@ def optimization_model(
                                     services.loc[s, "total_cost"]
                                     + storage_hours[d, s].X * storage_cost
                                     + delay_hours[d, s].X * delay_penalty
+                                    + services.loc[s, "Loading_cost_at_origin"]
+                                    + services.loc[s, "Unloading_cost_at_destination"]
                                 ),
                                 "Potential_Services": s,
                                 "Potential_Requests": d,
@@ -272,15 +275,15 @@ def optimization_model(
                                     "Time_Step": time_step,
                                     "Service_ID": services.loc[s, "service_ids"],
                                     "Service_week": services.loc[s, "Week"],
-                                    "Service_Capacity": services.loc[
-                                        s, "service_capacity"
-                                    ],
-                                    "Service_first_departure": services.loc[
-                                        s, "first_service_departure"
-                                    ],
-                                    "Service_last_arrival": services.loc[
-                                        s, "last_service_arrival"
-                                    ],
+                                    # "Service_Capacity": services.loc[
+                                    #     s, "service_capacity"
+                                    # ],
+                                    # "Service_first_departure": services.loc[
+                                    #     s, "first_service_departure"
+                                    # ],
+                                    # "Service_last_arrival": services.loc[
+                                    #     s, "last_service_arrival"
+                                    # ],
                                     "Demand_ID": demands.loc[d, "Demand_ID"],
                                     "Containers_Moved": demands.loc[d, "Volume"],
                                     "Demand_Announce_time": demands.loc[
@@ -295,6 +298,10 @@ def optimization_model(
                                     "Number of transshipments": services.loc[
                                         s, "transshipment_time"
                                     ],
+                                    'storage_cost': storage_hours[d, s].X * storage_cost,
+                                    'delay_penalty': delay_hours[d, s].X * delay_penalty,
+                                    'handling_cost': (services.loc[s, 'transshipment_cost'] + services.loc[s, 'Loading_cost_at_origin'] + 
+                                    services.loc[s, 'Unloading_cost_at_destination']) * demands.loc[d, 'Volume'],
                                     "transportation_cost": solution_vars[d, s]
                                     * demands.loc[d, "Volume"]
                                     * services.loc[s, "total_cost"],
@@ -304,6 +311,8 @@ def optimization_model(
                                         services.loc[s, "total_cost"]
                                         + storage_hours[d, s].X * storage_cost
                                         + delay_hours[d, s].X * delay_penalty
+                                        + services.loc[s, "Loading_cost_at_origin"]
+                                        + services.loc[s, "Unloading_cost_at_destination"]
                                     ),
                                     "Potential_Services": s,
                                     "Potential_Requests": d,

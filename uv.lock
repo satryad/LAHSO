@@ -706,7 +706,7 @@ wheels = [
 
 [[package]]
 name = "lahso"
-version = "1.0.2.dev69+g7824d17"
+version = "1.0.2.dev73+g8d75c0d.d20250217"
 source = { editable = "." }
 dependencies = [
     { name = "gradio" },

@@ -38,6 +38,8 @@ def shipment_logs(
         df_shipment = pd.DataFrame(
             {
                 "Shipment": [shipment.name],
+                # "Actual Departure": [shipment.actual_departure],
+                # "Actual Arrival": [shipment.actual_arrival],
                 "Storage Cost": [shipment.tot_shipment_storage_cost],
                 "Handling Cost": [shipment.tot_shipment_handling_cost],
                 "Travel Cost": [shipment.tot_shipment_travel_cost],

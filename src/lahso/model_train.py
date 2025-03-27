@@ -329,7 +329,7 @@ def model_train(config, model_input):
                         config.print_event_enabled,
                         f"Q-table is saved as q_table/{config.q_name}",
                     )
-                    with open(f"q_table/{config.q_name}", "wb") as f:
+                    with open(f"q_table/{config.q_name}_{current_episode}", "wb") as f:
                         pickle.dump(dict(model_input.Q), f)
             eps_end_time = time.time()  # To measure the runtime
             eps_time = eps_end_time - eps_start_time

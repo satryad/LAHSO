@@ -78,6 +78,7 @@ def kbest(config, output_postfix=""):
         "Optimization completed for all time steps. \
         Results logged to 'optimization_log.csv'."
     )
+    log_df.to_csv("opt_logs.csv")
 
     # Postprocessing the ouput for the simulation model input
     df_combined = demand.merge(
@@ -130,4 +131,4 @@ def kbest(config, output_postfix=""):
 
 def main():
     config = Config()
-    kbest(config, output_postfix="_test")
+    kbest(config, output_postfix="")

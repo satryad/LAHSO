@@ -174,36 +174,36 @@ Set parameter MIPGap to value 0.1
 10:18 - Affected requests: ['Request12', 'Request15', 'Request2', 'Request24', 'Request33', 'Request39']
 10:18 - Replanning due to disruption at             Barge17
 DEBUG ('Profile5', np.str_('Barge17'))
-Request12 state for RL: ('Delta', 'Dortmund', 88, 9, 'Profile5', np.str_('Barge17'), 10),                     Actions: (['Barge17', 'Truck30.1'], ['Barge18', 'Truck30'])
+Request12 state for RL: ('Delta', 'Dortmund', 88, 9, 'Profile5', 'Barge17', 10),                     Actions: (['Barge17', 'Truck30.1'], ['Barge18', 'Truck30'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 10:18 - RL choose wait for Request12
 RL ASSIGNMENT: Request12 - Barge17
 RL ASSIGNMENT: Request12 - Truck30.1
 DEBUG ('Profile5', np.str_('Barge17'))
-Request15 state for RL: ('Delta', 'Venlo', 153, 15, 'Profile5', np.str_('Barge17'), 10),                     Actions: (['Barge17'], ['Barge18'])
+Request15 state for RL: ('Delta', 'Venlo', 153, 15, 'Profile5', 'Barge17', 10),                     Actions: (['Barge17'], ['Barge18'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 10:18 - RL choose wait for Request15
 RL ASSIGNMENT: Request15 - Barge17
 DEBUG ('Profile5', np.str_('Barge17'))
-Request2 state for RL: ('Delta', 'Dortmund', 112, 29, 'Profile5', np.str_('Barge17'), 10),                     Actions: (['Barge17', 'Truck30.2'], ['Barge18', 'Truck30'])
+Request2 state for RL: ('Delta', 'Dortmund', 112, 29, 'Profile5', 'Barge17', 10),                     Actions: (['Barge17', 'Truck30.2'], ['Barge18', 'Truck30'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 10:18 - RL choose wait for Request2
 RL ASSIGNMENT: Request2 - Barge17
 RL ASSIGNMENT: Request2 - Truck30.2
 DEBUG ('Profile5', np.str_('Barge17'))
-Request24 state for RL: ('Delta', 'Dortmund', 137, 5, 'Profile5', np.str_('Barge17'), 10),                     Actions: (['Barge17', 'Truck30.4'], ['Barge18', 'Truck30'])
+Request24 state for RL: ('Delta', 'Dortmund', 137, 5, 'Profile5', 'Barge17', 10),                     Actions: (['Barge17', 'Truck30.4'], ['Barge18', 'Truck30'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 10:18 - RL choose wait for Request24
 RL ASSIGNMENT: Request24 - Barge17
 RL ASSIGNMENT: Request24 - Truck30.4
 DEBUG ('Profile5', np.str_('Barge17'))
-Request33 state for RL: ('Delta', 'Dortmund', 63, 13, 'Profile5', np.str_('Barge17'), 10),                     Actions: (['Barge17', 'Truck30.5'], ['Barge18', 'Truck30'])
+Request33 state for RL: ('Delta', 'Dortmund', 63, 13, 'Profile5', 'Barge17', 10),                     Actions: (['Barge17', 'Truck30.5'], ['Barge18', 'Truck30'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 10:18 - RL choose wait for Request33
 RL ASSIGNMENT: Request33 - Barge17
 RL ASSIGNMENT: Request33 - Truck30.5
 DEBUG ('Profile5', np.str_('Barge17'))
-Request39 state for RL: ('Delta', 'Dortmund', 68, 9, 'Profile5', np.str_('Barge17'), 10),                     Actions: (['Barge17', 'Truck30.8'], ['Barge18', 'Truck30'])
+Request39 state for RL: ('Delta', 'Dortmund', 68, 9, 'Profile5', 'Barge17', 10),                     Actions: (['Barge17', 'Truck30.8'], ['Barge18', 'Truck30'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 10:18 - RL choose wait for Request39
 RL ASSIGNMENT: Request39 - Barge17
@@ -248,27 +248,27 @@ RL ASSIGNMENT: Request39 - Truck30.8
 17:20 - Affected requests: ['Request50', 'Request58', 'Request60', 'Request8']
 17:20 - Replanning due to disruption at             Moerdijk
 DEBUG ('Profile4', np.str_('Moerdijk'))
-Request50 state for RL: ('Euromax', 'Dortmund', 111, 14, 'Profile4', np.str_('Moerdijk'), 17),                     Actions: (['Barge33', 'Barge48', 'Truck33.10'], ['Barge35', 'Train30'])
+Request50 state for RL: ('Euromax', 'Dortmund', 111, 14, 'Profile4', 'Moerdijk', 17),                     Actions: (['Barge33', 'Barge48', 'Truck33.10'], ['Barge35', 'Train30'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 17:20 - RL choose wait for Request50
 RL ASSIGNMENT: Request50 - Barge33
 RL ASSIGNMENT: Request50 - Barge48
 RL ASSIGNMENT: Request50 - Truck33.10
 DEBUG ('Profile4', np.str_('Moerdijk'))
-Request58 state for RL: ('Euromax', 'Duisburg', 133, 9, 'Profile4', np.str_('Moerdijk'), 17),                     Actions: (['Barge33', 'Barge48'], ['Barge37'])
+Request58 state for RL: ('Euromax', 'Duisburg', 133, 9, 'Profile4', 'Moerdijk', 17),                     Actions: (['Barge33', 'Barge48'], ['Barge37'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 17:20 - RL choose wait for Request58
 RL ASSIGNMENT: Request58 - Barge33
 RL ASSIGNMENT: Request58 - Barge48
 DEBUG ('Profile4', np.str_('Moerdijk'))
-Request60 state for RL: ('Euromax', 'Dortmund', 74, 19, 'Profile4', np.str_('Moerdijk'), 17),                     Actions: (['Barge33', 'Barge48', 'Truck33.13'], ['Train22'])
+Request60 state for RL: ('Euromax', 'Dortmund', 74, 19, 'Profile4', 'Moerdijk', 17),                     Actions: (['Barge33', 'Barge48', 'Truck33.13'], ['Train22'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 17:20 - RL choose wait for Request60
 RL ASSIGNMENT: Request60 - Barge33
 RL ASSIGNMENT: Request60 - Barge48
 RL ASSIGNMENT: Request60 - Truck33.13
 DEBUG ('Profile4', np.str_('Moerdijk'))
-Request8 state for RL: ('Euromax', 'Dortmund', 152, 12, 'Profile4', np.str_('Moerdijk'), 17),                     Actions: (['Barge33', 'Barge48', 'Truck33.14'], ['Barge36', 'Train30'])
+Request8 state for RL: ('Euromax', 'Dortmund', 152, 12, 'Profile4', 'Moerdijk', 17),                     Actions: (['Barge33', 'Barge48', 'Truck33.14'], ['Barge36', 'Train30'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 17:20 - RL choose wait for Request8
 RL ASSIGNMENT: Request8 - Barge33
@@ -744,53 +744,53 @@ current day: 4, simulation: 1
 07:57 - Affected requests: ['Request10', 'Request21', 'Request28', 'Request31', 'Request38', 'Request4', 'Request56', 'Request59', 'Request65']
 07:57 - Replanning due to disruption at             Barge26
 DEBUG ('Profile3', np.str_('Barge26'))
-Request10 state for RL: ('Delta', 'Dortmund', 149, 14, 'Profile3', np.str_('Barge26'), 79),                     Actions: (['Barge26', 'Train32'], ['Barge21', 'Train30'])
+Request10 state for RL: ('Delta', 'Dortmund', 149, 14, 'Profile3', 'Barge26', 79),                     Actions: (['Barge26', 'Train32'], ['Barge21', 'Train30'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 07:57 - RL choose wait for Request10
 RL ASSIGNMENT: Request10 - Barge26
 RL ASSIGNMENT: Request10 - Train32
 DEBUG ('Profile3', np.str_('Barge26'))
-Request21 state for RL: ('Delta', 'Dortmund', 204, 15, 'Profile3', np.str_('Barge26'), 79),                     Actions: (['Barge26', 'Train32'], ['Barge21', 'Train30'])
+Request21 state for RL: ('Delta', 'Dortmund', 204, 15, 'Profile3', 'Barge26', 79),                     Actions: (['Barge26', 'Train32'], ['Barge21', 'Train30'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 07:57 - RL choose wait for Request21
 RL ASSIGNMENT: Request21 - Barge26
 RL ASSIGNMENT: Request21 - Train32
 DEBUG ('Profile3', np.str_('Barge26'))
-Request28 state for RL: ('Delta', 'Duisburg', 186, 26, 'Profile3', np.str_('Barge26'), 79),                     Actions: (['Barge26'], ['Barge27'])
+Request28 state for RL: ('Delta', 'Duisburg', 186, 26, 'Profile3', 'Barge26', 79),                     Actions: (['Barge26'], ['Barge27'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 07:57 - RL choose wait for Request28
 RL ASSIGNMENT: Request28 - Barge26
 DEBUG ('Profile3', np.str_('Barge26'))
-Request31 state for RL: ('Delta', 'Dortmund', 141, 10, 'Profile3', np.str_('Barge26'), 79),                     Actions: (['Barge26', 'Train32'], ['Barge22', 'Train30'])
+Request31 state for RL: ('Delta', 'Dortmund', 141, 10, 'Profile3', 'Barge26', 79),                     Actions: (['Barge26', 'Train32'], ['Barge22', 'Train30'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 07:57 - RL choose wait for Request31
 RL ASSIGNMENT: Request31 - Barge26
 RL ASSIGNMENT: Request31 - Train32
 DEBUG ('Profile3', np.str_('Barge26'))
-Request38 state for RL: ('Delta', 'Duisburg', 135, 22, 'Profile3', np.str_('Barge26'), 79),                     Actions: (['Barge26'], ['Barge27'])
+Request38 state for RL: ('Delta', 'Duisburg', 135, 22, 'Profile3', 'Barge26', 79),                     Actions: (['Barge26'], ['Barge27'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 07:57 - RL choose wait for Request38
 RL ASSIGNMENT: Request38 - Barge26
 DEBUG ('Profile3', np.str_('Barge26'))
-Request4 state for RL: ('Delta', 'Dortmund', 166, 22, 'Profile3', np.str_('Barge26'), 79),                     Actions: (['Barge26', 'Train32'], ['Barge07', 'Barge48', 'Truck33'])
+Request4 state for RL: ('Delta', 'Dortmund', 166, 22, 'Profile3', 'Barge26', 79),                     Actions: (['Barge26', 'Train32'], ['Barge07', 'Barge48', 'Truck33'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 07:57 - RL choose wait for Request4
 RL ASSIGNMENT: Request4 - Barge26
 RL ASSIGNMENT: Request4 - Train32
 DEBUG ('Profile3', np.str_('Barge26'))
-Request56 state for RL: ('Delta', 'Nuremberg', 189, 5, 'Profile3', np.str_('Barge26'), 79),                     Actions: (['Barge26', 'Train33'], ['Barge21', 'Train31'])
+Request56 state for RL: ('Delta', 'Nuremberg', 189, 5, 'Profile3', 'Barge26', 79),                     Actions: (['Barge26', 'Train33'], ['Barge21', 'Train31'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 07:57 - RL choose wait for Request56
 RL ASSIGNMENT: Request56 - Barge26
 RL ASSIGNMENT: Request56 - Train33
 DEBUG ('Profile3', np.str_('Barge26'))
-Request59 state for RL: ('Delta', 'Dortmund', 181, 27, 'Profile3', np.str_('Barge26'), 79),                     Actions: (['Barge26', 'Truck33.12'], ['Train14'])
+Request59 state for RL: ('Delta', 'Dortmund', 181, 27, 'Profile3', 'Barge26', 79),                     Actions: (['Barge26', 'Truck33.12'], ['Train14'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 07:57 - RL choose wait for Request59
 RL ASSIGNMENT: Request59 - Barge26
 RL ASSIGNMENT: Request59 - Truck33.12
 DEBUG ('Profile3', np.str_('Barge26'))
-Request65 state for RL: ('Delta', 'Nuremberg', 95, 15, 'Profile3', np.str_('Barge26'), 79),                     Actions: (['Barge26', 'Train33'], ['Barge05', 'Barge48', 'Train33'])
+Request65 state for RL: ('Delta', 'Nuremberg', 95, 15, 'Profile3', 'Barge26', 79),                     Actions: (['Barge26', 'Train33'], ['Barge05', 'Barge48', 'Train33'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 07:57 - RL choose wait for Request65
 RL ASSIGNMENT: Request65 - Barge26
@@ -1763,7 +1763,7 @@ current day: 10, simulation: 1
 08:44 - Affected requests: ['Request73']
 08:44 - Replanning due to disruption at             Barge21
 DEBUG ('Profile2', np.str_('Barge21'))
-Request73 state for RL: ('Delta', 'Venlo', 277, 14, 'Profile2', np.str_('Barge21'), 56),                     Actions: (['Barge21'], ['Barge22'])
+Request73 state for RL: ('Delta', 'Venlo', 277, 14, 'Profile2', 'Barge21', 56),                     Actions: (['Barge21'], ['Barge22'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 08:44 - RL choose wait for Request73
 RL ASSIGNMENT: Request73 - Barge21
@@ -1798,7 +1798,7 @@ RL ASSIGNMENT: Request73 - Barge21
 11:40 - Affected requests: ['Request79']
 11:40 - Replanning due to disruption at             Barge08
 DEBUG ('Profile2', np.str_('Barge08'))
-Request79 state for RL: ('Delta', 'Moerdijk', 388, 20, 'Profile2', np.str_('Barge08'), 59),                     Actions: (['Barge08'], ['Barge09'])
+Request79 state for RL: ('Delta', 'Moerdijk', 388, 20, 'Profile2', 'Barge08', 59),                     Actions: (['Barge08'], ['Barge09'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 11:40 - RL choose wait for Request79
 RL ASSIGNMENT: Request79 - Barge08
@@ -2272,22 +2272,22 @@ Set parameter MIPGap to value 0.1
 14:11 - Request126 has no possible new mode                     assignment
 14:11 - Request131 has no possible new mode                     assignment
 DEBUG ('Profile1', np.str_('Train30'))
-Request111 state for RL: ('Venlo', 'Dortmund', 385, 30, 'Profile1', np.str_('Train30'), 110),                     Actions: (['Train30'], ['Truck30'])
+Request111 state for RL: ('Venlo', 'Dortmund', 385, 30, 'Profile1', 'Train30', 110),                     Actions: (['Train30'], ['Truck30'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 14:11 - RL choose wait for Request111
 RL ASSIGNMENT: Request111 - Train30
 DEBUG ('Profile1', np.str_('Train30'))
-Request112 state for RL: ('Venlo', 'Dortmund', 366, 10, 'Profile1', np.str_('Train30'), 110),                     Actions: (['Train30'], ['Truck30'])
+Request112 state for RL: ('Venlo', 'Dortmund', 366, 10, 'Profile1', 'Train30', 110),                     Actions: (['Train30'], ['Truck30'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 14:11 - RL choose wait for Request112
 RL ASSIGNMENT: Request112 - Train30
 DEBUG ('Profile1', np.str_('Train30'))
-Request126 state for RL: ('Venlo', 'Dortmund', 359, 23, 'Profile1', np.str_('Train30'), 110),                     Actions: (['Train30'], ['Truck30'])
+Request126 state for RL: ('Venlo', 'Dortmund', 359, 23, 'Profile1', 'Train30', 110),                     Actions: (['Train30'], ['Truck30'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 14:11 - RL choose wait for Request126
 RL ASSIGNMENT: Request126 - Train30
 DEBUG ('Profile1', np.str_('Train30'))
-Request131 state for RL: ('Venlo', 'Dortmund', 347, 26, 'Profile1', np.str_('Train30'), 110),                     Actions: (['Train30'], ['Truck30'])
+Request131 state for RL: ('Venlo', 'Dortmund', 347, 26, 'Profile1', 'Train30', 110),                     Actions: (['Train30'], ['Truck30'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 14:11 - RL choose wait for Request131
 RL ASSIGNMENT: Request131 - Train30
@@ -2313,22 +2313,22 @@ Set parameter MIPGap to value 0.1
 14:32 - Request74 has no possible new mode                     assignment
 14:32 - Request77 has no possible new mode                     assignment
 DEBUG ('Profile3', np.str_('Train31'))
-Request129 state for RL: ('Venlo', 'Nuremberg', 360, 9, 'Profile3', np.str_('Train31'), 110),                     Actions: (['Train31'], ['Truck31'])
+Request129 state for RL: ('Venlo', 'Nuremberg', 360, 9, 'Profile3', 'Train31', 110),                     Actions: (['Train31'], ['Truck31'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 14:32 - RL choose wait for Request129
 RL ASSIGNMENT: Request129 - Train31
 DEBUG ('Profile3', np.str_('Train31'))
-Request69 state for RL: ('Venlo', 'Nuremberg', 231, 24, 'Profile3', np.str_('Train31'), 110),                     Actions: (['Train31'], ['Truck31'])
+Request69 state for RL: ('Venlo', 'Nuremberg', 231, 24, 'Profile3', 'Train31', 110),                     Actions: (['Train31'], ['Truck31'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 14:32 - RL choose wait for Request69
 RL ASSIGNMENT: Request69 - Train31
 DEBUG ('Profile3', np.str_('Train31'))
-Request74 state for RL: ('Venlo', 'Nuremberg', 263, 25, 'Profile3', np.str_('Train31'), 110),                     Actions: (['Train31'], ['Truck31'])
+Request74 state for RL: ('Venlo', 'Nuremberg', 263, 25, 'Profile3', 'Train31', 110),                     Actions: (['Train31'], ['Truck31'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 14:32 - RL choose wait for Request74
 RL ASSIGNMENT: Request74 - Train31
 DEBUG ('Profile3', np.str_('Train31'))
-Request77 state for RL: ('Venlo', 'Nuremberg', 362, 30, 'Profile3', np.str_('Train31'), 110),                     Actions: (['Train31'], ['Truck31'])
+Request77 state for RL: ('Venlo', 'Nuremberg', 362, 30, 'Profile3', 'Train31', 110),                     Actions: (['Train31'], ['Truck31'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 14:32 - RL choose wait for Request77
 RL ASSIGNMENT: Request77 - Train31
@@ -2388,42 +2388,42 @@ Set parameter MIPGap to value 0.1
 23:12 - Request92 has no possible new mode                     assignment
 23:12 - Request94 has no possible new mode                     assignment
 DEBUG ('Profile1', np.str_('Train33'))
-Request56 state for RL: ('Duisburg', 'Nuremberg', 189, 5, 'Profile1', np.str_('Train33'), 119),                     Actions: (['Train33'], ['Truck34'])
+Request56 state for RL: ('Duisburg', 'Nuremberg', 189, 5, 'Profile1', 'Train33', 119),                     Actions: (['Train33'], ['Truck34'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 23:12 - RL choose wait for Request56
 RL ASSIGNMENT: Request56 - Train33
 DEBUG ('Profile1', np.str_('Train33'))
-Request65 state for RL: ('Duisburg', 'Nuremberg', 95, 15, 'Profile1', np.str_('Train33'), 119),                     Actions: (['Train33'], ['Truck34'])
+Request65 state for RL: ('Duisburg', 'Nuremberg', 95, 15, 'Profile1', 'Train33', 119),                     Actions: (['Train33'], ['Truck34'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 23:12 - RL choose wait for Request65
 RL ASSIGNMENT: Request65 - Train33
 DEBUG ('Profile1', np.str_('Train33'))
-Request106 state for RL: ('Duisburg', 'Nuremberg', 299, 12, 'Profile1', np.str_('Train33'), 119),                     Actions: (['Train33'], ['Truck34'])
+Request106 state for RL: ('Duisburg', 'Nuremberg', 299, 12, 'Profile1', 'Train33', 119),                     Actions: (['Train33'], ['Truck34'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 23:12 - RL choose wait for Request106
 RL ASSIGNMENT: Request106 - Train33
 DEBUG ('Profile1', np.str_('Train33'))
-Request76 state for RL: ('Duisburg', 'Nuremberg', 311, 10, 'Profile1', np.str_('Train33'), 119),                     Actions: (['Train33'], ['Truck34'])
+Request76 state for RL: ('Duisburg', 'Nuremberg', 311, 10, 'Profile1', 'Train33', 119),                     Actions: (['Train33'], ['Truck34'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 23:12 - RL choose wait for Request76
 RL ASSIGNMENT: Request76 - Train33
 DEBUG ('Profile1', np.str_('Train33'))
-Request86 state for RL: ('Duisburg', 'Nuremberg', 314, 17, 'Profile1', np.str_('Train33'), 119),                     Actions: (['Train33'], ['Truck34'])
+Request86 state for RL: ('Duisburg', 'Nuremberg', 314, 17, 'Profile1', 'Train33', 119),                     Actions: (['Train33'], ['Truck34'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 23:12 - RL choose wait for Request86
 RL ASSIGNMENT: Request86 - Train33
 DEBUG ('Profile1', np.str_('Train33'))
-Request88 state for RL: ('Duisburg', 'Nuremberg', 378, 21, 'Profile1', np.str_('Train33'), 119),                     Actions: (['Train33'], ['Truck34'])
+Request88 state for RL: ('Duisburg', 'Nuremberg', 378, 21, 'Profile1', 'Train33', 119),                     Actions: (['Train33'], ['Truck34'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 23:12 - RL choose wait for Request88
 RL ASSIGNMENT: Request88 - Train33
 DEBUG ('Profile1', np.str_('Train33'))
-Request92 state for RL: ('Duisburg', 'Nuremberg', 296, 9, 'Profile1', np.str_('Train33'), 119),                     Actions: (['Train33'], ['Truck34'])
+Request92 state for RL: ('Duisburg', 'Nuremberg', 296, 9, 'Profile1', 'Train33', 119),                     Actions: (['Train33'], ['Truck34'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 23:12 - RL choose wait for Request92
 RL ASSIGNMENT: Request92 - Train33
 DEBUG ('Profile1', np.str_('Train33'))
-Request94 state for RL: ('Duisburg', 'Nuremberg', 330, 13, 'Profile1', np.str_('Train33'), 119),                     Actions: (['Train33'], ['Truck34'])
+Request94 state for RL: ('Duisburg', 'Nuremberg', 330, 13, 'Profile1', 'Train33', 119),                     Actions: (['Train33'], ['Truck34'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 23:12 - RL choose wait for Request94
 RL ASSIGNMENT: Request94 - Train33
@@ -2884,12 +2884,12 @@ This is triggers number: 6
 16:11 - Affected requests: ['Request177', 'Request192']
 16:11 - Replanning due to disruption at             Barge18
 DEBUG ('Profile2', np.str_('Barge18'))
-Request177 state for RL: ('Delta', 'Venlo', 506, 27, 'Profile2', np.str_('Barge18'), 16),                     Actions: (['Barge18'], ['Barge19'])
+Request177 state for RL: ('Delta', 'Venlo', 506, 27, 'Profile2', 'Barge18', 16),                     Actions: (['Barge18'], ['Barge19'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 16:11 - RL choose wait for Request177
 RL ASSIGNMENT: Request177 - Barge18
 DEBUG ('Profile2', np.str_('Barge18'))
-Request192 state for RL: ('Delta', 'Neuss', 516, 27, 'Profile2', np.str_('Barge18'), 16),                     Actions: (['Barge18', 'Truck29.47'], ['Barge04', 'Barge48', 'Barge49'])
+Request192 state for RL: ('Delta', 'Neuss', 516, 27, 'Profile2', 'Barge18', 16),                     Actions: (['Barge18', 'Truck29.47'], ['Barge04', 'Barge48', 'Barge49'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 16:11 - RL choose wait for Request192
 RL ASSIGNMENT: Request192 - Barge18
@@ -2989,19 +2989,19 @@ current day: 16, simulation: 1
 12:22 - Affected requests: ['Request134', 'Request171', 'Request175']
 12:22 - Replanning due to disruption at             Venlo
 DEBUG ('Profile4', np.str_('Venlo'))
-Request134 state for RL: ('HOME', 'Nuremberg', 548, 25, 'Profile4', np.str_('Venlo'), 36),                     Actions: (['Train24', 'Train31'], ['Train26', 'Truck34'])
+Request134 state for RL: ('HOME', 'Nuremberg', 548, 25, 'Profile4', 'Venlo', 36),                     Actions: (['Train24', 'Train31'], ['Train26', 'Truck34'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 12:22 - RL choose wait for Request134
 RL ASSIGNMENT: Request134 - Train24
 RL ASSIGNMENT: Request134 - Train31
 DEBUG ('Profile4', np.str_('Venlo'))
-Request171 state for RL: ('Delta', 'Nuremberg', 533, 25, 'Profile4', np.str_('Venlo'), 36),                     Actions: (['Barge23', 'Train31'], ['Barge24', 'Train31'])
+Request171 state for RL: ('Delta', 'Nuremberg', 533, 25, 'Profile4', 'Venlo', 36),                     Actions: (['Barge23', 'Train31'], ['Barge24', 'Train31'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 12:22 - RL choose wait for Request171
 RL ASSIGNMENT: Request171 - Barge23
 RL ASSIGNMENT: Request171 - Train31
 DEBUG ('Profile4', np.str_('Venlo'))
-Request175 state for RL: ('Euromax', 'Nuremberg', 506, 8, 'Profile4', np.str_('Venlo'), 36),                     Actions: (['Barge36', 'Train31'], ['Barge33', 'Barge47', 'Train31'])
+Request175 state for RL: ('Euromax', 'Nuremberg', 506, 8, 'Profile4', 'Venlo', 36),                     Actions: (['Barge36', 'Train31'], ['Barge33', 'Barge47', 'Train31'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 12:22 - RL choose wait for Request175
 RL ASSIGNMENT: Request175 - Barge36
@@ -3424,37 +3424,37 @@ current day: 18, simulation: 1
 05:22 - Affected requests: ['Request145', 'Request173', 'Request178', 'Request179', 'Request183', 'Request187', 'Request189']
 05:22 - Replanning due to disruption at             Barge31
 DEBUG ('Profile2', np.str_('Barge31'))
-Request145 state for RL: ('Delta', 'Neuss', 546, 5, 'Profile2', np.str_('Barge31'), 77),                     Actions: (['Barge31'], ['Barge26', 'Barge49'])
+Request145 state for RL: ('Delta', 'Neuss', 546, 5, 'Profile2', 'Barge31', 77),                     Actions: (['Barge31'], ['Barge26', 'Barge49'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 05:22 - RL choose wait for Request145
 RL ASSIGNMENT: Request145 - Barge31
 DEBUG ('Profile2', np.str_('Barge31'))
-Request173 state for RL: ('Delta', 'Neuss', 472, 22, 'Profile2', np.str_('Barge31'), 77),                     Actions: (['Barge31'], ['Barge26', 'Barge49'])
+Request173 state for RL: ('Delta', 'Neuss', 472, 22, 'Profile2', 'Barge31', 77),                     Actions: (['Barge31'], ['Barge26', 'Barge49'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 05:22 - RL choose wait for Request173
 RL ASSIGNMENT: Request173 - Barge31
 DEBUG ('Profile2', np.str_('Barge31'))
-Request178 state for RL: ('Delta', 'Neuss', 503, 25, 'Profile2', np.str_('Barge31'), 77),                     Actions: (['Barge31'], ['Barge26', 'Barge49'])
+Request178 state for RL: ('Delta', 'Neuss', 503, 25, 'Profile2', 'Barge31', 77),                     Actions: (['Barge31'], ['Barge26', 'Barge49'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 05:22 - RL choose wait for Request178
 RL ASSIGNMENT: Request178 - Barge31
 DEBUG ('Profile2', np.str_('Barge31'))
-Request179 state for RL: ('Delta', 'Neuss', 390, 25, 'Profile2', np.str_('Barge31'), 77),                     Actions: (['Barge31'], ['Barge17', 'Truck29'])
+Request179 state for RL: ('Delta', 'Neuss', 390, 25, 'Profile2', 'Barge31', 77),                     Actions: (['Barge31'], ['Barge17', 'Truck29'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 05:22 - RL choose wait for Request179
 RL ASSIGNMENT: Request179 - Barge31
 DEBUG ('Profile2', np.str_('Barge31'))
-Request183 state for RL: ('Delta', 'Neuss', 487, 16, 'Profile2', np.str_('Barge31'), 77),                     Actions: (['Barge31'], ['Barge17', 'Truck29'])
+Request183 state for RL: ('Delta', 'Neuss', 487, 16, 'Profile2', 'Barge31', 77),                     Actions: (['Barge31'], ['Barge17', 'Truck29'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 05:22 - RL choose wait for Request183
 RL ASSIGNMENT: Request183 - Barge31
 DEBUG ('Profile2', np.str_('Barge31'))
-Request187 state for RL: ('Delta', 'Neuss', 430, 23, 'Profile2', np.str_('Barge31'), 77),                     Actions: (['Barge31'], ['Barge26', 'Barge49'])
+Request187 state for RL: ('Delta', 'Neuss', 430, 23, 'Profile2', 'Barge31', 77),                     Actions: (['Barge31'], ['Barge26', 'Barge49'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 05:22 - RL choose wait for Request187
 RL ASSIGNMENT: Request187 - Barge31
 DEBUG ('Profile2', np.str_('Barge31'))
-Request189 state for RL: ('Delta', 'Neuss', 443, 24, 'Profile2', np.str_('Barge31'), 77),                     Actions: (['Barge31'], ['Barge26', 'Barge49'])
+Request189 state for RL: ('Delta', 'Neuss', 443, 24, 'Profile2', 'Barge31', 77),                     Actions: (['Barge31'], ['Barge26', 'Barge49'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 05:22 - RL choose wait for Request189
 RL ASSIGNMENT: Request189 - Barge31
@@ -3585,7 +3585,7 @@ RL ASSIGNMENT: Request189 - Barge31
 16:05 - Affected requests: ['Request171']
 16:05 - Replanning due to disruption at             Barge23
 DEBUG ('Profile2', np.str_('Barge23'))
-Request171 state for RL: ('Delta', 'Nuremberg', 533, 25, 'Profile2', np.str_('Barge23'), 88),                     Actions: (['Barge23', 'Train31'], ['Barge24', 'Train31'])
+Request171 state for RL: ('Delta', 'Nuremberg', 533, 25, 'Profile2', 'Barge23', 88),                     Actions: (['Barge23', 'Train31'], ['Barge24', 'Train31'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 16:05 - RL choose wait for Request171
 RL ASSIGNMENT: Request171 - Barge23
@@ -4009,7 +4009,7 @@ current day: 24, simulation: 1
 00:52 - Affected requests: ['Request146']
 00:52 - Replanning due to disruption at             Euromax
 DEBUG ('Profile4', np.str_('Euromax'))
-Request146 state for RL: ('Delta', 'Neuss', 509, 27, 'Profile4', np.str_('Euromax'), 48),                     Actions: (['Barge01', 'Barge39'], ['Barge31'])
+Request146 state for RL: ('Delta', 'Neuss', 509, 27, 'Profile4', 'Euromax', 48),                     Actions: (['Barge01', 'Barge39'], ['Barge31'])
 Q[s,a] wait: 0, Q[s,a] reassign:             0
 00:52 - RL choose wait for Request146
 RL ASSIGNMENT: Request146 - Barge01
@@ -5028,5 +5028,5 @@ Total delay time:                     3484 hour(s)                     56 minute
 
 200 shipment are delivered from total                     200 requests
 List of undelivered shipment: set()
-Episode runtime: 4.673611402511597 seconds
-Simulation time: 4.673611402511597 seconds
+Episode runtime: 4.366209268569946 seconds
+Simulation time: 4.366209268569946 seconds
